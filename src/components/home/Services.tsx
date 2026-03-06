@@ -66,18 +66,28 @@ function ServiceCard({ service, idx }: { service: any; idx: number }) {
                     style={{ color: hovered ? '#9ca3af' : '#4b5563', transition: 'color 0.4s ease' }}
                 >
                     {service.id === 'marketing-strategy' && (
-                        <><li>✓ Глубокий аудит бизнеса</li><li>✓ CustDev и анализ ЦА</li><li>✓ Financial Modeling</li></>
+                        <><li>✓ Глубокий аудит бизнеса</li><li>✓ CustDev и анализ ЦА</li><li>✓ Financial Modeling</li><li>✓ Конкурентная разведка</li><li>✓ Дорожная карта на 12 мес.</li></>
                     )}
                     {service.id === 'smm' && (
-                        <><li>✓ Контент-стратегия</li><li>✓ Reels & Stories продакшн</li><li>✓ Community-менеджмент</li></>
+                        <><li>✓ Контент-стратегия</li><li>✓ Reels & Stories продакшн</li><li>✓ Community-менеджмент</li><li>✓ Визуальный дизайн ленты</li><li>✓ Ежемесячная аналитика</li></>
                     )}
                     {service.id === 'target' && (
-                        <><li>✓ Тестирование креативов</li><li>✓ Динамический ретаргетинг</li><li>✓ Интеграция с CRM</li></>
+                        <><li>✓ Тестирование креативов</li><li>✓ Динамический ретаргетинг</li><li>✓ Интеграция с CRM</li><li>✓ Look-alike аудитории</li><li>✓ A/B тесты посадочных</li></>
                     )}
                     {service.id === 'context' && (
-                        <><li>✓ Сбор семантики</li><li>✓ Минусация и чистка трафика</li><li>✓ Настройка систем аналитики</li></>
+                        <><li>✓ Сбор семантики</li><li>✓ Минусация и чистка трафика</li><li>✓ Настройка систем аналитики</li><li>✓ Оптимизация ставок</li><li>✓ Еженедельные отчёты</li></>
                     )}
                 </ul>
+                {/* Social proof */}
+                <p
+                    className="mt-4 text-xs font-bold"
+                    style={{ color: hovered ? '#ef4444' : '#9ca3af', transition: 'color 0.4s ease' }}
+                >
+                    {service.id === 'marketing-strategy' && '📊 120+ стратегий разработано'}
+                    {service.id === 'smm' && '📱 85+ аккаунтов ведём ежемесячно'}
+                    {service.id === 'target' && '🎯 50 000+ лидов сгенерировано'}
+                    {service.id === 'context' && '🔍 $2M+ рекламных бюджетов в управлении'}
+                </p>
             </div>
 
             <div className="flex items-end justify-between">
