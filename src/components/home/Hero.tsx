@@ -138,21 +138,23 @@ export default function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <button
-                                data-toggle="modal"
-                                data-target="#modal_form-feed"
-                                className="px-8 py-4 text-white font-bold rounded-full transition-all transform hover:scale-105"
+                            <a
+                                href="https://wa.me/77070357777?text=%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%20%D0%B1%D1%8B%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-8 py-4 text-white font-bold transition-all transform hover:scale-105 active:bg-red-600 active:border-red-600"
                                 style={{
                                     background: 'rgba(255,255,255,0.1)',
                                     backdropFilter: 'blur(16px)',
                                     WebkitBackdropFilter: 'blur(16px)',
                                     border: '1px solid rgba(255,255,255,0.2)',
-                                    borderRadius: '9999px',
+                                    borderRadius: '12px',
                                     boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
+                                    display: 'inline-block',
                                 }}
                             >
                                 Получить маркетинговую стратегию
-                            </button>
+                            </a>
                         </div>
 
                         {/* Rotating Benefits */}
