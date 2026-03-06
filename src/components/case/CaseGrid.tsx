@@ -39,7 +39,7 @@ export default function CaseGrid() {
                         {/* Category Badges — top-right corner */}
                         <div className="absolute top-3 right-3 z-20 flex flex-wrap justify-end gap-1.5 max-w-[60%] group-hover:opacity-0 transition-opacity duration-300">
                             {item.categories.slice(0, 2).map((cat, i) => (
-                                <span key={i} className="text-[9px] font-semibold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                <span key={i} className="text-[9px] font-semibold text-white bg-red-600 px-2.5 py-1 rounded-full uppercase tracking-wider">
                                     {cat}
                                 </span>
                             ))}
