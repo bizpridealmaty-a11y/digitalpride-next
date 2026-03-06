@@ -93,8 +93,8 @@ function ServiceCard({ service, idx }: { service: any; idx: number }) {
                     <span
                         className="text-xs font-bold px-3 py-1.5 rounded-lg"
                         style={{
-                            backgroundColor: hovered ? '#ef4444' : '#f3f4f6',
-                            color: hovered ? '#ffffff' : '#374151',
+                            backgroundColor: '#ef4444',
+                            color: '#ffffff',
                             transition: 'background-color 0.4s ease, color 0.4s ease',
                         }}
                     >
@@ -133,7 +133,7 @@ export default function Services() {
             title: "Таргетированная реклама",
             description: "Facebook, Instagram, TikTok. Лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас.",
             href: "/smm",
-            price: "От 100 000 ₸",
+            price: "От 250 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
             ),
