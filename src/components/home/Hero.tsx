@@ -178,7 +178,7 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Floating navigation islands */}
-                    <div className="w-full lg:w-2/5 hidden md:flex flex-col items-end gap-5 mt-32 self-end -mr-16 lg:-mr-24">
+                    <div className="w-full lg:w-2/5 hidden md:flex flex-col items-end gap-5 mt-32 self-end -mr-8 lg:-mr-12">
                         {islands.map((island, i) => (
                             <motion.a
                                 key={i}
