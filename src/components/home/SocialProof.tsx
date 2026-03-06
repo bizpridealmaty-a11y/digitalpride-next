@@ -23,7 +23,7 @@ export default function SocialProof() {
         { name: 'Red Bull', icon: 'https://cdn.simpleicons.org/redbull/999' },
         { name: 'Hyundai', icon: 'https://cdn.simpleicons.org/hyundai/999' },
         { name: 'BMW', icon: 'https://cdn.simpleicons.org/bmw/999' },
-        { name: 'Mercedes', icon: 'https://cdn.simpleicons.org/mercedes/999' },
+        { name: 'Mercedes', icon: 'https://cdn.simpleicons.org/mercedesbenz/999' },
         { name: 'Audi', icon: 'https://cdn.simpleicons.org/audi/999' },
         { name: 'Kia', icon: 'https://cdn.simpleicons.org/kia/999' },
         { name: 'Ford', icon: 'https://cdn.simpleicons.org/ford/999' },
