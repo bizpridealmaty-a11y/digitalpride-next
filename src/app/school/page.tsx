@@ -50,13 +50,13 @@ const plans = [
 
 const aiLogos = [
     { name: 'ChatGPT', logo: 'https://cdn.simpleicons.org/openai', color: 'https://cdn.simpleicons.org/openai/10a37f' },
-    { name: 'Midjourney', logo: 'https://cdn.simpleicons.org/midjourney/999', color: 'https://cdn.simpleicons.org/midjourney/000' },
     { name: 'Google Gemini', logo: 'https://cdn.simpleicons.org/googlegemini/999', color: 'https://cdn.simpleicons.org/googlegemini/4285F4' },
     { name: 'Claude', logo: 'https://cdn.simpleicons.org/anthropic/999', color: 'https://cdn.simpleicons.org/anthropic/d4a27f' },
     { name: 'Canva', logo: 'https://cdn.simpleicons.org/canva/999', color: 'https://cdn.simpleicons.org/canva/00C4CC' },
     { name: 'Notion AI', logo: 'https://cdn.simpleicons.org/notion/999', color: 'https://cdn.simpleicons.org/notion/000' },
     { name: 'Figma', logo: 'https://cdn.simpleicons.org/figma/999', color: 'https://cdn.simpleicons.org/figma/F24E1E' },
-    { name: 'Stable Diffusion', logo: 'https://cdn.simpleicons.org/stablediffusion/999', color: 'https://cdn.simpleicons.org/stablediffusion/a855f7' },
+    { name: 'Semrush', logo: 'https://cdn.simpleicons.org/semrush/999', color: 'https://cdn.simpleicons.org/semrush/FF642D' },
+    { name: 'Airtable', logo: 'https://cdn.simpleicons.org/airtable/999', color: 'https://cdn.simpleicons.org/airtable/18BFFF' },
     { name: 'TensorFlow', logo: 'https://cdn.simpleicons.org/tensorflow/999', color: 'https://cdn.simpleicons.org/tensorflow/FF6F00' },
     { name: 'Meta', logo: 'https://cdn.simpleicons.org/meta/999', color: 'https://cdn.simpleicons.org/meta/0081FB' },
     { name: 'GitHub Copilot', logo: 'https://cdn.simpleicons.org/githubcopilot/999', color: 'https://cdn.simpleicons.org/githubcopilot/000' },
@@ -215,42 +215,33 @@ export default function SchoolPage() {
                                 Структурированная программа от нуля до профессионального SMM-специалиста. Инструменты 2026 года: ChatGPT, Canva, Meta Ads и нейросети.
                             </p>
                         </div>
-                        <div className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {blocks.map((block, i) => (
                                 <motion.div key={block.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                                    className="bg-white rounded-2xl border border-gray-200 overflow-hidden"
+                                    className="bg-white rounded-2xl border border-gray-200 p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
                                 >
-                                    <button onClick={() => setOpenBlock(openBlock === i ? null : i)} className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">
-                                        <div className="flex items-center gap-4">
-                                            <span className="text-2xl font-black text-red-500/30">{block.id}</span>
-                                            <h3 className="text-lg font-bold">{block.title}</h3>
-                                        </div>
-                                        <svg className={`w-5 h-5 text-gray-400 transition-transform ${openBlock === i ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                                    </button>
-                                    {openBlock === i && (
-                                        <div className="px-6 pb-6">
-                                            <ul className="space-y-2 pl-12">
-                                                {block.topics.map((t, ti) => (
-                                                    <li key={ti} className="flex items-start gap-2 text-sm text-gray-600">
-                                                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
-                                                        {t}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
+                                    <span className="text-4xl font-black text-red-500/20 block mb-3">{block.id}</span>
+                                    <h3 className="text-lg font-bold mb-4">{block.title}</h3>
+                                    <ul className="space-y-2">
+                                        {block.topics.map((t, ti) => (
+                                            <li key={ti} className="flex items-start gap-2 text-sm text-gray-600">
+                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+                                                {t}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </motion.div>
                             ))}
-                            {/* Special block */}
-                            <div className="bg-red-50 rounded-2xl border border-red-200 p-6">
+                            {/* Special block - spans full width */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="md:col-span-3 bg-red-50 rounded-2xl border border-red-200 p-6 hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center gap-4">
-                                    <span className="text-2xl">⭐</span>
+                                    <span className="text-3xl">⭐</span>
                                     <div>
                                         <h3 className="text-lg font-bold text-red-600">Поддержка внутри — Бессрочно</h3>
                                         <p className="text-sm text-gray-600 mt-1">Бессрочная поддержка выпускников · Постоянно пополняемая база знаний · Комьюнити единомышленников · Лучшего студента пригласят на работу!</p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </section>
@@ -269,8 +260,8 @@ export default function SchoolPage() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {plans.map((plan, i) => (
-                                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                                    className={`rounded-2xl p-8 border flex flex-col ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105 relative' : 'border-gray-200 bg-white'}`}
+                                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -8, transition: { duration: 0.3 } }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                                    className={`rounded-2xl p-8 border flex flex-col cursor-pointer transition-shadow duration-300 hover:shadow-2xl ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105 relative' : 'border-gray-200 bg-white hover:border-red-200'}`}
                                 >
                                     {plan.popular && (
                                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
