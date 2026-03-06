@@ -1,5 +1,5 @@
 import React from 'react';
-import RawHeader from '../../../components/layout/RawHeader';
+
 import RawFooter from '../../../components/layout/RawFooter';
 import CTA from '../../../components/home/CTA';
 import CaseCharts from '../../../components/case/CaseCharts';
@@ -20,7 +20,7 @@ export default async function CaseDetail({ params }: { params: Promise<{ slug: s
     if (!caseStudy) {
         return (
             <>
-                <RawHeader />
+
                 <div className="py-32 text-center bg-white min-h-screen">
                     <h1 className="text-4xl font-bold mb-4 text-black">Кейс не найден</h1>
                     <Link href="/case" className="text-red-600 hover:text-red-700 underline font-bold">Вернуться к списку кейсов</Link>
@@ -32,7 +32,7 @@ export default async function CaseDetail({ params }: { params: Promise<{ slug: s
 
     return (
         <>
-            <RawHeader />
+
             <main className="bg-zinc-50 pb-24">
                 {/* Banner */}
                 <div className="relative h-[60vh] min-h-[400px] w-full bg-black flex items-center justify-center overflow-hidden">

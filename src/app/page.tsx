@@ -1,6 +1,6 @@
 
 import React from 'react';
-import RawHeader from '../components/layout/RawHeader';
+
 import RawFooter from '../components/layout/RawFooter';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
@@ -15,7 +15,7 @@ import CTA from '../components/home/CTA';
 export default function Home() {
   return (
     <>
-      <RawHeader />
+
       <main className="bg-white">
         <Hero />
         <SocialProof />

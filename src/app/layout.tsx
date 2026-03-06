@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import RawHeader from "../components/layout/RawHeader";
 
 export const metadata: Metadata = {
   title: "Digital Pride - Продвижение в интернете",
@@ -26,6 +27,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/default.css" />
       </head>
       <body>
+        <RawHeader />
         {children}
 
         {/* Floating WhatsApp button */}
