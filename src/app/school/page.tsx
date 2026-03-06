@@ -263,26 +263,26 @@ export default function SchoolPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-16 overflow-visible">
                             {plans.map((plan, i) => (
                                 <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ scale: plan.popular ? 1.08 : 1.05 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                                    className={`rounded-2xl p-8 border flex flex-col cursor-pointer transition-all duration-300 group ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105 relative hover:bg-red-700 hover:border-red-600 hover:shadow-[0_0_40px_rgba(224,48,48,0.5)]' : 'border-gray-200 bg-white hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-2xl'}`}
+                                    className={`rounded-2xl p-8 border-2 flex flex-col cursor-pointer transition-all duration-300 ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105 relative hover:shadow-[0_0_40px_rgba(224,48,48,0.5)]' : 'border-gray-200 bg-white hover:border-red-500 hover:shadow-xl'}`}
                                 >
                                     {plan.popular && (
                                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
                                             Хит продаж
                                         </div>
                                     )}
-                                    <h3 className="text-xl font-bold mb-2 group-hover:text-white">{plan.name}</h3>
-                                    <div className="text-3xl font-extrabold mb-1 group-hover:text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>{plan.price}</div>
-                                    <span className="text-xs text-gray-500 uppercase tracking-wide mb-4 group-hover:text-white/70">единоразово</span>
-                                    <p className={`text-sm mb-6 ${plan.popular ? 'text-gray-300' : 'text-gray-600 group-hover:text-white/80'}`}>{plan.description}</p>
+                                    <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
+                                    <div className="text-3xl font-extrabold mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>{plan.price}</div>
+                                    <span className="text-xs text-gray-500 uppercase tracking-wide mb-4">единоразово</span>
+                                    <p className={`text-sm mb-6 ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>{plan.description}</p>
                                     <ul className="space-y-3 mb-8 flex-grow">
                                         {plan.features.map((f, fi) => (
-                                            <li key={fi} className={`flex items-start gap-2 text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-600 group-hover:text-white/80'}`}>
-                                                <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                                            <li key={fi} className={`flex items-start gap-2 text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>
+                                                <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                                                 {f}
                                             </li>
                                         ))}
                                         {plan.excluded.map((f, fi) => (
-                                            <li key={`ex-${fi}`} className="flex items-start gap-2 text-sm text-gray-400 line-through group-hover:text-white/50">
+                                            <li key={`ex-${fi}`} className="flex items-start gap-2 text-sm text-gray-400 line-through">
                                                 <span className="w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5">—</span>
                                                 {f}
                                             </li>
@@ -292,7 +292,7 @@ export default function SchoolPage() {
                                         href="https://wa.me/77070327777?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%80%D1%81"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`block text-center py-4 rounded-xl font-bold transition-all ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700 shadow-[0_0_25px_rgba(224,48,48,0.4)]' : 'bg-gray-100 text-black hover:bg-gray-200 group-hover:bg-white group-hover:text-red-600'}`}
+                                        className={`block text-center py-4 rounded-xl font-bold transition-all ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700 shadow-[0_0_25px_rgba(224,48,48,0.4)]' : 'bg-gray-100 text-black hover:bg-red-600 hover:text-white'}`}
                                     >
                                         Записаться →
                                     </a>
