@@ -13,7 +13,7 @@ export default function SocialProof() {
 
     // Brand logos via Simple Icons CDN (doubled for seamless loop)
     const brands = [
-        { name: 'Yandex', icon: '/images/yandex.png' },
+        { name: 'Yandex', icon: 'https://cdn.simpleicons.org/yandex/999' },
         { name: 'Google', icon: 'https://cdn.simpleicons.org/google/999' },
         { name: 'Facebook', icon: 'https://cdn.simpleicons.org/facebook/999' },
         { name: 'Instagram', icon: 'https://cdn.simpleicons.org/instagram/999' },
