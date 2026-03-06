@@ -270,14 +270,14 @@ export default function SchoolPage() {
                                             Хит продаж
                                         </div>
                                     )}
-                                    <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                                    <div className="text-3xl font-extrabold mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>{plan.price}</div>
+                                    <h3 className="text-xl font-bold mb-2 group-hover:text-white">{plan.name}</h3>
+                                    <div className="text-3xl font-extrabold mb-1 group-hover:text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>{plan.price}</div>
                                     <span className="text-xs text-gray-500 uppercase tracking-wide mb-4 group-hover:text-white/70">единоразово</span>
                                     <p className={`text-sm mb-6 ${plan.popular ? 'text-gray-300' : 'text-gray-600 group-hover:text-white/80'}`}>{plan.description}</p>
                                     <ul className="space-y-3 mb-8 flex-grow">
                                         {plan.features.map((f, fi) => (
                                             <li key={fi} className={`flex items-start gap-2 text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-600 group-hover:text-white/80'}`}>
-                                                <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                                                <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                                                 {f}
                                             </li>
                                         ))}
@@ -292,7 +292,7 @@ export default function SchoolPage() {
                                         href="https://wa.me/77070327777?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%80%D1%81"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`block text-center py-4 rounded-xl font-bold transition-all ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700 shadow-[0_0_25px_rgba(224,48,48,0.4)]' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                                        className={`block text-center py-4 rounded-xl font-bold transition-all ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700 shadow-[0_0_25px_rgba(224,48,48,0.4)]' : 'bg-gray-100 text-black hover:bg-gray-200 group-hover:bg-white group-hover:text-red-600'}`}
                                     >
                                         Записаться →
                                     </a>
