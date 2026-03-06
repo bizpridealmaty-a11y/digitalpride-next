@@ -120,10 +120,10 @@ export default function Services() {
         },
         {
             id: 'smm',
-            title: "SMM Профи",
+            title: "SMM: комплексное ведение",
             description: "Комплексное ведение социальных сетей. Мы не просто постим картинки, мы строим комьюнити и прогреваем аудиторию до покупки.",
             href: "/smm",
-            price: "От 100 000 ₸",
+            price: "От 700 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
             ),
@@ -143,7 +143,7 @@ export default function Services() {
             title: "Контекстная реклама",
             description: "Google Ads и Яндекс.Директ. Перехватываем тех, кто уже ищет ваши услуги, и конвертируем их в горячие заявки с высокой прибыльностью.",
             href: "/context",
-            price: "От 100 000 ₸",
+            price: "От 400 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             )
