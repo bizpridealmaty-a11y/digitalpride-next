@@ -60,7 +60,6 @@ const aiLogos = [
     { name: 'Semrush', logo: 'https://cdn.simpleicons.org/semrush/999', color: 'https://cdn.simpleicons.org/semrush/FF642D' },
     { name: 'Airtable', logo: 'https://cdn.simpleicons.org/airtable/999', color: 'https://cdn.simpleicons.org/airtable/18BFFF' },
     { name: 'TensorFlow', logo: 'https://cdn.simpleicons.org/tensorflow/999', color: 'https://cdn.simpleicons.org/tensorflow/FF6F00' },
-    { name: 'Meta', logo: 'https://cdn.simpleicons.org/meta/999', color: 'https://cdn.simpleicons.org/meta/0081FB' },
     { name: 'GitHub Copilot', logo: 'https://cdn.simpleicons.org/githubcopilot/999', color: 'https://cdn.simpleicons.org/githubcopilot/000' },
     { name: 'Hugging Face', logo: 'https://cdn.simpleicons.org/huggingface/999', color: 'https://cdn.simpleicons.org/huggingface/FFD21E' },
     { name: 'Adobe', logo: 'https://cdn.simpleicons.org/adobe/999', color: 'https://cdn.simpleicons.org/adobe/FF0000' },
