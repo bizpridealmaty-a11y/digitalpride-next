@@ -52,6 +52,21 @@ export default function RawHeader() {
             padding: 8px 0 !important;
             min-width: 220px !important;
             box-shadow: 0 12px 40px rgba(0,0,0,0.6) !important;
+            display: block !important;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+        .header .nav-item.dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
         }
         .header .dropdown-item {
             color: #ccc !important;
