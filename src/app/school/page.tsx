@@ -260,7 +260,7 @@ export default function SchoolPage() {
                                 Одна инвестиция — и вы получаете навыки, которые будут приносить доход годами.
                             </p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-16 overflow-visible">
                             {plans.map((plan, i) => (
                                 <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ scale: plan.popular ? 1.08 : 1.05 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                                     className={`rounded-2xl p-8 border flex flex-col cursor-pointer transition-all duration-300 group ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105 relative hover:bg-red-700 hover:border-red-600 hover:shadow-[0_0_40px_rgba(224,48,48,0.5)]' : 'border-gray-200 bg-white hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-2xl'}`}
@@ -299,7 +299,7 @@ export default function SchoolPage() {
                                 </motion.div>
                             ))}
                         </div>
-                        <p className="text-center text-gray-500 text-sm mt-[160px] relative z-10">
+                        <p className="text-center text-gray-500 text-sm mt-8 relative z-10">
                             Есть вопросы? Напишите нам в{' '}
                             <a href="https://wa.me/77070327777" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline">WhatsApp</a>
                             {' '}— подберём лучший вариант лично для вас.
