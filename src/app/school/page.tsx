@@ -66,36 +66,42 @@ export default function SchoolPage() {
         <>
             <main className="bg-white text-black">
                 {/* Hero */}
-                <section className="pt-32 pb-20 bg-zinc-950 text-white relative overflow-hidden">
+                <section className="pt-40 pb-32 bg-zinc-950 text-white relative overflow-hidden min-h-[90vh] flex items-center">
                     <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-transparent" />
-                    <div className="container mx-auto px-4 max-w-6xl relative z-10 text-center">
-                        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="inline-block px-4 py-1.5 rounded-full bg-red-600/20 text-red-400 text-sm font-bold mb-6 uppercase tracking-wider border border-red-500/30">
+                    <div className="container mx-auto px-4 max-w-5xl relative z-10 text-center">
+                        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="inline-block px-5 py-2 rounded-full bg-red-600/20 text-red-400 text-sm font-bold mb-10 uppercase tracking-wider border border-red-500/30">
                             Маркетинг нового уровня · Digital Pride
                         </motion.div>
-                        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+
+                        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-6 tracking-tight leading-none" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             <span className="text-red-500">МАНУФАКТУРА</span>
                         </motion.h1>
-                        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-xl md:text-2xl font-semibold text-white/80 uppercase tracking-widest mb-6">
+
+                        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-xl md:text-2xl lg:text-3xl font-semibold text-white/80 uppercase tracking-[0.25em] mb-10">
                             Обучающий очный курс
                         </motion.p>
-                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-wrap justify-center gap-2 mb-8">
+
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-wrap justify-center gap-3 mb-12">
                             {['Таргетированная реклама', 'AI-инструменты', 'Нейросети и чат-боты', 'Генерация видео и фото'].map((tag) => (
-                                <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide border border-red-500/40 text-red-300 bg-red-600/10">
+                                <span key={tag} className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide border border-red-500/40 text-red-300 bg-red-600/10">
                                     {tag}
                                 </span>
                             ))}
                         </motion.div>
-                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-lg text-gray-300 max-w-2xl mx-auto mb-4">
+
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6 leading-relaxed">
                             Получи образование, которое изменит твою жизнь и твой бизнес. Освой инструменты, которые принесут реальные заявки и продажи уже через 2 месяца.
                         </motion.p>
-                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-gray-500 mb-10">
+
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-gray-500 text-base mb-14 tracking-widest">
                             SMM · Таргет · ChatGPT · Нейросети · Чат-боты · Генерация контента
                         </motion.p>
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="#tariffs" className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all text-lg shadow-[0_0_30px_rgba(224,48,48,0.5)]">
+
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-col sm:flex-row gap-5 justify-center">
+                            <a href="#tariffs" className="px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all text-lg shadow-[0_0_30px_rgba(224,48,48,0.5)]">
                                 Получить образование →
                             </a>
-                            <a href="#program" className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all text-lg">
+                            <a href="#program" className="px-10 py-5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all text-lg">
                                 Изучить программу
                             </a>
                         </motion.div>
