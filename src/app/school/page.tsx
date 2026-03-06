@@ -249,7 +249,7 @@ export default function SchoolPage() {
                 </section>
 
                 {/* Pricing */}
-                <section id="tariffs" className="py-24">
+                <section id="tariffs" className="pt-24 pb-36">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="text-center mb-16">
                             <div className="text-xs uppercase tracking-widest text-red-600 font-bold mb-4">Инвестиция в себя</div>
