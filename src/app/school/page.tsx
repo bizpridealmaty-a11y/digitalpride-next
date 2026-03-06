@@ -110,7 +110,7 @@ export default function SchoolPage() {
 
                 {/* Skills */}
                 <section className="py-24">
-                    <div className="container mx-auto px-4 max-w-6xl">
+                    <div className="container mx-auto px-4 max-w-7xl">
                         <div className="text-center mb-16">
                             <div className="text-xs uppercase tracking-widest text-red-600 font-bold mb-4">Что вы освоите</div>
                             <h2 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
@@ -120,11 +120,11 @@ export default function SchoolPage() {
                                 После курса вы станете востребованным специалистом уже через 2–3 месяца обучения.
                             </p>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
                             {skills.map((skill, i) => (
-                                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gray-50 rounded-2xl p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                                    <div className="text-4xl mb-4">{skill.icon}</div>
-                                    <h3 className="text-lg font-bold mb-3">{skill.title}</h3>
+                                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gray-50 rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                                    <div className="text-4xl mb-5">{skill.icon}</div>
+                                    <h3 className="text-xl font-bold mb-3">{skill.title}</h3>
                                     <p className="text-gray-600 text-sm leading-relaxed">{skill.description}</p>
                                 </motion.div>
                             ))}
