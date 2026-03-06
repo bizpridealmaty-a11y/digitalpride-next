@@ -206,7 +206,7 @@ export default function SchoolPage() {
                 </section>
 
                 {/* Program */}
-                <section id="program" className="py-24 bg-gray-50">
+                <section id="program" className="py-24 bg-gray-200">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="mb-16">
                             <div className="text-xs uppercase tracking-widest text-red-600 font-bold mb-4">43 видео-урока · 12 модулей</div>
@@ -220,7 +220,7 @@ export default function SchoolPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {blocks.map((block, i) => (
                                 <motion.div key={block.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                                    className="bg-white rounded-2xl border border-gray-200 p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+                                    className={`rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 ${parseInt(block.id) >= 8 ? 'bg-red-50 border-l-4 border-l-red-500 border border-red-200' : 'bg-white border border-gray-200'}`}
                                 >
                                     <span className="text-4xl font-black text-red-500/20 block mb-3">{block.id}</span>
                                     <h3 className="text-lg font-bold mb-4">{block.title}</h3>
