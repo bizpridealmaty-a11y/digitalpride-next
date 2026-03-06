@@ -36,6 +36,15 @@ export default function CaseGrid() {
                         {/* Overlay Gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 transition-opacity duration-300"></div>
 
+                        {/* Category Badges — top-right corner */}
+                        <div className="absolute top-3 right-3 z-20 flex flex-wrap justify-end gap-1.5 max-w-[60%] group-hover:opacity-0 transition-opacity duration-300">
+                            {item.categories.slice(0, 2).map((cat, i) => (
+                                <span key={i} className="text-[9px] font-semibold text-white/90 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                    {cat}
+                                </span>
+                            ))}
+                        </div>
+
                         {/* Hover Info Overlay (Hidden by default, slides up on hover) */}
                         <div className="absolute inset-0 bg-red-900/95 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm flex flex-col justify-center p-6 lg:p-8 translate-y-6 group-hover:translate-y-0">
                             <h3 className="text-xl lg:text-3xl font-extrabold text-white mb-3 leading-tight font-sans tracking-tight">{item.title}</h3>
@@ -58,15 +67,8 @@ export default function CaseGrid() {
                             </Link>
                         </div>
 
-                        {/* Default Default View (Title at bottom) */}
+                        {/* Default View (Title at bottom) */}
                         <div className="absolute bottom-0 left-0 p-6 z-10 group-hover:opacity-0 group-hover:translate-y-4 transition-all duration-300 w-full">
-                            <div className="flex flex-wrap gap-2 mb-3">
-                                {item.categories.slice(0, 2).map((cat, i) => (
-                                    <div key={i} className="text-[10px] font-bold text-white bg-red-600 px-2 py-1 rounded w-max">
-                                        {cat}
-                                    </div>
-                                ))}
-                            </div>
                             <div className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                                 {item.title}
                             </div>
