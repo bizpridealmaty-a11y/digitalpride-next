@@ -299,7 +299,7 @@ export default function SchoolPage() {
                                 </motion.div>
                             ))}
                         </div>
-                        <p className="text-center text-gray-500 text-sm mt-16">
+                        <p className="text-center text-gray-500 text-sm mt-24">
                             Есть вопросы? Напишите нам в{' '}
                             <a href="https://wa.me/77070327777" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline">WhatsApp</a>
                             {' '}— подберём лучший вариант лично для вас.
