@@ -48,7 +48,7 @@ export default function Hero() {
             ),
             title: "Кейсы",
             subtitle: "12 проектов",
-            href: "/case",
+            href: "/cases",
             delay: 0.3,
             yOffset: [0, -12, 0],
             color: "from-red-600 to-red-700",

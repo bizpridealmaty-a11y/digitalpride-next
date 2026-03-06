@@ -29,16 +29,16 @@ export default function Footer() {
                             <h4 style={headingStyle}>Навигация</h4>
                             <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <a href="/" style={linkStyle}>Главное</a>
-                                <a href="/case" style={linkStyle}>Кейсы</a>
-                                <a href="/smm" style={linkStyle}>SMM продвижение</a>
-                                <a href="/seo" style={linkStyle}>SEO продвижение</a>
-                                <a href="/context" style={linkStyle}>Контекстная реклама</a>
-                                <a href="/branding" style={linkStyle}>Брендинг и стратегия</a>
-                                <a href="/site" style={linkStyle}>Разработка сайтов</a>
-                                <a href="/serm" style={linkStyle}>Управление репутацией</a>
+                                <a href="/cases" style={linkStyle}>Кейсы</a>
+                                <a href="/smm-almaty" style={linkStyle}>SMM продвижение</a>
+                                <a href="/seo-almaty" style={linkStyle}>SEO продвижение</a>
+                                <a href="/kontekstnaya-reklama-almaty" style={linkStyle}>Контекстная реклама</a>
+                                <a href="/marketing-almaty" style={linkStyle}>Маркетинговая стратегия</a>
+                                <a href="/sozdanie-sajtov-almaty" style={linkStyle}>Разработка сайтов</a>
+                                <a href="/upravlenie-reputaciej-almaty" style={linkStyle}>Управление репутацией</a>
                                 <a href="/bitrix24" style={linkStyle}>Внедрение Bitrix24</a>
                                 <a href="/school" style={linkStyle}>Наше обучение</a>
-                                <a href="/contact" style={linkStyle}>О нас</a>
+                                <a href="/contacts" style={linkStyle}>О нас</a>
                             </nav>
                         </div>
 

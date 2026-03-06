@@ -122,7 +122,7 @@ export default function Services() {
             id: 'marketing-strategy',
             title: "Маркетинговая стратегия",
             description: "Глубокий анализ рынка и конкурентов. Пошаговый план действий, который обеспечит рост вашего бизнеса на годы вперед.",
-            href: "/branding",
+            href: "/marketing-almaty",
             price: "От 1 000 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
@@ -132,7 +132,7 @@ export default function Services() {
             id: 'smm',
             title: "SMM: комплексное ведение",
             description: "Комплексное ведение социальных сетей. Мы не просто постим картинки, мы строим комьюнити и прогреваем аудиторию до покупки.",
-            href: "/smm",
+            href: "/smm-almaty",
             price: "От 700 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
@@ -142,7 +142,7 @@ export default function Services() {
             id: 'target',
             title: "Таргетированная реклама",
             description: "Facebook, Instagram, TikTok. Лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас.",
-            href: "/smm",
+            href: "/target-almaty",
             price: "От 250 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
@@ -152,7 +152,7 @@ export default function Services() {
             id: 'context',
             title: "Контекстная реклама",
             description: "Google Ads и Яндекс.Директ. Перехватываем тех, кто уже ищет ваши услуги, и конвертируем их в горячие заявки с высокой прибыльностью.",
-            href: "/context",
+            href: "/kontekstnaya-reklama-almaty",
             price: "От 400 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>

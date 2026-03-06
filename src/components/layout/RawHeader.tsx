@@ -98,17 +98,17 @@ export default function RawHeader() {
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="/services" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Услуги</a>
                           <div class="dropdown-menu">
-                            <a href="/smm" class="dropdown-item">SMM продвижение</a>
-                            <a href="/seo" class="dropdown-item">SEO продвижение</a>
-                            <a href="/site" class="dropdown-item">Разработка сайтов</a>
-                            <a href="/serm" class="dropdown-item">Управление репутацией (SERM)</a>
-                            <a href="/branding" class="dropdown-item">Брендинг и стратегия</a>
-                            <a href="/context" class="dropdown-item">Контекстная реклама (PPC)</a>
+                            <a href="/smm-almaty" class="dropdown-item">SMM продвижение</a>
+                            <a href="/seo-almaty" class="dropdown-item">SEO продвижение</a>
+                            <a href="/sozdanie-sajtov-almaty" class="dropdown-item">Разработка сайтов</a>
+                            <a href="/upravlenie-reputaciej-almaty" class="dropdown-item">Управление репутацией (SERM)</a>
+                            <a href="/marketing-almaty" class="dropdown-item">Маркетинговая стратегия</a>
+                            <a href="/kontekstnaya-reklama-almaty" class="dropdown-item">Контекстная реклама (PPC)</a>
                             <a href="/bitrix24" class="dropdown-item">Внедрение Bitrix24</a>
                           </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/case">Кейсы</a>
+                        <a class="nav-link" href="/cases">Кейсы</a>
                     </li>
                     <!--<li class="nav-item">
                         <a class="nav-link" href="prices.html">Цены</a>
@@ -117,7 +117,7 @@ export default function RawHeader() {
                         <a class="nav-link" href="/school">Наше обучение</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">О нас</a>
+                        <a class="nav-link" href="/contacts">О нас</a>
                     </li>
                 </ul>
             </div>
@@ -251,17 +251,17 @@ export default function RawHeader() {
 
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <a href="/" style={linkStyle}>Главное</a>
-                <a href="/smm" style={linkStyle}>SMM продвижение</a>
-                <a href="/seo" style={linkStyle}>SEO продвижение</a>
-                <a href="/site" style={linkStyle}>Разработка сайтов</a>
-                <a href="/serm" style={linkStyle}>Управление репутацией</a>
-                <a href="/branding" style={linkStyle}>Брендинг и стратегия</a>
-                <a href="/context" style={linkStyle}>Контекстная реклама</a>
+                <a href="/smm-almaty" style={linkStyle}>SMM продвижение</a>
+                <a href="/seo-almaty" style={linkStyle}>SEO продвижение</a>
+                <a href="/sozdanie-sajtov-almaty" style={linkStyle}>Разработка сайтов</a>
+                <a href="/upravlenie-reputaciej-almaty" style={linkStyle}>Управление репутацией</a>
+                <a href="/marketing-almaty" style={linkStyle}>Маркетинговая стратегия</a>
+                <a href="/kontekstnaya-reklama-almaty" style={linkStyle}>Контекстная реклама</a>
                 <a href="/bitrix24" style={linkStyle}>Внедрение Bitrix24</a>
                 <div style={{ height: '1px', background: '#333', margin: '8px 0' }}></div>
-                <a href="/case" style={linkStyle}>Кейсы</a>
+                <a href="/cases" style={linkStyle}>Кейсы</a>
                 <a href="/school" style={linkStyle}>Наше обучение</a>
-                <a href="/contact" style={linkStyle}>О нас</a>
+                <a href="/contacts" style={linkStyle}>О нас</a>
                 <div style={{ height: '1px', background: '#333', margin: '8px 0' }}></div>
                 <a href="tel:+77070357777" style={{ ...linkStyle, color: '#ef4444', fontWeight: 800 }}>+7 (707) 035-77-77</a>
             </nav>
