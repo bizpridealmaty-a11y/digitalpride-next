@@ -48,15 +48,31 @@ const plans = [
     },
 ];
 
-const tools = [
-    { name: 'HeyGen', sub: 'AI-видео с аватаром' },
-    { name: 'Kling AI', sub: 'Генерация видео' },
-    { name: 'Sora', sub: 'Видео от OpenAI' },
-    { name: 'Midjourney', sub: 'Генерация изображений' },
-    { name: 'Runway', sub: 'AI видео-редактор' },
-    { name: 'ChatGPT', sub: 'Тексты и автоматизация' },
-    { name: 'Canva', sub: 'Дизайн и визуалы' },
-    { name: 'Meta Ads', sub: 'Таргетированная реклама' },
+const aiLogos = [
+    { name: 'ChatGPT', logo: 'https://cdn.simpleicons.org/openai', color: 'https://cdn.simpleicons.org/openai/10a37f' },
+    { name: 'Midjourney', logo: 'https://cdn.simpleicons.org/midjourney/999', color: 'https://cdn.simpleicons.org/midjourney/000' },
+    { name: 'Google Gemini', logo: 'https://cdn.simpleicons.org/googlegemini/999', color: 'https://cdn.simpleicons.org/googlegemini/4285F4' },
+    { name: 'Claude', logo: 'https://cdn.simpleicons.org/anthropic/999', color: 'https://cdn.simpleicons.org/anthropic/d4a27f' },
+    { name: 'Canva', logo: 'https://cdn.simpleicons.org/canva/999', color: 'https://cdn.simpleicons.org/canva/00C4CC' },
+    { name: 'Notion AI', logo: 'https://cdn.simpleicons.org/notion/999', color: 'https://cdn.simpleicons.org/notion/000' },
+    { name: 'Figma', logo: 'https://cdn.simpleicons.org/figma/999', color: 'https://cdn.simpleicons.org/figma/F24E1E' },
+    { name: 'Stable Diffusion', logo: 'https://cdn.simpleicons.org/stablediffusion/999', color: 'https://cdn.simpleicons.org/stablediffusion/a855f7' },
+    { name: 'TensorFlow', logo: 'https://cdn.simpleicons.org/tensorflow/999', color: 'https://cdn.simpleicons.org/tensorflow/FF6F00' },
+    { name: 'Meta', logo: 'https://cdn.simpleicons.org/meta/999', color: 'https://cdn.simpleicons.org/meta/0081FB' },
+    { name: 'GitHub Copilot', logo: 'https://cdn.simpleicons.org/githubcopilot/999', color: 'https://cdn.simpleicons.org/githubcopilot/000' },
+    { name: 'Hugging Face', logo: 'https://cdn.simpleicons.org/huggingface/999', color: 'https://cdn.simpleicons.org/huggingface/FFD21E' },
+    { name: 'Adobe', logo: 'https://cdn.simpleicons.org/adobe/999', color: 'https://cdn.simpleicons.org/adobe/FF0000' },
+    { name: 'Slack', logo: 'https://cdn.simpleicons.org/slack/999', color: 'https://cdn.simpleicons.org/slack/4A154B' },
+    { name: 'Telegram', logo: 'https://cdn.simpleicons.org/telegram/999', color: 'https://cdn.simpleicons.org/telegram/26A5E4' },
+    { name: 'YouTube', logo: 'https://cdn.simpleicons.org/youtube/999', color: 'https://cdn.simpleicons.org/youtube/FF0000' },
+    { name: 'Instagram', logo: 'https://cdn.simpleicons.org/instagram/999', color: 'https://cdn.simpleicons.org/instagram/E4405F' },
+    { name: 'Google Ads', logo: 'https://cdn.simpleicons.org/googleads/999', color: 'https://cdn.simpleicons.org/googleads/4285F4' },
+    { name: 'Google Analytics', logo: 'https://cdn.simpleicons.org/googleanalytics/999', color: 'https://cdn.simpleicons.org/googleanalytics/E37400' },
+    { name: 'HubSpot', logo: 'https://cdn.simpleicons.org/hubspot/999', color: 'https://cdn.simpleicons.org/hubspot/FF7A59' },
+    { name: 'Stripe', logo: 'https://cdn.simpleicons.org/stripe/999', color: 'https://cdn.simpleicons.org/stripe/635BFF' },
+    { name: 'Zapier', logo: 'https://cdn.simpleicons.org/zapier/999', color: 'https://cdn.simpleicons.org/zapier/FF4A00' },
+    { name: 'Trello', logo: 'https://cdn.simpleicons.org/trello/999', color: 'https://cdn.simpleicons.org/trello/0052CC' },
+    { name: 'Perplexity', logo: 'https://cdn.simpleicons.org/perplexity/999', color: 'https://cdn.simpleicons.org/perplexity/1FB8CD' },
 ];
 
 export default function SchoolPage() {
@@ -130,25 +146,46 @@ export default function SchoolPage() {
                             ))}
                         </div>
 
-                        {/* AI Tools */}
-                        <div className="mt-16 text-center">
-                            <div className="text-xs uppercase tracking-widest text-red-600 font-bold mb-2">Инструменты курса</div>
-                            <h3 className="text-2xl font-bold mb-2">Мы обучаем работе с топовыми <span className="text-red-600">нейросетями</span></h3>
-                            <p className="text-gray-500 text-sm mb-8">Генерация видео, фото, голоса и автоматизация — всё в одном курсе</p>
+                        {/* AI Tools Marquee */}
+                        <div className="mt-20">
+                            <div className="text-center mb-10">
+                                <div className="text-xs uppercase tracking-widest text-red-600 font-bold mb-2">Инструменты курса</div>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-2">Мы обучаем работе с топовыми <span className="text-red-600">нейросетями</span></h3>
+                                <p className="text-gray-500 text-sm">Генерация видео, фото, голоса и автоматизация — всё в одном курсе</p>
+                            </div>
+                            <div className="relative overflow-hidden py-6">
+                                {/* Fade edges */}
+                                <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                                {/* Marquee track */}
+                                <div className="flex animate-marquee whitespace-nowrap">
+                                    {[...aiLogos, ...aiLogos].map((ai, i) => (
+                                        <div key={`${ai.name}-${i}`} className="group flex flex-col items-center justify-center mx-6 flex-shrink-0 cursor-default">
+                                            <div className="relative w-14 h-14 mb-2">
+                                                {/* Grayscale logo */}
+                                                <img src={ai.logo} alt={ai.name} className="w-14 h-14 object-contain transition-opacity duration-300 group-hover:opacity-0" />
+                                                {/* Color logo on hover */}
+                                                <img src={ai.color} alt={ai.name} className="w-14 h-14 object-contain absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                            </div>
+                                            <span className="text-[10px] text-gray-400 group-hover:text-black font-semibold transition-colors whitespace-nowrap">{ai.name}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                            {tools.map((tool, i) => (
-                                <motion.div key={tool.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }} className="bg-gray-50 rounded-xl p-4 flex items-center gap-3 border border-gray-100">
-                                    <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg flex-shrink-0">
-                                        {tool.name[0]}
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-sm">{tool.name}</div>
-                                        <div className="text-gray-500 text-xs">{tool.sub}</div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+
+                        <style jsx>{`
+                            @keyframes marquee {
+                                0% { transform: translateX(0); }
+                                100% { transform: translateX(-50%); }
+                            }
+                            .animate-marquee {
+                                animation: marquee 40s linear infinite;
+                            }
+                            .animate-marquee:hover {
+                                animation-play-state: paused;
+                            }
+                        `}</style>
 
                         {/* Benefits */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-100">
