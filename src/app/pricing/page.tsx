@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import RawFooter from '@/components/layout/RawFooter';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 const plans = [
     {
@@ -116,6 +117,7 @@ export default function PricingPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block bg-red-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-red-700 transition-all"
+                            onClick={() => trackWhatsAppClick('pricing_cta')}
                         >
                             Получить индивидуальный расчёт
                         </a>

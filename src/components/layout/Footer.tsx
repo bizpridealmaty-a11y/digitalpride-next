@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
 
 export default function Footer() {
     return (
@@ -46,7 +47,7 @@ export default function Footer() {
                         <div>
                             <h4 style={headingStyle}>Контакты</h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <a href="tel:+77070357777" style={{ ...linkStyle, color: '#fff', fontWeight: 700 }}>+7 707 035 7777</a>
+                                <a href="tel:+77070357777" onClick={() => trackPhoneClick('footer')} style={{ ...linkStyle, color: '#fff', fontWeight: 700 }}>+7 707 035 7777</a>
                                 <p style={{ color: '#777', fontSize: '14px', margin: 0 }}>Алматы, Казахстан</p>
                                 <p style={{ color: '#777', fontSize: '14px', margin: 0 }}>пр. Бухар-Жырау 33,<br />БЦ «Женис»</p>
                             </div>
@@ -59,7 +60,7 @@ export default function Footer() {
                                 <a href="https://t.me/digitalpride" style={linkStyle} target="_blank" rel="noopener noreferrer">Telegram</a>
                                 <a href="https://www.instagram.com/digitalpride.kz/" style={linkStyle} target="_blank" rel="noopener noreferrer">Instagram</a>
                                 <a href="https://youtube.com/@digitalpride" style={linkStyle} target="_blank" rel="noopener noreferrer">YouTube</a>
-                                <a href="https://wa.me/77070357777" style={linkStyle} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                                <a href="https://wa.me/77070357777" onClick={() => trackWhatsAppClick('footer')} style={linkStyle} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                             </nav>
                         </div>
                     </div>

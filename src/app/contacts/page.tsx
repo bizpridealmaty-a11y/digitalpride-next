@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import RawFooter from '@/components/layout/RawFooter';
+import { trackWhatsAppClick, trackPhoneClick } from '@/lib/analytics';
 
 const contactInfo = [
     {
@@ -71,6 +72,10 @@ export default function ContactsPage() {
                                 href={item.href}
                                 target={item.href.startsWith('http') ? '_blank' : undefined}
                                 rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                onClick={() => {
+                                    if (item.href.startsWith('https://wa.me')) trackWhatsAppClick('contacts_card');
+                                    if (item.href.startsWith('tel:')) trackPhoneClick('contacts_card');
+                                }}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
@@ -95,7 +100,7 @@ export default function ContactsPage() {
                             className="lg:col-span-3 rounded-2xl overflow-hidden border border-gray-200 h-[400px]"
                         >
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7!2d76.9224!3d43.2328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDEzJzU4LjIiTiA3NsKwNTUnMjAuNiJF!5e0!3m2!1sru!2skz!4v1"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1453.3!2d76.9292!3d43.2381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836eb44c5f2d01%3A0x2c92e11d6cfb5c3e!2z0L_RgC4g0JHRg9GF0LDRgC3QltGL0YDQsNGDIDMzLCDQkNC70LzQsNGC0YssINCa0LDQt9Cw0YXRgdGC0LDQvQ!5e0!3m2!1sru!2skz!4v1709000000000"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
@@ -139,12 +144,14 @@ export default function ContactsPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block w-full text-center py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-[0_0_25px_rgba(224,48,48,0.3)]"
+                                    onClick={() => trackWhatsAppClick('contacts_cta')}
                                 >
                                     Написать в WhatsApp →
                                 </a>
                                 <a
                                     href="tel:+77070357777"
                                     className="block w-full text-center py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all"
+                                    onClick={() => trackPhoneClick('contacts_cta')}
                                 >
                                     Позвонить: +7 (707) 035-77-77
                                 </a>

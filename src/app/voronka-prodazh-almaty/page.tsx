@@ -1,4 +1,17 @@
+import type { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
+
+export const metadata: Metadata = {
+    title: 'Воронка продаж в Алматы — автоматизация и настройка',
+    description: 'Построение воронки продаж в Алматы ✦ Автоворонки через мессенджеры, email, ретаргетинг. Чат-боты WhatsApp, Telegram. Интеграция с CRM. Под ключ за 2-4 недели.',
+    keywords: 'воронка продаж алматы, автоворонка алматы, настройка воронки продаж казахстан, чат бот алматы, лидогенерация алматы, crm интеграция алматы',
+    alternates: { canonical: '/voronka-prodazh-almaty' },
+    openGraph: {
+        title: 'Воронка продаж в Алматы — Digital Pride',
+        description: 'Автоматизированная воронка продаж: чат-боты, email-цепочки, CRM. Результат от 2 недель.',
+        url: '/voronka-prodazh-almaty',
+    },
+};
 
 const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={d}></path></svg>;
 
@@ -29,6 +42,16 @@ export default function VoronkaPage() {
                 { q: 'Сколько времени занимает настройка?', a: 'Полная настройка воронки: 2-4 недели. Первые результаты видны уже на второй неделе.' },
                 { q: 'Подойдёт для моего бизнеса?', a: 'Воронки работают для любого бизнеса: услуги, товары, B2B, B2C. Мы адаптируем структуру под вашу специфику.' },
                 { q: 'Какие инструменты используете?', a: 'Bitrix24, AmoCRM, SendPulse, ManyChat, Telegram-боты и кастомные решения.' },
+            ]}
+            seoContent={[
+                {
+                    title: 'Автоматические воронки продаж для бизнеса в Алматы',
+                    text: <>
+                        <p>Большинство бизнесов Алматы теряют до 80% потенциальных клиентов, потому что не выстроен путь от первого контакта до покупки. Автоматическая воронка продаж решает эту проблему: каждый лид получает нужную информацию в нужный момент — через мессенджеры, email или ретаргетинг — без участия менеджера.</p>
+                        <p>Digital Pride проектирует и внедряет воронки продаж для бизнесов Алматы и Казахстана: от лид-магнита до повторной покупки. Мы настраиваем чат-ботов в WhatsApp и Telegram, email-цепочки, интеграцию с CRM Bitrix24 и AmoCRM, а также сквозную аналитику, чтобы вы видели ROI каждого канала. Результат — система, которая работает на вас 24/7.</p>
+                        <p>Для наполнения воронки качественным трафиком подключите <a href="/target-almaty" className="text-red-500 hover:underline">таргетированную рекламу</a> или <a href="/kontekstnaya-reklama-almaty" className="text-red-500 hover:underline">контекстную рекламу</a>, а для интеграции с CRM воспользуйтесь нашей услугой <a href="/bitrix24" className="text-red-500 hover:underline">внедрения Bitrix24</a>.</p>
+                    </>
+                },
             ]}
         />
     );

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import RawFooter from '@/components/layout/RawFooter';
+import { trackSchoolSignup, trackWhatsAppClick } from '@/lib/analytics';
 
 const skills = [
     { title: 'ChatGPT и нейросети', description: 'Научитесь работать с ИИ-инструментами: генерировать контент, автоматизировать рутину и повышать эффективность в разы.', icon: '🧠' },
@@ -291,6 +292,7 @@ export default function SchoolPage() {
                                         href="https://wa.me/77070327777?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%80%D1%81"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => { trackSchoolSignup(plan.name); trackWhatsAppClick('school_tariff'); }}
                                         className={`block text-center py-4 rounded-xl font-bold transition-all ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700 shadow-[0_0_25px_rgba(224,48,48,0.4)]' : 'bg-gray-100 text-black hover:bg-red-600 hover:text-white'}`}
                                     >
                                         Записаться →
@@ -300,7 +302,7 @@ export default function SchoolPage() {
                         </div>
                         <p className="text-center text-gray-500 text-sm mt-8 relative z-10">
                             Есть вопросы? Напишите нам в{' '}
-                            <a href="https://wa.me/77070327777" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline">WhatsApp</a>
+                            <a href="https://wa.me/77070327777" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('school_footer')} className="text-red-600 hover:underline">WhatsApp</a>
                             {' '}— подберём лучший вариант лично для вас.
                         </p>
                     </div>

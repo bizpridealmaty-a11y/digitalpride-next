@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { trackLeadFormSubmit, trackWhatsAppClick } from '@/lib/analytics';
 
 export default function LeadMagnet() {
     const [name, setName] = useState('');
@@ -26,6 +27,10 @@ export default function LeadMagnet() {
 
         // Open WhatsApp in a new tab
         window.open(waUrl, '_blank');
+
+        // Track goals
+        trackLeadFormSubmit();
+        trackWhatsAppClick('lead_magnet_form');
 
         // Show success state
         setSent(true);

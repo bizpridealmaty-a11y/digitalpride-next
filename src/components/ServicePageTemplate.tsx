@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 interface ServiceFeature {
     title: string;
@@ -19,6 +20,7 @@ interface ServicePageProps {
     process: { step: string; title: string; description: string }[];
     pricing?: { name: string; price: string; features: string[] }[];
     faq: { q: string; a: string }[];
+    seoContent?: { title?: string; text: React.ReactNode | string }[];
 }
 
 export default function ServicePageTemplate({
@@ -30,6 +32,7 @@ export default function ServicePageTemplate({
     process,
     pricing,
     faq,
+    seoContent,
 }: ServicePageProps) {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -46,11 +49,35 @@ export default function ServicePageTemplate({
     // WhatsApp handler
     const handleCTA = () => {
         const message = `Здравствуйте! Интересует услуга: ${title} ${accentWord}. Хотел(а) бы узнать подробнее.`;
+        trackWhatsAppClick('service_page_cta');
         window.open(`https://wa.me/77070357777?text=${encodeURIComponent(message)}`, '_blank');
+    };
+
+    // Schema.org JSON-LD
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": ["Service", "LocalBusiness"],
+        "name": `${title} ${accentWord}`,
+        "description": description,
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Digital Pride",
+            "image": "https://digitalpride.kz/logo.png",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Алматы",
+                "addressCountry": "KZ"
+            }
+        },
+        "areaServed": "KZ"
     };
 
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* Hero Section */}
             <section className="relative bg-zinc-950 text-white pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 opacity-30">
@@ -173,6 +200,31 @@ export default function ServicePageTemplate({
                     </div>
                 </div>
             </section>
+
+            {/* SEO Content */}
+            {seoContent && seoContent.length > 0 && (
+                <section className="py-20 bg-white text-black">
+                    <div className="container mx-auto px-4 max-w-4xl">
+                        {seoContent.map((block, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: i * 0.1 }}
+                                className="mb-12 last:mb-0"
+                            >
+                                {block.title && (
+                                    <h3 className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight">{block.title}</h3>
+                                )}
+                                <div className="text-lg text-gray-600 leading-relaxed space-y-6 font-medium">
+                                    {typeof block.text === 'string' ? <p>{block.text}</p> : block.text}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+            )}
 
             {/* FAQ */}
             <section className="py-20 bg-gray-50 text-black">
