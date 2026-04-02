@@ -7,7 +7,6 @@ import { trackLeadFormSubmit, trackWhatsAppClick } from '@/lib/analytics';
 export default function LeadMagnet() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [site, setSite] = useState('');
     const [sent, setSent] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -19,7 +18,7 @@ export default function LeadMagnet() {
         }
 
         // Compose message for WhatsApp
-        const message = `🔥 Новая заявка на аудит!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}${site ? `\n🌐 Сайт/Инстаграм: ${site}` : ''}`;
+        const message = `🔥 Новая заявка на аудит!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
 
         // WhatsApp number (without +)
         const waNumber = '77070357777';
@@ -38,7 +37,6 @@ export default function LeadMagnet() {
             setSent(false);
             setName('');
             setPhone('');
-            setSite('');
         }, 3000);
     };
 
@@ -90,7 +88,7 @@ export default function LeadMagnet() {
                             style={{ perspective: 1000 }}
                             className="bg-white p-8 rounded-2xl text-black shadow-lg"
                         >
-                            <h3 className="text-2xl font-bold mb-6 text-center">Получить аудит</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-center">Сделаем всё (Охуенно)</h3>
                             <div className="space-y-4">
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-1">Ваше имя</label>
@@ -114,23 +112,13 @@ export default function LeadMagnet() {
                                         required
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-1">Сайт или Инстаграм (необязательно)</label>
-                                    <input
-                                        type="text"
-                                        value={site}
-                                        onChange={(e) => setSite(e.target.value)}
-                                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#f43f5e] transition-shadow"
-                                        placeholder="example.kz"
-                                    />
-                                </div>
                                 <button
                                     type="submit"
                                     disabled={sent}
                                     className="w-full px-6 py-4 text-white font-bold rounded-lg transition-all mt-4 text-lg disabled:opacity-70"
                                     style={{ backgroundColor: sent ? '#22c55e' : '#ef4444' }}
                                 >
-                                    {sent ? '✓ Заявка отправлена!' : 'Оставить заявку на аудит'}
+                                    {sent ? '✓ Заявка отправлена!' : 'Офигеете от результата'}
                                 </button>
                                 <p className="text-xs text-center text-gray-400 mt-4">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
                             </div>

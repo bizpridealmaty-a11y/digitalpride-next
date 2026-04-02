@@ -79,32 +79,33 @@ export default function PricingPage() {
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.1 }}
-                                className={`relative rounded-2xl p-8 border ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105' : 'border-gray-200 bg-white text-black'}`}
+                                className={`relative rounded-2xl flex flex-col transition-all duration-300 border ${plan.popular ? 'border-red-500 bg-zinc-950 text-white shadow-2xl scale-105 z-10' : 'border-gray-200 bg-white text-black hover:bg-zinc-950 hover:text-white hover:border-zinc-950 hover:shadow-2xl cursor-pointer group'}`}
                             >
-                                {plan.popular && (
-                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                                        Популярный
+                                <Link href={plan.href} className="flex flex-col h-full p-8 outline-none">
+                                    {plan.popular && (
+                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider z-20">
+                                            Популярный
+                                        </div>
+                                    )}
+                                    <h3 className="text-xl font-bold mb-2 transition-colors duration-300">{plan.name}</h3>
+                                    <div className="text-3xl font-extrabold mb-6 transition-colors duration-300" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                                        {plan.price}
                                     </div>
-                                )}
-                                <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
-                                <div className="text-3xl font-extrabold mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                                    {plan.price}
-                                </div>
-                                <ul className="space-y-3 mb-8">
-                                    {plan.features.map((f, i) => (
-                                        <li key={i} className={`flex items-center gap-2 text-sm font-medium ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>
-                                            <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                            </svg>
-                                            {f}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link
-                                    href={plan.href}
-                                    className={`block text-center py-3 rounded-xl font-bold transition-all ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
-                                >
-                                    Подробнее →
+                                    <ul className="space-y-3 mb-8 flex-grow">
+                                        {plan.features.map((f, i) => (
+                                            <li key={i} className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${plan.popular ? 'text-gray-300' : 'text-gray-600 group-hover:text-gray-300'}`}>
+                                                <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                </svg>
+                                                {f}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div
+                                        className={`mt-auto block text-center py-3 rounded-xl font-bold transition-all duration-300 ${plan.popular ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-gray-100 text-black group-hover:bg-red-600 group-hover:text-white'}`}
+                                    >
+                                        Подробнее →
+                                    </div>
                                 </Link>
                             </motion.div>
                         ))}

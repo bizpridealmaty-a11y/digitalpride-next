@@ -1,45 +1,146 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CTA() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('loading');
+        try {
+            const res = await fetch('/api/telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone, source: 'Обсудить проект' })
+            });
+            if (res.ok) {
+                setStatus('success');
+                setTimeout(() => {
+                    setIsModalOpen(false);
+                    setStatus('idle');
+                    setName('');
+                    setPhone('');
+                }, 3000);
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        }
+    };
+
     return (
-        <section className="py-32 bg-zinc-950 text-white text-center relative overflow-hidden">
-            <div className="absolute inset-0 z-0">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-full border border-zinc-800 rounded-full opacity-20 hidden md:block"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-full border border-zinc-700 rounded-full opacity-30 hidden md:block"></div>
-            </div>
+        <>
+            <section className="py-32 bg-zinc-950 text-white text-center relative overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-full border border-zinc-800 rounded-full opacity-20 hidden md:block"></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-full border border-zinc-700 rounded-full opacity-30 hidden md:block"></div>
+                </div>
 
-            <div className="container mx-auto px-4 max-w-4xl relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, type: "spring" }}
-                >
-                    <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight leading-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                        Готовы кратно увеличить <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">продажи</span>?
-                    </h2>
-                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium">
-                        Давайте обсудим ваш проект. Оставьте заявку, и мы свяжемся с вами в течение 10 минут в рабочее время.
-                    </p>
-
+                <div className="container mx-auto px-4 max-w-4xl relative z-10">
                     <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-block"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, type: "spring" }}
                     >
-                        <button
-                            data-toggle="modal"
-                            data-target="#modal_form-feed"
-                            className="px-10 py-5 bg-white text-black hover:bg-gray-100 font-extrabold rounded-full transition-colors text-lg shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]"
+                        <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight leading-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                            Готовы кратно увеличить <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">продажи</span>?
+                        </h2>
+                        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium">
+                            Давайте обсудим ваш проект. Оставьте заявку, и мы свяжемся с вами в течение 10 минут в рабочее время.
+                        </p>
+
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                                console.log("Open modal clicked");
+                                setIsModalOpen(true);
+                            }}
+                            className="inline-block px-10 py-5 bg-white text-black hover:bg-gray-100 font-extrabold rounded-full transition-colors text-lg shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] cursor-pointer"
                         >
                             Обсудить проект
-                        </button>
+                        </motion.button>
                     </motion.div>
-                </motion.div>
-            </div>
-        </section>
+                </div>
+            </section>
+
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                        style={{ position: 'fixed' }}
+                        onClick={() => setIsModalOpen(false)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl shadow-2xl max-w-md w-full relative text-left"
+                        >
+                            <button
+                                onClick={() => setIsModalOpen(false)}
+                                className="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                            >
+                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            </button>
+                            <h3 className="text-2xl font-bold mb-2">Оставьте заявку</h3>
+                            <p className="text-zinc-400 mb-6">Заполните форму и мы свяжемся с вами в течение 10 минут.</p>
+
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-1 text-zinc-300">Имя</label>
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                                        placeholder="Ваше имя"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-1 text-zinc-300">Телефон</label>
+                                    <input
+                                        type="tel"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                                        placeholder="+7 (___) ___ - __ - __"
+                                        required
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading' || status === 'success'}
+                                    className={`w-full py-4 rounded-xl font-bold transition-all text-lg cursor-pointer ${status === 'success' ? 'bg-green-600 text-white' : 'bg-white text-black hover:bg-gray-300 disabled:opacity-70'}`}
+                                >
+                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Отправлено' : 'Отправить заявку'}
+                                </button>
+                                {status === 'error' && (
+                                    <p className="text-red-500 text-sm text-center mt-2">Произошла ошибка. Попробуйте еще раз.</p>
+                                )}
+                            </form>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 }
