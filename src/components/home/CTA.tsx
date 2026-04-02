@@ -1,16 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CTA() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -92,36 +87,36 @@ export default function CTA() {
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl shadow-2xl max-w-md w-full relative text-left"
+                            className="bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full relative text-center"
                         >
                             <button
                                 onClick={() => setIsModalOpen(false)}
-                                className="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                                className="absolute top-5 right-5 text-gray-400 hover:text-black transition-colors cursor-pointer"
                             >
                                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
-                            <h3 className="text-2xl font-bold mb-2">Оставьте заявку</h3>
-                            <p className="text-zinc-400 mb-6">Заполните форму и мы свяжемся с вами в течение 10 минут.</p>
+                            <h3 className="text-2xl font-extrabold mb-2 text-black" style={{ fontFamily: "'Montserrat', sans-serif" }}>Обсудить проект</h3>
+                            <p className="text-gray-500 mb-6 text-sm">Заполните форму и мы свяжемся с вами в течение 10 минут.</p>
 
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            <form onSubmit={handleSubmit} className="space-y-5 text-left">
                                 <div>
-                                    <label className="block text-sm font-medium mb-1 text-zinc-300">Имя</label>
+                                    <label className="block text-sm font-semibold mb-1.5 text-gray-800">Ваше имя</label>
                                     <input
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
-                                        placeholder="Ваше имя"
+                                        className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-black placeholder-gray-400"
+                                        placeholder="Иван Иванов"
                                         required
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium mb-1 text-zinc-300">Телефон</label>
+                                    <label className="block text-sm font-semibold mb-1.5 text-gray-800">Телефон</label>
                                     <input
                                         type="tel"
                                         value={phone}
                                         onChange={(e) => setPhone(e.target.value)}
-                                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 text-white"
+                                        className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-black placeholder-gray-400"
                                         placeholder="+7 (___) ___ - __ - __"
                                         required
                                     />
@@ -129,13 +124,14 @@ export default function CTA() {
                                 <button
                                     type="submit"
                                     disabled={status === 'loading' || status === 'success'}
-                                    className={`w-full py-4 rounded-xl font-bold transition-all text-lg cursor-pointer ${status === 'success' ? 'bg-green-600 text-white' : 'bg-white text-black hover:bg-gray-300 disabled:opacity-70'}`}
+                                    className={`w-full py-4 rounded-xl font-bold transition-all text-lg cursor-pointer shadow-lg ${status === 'success' ? 'bg-green-600 text-white shadow-green-500/30' : 'bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600 shadow-red-500/30 disabled:opacity-70'}`}
                                 >
-                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Отправлено' : 'Отправить заявку'}
+                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Отправлено' : 'Офигеете от результата'}
                                 </button>
                                 {status === 'error' && (
                                     <p className="text-red-500 text-sm text-center mt-2">Произошла ошибка. Попробуйте еще раз.</p>
                                 )}
+                                <p className="text-gray-400 text-xs text-center pt-1">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
                             </form>
                         </motion.div>
                     </motion.div>
