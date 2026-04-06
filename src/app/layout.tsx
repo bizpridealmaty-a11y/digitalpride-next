@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/css/bootstrap_custom.min.css" />
         <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
         <link href="/css/all.min.css" rel="stylesheet" />

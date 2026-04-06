@@ -130,7 +130,7 @@ export default function Hero() {
                             Top Digital Agency in Kazakhstan
                         </motion.div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
                             Маркетинг, который приносит <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">прибыль</span>
                         </h1>
 
