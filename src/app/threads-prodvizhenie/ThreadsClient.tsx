@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
@@ -10,7 +11,7 @@ export default function ThreadsClient() {
   useEffect(() => {
     const phoneInput = document.getElementById('f-phone');
     if (phoneInput) {
-      phoneInput.addEventListener('input', function(e) {
+      phoneInput.addEventListener('input', function (e) {
         let val = e.target.value.replace(/\D/g, '');
         if (val.length > 0) {
           if (val[0] === '8') val = '7' + val.substring(1);
@@ -60,7 +61,7 @@ export default function ThreadsClient() {
     if (!name) { alert('Пожалуйста, введите ваше имя'); return; }
     if (!phone) { alert('Пожалуйста, введите номер WhatsApp'); return; }
 
-    const whatsappNumber = '77478051680'; 
+    const whatsappNumber = '77478051680';
 
     let message = '🔥 *Заявка на продвижение в Threads*\n\n';
     message += '👤 Имя: ' + name + '\n';
@@ -75,7 +76,8 @@ export default function ThreadsClient() {
 
   return (
     <div className="threads-page-isolation">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -786,638 +788,638 @@ section { padding: 100px 0; }
         .footer-area { display: none !important; }
         .floating-whatsapp { display: none !important; } 
       `}} />
-      
-
-{/*  */}
 
 
-{/*  */}
-<header className="site-header">
-  <div className="container">
-    <a href="/" className="logo">DIGITAL<span>PRIDE</span></a>
-    <a href="#form" className="header-cta">Оставить заявку</a>
-  </div>
-</header>
+      {/*  */}
 
-{/*  */}
-<section className="hero">
-  <div className="container">
-    <div className="hero-grid">
-      <div className="hero-text">
-        <div className="hero-badge">
-          <span className="pulse"></span>
-          Набираем клиентов — осталось 4 места
+
+      {/*  */}
+      <header className="site-header">
+        <div className="container">
+          <a href="/" className="logo">DIGITAL<span>PRIDE</span></a>
+          <a href="#form" className="header-cta">Оставить заявку</a>
         </div>
-        <h1>Комплексное продвижение в <span className="highlight">Threads</span> для экспертов</h1>
-        <p className="hero-subtitle">Выведем ваш личный бренд в топ Threads за 30 дней. Вирусный контент, органический рост аудитории и поток заявок — без накруток и серых схем.</p>
-        <div className="hero-buttons">
-          <a href="#form" className="btn-primary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
-            Получить стратегию бесплатно
-          </a>
-          <a href="#services" className="btn-secondary">Что входит в продвижение ↓</a>
-        </div>
-      </div>
-      <div className="hero-visual">
-        <div className="hero-phone">
-          <div className="phone-notch"></div>
-          <div className="phone-screen">
-            <div className="phone-header">
-              <div className="phone-avatar">DP</div>
-              <div>
-                <div className="phone-username">digitalpride</div>
-                <div className="phone-handle">127K подписчиков</div>
+      </header>
+
+      {/*  */}
+      <section className="hero">
+        <div className="container">
+          <div className="hero-grid">
+            <div className="hero-text">
+              <div className="hero-badge">
+                <span className="pulse"></span>
+                Набираем клиентов — осталось 4 места
+              </div>
+              <h1>Комплексное продвижение в <span className="highlight">Threads</span> для экспертов</h1>
+              <p className="hero-subtitle">Выведем ваш личный бренд в топ Threads за 30 дней. Вирусный контент, органический рост аудитории и поток заявок — без накруток и серых схем.</p>
+              <div className="hero-buttons">
+                <a href="#form" className="btn-primary">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 2L11 13" /><path d="M22 2L15 22L11 13L2 9L22 2Z" /></svg>
+                  Получить стратегию бесплатно
+                </a>
+                <a href="#services" className="btn-secondary">Что входит в продвижение ↓</a>
               </div>
             </div>
-            <div className="phone-post">
-              <p>90% экспертов сливают деньги на таргет, когда в Threads можно бесплатно получать по 50 заявок в неделю. Рассказываю как 👇</p>
-              <div className="phone-post-stats">
-                <span className="stat-fire">❤️ 2.4K</span>
-                <span>💬 312</span>
-                <span className="stat-up">🔄 876</span>
+            <div className="hero-visual">
+              <div className="hero-phone">
+                <div className="phone-notch"></div>
+                <div className="phone-screen">
+                  <div className="phone-header">
+                    <div className="phone-avatar">DP</div>
+                    <div>
+                      <div className="phone-username">digitalpride</div>
+                      <div className="phone-handle">127K подписчиков</div>
+                    </div>
+                  </div>
+                  <div className="phone-post">
+                    <p>90% экспертов сливают деньги на таргет, когда в Threads можно бесплатно получать по 50 заявок в неделю. Рассказываю как 👇</p>
+                    <div className="phone-post-stats">
+                      <span className="stat-fire">❤️ 2.4K</span>
+                      <span>💬 312</span>
+                      <span className="stat-up">🔄 876</span>
+                    </div>
+                  </div>
+                  <div className="phone-post">
+                    <p>Клиент пришёл с 200 подписчиками. Через месяц — 14 000 и очередь из клиентов. Без вложений в рекламу.</p>
+                    <div className="phone-post-stats">
+                      <span className="stat-fire">❤️ 1.8K</span>
+                      <span>💬 241</span>
+                      <span className="stat-up">🔄 534</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="hero-float-stat float-stat-1">
+                <div className="float-stat-number">+847%</div>
+                <div className="float-stat-label">Рост охватов за месяц</div>
+              </div>
+              <div className="hero-float-stat float-stat-2">
+                <div className="float-stat-number">52</div>
+                <div className="float-stat-label">Заявки в неделю</div>
               </div>
             </div>
-            <div className="phone-post">
-              <p>Клиент пришёл с 200 подписчиками. Через месяц — 14 000 и очередь из клиентов. Без вложений в рекламу.</p>
-              <div className="phone-post-stats">
-                <span className="stat-fire">❤️ 1.8K</span>
-                <span>💬 241</span>
-                <span className="stat-up">🔄 534</span>
+          </div>
+        </div>
+      </section>
+
+      {/*  */}
+      <div className="stats-bar">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="stat-item">
+              <div className="stat-item-num">230+</div>
+              <div className="stat-item-label">Клиентов продвинули</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-item-num">14 дн</div>
+              <div className="stat-item-label">Первые заявки</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-item-num">50M+</div>
+              <div className="stat-item-label">Суммарный охват</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-item-num">93%</div>
+              <div className="stat-item-label">Клиентов продлевают</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*  */}
+      <section className="why-threads" id="why">
+        <div className="container">
+          <div className="section-label">Почему Threads</div>
+          <h2 className="section-title">Threads — самая быстрорастущая площадка для экспертов в 2025–2026</h2>
+          <p className="section-subtitle">Пока конкуренты бьются за внимание в перегретых соцсетях, Threads даёт органический охват, о котором Instagram и Telegram могут только мечтать.</p>
+          <div className="why-grid">
+            <article className="why-card">
+              <div className="why-icon">🚀</div>
+              <h3>Органический охват без бюджета</h3>
+              <p>Алгоритмы Threads активно продвигают новый контент. Один вирусный пост может набрать сотни тысяч просмотров без вложений в рекламу и продвижение.</p>
+            </article>
+            <article className="why-card">
+              <div className="why-icon">🎯</div>
+              <h3>Платёжеспособная аудитория</h3>
+              <p>Аудитория Threads — предприниматели, эксперты и активные пользователи Instagram. Это люди, которые готовы покупать услуги и продукты.</p>
+            </article>
+            <article className="why-card">
+              <div className="why-icon">⚡</div>
+              <h3>Низкая конкуренция</h3>
+              <p>Большинство экспертов ещё не освоили Threads. Зайти сейчас — значит занять свою нишу, пока конкуренты не пришли и площадка максимально лояльна к авторам.</p>
+            </article>
+            <article className="why-card">
+              <div className="why-icon">🔗</div>
+              <h3>Связка с Instagram</h3>
+              <p>Threads интегрирован с Instagram. Посты из Threads видны в ленте Instagram, а подписчики легко переходят между платформами, увеличивая точки касания.</p>
+            </article>
+            <article className="why-card">
+              <div className="why-icon">📈</div>
+              <h3>Быстрый рост подписчиков</h3>
+              <p>Средний аккаунт наших клиентов растёт на 3 000–15 000 подписчиков в месяц. Это реальные люди, заинтересованные в вашей экспертизе.</p>
+            </article>
+            <article className="why-card">
+              <div className="why-icon">💬</div>
+              <h3>Высокий уровень вовлечения</h3>
+              <p>Текстовый формат Threads стимулирует дискуссии. Комментарии и репосты усиливают охват — каждый ваш пост работает как вирусный двигатель.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/*  */}
+      <section className="services" id="services">
+        <div className="container">
+          <div className="section-label">Что входит</div>
+          <h2 className="section-title">Комплексное продвижение в Threads — всё включено</h2>
+          <p className="section-subtitle">Мы берём на себя весь цикл продвижения: от разработки контент-стратегии до публикации вирусных постов и привлечения целевой аудитории.</p>
+          <div className="services-grid">
+            <article className="service-card">
+              <div className="service-num">01</div>
+              <h3>Разработка контент-стратегии</h3>
+              <p>Анализируем вашу нишу, конкурентов и целевую аудиторию. Создаём контент-план на месяц с учётом алгоритмов Threads: рубрики, форматы, триггеры вовлечения и расписание публикаций.</p>
+              <span className="service-tag">Стратегия</span>
+            </article>
+            <article className="service-card">
+              <div className="service-num">02</div>
+              <h3>Создание вирусного контента</h3>
+              <p>Пишем посты, которые залетают: провокационные тезисы, экспертные разборы, вовлекающие треды. Каждый пост оптимизирован под алгоритмы Threads для максимального органического охвата.</p>
+              <span className="service-tag">Контент</span>
+            </article>
+            <article className="service-card">
+              <div className="service-num">03</div>
+              <h3>Комментинг и нетворкинг</h3>
+              <p>Стратегическое комментирование популярных постов от имени вашего аккаунта. Каждый комментарий — это точка касания с тысячами потенциальных подписчиков и клиентов.</p>
+              <span className="service-tag">Охват</span>
+            </article>
+            <article className="service-card">
+              <div className="service-num">04</div>
+              <h3>Аналитика и оптимизация</h3>
+              <p>Еженедельные отчёты с ключевыми метриками: рост подписчиков, охваты, вовлечённость, конверсия в заявки. Корректируем стратегию на основе данных для максимальной эффективности.</p>
+              <span className="service-tag">Данные</span>
+            </article>
+            <article className="service-card">
+              <div className="service-num">05</div>
+              <h3>Упаковка профиля</h3>
+              <p>Оптимизируем ваш профиль в Threads: продающая биография, визуальное оформление, ссылки и призывы к действию. Профиль, который конвертирует посетителей в подписчиков.</p>
+              <span className="service-tag">Брендинг</span>
+            </article>
+            <article className="service-card">
+              <div className="service-num">06</div>
+              <h3>Адаптация топовых постов</h3>
+              <p>Мониторим вирусные посты в вашей нише и адаптируем лучшие форматы под ваш бренд. Проверенные механики, которые уже собрали тысячи лайков и репостов.</p>
+              <span className="service-tag">Тренды</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/*  */}
+      <section className="screenshots" id="cases">
+        <div className="container">
+          <div className="section-label">Примеры постов</div>
+          <h2 className="section-title">Вирусные посты наших клиентов в Threads</h2>
+          <p className="section-subtitle">Реальные результаты — посты, которые набирают тысячи реакций и привлекают целевую аудиторию.</p>
+          <div className="screenshots-grid">
+            <div className="screenshot-card">
+              <div className="screenshot-img">
+                <div className="thread-mock">
+                  <div className="thread-mock-header">
+                    <div className="thread-mock-ava"></div>
+                    <div>
+                      <div className="thread-mock-name">маркетолог_про</div>
+                      <div className="thread-mock-time">2 ч.</div>
+                    </div>
+                  </div>
+                  <div className="thread-mock-text">
+                    Я потратил 500 000₽ на таргетированную рекламу и получил 12 клиентов.<br /><br />Потом начал писать в Threads по стратегии Digital Pride — и за месяц пришло 47 клиентов. Бесплатно.<br /><br />Вот что я делал 🧵👇
+                  </div>
+                  <div className="thread-mock-engagement">
+                    <span className="hot">❤️ 3 841</span>
+                    <span>💬 487</span>
+                    <span>🔄 1 204</span>
+                  </div>
+                </div>
+              </div>
+              <div className="screenshot-label">
+                <span className="screenshot-label-text">Кейс: маркетолог</span>
+                <span className="screenshot-label-stat">+8 700 подписчиков</span>
+              </div>
+            </div>
+            <div className="screenshot-card">
+              <div className="screenshot-img">
+                <div className="thread-mock">
+                  <div className="thread-mock-header">
+                    <div className="thread-mock-ava green"></div>
+                    <div>
+                      <div className="thread-mock-name">бизнес_наставник</div>
+                      <div className="thread-mock-time">5 ч.</div>
+                    </div>
+                  </div>
+                  <div className="thread-mock-text">
+                    3 вещи, которые отделяют эксперта с доходом 100К от эксперта с доходом 1М:<br /><br />1. Система привлечения клиентов<br />2. Присутствие на растущих платформах<br />3. Контент, который продаёт без продаж<br /><br />Threads закрывает все три. Объясняю ↓
+                  </div>
+                  <div className="thread-mock-engagement">
+                    <span className="hot">❤️ 5 203</span>
+                    <span>💬 612</span>
+                    <span>🔄 2 087</span>
+                  </div>
+                </div>
+              </div>
+              <div className="screenshot-label">
+                <span className="screenshot-label-text">Кейс: наставник</span>
+                <span className="screenshot-label-stat">+14 200 подписчиков</span>
+              </div>
+            </div>
+            <div className="screenshot-card">
+              <div className="screenshot-img">
+                <div className="thread-mock">
+                  <div className="thread-mock-header">
+                    <div className="thread-mock-ava blue"></div>
+                    <div>
+                      <div className="thread-mock-name">психолог_анна</div>
+                      <div className="thread-mock-time">8 ч.</div>
+                    </div>
+                  </div>
+                  <div className="thread-mock-text">
+                    Мне говорили: «Психологу не нужны соцсети, клиенты придут сами».<br /><br />Сами пришли — 0.<br />Из Threads за 3 недели — 23 записи на консультацию.<br /><br />Секрет? Не экспертные посты, а провокации, которые заставляют думать.
+                  </div>
+                  <div className="thread-mock-engagement">
+                    <span className="hot">❤️ 2 156</span>
+                    <span>💬 334</span>
+                    <span>🔄 891</span>
+                  </div>
+                </div>
+              </div>
+              <div className="screenshot-label">
+                <span className="screenshot-label-text">Кейс: психолог</span>
+                <span className="screenshot-label-stat">+6 400 подписчиков</span>
               </div>
             </div>
           </div>
         </div>
-        <div className="hero-float-stat float-stat-1">
-          <div className="float-stat-number">+847%</div>
-          <div className="float-stat-label">Рост охватов за месяц</div>
-        </div>
-        <div className="hero-float-stat float-stat-2">
-          <div className="float-stat-number">52</div>
-          <div className="float-stat-label">Заявки в неделю</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/*  */}
-<div className="stats-bar">
-  <div className="container">
-    <div className="stats-grid">
-      <div className="stat-item">
-        <div className="stat-item-num">230+</div>
-        <div className="stat-item-label">Клиентов продвинули</div>
-      </div>
-      <div className="stat-item">
-        <div className="stat-item-num">14 дн</div>
-        <div className="stat-item-label">Первые заявки</div>
-      </div>
-      <div className="stat-item">
-        <div className="stat-item-num">50M+</div>
-        <div className="stat-item-label">Суммарный охват</div>
-      </div>
-      <div className="stat-item">
-        <div className="stat-item-num">93%</div>
-        <div className="stat-item-label">Клиентов продлевают</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{/*  */}
-<section className="why-threads" id="why">
-  <div className="container">
-    <div className="section-label">Почему Threads</div>
-    <h2 className="section-title">Threads — самая быстрорастущая площадка для экспертов в 2025–2026</h2>
-    <p className="section-subtitle">Пока конкуренты бьются за внимание в перегретых соцсетях, Threads даёт органический охват, о котором Instagram и Telegram могут только мечтать.</p>
-    <div className="why-grid">
-      <article className="why-card">
-        <div className="why-icon">🚀</div>
-        <h3>Органический охват без бюджета</h3>
-        <p>Алгоритмы Threads активно продвигают новый контент. Один вирусный пост может набрать сотни тысяч просмотров без вложений в рекламу и продвижение.</p>
-      </article>
-      <article className="why-card">
-        <div className="why-icon">🎯</div>
-        <h3>Платёжеспособная аудитория</h3>
-        <p>Аудитория Threads — предприниматели, эксперты и активные пользователи Instagram. Это люди, которые готовы покупать услуги и продукты.</p>
-      </article>
-      <article className="why-card">
-        <div className="why-icon">⚡</div>
-        <h3>Низкая конкуренция</h3>
-        <p>Большинство экспертов ещё не освоили Threads. Зайти сейчас — значит занять свою нишу, пока конкуренты не пришли и площадка максимально лояльна к авторам.</p>
-      </article>
-      <article className="why-card">
-        <div className="why-icon">🔗</div>
-        <h3>Связка с Instagram</h3>
-        <p>Threads интегрирован с Instagram. Посты из Threads видны в ленте Instagram, а подписчики легко переходят между платформами, увеличивая точки касания.</p>
-      </article>
-      <article className="why-card">
-        <div className="why-icon">📈</div>
-        <h3>Быстрый рост подписчиков</h3>
-        <p>Средний аккаунт наших клиентов растёт на 3 000–15 000 подписчиков в месяц. Это реальные люди, заинтересованные в вашей экспертизе.</p>
-      </article>
-      <article className="why-card">
-        <div className="why-icon">💬</div>
-        <h3>Высокий уровень вовлечения</h3>
-        <p>Текстовый формат Threads стимулирует дискуссии. Комментарии и репосты усиливают охват — каждый ваш пост работает как вирусный двигатель.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-{/*  */}
-<section className="services" id="services">
-  <div className="container">
-    <div className="section-label">Что входит</div>
-    <h2 className="section-title">Комплексное продвижение в Threads — всё включено</h2>
-    <p className="section-subtitle">Мы берём на себя весь цикл продвижения: от разработки контент-стратегии до публикации вирусных постов и привлечения целевой аудитории.</p>
-    <div className="services-grid">
-      <article className="service-card">
-        <div className="service-num">01</div>
-        <h3>Разработка контент-стратегии</h3>
-        <p>Анализируем вашу нишу, конкурентов и целевую аудиторию. Создаём контент-план на месяц с учётом алгоритмов Threads: рубрики, форматы, триггеры вовлечения и расписание публикаций.</p>
-        <span className="service-tag">Стратегия</span>
-      </article>
-      <article className="service-card">
-        <div className="service-num">02</div>
-        <h3>Создание вирусного контента</h3>
-        <p>Пишем посты, которые залетают: провокационные тезисы, экспертные разборы, вовлекающие треды. Каждый пост оптимизирован под алгоритмы Threads для максимального органического охвата.</p>
-        <span className="service-tag">Контент</span>
-      </article>
-      <article className="service-card">
-        <div className="service-num">03</div>
-        <h3>Комментинг и нетворкинг</h3>
-        <p>Стратегическое комментирование популярных постов от имени вашего аккаунта. Каждый комментарий — это точка касания с тысячами потенциальных подписчиков и клиентов.</p>
-        <span className="service-tag">Охват</span>
-      </article>
-      <article className="service-card">
-        <div className="service-num">04</div>
-        <h3>Аналитика и оптимизация</h3>
-        <p>Еженедельные отчёты с ключевыми метриками: рост подписчиков, охваты, вовлечённость, конверсия в заявки. Корректируем стратегию на основе данных для максимальной эффективности.</p>
-        <span className="service-tag">Данные</span>
-      </article>
-      <article className="service-card">
-        <div className="service-num">05</div>
-        <h3>Упаковка профиля</h3>
-        <p>Оптимизируем ваш профиль в Threads: продающая биография, визуальное оформление, ссылки и призывы к действию. Профиль, который конвертирует посетителей в подписчиков.</p>
-        <span className="service-tag">Брендинг</span>
-      </article>
-      <article className="service-card">
-        <div className="service-num">06</div>
-        <h3>Адаптация топовых постов</h3>
-        <p>Мониторим вирусные посты в вашей нише и адаптируем лучшие форматы под ваш бренд. Проверенные механики, которые уже собрали тысячи лайков и репостов.</p>
-        <span className="service-tag">Тренды</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-{/*  */}
-<section className="screenshots" id="cases">
-  <div className="container">
-    <div className="section-label">Примеры постов</div>
-    <h2 className="section-title">Вирусные посты наших клиентов в Threads</h2>
-    <p className="section-subtitle">Реальные результаты — посты, которые набирают тысячи реакций и привлекают целевую аудиторию.</p>
-    <div className="screenshots-grid">
-      <div className="screenshot-card">
-        <div className="screenshot-img">
-          <div className="thread-mock">
-            <div className="thread-mock-header">
-              <div className="thread-mock-ava"></div>
-              <div>
-                <div className="thread-mock-name">маркетолог_про</div>
-                <div className="thread-mock-time">2 ч.</div>
+      {/*  */}
+      <section className="stats-showcase" id="stats">
+        <div className="container">
+          <div className="section-label">Статистика</div>
+          <h2 className="section-title">Реальные цифры роста аккаунтов наших клиентов</h2>
+          <p className="section-subtitle">Прозрачная аналитика — каждый клиент видит рост в реальном времени.</p>
+          <div className="stats-showcase-grid">
+            <div className="stats-card">
+              <div className="stats-card-header">
+                <span className="stats-card-title">Рост подписчиков</span>
+                <span className="stats-card-period">Последние 30 дней</span>
+              </div>
+              <div className="stats-bar-chart">
+                <div className="bar" style={{ "height": "15%" }}></div>
+                <div className="bar" style={{ "height": "22%" }}></div>
+                <div className="bar" style={{ "height": "18%" }}></div>
+                <div className="bar" style={{ "height": "35%" }}></div>
+                <div className="bar" style={{ "height": "28%" }}></div>
+                <div className="bar" style={{ "height": "42%" }}></div>
+                <div className="bar" style={{ "height": "38%" }}></div>
+                <div className="bar" style={{ "height": "55%" }}></div>
+                <div className="bar" style={{ "height": "48%" }}></div>
+                <div className="bar" style={{ "height": "62%" }}></div>
+                <div className="bar" style={{ "height": "70%" }}></div>
+                <div className="bar" style={{ "height": "65%" }}></div>
+                <div className="bar" style={{ "height": "78%" }}></div>
+                <div className="bar active" style={{ "height": "92%" }}></div>
+                <div className="bar active" style={{ "height": "100%" }}></div>
+              </div>
+              <div className="stats-card-metrics">
+                <div>
+                  <div className="metric-val">12.4K</div>
+                  <div className="metric-label">Новых подписчиков</div>
+                  <div className="metric-change">↑ 340% к прошлому месяцу</div>
+                </div>
+                <div>
+                  <div className="metric-val">847</div>
+                  <div className="metric-label">В среднем в день</div>
+                  <div className="metric-change">↑ 215%</div>
+                </div>
+                <div>
+                  <div className="metric-val">0.3%</div>
+                  <div className="metric-label">Отписок</div>
+                  <div className="metric-change">Минимум</div>
+                </div>
               </div>
             </div>
-            <div className="thread-mock-text">
-              Я потратил 500 000₽ на таргетированную рекламу и получил 12 клиентов.<br /><br />Потом начал писать в Threads по стратегии Digital Pride — и за месяц пришло 47 клиентов. Бесплатно.<br /><br />Вот что я делал 🧵👇
-            </div>
-            <div className="thread-mock-engagement">
-              <span className="hot">❤️ 3 841</span>
-              <span>💬 487</span>
-              <span>🔄 1 204</span>
-            </div>
-          </div>
-        </div>
-        <div className="screenshot-label">
-          <span className="screenshot-label-text">Кейс: маркетолог</span>
-          <span className="screenshot-label-stat">+8 700 подписчиков</span>
-        </div>
-      </div>
-      <div className="screenshot-card">
-        <div className="screenshot-img">
-          <div className="thread-mock">
-            <div className="thread-mock-header">
-              <div className="thread-mock-ava green"></div>
-              <div>
-                <div className="thread-mock-name">бизнес_наставник</div>
-                <div className="thread-mock-time">5 ч.</div>
+            <div className="stats-card">
+              <div className="stats-card-header">
+                <span className="stats-card-title">Охват публикаций</span>
+                <span className="stats-card-period">Последние 30 дней</span>
+              </div>
+              <div className="stats-line-chart">
+                <svg viewBox="0 0 400 140" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(232,255,0,0.3)" />
+                      <stop offset="100%" stopColor="rgba(232,255,0,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 120 Q30 115 50 110 T100 95 T150 80 T200 55 T250 45 T300 25 T350 18 T400 8" fill="none" stroke="var(--accent)" strokeWidth="2.5" />
+                  <path d="M0 120 Q30 115 50 110 T100 95 T150 80 T200 55 T250 45 T300 25 T350 18 T400 8 L400 140 L0 140 Z" fill="url(#lineGrad)" />
+                </svg>
+              </div>
+              <div className="stats-card-metrics">
+                <div>
+                  <div className="metric-val">2.8M</div>
+                  <div className="metric-label">Суммарный охват</div>
+                  <div className="metric-change">↑ 520%</div>
+                </div>
+                <div>
+                  <div className="metric-val">186K</div>
+                  <div className="metric-label">Лучший пост</div>
+                  <div className="metric-change">Рекорд аккаунта</div>
+                </div>
+                <div>
+                  <div className="metric-val">8.7%</div>
+                  <div className="metric-label">Вовлечённость</div>
+                  <div className="metric-change">↑ в 4 раза</div>
+                </div>
               </div>
             </div>
-            <div className="thread-mock-text">
-              3 вещи, которые отделяют эксперта с доходом 100К от эксперта с доходом 1М:<br /><br />1. Система привлечения клиентов<br />2. Присутствие на растущих платформах<br />3. Контент, который продаёт без продаж<br /><br />Threads закрывает все три. Объясняю ↓
-            </div>
-            <div className="thread-mock-engagement">
-              <span className="hot">❤️ 5 203</span>
-              <span>💬 612</span>
-              <span>🔄 2 087</span>
-            </div>
-          </div>
-        </div>
-        <div className="screenshot-label">
-          <span className="screenshot-label-text">Кейс: наставник</span>
-          <span className="screenshot-label-stat">+14 200 подписчиков</span>
-        </div>
-      </div>
-      <div className="screenshot-card">
-        <div className="screenshot-img">
-          <div className="thread-mock">
-            <div className="thread-mock-header">
-              <div className="thread-mock-ava blue"></div>
-              <div>
-                <div className="thread-mock-name">психолог_анна</div>
-                <div className="thread-mock-time">8 ч.</div>
+            <div className="stats-card">
+              <div className="stats-card-header">
+                <span className="stats-card-title">Конверсия в заявки</span>
+                <span className="stats-card-period">Последние 30 дней</span>
+              </div>
+              <div className="stats-bar-chart">
+                <div className="bar" style={{ "height": "20%" }}></div>
+                <div className="bar" style={{ "height": "25%" }}></div>
+                <div className="bar" style={{ "height": "30%" }}></div>
+                <div className="bar" style={{ "height": "40%" }}></div>
+                <div className="bar" style={{ "height": "35%" }}></div>
+                <div className="bar" style={{ "height": "50%" }}></div>
+                <div className="bar" style={{ "height": "55%" }}></div>
+                <div className="bar" style={{ "height": "65%" }}></div>
+                <div className="bar active" style={{ "height": "75%" }}></div>
+                <div className="bar active" style={{ "height": "85%" }}></div>
+                <div className="bar active" style={{ "height": "90%" }}></div>
+                <div className="bar active" style={{ "height": "100%" }}></div>
+              </div>
+              <div className="stats-card-metrics">
+                <div>
+                  <div className="metric-val">147</div>
+                  <div className="metric-label">Заявок за месяц</div>
+                  <div className="metric-change">↑ 280%</div>
+                </div>
+                <div>
+                  <div className="metric-val">34%</div>
+                  <div className="metric-label">Конверсия в оплату</div>
+                  <div className="metric-change">↑ 12%</div>
+                </div>
+                <div>
+                  <div className="metric-val">₽0</div>
+                  <div className="metric-label">Затраты на рекламу</div>
+                  <div className="metric-change">Только органика</div>
+                </div>
               </div>
             </div>
-            <div className="thread-mock-text">
-              Мне говорили: «Психологу не нужны соцсети, клиенты придут сами».<br /><br />Сами пришли — 0.<br />Из Threads за 3 недели — 23 записи на консультацию.<br /><br />Секрет? Не экспертные посты, а провокации, которые заставляют думать.
+            <div className="stats-card">
+              <div className="stats-card-header">
+                <span className="stats-card-title">Рост вовлечённости</span>
+                <span className="stats-card-period">Динамика за квартал</span>
+              </div>
+              <div className="stats-line-chart">
+                <svg viewBox="0 0 400 140" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="lineGrad2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(0,230,118,0.2)" />
+                      <stop offset="100%" stopColor="rgba(0,230,118,0)" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 130 Q25 125 50 118 T100 105 T150 88 T200 72 T250 50 T300 35 T350 22 T400 12" fill="none" stroke="var(--green)" strokeWidth="2.5" />
+                  <path d="M0 130 Q25 125 50 118 T100 105 T150 88 T200 72 T250 50 T300 35 T350 22 T400 12 L400 140 L0 140 Z" fill="url(#lineGrad2)" />
+                </svg>
+              </div>
+              <div className="stats-card-metrics">
+                <div>
+                  <div className="metric-val" style={{ "color": "var(--green)" }}>8.7%</div>
+                  <div className="metric-label">ER текущий</div>
+                  <div className="metric-change">Было 1.2%</div>
+                </div>
+                <div>
+                  <div className="metric-val" style={{ "color": "var(--green)" }}>×7.2</div>
+                  <div className="metric-label">Рост за квартал</div>
+                  <div className="metric-change">Стабильный тренд</div>
+                </div>
+                <div>
+                  <div className="metric-val" style={{ "color": "var(--green)" }}>92%</div>
+                  <div className="metric-label">Комменты — живые</div>
+                  <div className="metric-change">Без ботов</div>
+                </div>
+              </div>
             </div>
-            <div className="thread-mock-engagement">
-              <span className="hot">❤️ 2 156</span>
-              <span>💬 334</span>
-              <span>🔄 891</span>
+          </div>
+        </div>
+      </section>
+
+      {/*  */}
+      <section className="process" id="process">
+        <div className="container">
+          <div className="section-label">Как мы работаем</div>
+          <h2 className="section-title">Путь от заявки до первых результатов</h2>
+          <p className="section-subtitle">Прозрачный процесс — вы видите каждый этап и контролируете результат.</p>
+          <div className="process-timeline">
+            <div className="process-step">
+              <div className="step-marker">1</div>
+              <div className="step-content">
+                <h3>Бесплатная консультация</h3>
+                <p>Созваниваемся, разбираем вашу нишу и текущую ситуацию. Вы получаете предварительную стратегию продвижения в Threads — без обязательств и оплаты.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-marker">2</div>
+              <div className="step-content">
+                <h3>Анализ и упаковка профиля</h3>
+                <p>Проводим аудит вашего аккаунта, оформляем профиль, пишем продающую биографию. Анализируем конкурентов и находим контентные пробелы в вашей нише.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-marker">3</div>
+              <div className="step-content">
+                <h3>Запуск контент-машины</h3>
+                <p>Начинаем публикации по утверждённому контент-плану. Вирусные посты, треды, провокации — каждый пост нацелен на максимальный охват и вовлечение.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-marker">4</div>
+              <div className="step-content">
+                <h3>Масштабирование и рост</h3>
+                <p>Анализируем метрики, оптимизируем стратегию, масштабируем то, что работает. Подключаем комментинг топовых постов для дополнительного притока аудитории.</p>
+              </div>
+            </div>
+            <div className="process-step">
+              <div className="step-marker">5</div>
+              <div className="step-content">
+                <h3>Поток заявок и клиентов</h3>
+                <p>Вы получаете стабильный поток целевых обращений. Средний результат — 30–50 заявок в неделю от людей, готовых покупать ваши услуги и продукты.</p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="screenshot-label">
-          <span className="screenshot-label-text">Кейс: психолог</span>
-          <span className="screenshot-label-stat">+6 400 подписчиков</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/*  */}
-<section className="stats-showcase" id="stats">
-  <div className="container">
-    <div className="section-label">Статистика</div>
-    <h2 className="section-title">Реальные цифры роста аккаунтов наших клиентов</h2>
-    <p className="section-subtitle">Прозрачная аналитика — каждый клиент видит рост в реальном времени.</p>
-    <div className="stats-showcase-grid">
-      <div className="stats-card">
-        <div className="stats-card-header">
-          <span className="stats-card-title">Рост подписчиков</span>
-          <span className="stats-card-period">Последние 30 дней</span>
-        </div>
-        <div className="stats-bar-chart">
-          <div className="bar" style={{"height":"15%"}}></div>
-          <div className="bar" style={{"height":"22%"}}></div>
-          <div className="bar" style={{"height":"18%"}}></div>
-          <div className="bar" style={{"height":"35%"}}></div>
-          <div className="bar" style={{"height":"28%"}}></div>
-          <div className="bar" style={{"height":"42%"}}></div>
-          <div className="bar" style={{"height":"38%"}}></div>
-          <div className="bar" style={{"height":"55%"}}></div>
-          <div className="bar" style={{"height":"48%"}}></div>
-          <div className="bar" style={{"height":"62%"}}></div>
-          <div className="bar" style={{"height":"70%"}}></div>
-          <div className="bar" style={{"height":"65%"}}></div>
-          <div className="bar" style={{"height":"78%"}}></div>
-          <div className="bar active" style={{"height":"92%"}}></div>
-          <div className="bar active" style={{"height":"100%"}}></div>
-        </div>
-        <div className="stats-card-metrics">
-          <div>
-            <div className="metric-val">12.4K</div>
-            <div className="metric-label">Новых подписчиков</div>
-            <div className="metric-change">↑ 340% к прошлому месяцу</div>
-          </div>
-          <div>
-            <div className="metric-val">847</div>
-            <div className="metric-label">В среднем в день</div>
-            <div className="metric-change">↑ 215%</div>
-          </div>
-          <div>
-            <div className="metric-val">0.3%</div>
-            <div className="metric-label">Отписок</div>
-            <div className="metric-change">Минимум</div>
-          </div>
-        </div>
-      </div>
-      <div className="stats-card">
-        <div className="stats-card-header">
-          <span className="stats-card-title">Охват публикаций</span>
-          <span className="stats-card-period">Последние 30 дней</span>
-        </div>
-        <div className="stats-line-chart">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="rgba(232,255,0,0.3)"/>
-                <stop offset="100%" stopColor="rgba(232,255,0,0)"/>
-              </linearGradient>
-            </defs>
-            <path d="M0 120 Q30 115 50 110 T100 95 T150 80 T200 55 T250 45 T300 25 T350 18 T400 8" fill="none" stroke="var(--accent)" strokeWidth="2.5"/>
-            <path d="M0 120 Q30 115 50 110 T100 95 T150 80 T200 55 T250 45 T300 25 T350 18 T400 8 L400 140 L0 140 Z" fill="url(#lineGrad)"/>
-          </svg>
-        </div>
-        <div className="stats-card-metrics">
-          <div>
-            <div className="metric-val">2.8M</div>
-            <div className="metric-label">Суммарный охват</div>
-            <div className="metric-change">↑ 520%</div>
-          </div>
-          <div>
-            <div className="metric-val">186K</div>
-            <div className="metric-label">Лучший пост</div>
-            <div className="metric-change">Рекорд аккаунта</div>
-          </div>
-          <div>
-            <div className="metric-val">8.7%</div>
-            <div className="metric-label">Вовлечённость</div>
-            <div className="metric-change">↑ в 4 раза</div>
+      {/*  */}
+      <section className="cta-section" id="form">
+        <div className="container">
+          <div className="cta-grid">
+            <div className="cta-text">
+              <div className="section-label">Начать сейчас</div>
+              <h2 className="section-title">Готовы получать клиентов из Threads?</h2>
+              <p className="section-subtitle" style={{ "marginBottom": "28px" }}>Заполните форму — мы свяжемся с вами в WhatsApp в течение 2 часов и проведём бесплатную консультацию по продвижению вашего аккаунта в Threads.</p>
+              <div style={{ "display": "flex", "flexDirection": "column", "gap": "20px" }}>
+                <div style={{ "display": "flex", "alignItems": "center", "gap": "14px" }}>
+                  <div style={{ "width": "44px", "height": "44px", "background": "rgba(232,255,0,0.1)", "borderRadius": "12px", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontSize": "1.2rem", "minWidth": "44px" }}>✅</div>
+                  <div><strong>Бесплатная стратегия</strong><br /><span style={{ "color": "var(--gray-3)", "fontSize": "0.85rem" }}>Получите персональный план продвижения</span></div>
+                </div>
+                <div style={{ "display": "flex", "alignItems": "center", "gap": "14px" }}>
+                  <div style={{ "width": "44px", "height": "44px", "background": "rgba(232,255,0,0.1)", "borderRadius": "12px", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontSize": "1.2rem", "minWidth": "44px" }}>⚡</div>
+                  <div><strong>Ответ за 2 часа</strong><br /><span style={{ "color": "var(--gray-3)", "fontSize": "0.85rem" }}>Напишем вам в WhatsApp максимально быстро</span></div>
+                </div>
+                <div style={{ "display": "flex", "alignItems": "center", "gap": "14px" }}>
+                  <div style={{ "width": "44px", "height": "44px", "background": "rgba(232,255,0,0.1)", "borderRadius": "12px", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontSize": "1.2rem", "minWidth": "44px" }}>🔒</div>
+                  <div><strong>Без обязательств</strong><br /><span style={{ "color": "var(--gray-3)", "fontSize": "0.85rem" }}>Консультация бесплатна, решение за вами</span></div>
+                </div>
+              </div>
+            </div>
+            <div className="cta-form" id="lead-form">
+              <h3>Заявка на продвижение в Threads</h3>
+              <p className="form-sub">Заполните форму — мы свяжемся в WhatsApp</p>
+              <div className="form-group">
+                <label>Ваше имя</label>
+                <input type="text" id="f-name" placeholder="Как к вам обращаться?" required />
+              </div>
+              <div className="form-group">
+                <label>Номер WhatsApp</label>
+                <input type="tel" id="f-phone" placeholder="+7 (___) ___-__-__" required />
+              </div>
+              <div className="form-group">
+                <label>Ваша ниша / сфера деятельности</label>
+                <select id="f-niche">
+                  <option value="">Выберите нишу</option>
+                  <option value="Маркетинг">Маркетинг и SMM</option>
+                  <option value="Психология">Психология и коучинг</option>
+                  <option value="Бизнес">Бизнес и предпринимательство</option>
+                  <option value="Образование">Образование и наставничество</option>
+                  <option value="Здоровье">Здоровье и фитнес</option>
+                  <option value="Красота">Красота и стиль</option>
+                  <option value="Финансы">Финансы и инвестиции</option>
+                  <option value="IT">IT и технологии</option>
+                  <option value="Другое">Другое</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Ссылка на ваш Threads или Instagram (необязательно)</label>
+                <input type="url" id="f-link" placeholder="https://threads.net/@ваш_аккаунт" />
+              </div>
+              <button className="form-submit" onClick={(e) => submitForm(e)}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor" /><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c-.001 2.096.546 4.142 1.587 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.578 0 11.937-5.336 11.94-11.893.002-3.178-1.234-6.165-3.47-8.452zm-8.475 18.3h-.004a9.867 9.867 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.002-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.885z" fill="currentColor" /></svg>
+                Отправить заявку в WhatsApp
+              </button>
+              <p className="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="stats-card">
-        <div className="stats-card-header">
-          <span className="stats-card-title">Конверсия в заявки</span>
-          <span className="stats-card-period">Последние 30 дней</span>
-        </div>
-        <div className="stats-bar-chart">
-          <div className="bar" style={{"height":"20%"}}></div>
-          <div className="bar" style={{"height":"25%"}}></div>
-          <div className="bar" style={{"height":"30%"}}></div>
-          <div className="bar" style={{"height":"40%"}}></div>
-          <div className="bar" style={{"height":"35%"}}></div>
-          <div className="bar" style={{"height":"50%"}}></div>
-          <div className="bar" style={{"height":"55%"}}></div>
-          <div className="bar" style={{"height":"65%"}}></div>
-          <div className="bar active" style={{"height":"75%"}}></div>
-          <div className="bar active" style={{"height":"85%"}}></div>
-          <div className="bar active" style={{"height":"90%"}}></div>
-          <div className="bar active" style={{"height":"100%"}}></div>
-        </div>
-        <div className="stats-card-metrics">
-          <div>
-            <div className="metric-val">147</div>
-            <div className="metric-label">Заявок за месяц</div>
-            <div className="metric-change">↑ 280%</div>
-          </div>
-          <div>
-            <div className="metric-val">34%</div>
-            <div className="metric-label">Конверсия в оплату</div>
-            <div className="metric-change">↑ 12%</div>
-          </div>
-          <div>
-            <div className="metric-val">₽0</div>
-            <div className="metric-label">Затраты на рекламу</div>
-            <div className="metric-change">Только органика</div>
-          </div>
-        </div>
-      </div>
-      <div className="stats-card">
-        <div className="stats-card-header">
-          <span className="stats-card-title">Рост вовлечённости</span>
-          <span className="stats-card-period">Динамика за квартал</span>
-        </div>
-        <div className="stats-line-chart">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="lineGrad2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="rgba(0,230,118,0.2)"/>
-                <stop offset="100%" stopColor="rgba(0,230,118,0)"/>
-              </linearGradient>
-            </defs>
-            <path d="M0 130 Q25 125 50 118 T100 105 T150 88 T200 72 T250 50 T300 35 T350 22 T400 12" fill="none" stroke="var(--green)" strokeWidth="2.5"/>
-            <path d="M0 130 Q25 125 50 118 T100 105 T150 88 T200 72 T250 50 T300 35 T350 22 T400 12 L400 140 L0 140 Z" fill="url(#lineGrad2)"/>
-          </svg>
-        </div>
-        <div className="stats-card-metrics">
-          <div>
-            <div className="metric-val" style={{"color":"var(--green)"}}>8.7%</div>
-            <div className="metric-label">ER текущий</div>
-            <div className="metric-change">Было 1.2%</div>
-          </div>
-          <div>
-            <div className="metric-val" style={{"color":"var(--green)"}}>×7.2</div>
-            <div className="metric-label">Рост за квартал</div>
-            <div className="metric-change">Стабильный тренд</div>
-          </div>
-          <div>
-            <div className="metric-val" style={{"color":"var(--green)"}}>92%</div>
-            <div className="metric-label">Комменты — живые</div>
-            <div className="metric-change">Без ботов</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/*  */}
-<section className="process" id="process">
-  <div className="container">
-    <div className="section-label">Как мы работаем</div>
-    <h2 className="section-title">Путь от заявки до первых результатов</h2>
-    <p className="section-subtitle">Прозрачный процесс — вы видите каждый этап и контролируете результат.</p>
-    <div className="process-timeline">
-      <div className="process-step">
-        <div className="step-marker">1</div>
-        <div className="step-content">
-          <h3>Бесплатная консультация</h3>
-          <p>Созваниваемся, разбираем вашу нишу и текущую ситуацию. Вы получаете предварительную стратегию продвижения в Threads — без обязательств и оплаты.</p>
-        </div>
-      </div>
-      <div className="process-step">
-        <div className="step-marker">2</div>
-        <div className="step-content">
-          <h3>Анализ и упаковка профиля</h3>
-          <p>Проводим аудит вашего аккаунта, оформляем профиль, пишем продающую биографию. Анализируем конкурентов и находим контентные пробелы в вашей нише.</p>
-        </div>
-      </div>
-      <div className="process-step">
-        <div className="step-marker">3</div>
-        <div className="step-content">
-          <h3>Запуск контент-машины</h3>
-          <p>Начинаем публикации по утверждённому контент-плану. Вирусные посты, треды, провокации — каждый пост нацелен на максимальный охват и вовлечение.</p>
-        </div>
-      </div>
-      <div className="process-step">
-        <div className="step-marker">4</div>
-        <div className="step-content">
-          <h3>Масштабирование и рост</h3>
-          <p>Анализируем метрики, оптимизируем стратегию, масштабируем то, что работает. Подключаем комментинг топовых постов для дополнительного притока аудитории.</p>
-        </div>
-      </div>
-      <div className="process-step">
-        <div className="step-marker">5</div>
-        <div className="step-content">
-          <h3>Поток заявок и клиентов</h3>
-          <p>Вы получаете стабильный поток целевых обращений. Средний результат — 30–50 заявок в неделю от людей, готовых покупать ваши услуги и продукты.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/*  */}
-<section className="cta-section" id="form">
-  <div className="container">
-    <div className="cta-grid">
-      <div className="cta-text">
-        <div className="section-label">Начать сейчас</div>
-        <h2 className="section-title">Готовы получать клиентов из Threads?</h2>
-        <p className="section-subtitle" style={{"marginBottom":"28px"}}>Заполните форму — мы свяжемся с вами в WhatsApp в течение 2 часов и проведём бесплатную консультацию по продвижению вашего аккаунта в Threads.</p>
-        <div style={{"display":"flex","flexDirection":"column","gap":"20px"}}>
-          <div style={{"display":"flex","alignItems":"center","gap":"14px"}}>
-            <div style={{"width":"44px","height":"44px","background":"rgba(232,255,0,0.1)","borderRadius":"12px","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","minWidth":"44px"}}>✅</div>
-            <div><strong>Бесплатная стратегия</strong><br /><span style={{"color":"var(--gray-3)","fontSize":"0.85rem"}}>Получите персональный план продвижения</span></div>
-          </div>
-          <div style={{"display":"flex","alignItems":"center","gap":"14px"}}>
-            <div style={{"width":"44px","height":"44px","background":"rgba(232,255,0,0.1)","borderRadius":"12px","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","minWidth":"44px"}}>⚡</div>
-            <div><strong>Ответ за 2 часа</strong><br /><span style={{"color":"var(--gray-3)","fontSize":"0.85rem"}}>Напишем вам в WhatsApp максимально быстро</span></div>
-          </div>
-          <div style={{"display":"flex","alignItems":"center","gap":"14px"}}>
-            <div style={{"width":"44px","height":"44px","background":"rgba(232,255,0,0.1)","borderRadius":"12px","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.2rem","minWidth":"44px"}}>🔒</div>
-            <div><strong>Без обязательств</strong><br /><span style={{"color":"var(--gray-3)","fontSize":"0.85rem"}}>Консультация бесплатна, решение за вами</span></div>
+      {/*  */}
+      <section className="faq" id="faq">
+        <div className="container">
+          <div className="section-label">Вопросы</div>
+          <h2 className="section-title">Частые вопросы о продвижении в Threads</h2>
+          <div className="faq-list">
+            <div className="faq-item">
+              <div className="faq-q" onClick={(e) => toggleFaq(e)}>
+                <span>Сколько стоит продвижение в Threads?</span>
+                <span className="toggle">+</span>
+              </div>
+              <div className="faq-a">
+                <p>Стоимость зависит от объёма работ и ваших целей. На бесплатной консультации мы разберём вашу ситуацию и предложим оптимальный пакет. Инвестиции окупаются уже в первый месяц за счёт потока заявок из Threads.</p>
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-q" onClick={(e) => toggleFaq(e)}>
+                <span>Когда появятся первые результаты?</span>
+                <span className="toggle">+</span>
+              </div>
+              <div className="faq-a">
+                <p>Первые вирусные посты и рост подписчиков вы увидите уже на первой неделе. Стабильный поток заявок формируется в среднем через 14–21 день. Полный эффект стратегии раскрывается к концу первого месяца.</p>
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-q" onClick={(e) => toggleFaq(e)}>
+                <span>Вы используете накрутки или ботов?</span>
+                <span className="toggle">+</span>
+              </div>
+              <div className="faq-a">
+                <p>Категорически нет. Мы работаем только с органическим ростом: качественный контент, стратегический комментинг, оптимизация под алгоритмы. Все подписчики — реальные люди, заинтересованные в вашей экспертизе.</p>
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-q" onClick={(e) => toggleFaq(e)}>
+                <span>Подходит ли продвижение для моей ниши?</span>
+                <span className="toggle">+</span>
+              </div>
+              <div className="faq-a">
+                <p>Threads эффективен для экспертов, наставников, коучей, психологов, маркетологов, предпринимателей и специалистов из десятков ниш. На консультации мы оценим потенциал вашей темы и честно скажем, стоит ли вкладываться.</p>
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-q" onClick={(e) => toggleFaq(e)}>
+                <span>Нужно ли мне самому что-то делать?</span>
+                <span className="toggle">+</span>
+              </div>
+              <div className="faq-a">
+                <p>Мы берём на себя создание контента, публикацию и продвижение. От вас нужна обратная связь по контент-плану и доступ к аккаунту. Весь операционный процесс — на нашей стороне.</p>
+              </div>
+            </div>
+            <div className="faq-item">
+              <div className="faq-q" onClick={(e) => toggleFaq(e)}>
+                <span>Можно ли совмещать с продвижением в других соцсетях?</span>
+                <span className="toggle">+</span>
+              </div>
+              <div className="faq-a">
+                <p>Конечно. Threads отлично работает в связке с Instagram и Telegram. Контент из Threads усиливает вашу видимость во всех каналах и привлекает аудиторию в вашу экосистему.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="cta-form" id="lead-form">
-        <h3>Заявка на продвижение в Threads</h3>
-        <p className="form-sub">Заполните форму — мы свяжемся в WhatsApp</p>
-        <div className="form-group">
-          <label>Ваше имя</label>
-          <input type="text" id="f-name" placeholder="Как к вам обращаться?" required />
-        </div>
-        <div className="form-group">
-          <label>Номер WhatsApp</label>
-          <input type="tel" id="f-phone" placeholder="+7 (___) ___-__-__" required />
-        </div>
-        <div className="form-group">
-          <label>Ваша ниша / сфера деятельности</label>
-          <select id="f-niche">
-            <option value="">Выберите нишу</option>
-            <option value="Маркетинг">Маркетинг и SMM</option>
-            <option value="Психология">Психология и коучинг</option>
-            <option value="Бизнес">Бизнес и предпринимательство</option>
-            <option value="Образование">Образование и наставничество</option>
-            <option value="Здоровье">Здоровье и фитнес</option>
-            <option value="Красота">Красота и стиль</option>
-            <option value="Финансы">Финансы и инвестиции</option>
-            <option value="IT">IT и технологии</option>
-            <option value="Другое">Другое</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Ссылка на ваш Threads или Instagram (необязательно)</label>
-          <input type="url" id="f-link" placeholder="https://threads.net/@ваш_аккаунт" />
-        </div>
-        <button className="form-submit" onClick={(e) => submitForm(e)}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c-.001 2.096.546 4.142 1.587 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.578 0 11.937-5.336 11.94-11.893.002-3.178-1.234-6.165-3.47-8.452zm-8.475 18.3h-.004a9.867 9.867 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.002-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.885z" fill="currentColor"/></svg>
-          Отправить заявку в WhatsApp
-        </button>
-        <p className="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/*  */}
-<section className="faq" id="faq">
-  <div className="container">
-    <div className="section-label">Вопросы</div>
-    <h2 className="section-title">Частые вопросы о продвижении в Threads</h2>
-    <div className="faq-list">
-      <div className="faq-item">
-        <div className="faq-q" onClick={(e) => toggleFaq(e)}>
-          <span>Сколько стоит продвижение в Threads?</span>
-          <span className="toggle">+</span>
+      {/*  */}
+      <footer className="site-footer">
+        <div className="container">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <a href="/" className="logo">DIGITAL<span>PRIDE</span></a>
+              <p>Комплексное продвижение экспертов и предпринимателей в Threads. Вирусный контент, рост аудитории, поток заявок.</p>
+            </div>
+            <div className="footer-links">
+              <h4>Навигация</h4>
+              <a href="#why">Почему Threads</a>
+              <a href="#services">Услуги</a>
+              <a href="#cases">Кейсы</a>
+              <a href="#process">Как работаем</a>
+            </div>
+            <div className="footer-links">
+              <h4>Контакты</h4>
+              <a href="#form">Оставить заявку</a>
+              <a href="https://wa.me/79XXXXXXXXX" target="_blank">WhatsApp</a>
+              <a href="https://threads.net/@digitalpride" target="_blank">Threads</a>
+              <a href="https://instagram.com/digitalpride" target="_blank">Instagram</a>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <span>© 2026 Digital Pride. Все права защищены.</span>
+            <span>Продвижение в Threads для экспертов и предпринимателей</span>
+          </div>
         </div>
-        <div className="faq-a">
-          <p>Стоимость зависит от объёма работ и ваших целей. На бесплатной консультации мы разберём вашу ситуацию и предложим оптимальный пакет. Инвестиции окупаются уже в первый месяц за счёт потока заявок из Threads.</p>
-        </div>
-      </div>
-      <div className="faq-item">
-        <div className="faq-q" onClick={(e) => toggleFaq(e)}>
-          <span>Когда появятся первые результаты?</span>
-          <span className="toggle">+</span>
-        </div>
-        <div className="faq-a">
-          <p>Первые вирусные посты и рост подписчиков вы увидите уже на первой неделе. Стабильный поток заявок формируется в среднем через 14–21 день. Полный эффект стратегии раскрывается к концу первого месяца.</p>
-        </div>
-      </div>
-      <div className="faq-item">
-        <div className="faq-q" onClick={(e) => toggleFaq(e)}>
-          <span>Вы используете накрутки или ботов?</span>
-          <span className="toggle">+</span>
-        </div>
-        <div className="faq-a">
-          <p>Категорически нет. Мы работаем только с органическим ростом: качественный контент, стратегический комментинг, оптимизация под алгоритмы. Все подписчики — реальные люди, заинтересованные в вашей экспертизе.</p>
-        </div>
-      </div>
-      <div className="faq-item">
-        <div className="faq-q" onClick={(e) => toggleFaq(e)}>
-          <span>Подходит ли продвижение для моей ниши?</span>
-          <span className="toggle">+</span>
-        </div>
-        <div className="faq-a">
-          <p>Threads эффективен для экспертов, наставников, коучей, психологов, маркетологов, предпринимателей и специалистов из десятков ниш. На консультации мы оценим потенциал вашей темы и честно скажем, стоит ли вкладываться.</p>
-        </div>
-      </div>
-      <div className="faq-item">
-        <div className="faq-q" onClick={(e) => toggleFaq(e)}>
-          <span>Нужно ли мне самому что-то делать?</span>
-          <span className="toggle">+</span>
-        </div>
-        <div className="faq-a">
-          <p>Мы берём на себя создание контента, публикацию и продвижение. От вас нужна обратная связь по контент-плану и доступ к аккаунту. Весь операционный процесс — на нашей стороне.</p>
-        </div>
-      </div>
-      <div className="faq-item">
-        <div className="faq-q" onClick={(e) => toggleFaq(e)}>
-          <span>Можно ли совмещать с продвижением в других соцсетях?</span>
-          <span className="toggle">+</span>
-        </div>
-        <div className="faq-a">
-          <p>Конечно. Threads отлично работает в связке с Instagram и Telegram. Контент из Threads усиливает вашу видимость во всех каналах и привлекает аудиторию в вашу экосистему.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/*  */}
-<footer className="site-footer">
-  <div className="container">
-    <div className="footer-top">
-      <div className="footer-brand">
-        <a href="/" className="logo">DIGITAL<span>PRIDE</span></a>
-        <p>Комплексное продвижение экспертов и предпринимателей в Threads. Вирусный контент, рост аудитории, поток заявок.</p>
-      </div>
-      <div className="footer-links">
-        <h4>Навигация</h4>
-        <a href="#why">Почему Threads</a>
-        <a href="#services">Услуги</a>
-        <a href="#cases">Кейсы</a>
-        <a href="#process">Как работаем</a>
-      </div>
-      <div className="footer-links">
-        <h4>Контакты</h4>
-        <a href="#form">Оставить заявку</a>
-        <a href="https://wa.me/79XXXXXXXXX" target="_blank">WhatsApp</a>
-        <a href="https://threads.net/@digitalpride" target="_blank">Threads</a>
-        <a href="https://instagram.com/digitalpride" target="_blank">Instagram</a>
-      </div>
-    </div>
-    <div className="footer-bottom">
-      <span>© 2026 Digital Pride. Все права защищены.</span>
-      <span>Продвижение в Threads для экспертов и предпринимателей</span>
-    </div>
-  </div>
-</footer>
+      </footer>
 
 
 
