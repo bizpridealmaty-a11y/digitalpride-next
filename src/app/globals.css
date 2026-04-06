@@ -22,5 +22,30 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Onest', sans-serif !important;
+}
+
+/* Digital Pride Global Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Unbounded', sans-serif !important;
+}
+
+.stat-number,
+.counter,
+.stats-number,
+.profitable-number,
+.c-number,
+.top-logo {
+  font-family: 'Unbounded', sans-serif !important;
 }
