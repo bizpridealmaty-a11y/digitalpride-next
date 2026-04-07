@@ -78,6 +78,34 @@ export default function RawHeader() {
             background: #222 !important;
             color: #fff !important;
         }
+        .btn-threads {
+            background: #39FF14 !important;
+            color: #000 !important;
+            border: none !important;
+            border-radius: 20px !important;
+            padding: 8px 18px !important;
+            font-size: 13px !important;
+            font-weight: 800 !important;
+            text-decoration: none !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 12px rgba(57,255,20,0.4), 0 0 24px rgba(57,255,20,0.15);
+            transition: all 0.3s ease !important;
+            animation: threads-pulse 2s ease-in-out infinite;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        .btn-threads:hover {
+            background: #50FF30 !important;
+            box-shadow: 0 0 20px rgba(57,255,20,0.6), 0 0 40px rgba(57,255,20,0.25) !important;
+            transform: scale(1.05);
+        }
+        @keyframes threads-pulse {
+            0%, 100% { box-shadow: 0 0 12px rgba(57,255,20,0.4), 0 0 24px rgba(57,255,20,0.15); }
+            50% { box-shadow: 0 0 18px rgba(57,255,20,0.6), 0 0 36px rgba(57,255,20,0.25); }
+        }
     </style>
     <div class="header" id="sticky" style="background:#000;color:#fff;position:fixed;top:0;left:0;right:0;z-index:9990">
         <div class="container">
@@ -129,7 +157,8 @@ export default function RawHeader() {
             </div>
             
             <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 align-self-center">
-                <div class="text-center text-xl-right">
+                <div class="text-center text-xl-right" style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
+                    <a href="/threads-prodvizhenie" class="btn-threads">Threads 🔥</a>
                     <button class="btn btn-primary tel_head-feedback_button" data-toggle="modal" data-target="#modal_form-feed">Обратный звонок</button>
                 </div>
             </div>
@@ -192,7 +221,8 @@ export default function RawHeader() {
             </div>
             
             <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 align-self-center">
-                <div class="text-center text-xl-right">
+                <div class="text-center text-xl-right" style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
+                    <a href="/threads-prodvizhenie" class="btn-threads">Threads 🔥</a>
                     <button class="btn btn-primary tel_head-feedback_button" data-toggle="modal" data-target="#modal_form-feed">Обратный звонок</button>
                 </div>
             </div>
@@ -262,6 +292,8 @@ export default function RawHeader() {
                 <a href="/cases" style={linkStyle}>Кейсы</a>
                 <a href="/school" style={linkStyle}>Наше обучение</a>
                 <a href="/contacts" style={linkStyle}>О нас</a>
+                <div style={{ height: '1px', background: '#333', margin: '8px 0' }}></div>
+                <a href="/threads-prodvizhenie" style={{ ...linkStyle, color: '#39FF14', fontWeight: 800, background: 'rgba(57,255,20,0.1)', borderRadius: '12px' }}>🔥 Threads — Продвижение</a>
                 <div style={{ height: '1px', background: '#333', margin: '8px 0' }}></div>
                 <a href="tel:+77070357777" style={{ ...linkStyle, color: '#ef4444', fontWeight: 800 }}>+7 (707) 035-77-77</a>
             </nav>
