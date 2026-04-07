@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: '/cases', priority: 0.7, changeFrequency: 'weekly' as const },
         { url: '/contacts', priority: 0.6, changeFrequency: 'yearly' as const },
         { url: '/pricing', priority: 0.7, changeFrequency: 'monthly' as const },
+        { url: '/threads-prodvizhenie', priority: 0.8, changeFrequency: 'monthly' as const },
     ];
 
     return pages.map((page) => ({

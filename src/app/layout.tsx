@@ -21,9 +21,6 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
-  alternates: {
-    canonical: '/',
-  },
 };
 
 export default function RootLayout({
@@ -34,6 +31,10 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <link rel="preload" href="/fonts/Unbounded-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Unbounded-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Onest-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Onest-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/css/bootstrap_custom.min.css" />
         <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
@@ -92,6 +93,26 @@ export default function RootLayout({
         <Script src="/js/mask.js" strategy="lazyOnload" />
         <Script src="/js/main-new.js" strategy="lazyOnload" />
         <Script src="/js/default.js" strategy="lazyOnload" />
+
+        {/* LocalBusiness Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Digital Pride",
+              "image": "https://digitalpride.kz/images/logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Алматы",
+                "addressCountry": "KZ"
+              },
+              "url": "https://digitalpride.kz/",
+              "telephone": "+7-707-035-7777"
+            })
+          }}
+        />
       </body>
     </html>
   );
