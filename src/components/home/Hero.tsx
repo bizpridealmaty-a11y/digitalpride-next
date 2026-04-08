@@ -1,8 +1,20 @@
 'use client';
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { trackWhatsAppClick, trackPhoneClick } from '@/lib/analytics';
+import { trackWhatsAppClick } from '@/lib/analytics';
+
+// Rotating benefits
+const allBenefits = [
+    'Увеличение заявок', 'Рост ROI', 'Масштабирование рекламы',
+    'Снижение стоимости лида', 'Рост продаж', 'Упаковка продукта',
+    'Аналитика рекламы', 'Четкая маркетинговая стратегия', 'Рост конверсии сайта',
+    'Автоматизация заявок', 'Построение воронки продаж', 'Генерация лидов',
+    'Контроль рекламного бюджета', 'Оптимизация рекламных кампаний',
+    'Привлечение целевой аудитории', 'Системный маркетинг',
+    'Запуск рекламы за 24 часа', 'Прозрачная аналитика',
+];
 
 export default function Hero() {
     const ref = useRef(null);
@@ -14,17 +26,6 @@ export default function Hero() {
     const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-    // Rotating benefits
-    const allBenefits = [
-        'Увеличение заявок', 'Рост ROI', 'Масштабирование рекламы',
-        'Снижение стоимости лида', 'Рост продаж', 'Упаковка продукта',
-        'Аналитика рекламы', 'Четкая маркетинговая стратегия', 'Рост конверсии сайта',
-        'Автоматизация заявок', 'Построение воронки продаж', 'Генерация лидов',
-        'Контроль рекламного бюджета', 'Оптимизация рекламных кампаний',
-        'Привлечение целевой аудитории', 'Системный маркетинг',
-        'Запуск рекламы за 24 часа', 'Прозрачная аналитика',
-    ];
 
     const pickRandom = useCallback(() => {
         const shuffled = [...allBenefits].sort(() => Math.random() - 0.5);
@@ -86,10 +87,12 @@ export default function Hero() {
         <section ref={ref} className="relative overflow-hidden bg-black text-white pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[90vh] flex items-center">
             {/* Background photo */}
             <motion.div style={{ y: bgY, opacity }} className="absolute inset-0 -top-16 z-0">
-                <img
-                    src="/images/founder-portrait.png"
-                    alt=""
-                    className="w-full h-full object-cover"
+                <Image
+                    src="/images/founder-portrait.webp"
+                    alt="Основатель Digital Pride - Маркетинговое агентство в Алматы"
+                    fill
+                    priority
+                    className="object-cover"
                     style={{ filter: 'brightness(0.7)', objectPosition: 'center top' }}
                 />
                 {/* Vignette overlay — darkened edges */}

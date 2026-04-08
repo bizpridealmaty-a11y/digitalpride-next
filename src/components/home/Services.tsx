@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 
-function ServiceCard({ service, idx }: { service: any; idx: number }) {
+function ServiceCard({ service }: { service: { id: string; title: string; description: string; href: string; price?: string; icon: React.ReactNode; } }) {
     const [hovered, setHovered] = useState(false);
 
     return (
@@ -116,6 +116,56 @@ function ServiceCard({ service, idx }: { service: any; idx: number }) {
     );
 }
 
+function FlagshipCard() {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 p-8 md:p-12 rounded-3xl relative overflow-hidden"
+            style={{
+                background: 'linear-gradient(135deg, #171717 0%, #0a0a0a 100%)',
+                color: '#fff',
+                boxShadow: '0 25px 50px -12px rgba(239,68,68,0.25)',
+                border: '1px solid #333'
+            }}
+        >
+            {/* Visual background elements */}
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-red-600 rounded-full blur-[100px] opacity-20 pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-600/20 border border-red-600/30 text-red-500 rounded-full text-xs font-bold mb-6">
+                        <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                        Флагманский продукт
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+                        Внешний отдел <br /><span className="text-red-500">маркетинга</span> под ключ
+                    </h3>
+                    <p className="text-gray-400 text-lg mb-6 max-w-2xl">
+                        Мы интегрируемся в ваш бизнес. Команда из 5 Senior-специалистов (SMM, Таргет, Дизайн, Контекст) по цене одного штатного маркетолога. Гарантия окупаемости и роста заявок.
+                    </p>
+                    <ul className="flex flex-wrap gap-4 mb-8 text-sm font-bold text-gray-300">
+                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Комплексный SMM</li>
+                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Мультиканальный Таргет</li>
+                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Разработка Сайтов</li>
+                    </ul>
+                </div>
+                <div className="flex-shrink-0 w-full md:w-auto flex flex-col gap-4">
+                    <div className="text-right hidden md:block">
+                        <p className="text-gray-500 text-sm font-medium mb-1">Инвестиции от</p>
+                        <p className="text-3xl font-extrabold text-white">180 000 ₸</p>
+                    </div>
+                    <Link href="/vneshnij-otdel-marketinga" className="inline-flex justify-center items-center px-8 py-4 bg-red-600 text-white font-bold rounded-xl text-lg hover:bg-red-700 transition duration-300 w-full md:w-auto">
+                        Посмотреть пакеты
+                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </Link>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
 export default function Services() {
     const services = [
         {
@@ -188,6 +238,8 @@ export default function Services() {
                     </p>
                 </motion.div>
 
+                <FlagshipCard />
+
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -195,8 +247,8 @@ export default function Services() {
                     viewport={{ once: true, margin: "-100px" }}
                     className="grid grid-cols-1 md:grid-cols-2 gap-8"
                 >
-                    {services.map((service, idx) => (
-                        <ServiceCard key={service.id} service={service} idx={idx} />
+                    {services.map((service) => (
+                        <ServiceCard key={service.id} service={service} />
                     ))}
                 </motion.div>
             </div>

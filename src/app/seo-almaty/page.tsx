@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ServicePageTemplate from '@/components/ServicePageTemplate';
+import NewLandingTemplate from '@/components/NewLandingTemplate';
 
 export const metadata: Metadata = {
     title: 'SEO продвижение сайтов в Алматы — вывод в ТОП Google и Яндекс',
@@ -17,7 +17,7 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 
 export default function SeoPage() {
     return (
-        <ServicePageTemplate
+        <NewLandingTemplate
             title="SEO"
             accentWord="Продвижение"
             subtitle="Выводим ваш сайт в ТОП Google и Яндекс. Органический трафик — это самый дешёвый и стабильный источник заявок для вашего бизнеса."

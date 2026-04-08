@@ -72,12 +72,31 @@ export default function ServicePageTemplate({
         "areaServed": "KZ"
     };
 
+    const faqJsonLd = faq && faq.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faq.map(item => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.a
+            }
+        }))
+    } : null;
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            {faqJsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+                />
+            )}
             {/* Hero Section */}
             <section className="relative bg-zinc-950 text-white pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 opacity-30">
