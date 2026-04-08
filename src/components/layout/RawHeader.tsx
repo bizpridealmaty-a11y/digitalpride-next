@@ -118,7 +118,7 @@ export default function RawHeader() {
                 </div>
             </div>
             
-            <div class="col-2 col-sm-2 col-md-5 header-col-menu menu d-none d-lg-block">
+            <div class="col-2 col-sm-2 col-md-6 header-col-menu menu d-none d-lg-block">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Главное</a>
@@ -159,7 +159,7 @@ export default function RawHeader() {
                 </div>
             </div>
             
-            <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 align-self-center">
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 align-self-center">
                 <div class="text-center text-xl-right" style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
                     <button class="btn btn-primary tel_head-feedback_button" data-toggle="modal" data-target="#modal_form-feed">Обратный звонок</button>
                 </div>
@@ -184,7 +184,7 @@ export default function RawHeader() {
                 </div>
             </div>
             
-            <div class="col-2 col-sm-2 col-md-5 header-col-menu menu d-none d-xl-block">
+            <div class="col-2 col-sm-2 col-md-6 header-col-menu menu d-none d-xl-block">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Главное</a>
@@ -225,7 +225,7 @@ export default function RawHeader() {
                 </div>
             </div>
             
-            <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 align-self-center">
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 align-self-center">
                 <div class="text-center text-xl-right" style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
                     <button class="btn btn-primary tel_head-feedback_button" data-toggle="modal" data-target="#modal_form-feed">Обратный звонок</button>
                 </div>
