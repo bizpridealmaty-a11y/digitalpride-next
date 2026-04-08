@@ -147,6 +147,9 @@ export default function RawHeader() {
                     <li class="nav-item">
                         <a class="nav-link" href="/contacts">О нас</a>
                     </li>
+                    <li class="nav-item" style="display:flex; align-items:center; margin-left:15px;">
+                        <a href="/threads-prodvizhenie" class="btn-threads" style="padding: 6px 14px !important; font-size: 11px !important; height:fit-content;">Threads 🔥</a>
+                    </li>
                 </ul>
             </div>
             
@@ -158,7 +161,6 @@ export default function RawHeader() {
             
             <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 align-self-center">
                 <div class="text-center text-xl-right" style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
-                    <a href="/threads-prodvizhenie" class="btn-threads">Threads 🔥</a>
                     <button class="btn btn-primary tel_head-feedback_button" data-toggle="modal" data-target="#modal_form-feed">Обратный звонок</button>
                 </div>
             </div>
@@ -211,6 +213,9 @@ export default function RawHeader() {
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">О нас</a>
                     </li>
+                    <li class="nav-item" style="display:flex; align-items:center; margin-left:15px;">
+                        <a href="/threads-prodvizhenie" class="btn-threads" style="padding: 6px 14px !important; font-size: 11px !important; height:fit-content;">Threads 🔥</a>
+                    </li>
                 </ul>
             </div>
             
@@ -222,7 +227,6 @@ export default function RawHeader() {
             
             <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 align-self-center">
                 <div class="text-center text-xl-right" style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
-                    <a href="/threads-prodvizhenie" class="btn-threads">Threads 🔥</a>
                     <button class="btn btn-primary tel_head-feedback_button" data-toggle="modal" data-target="#modal_form-feed">Обратный звонок</button>
                 </div>
             </div>
