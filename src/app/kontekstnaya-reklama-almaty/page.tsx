@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Контекстная реклама в Алматы — Google Ads, Яндекс.Директ',
     description: 'Настройка контекстной рекламы в Алматы ✦ Google Ads и Яндекс.Директ. Заявки с первого дня запуска. Сбор семантики, минусация, A/B тесты. Прозрачная аналитика.',
-    keywords: 'контекстная реклама алматы, google ads алматы, яндекс директ алматы, ppc реклама алматы, настройка контекстной рекламы казахстан, реклама в гугл алматы',
     alternates: { canonical: '/kontekstnaya-reklama-almaty' },
     openGraph: {
         title: 'Контекстная реклама в Алматы — Digital Pride',

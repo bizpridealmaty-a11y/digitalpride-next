@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Воронка продаж в Алматы — автоматизация и настройка',
     description: 'Построение воронки продаж в Алматы ✦ Автоворонки через мессенджеры, email, ретаргетинг. Чат-боты WhatsApp, Telegram. Интеграция с CRM. Под ключ за 2-4 недели.',
-    keywords: 'воронка продаж алматы, автоворонка алматы, настройка воронки продаж казахстан, чат бот алматы, лидогенерация алматы, crm интеграция алматы',
     alternates: { canonical: '/voronka-prodazh-almaty' },
     openGraph: {
         title: 'Воронка продаж в Алматы — Digital Pride',

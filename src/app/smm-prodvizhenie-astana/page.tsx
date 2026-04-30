@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'SMM продвижение в Астане — ведение соцсетей',
     description: 'SMM агентство в Астане ✦ Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories, комьюнити-менеджмент. Результат от 2 недель. Работаем удалённо.',
-    keywords: 'smm астана, smm продвижение астана, ведение инстаграм астана, smm агентство астана, ведение соцсетей астана, smm нурсултан, продвижение инстаграм астана',
     alternates: { canonical: '/smm-prodvizhenie-astana' },
     openGraph: {
         title: 'SMM продвижение в Астане — Digital Pride',

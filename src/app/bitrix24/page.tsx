@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Внедрение Bitrix24 в Алматы — настройка CRM под ключ',
     description: 'Внедрение Bitrix24 в Алматы ✦ Настройка CRM, автоматизация процессов, интеграция с телефонией и сайтом. Обучение команды. Поддержка после запуска.',
-    keywords: 'bitrix24 алматы, внедрение crm алматы, настройка битрикс24 казахстан, crm для бизнеса алматы, автоматизация продаж битрикс, bitrix24 интеграция',
     alternates: { canonical: '/bitrix24' },
     openGraph: {
         title: 'Внедрение Bitrix24 в Алматы — Digital Pride',

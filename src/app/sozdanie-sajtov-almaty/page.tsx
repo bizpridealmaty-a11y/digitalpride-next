@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Создание сайтов в Алматы — лендинги, корпоративные сайты, интернет-магазины',
     description: 'Разработка сайтов в Алматы ✦ Лендинги от 300 000 ₸, корпоративные сайты, интернет-магазины. React, Next.js. Адаптивный дизайн, SEO-оптимизация, высокая конверсия.',
-    keywords: 'создание сайтов алматы, разработка сайтов алматы, заказать сайт алматы, лендинг алматы, корпоративный сайт алматы, интернет магазин алматы, веб студия алматы',
     alternates: { canonical: '/sozdanie-sajtov-almaty' },
     openGraph: {
         title: 'Создание сайтов в Алматы — Digital Pride',

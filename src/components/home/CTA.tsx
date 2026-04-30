@@ -126,7 +126,7 @@ export default function CTA() {
                                     disabled={status === 'loading' || status === 'success'}
                                     className={`w-full py-4 rounded-xl font-bold transition-all text-lg cursor-pointer shadow-lg ${status === 'success' ? 'bg-green-600 text-white shadow-green-500/30' : 'bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600 shadow-red-500/30 disabled:opacity-70'}`}
                                 >
-                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Отправлено' : 'Офигеете от результата'}
+                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Отправлено' : 'Отправить заявку'}
                                 </button>
                                 {status === 'error' && (
                                     <p className="text-red-500 text-sm text-center mt-2">Произошла ошибка. Попробуйте еще раз.</p>

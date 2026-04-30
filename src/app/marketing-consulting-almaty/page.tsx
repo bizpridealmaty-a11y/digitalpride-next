@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Маркетинговый консалтинг в Алматы — стратегические консультации',
     description: 'Маркетинговый консалтинг в Алматы ✦ Стратегические сессии для бизнеса. Аудит маркетинга, unit-экономика, дорожная карта на 3-12 месяцев. Опыт 10+ лет.',
-    keywords: 'маркетинговый консалтинг алматы, бизнес консультации алматы, маркетинговая стратегия казахстан, консалтинг для бизнеса алматы, менторство маркетинг',
     alternates: { canonical: '/marketing-consulting-almaty' },
     openGraph: {
         title: 'Маркетинговый консалтинг в Алматы — Digital Pride',

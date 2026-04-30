@@ -4,7 +4,6 @@ import NewLandingTemplate from '@/components/NewLandingTemplate';
 export const metadata: Metadata = {
     title: 'SEO продвижение сайтов в Алматы — вывод в ТОП Google и Яндекс',
     description: 'SEO продвижение в Алматы ✦ Выводим сайты в ТОП-10 Google и Яндекс. Техаудит, семантическое ядро, контент-маркетинг, линкбилдинг. Результат от 1-2 месяцев.',
-    keywords: 'seo алматы, seo продвижение алматы, продвижение сайта алматы, seo оптимизация казахстан, раскрутка сайта алматы, вывод в топ google алматы',
     alternates: { canonical: '/seo-almaty' },
     openGraph: {
         title: 'SEO продвижение сайтов в Алматы — Digital Pride',

@@ -4,7 +4,6 @@ import NewLandingTemplate from '@/components/NewLandingTemplate';
 export const metadata: Metadata = {
     title: 'Внешний отдел маркетинга под ключ в Алматы — Digital Pride',
     description: 'Комплексный performance-маркетинг: SMM, таргет, разработка сайтов и SEO по цене одного специалиста в штате. Рост прибыли для бизнеса в Алматы.',
-    keywords: 'отдел маркетинга на аутсорсе, маркетинговое агентство алматы, комплексный маркетинг, performance маркетинг',
     alternates: { canonical: '/vneshnij-otdel-marketinga' },
 };
 

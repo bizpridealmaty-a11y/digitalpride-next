@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Контекстная реклама Яндекс.Директ в Алматы',
     description: 'Настройка Яндекс.Директ в Алматы ✦ Поисковая реклама, РСЯ, ретаргетинг. Перехват русскоязычной аудитории. Заявки от первого дня. CPA от 1000 ₸.',
-    keywords: 'яндекс директ алматы, контекстная реклама яндекс казахстан, настройка яндекс директ, реклама в яндексе алматы, рся алматы, яндекс реклама казахстан',
     alternates: { canonical: '/kontekstnaya-reklama-yandex-almaty' },
     openGraph: {
         title: 'Яндекс.Директ в Алматы — Digital Pride',

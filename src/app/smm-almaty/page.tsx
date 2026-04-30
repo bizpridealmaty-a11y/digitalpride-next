@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'SMM продвижение в Алматы — ведение соцсетей',
     description: 'SMM агентство в Алматы ✦ Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories, комьюнити-менеджмент. Первые результаты от 2 недель. Звоните!',
-    keywords: 'smm алматы, smm продвижение алматы, ведение инстаграм алматы, smm агентство казахстан, ведение соцсетей алматы, smm специалист алматы, продвижение в соцсетях',
     alternates: { canonical: '/smm-almaty' },
     openGraph: {
         title: 'SMM продвижение в Алматы — Digital Pride',

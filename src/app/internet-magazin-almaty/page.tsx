@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Создание интернет-магазина в Алматы — e-commerce под ключ',
     description: 'Разработка интернет-магазина в Алматы ✦ Каталог, корзина, оплата, доставка. Интеграция с Kaspi, 1C, CRM. Адаптивный дизайн. От 800 000 ₸.',
-    keywords: 'интернет магазин алматы, создание интернет магазина казахстан, разработка ecommerce алматы, онлайн магазин алматы, заказать интернет магазин алматы',
     alternates: { canonical: '/internet-magazin-almaty' },
     openGraph: {
         title: 'Интернет-магазин в Алматы — Digital Pride',

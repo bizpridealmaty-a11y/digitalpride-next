@@ -71,6 +71,8 @@ export default function SocialProof() {
                                     src={logo.icon}
                                     alt={logo.name}
                                     title={logo.name}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="h-10 md:h-14 w-auto object-contain opacity-40 hover:opacity-100 transition-all duration-500"
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).style.display = 'none';

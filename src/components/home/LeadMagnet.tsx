@@ -2,46 +2,43 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { trackLeadFormSubmit, trackWhatsAppClick } from '@/lib/analytics';
+import { trackLeadFormSubmit } from '@/lib/analytics';
 
 export default function LeadMagnet() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [sent, setSent] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!name.trim() || !phone.trim()) {
-            alert('Пожалуйста, заполните имя и телефон.');
-            return;
+        if (!name.trim() || !phone.trim()) return;
+
+        setStatus('loading');
+        try {
+            const res = await fetch('/api/telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone, source: 'Бесплатный маркетинговый аудит' }),
+            });
+            if (res.ok) {
+                trackLeadFormSubmit();
+                setStatus('success');
+                setTimeout(() => {
+                    setStatus('idle');
+                    setName('');
+                    setPhone('');
+                }, 3000);
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
         }
-
-        // Compose message for WhatsApp
-        const message = `🔥 Новая заявка на аудит!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
-
-        // WhatsApp number (without +)
-        const waNumber = '77070357777';
-        const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-
-        // Open WhatsApp in a new tab
-        window.open(waUrl, '_blank');
-
-        // Track goals
-        trackLeadFormSubmit();
-        trackWhatsAppClick('lead_magnet_form');
-
-        // Show success state
-        setSent(true);
-        setTimeout(() => {
-            setSent(false);
-            setName('');
-            setPhone('');
-        }, 3000);
     };
 
     return (
-        <section className="py-24 relative overflow-hidden flex items-center justify-center min-h-[60vh]" style={{ backgroundColor: '#ef4444' }}>
+        <section id="audit" className="py-24 relative overflow-hidden flex items-center justify-center min-h-[60vh]" style={{ backgroundColor: '#ef4444' }}>
             {/* Background visual elements */}
             <motion.div
                 animate={{ rotate: 360 }}
@@ -88,7 +85,7 @@ export default function LeadMagnet() {
                             style={{ perspective: 1000 }}
                             className="bg-white p-8 rounded-2xl text-black shadow-lg"
                         >
-                            <h3 className="text-2xl font-bold mb-6 text-center">Сделаем всё (Охуенно)</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-center">Получите результат уже сейчас</h3>
                             <div className="space-y-4">
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-1">Ваше имя</label>
@@ -114,11 +111,11 @@ export default function LeadMagnet() {
                                 </div>
                                 <button
                                     type="submit"
-                                    disabled={sent}
+                                    disabled={status === 'loading' || status === 'success'}
                                     className="w-full px-6 py-4 text-white font-bold rounded-lg transition-all mt-4 text-lg disabled:opacity-70"
-                                    style={{ backgroundColor: sent ? '#22c55e' : '#ef4444' }}
+                                    style={{ backgroundColor: status === 'success' ? '#22c55e' : '#ef4444' }}
                                 >
-                                    {sent ? '✓ Заявка отправлена!' : 'Офигеете от результата'}
+                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Заявка отправлена!' : 'Получить бесплатный аудит'}
                                 </button>
                                 <p className="text-xs text-center text-gray-400 mt-4">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
                             </div>

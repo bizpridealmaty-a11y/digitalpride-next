@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Брендинг и маркетинговая стратегия в Алматы',
     description: 'Разработка бренда и маркетинговой стратегии в Алматы ✦ Логотип, фирменный стиль, позиционирование, медиаплан. Полная идентичность бренда под ключ.',
-    keywords: 'брендинг алматы, маркетинговая стратегия алматы, разработка бренда казахстан, фирменный стиль алматы, позиционирование бренда, медиаплан алматы',
     alternates: { canonical: '/marketing-almaty' },
     openGraph: {
         title: 'Брендинг и маркетинговая стратегия — Digital Pride',

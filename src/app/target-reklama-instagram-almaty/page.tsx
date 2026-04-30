@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Таргетированная реклама в Instagram в Алматы',
     description: 'Настройка таргетированной рекламы в Instagram в Алматы ✦ Reels Ads, Stories Ads, лента. Look-alike аудитории, ретаргетинг, тестирование креативов. Заявки от 3 дней.',
-    keywords: 'таргет инстаграм алматы, реклама в инстаграм алматы, таргетированная реклама instagram казахстан, продвижение в инстаграм алматы, настройка рекламы инстаграм',
     alternates: { canonical: '/target-reklama-instagram-almaty' },
     openGraph: {
         title: 'Таргет реклама Instagram Алматы — Digital Pride',

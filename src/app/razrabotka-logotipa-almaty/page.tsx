@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Разработка логотипа в Алматы — создание уникального лого',
     description: 'Разработка логотипа в Алматы ✦ Уникальный дизайн, 3-5 концепций на выбор, все исходники. Логотип для бизнеса от 150 000 ₸. Срок: 5-10 рабочих дней.',
-    keywords: 'разработка логотипа алматы, создание логотипа алматы, дизайн логотипа казахстан, заказать логотип алматы, лого для бизнеса, фирменный знак алматы',
     alternates: { canonical: '/razrabotka-logotipa-almaty' },
     openGraph: {
         title: 'Разработка логотипа в Алматы — Digital Pride',

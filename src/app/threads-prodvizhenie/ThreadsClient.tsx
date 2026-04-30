@@ -61,7 +61,7 @@ export default function ThreadsClient() {
     if (!name) { alert('Пожалуйста, введите ваше имя'); return; }
     if (!phone) { alert('Пожалуйста, введите номер WhatsApp'); return; }
 
-    const whatsappNumber = '77478051680';
+    const whatsappNumber = '77070357777';
 
     let message = '🔥 *Заявка на продвижение в Threads*\n\n';
     message += '👤 Имя: ' + name + '\n';
@@ -1409,9 +1409,9 @@ section { padding: 100px 0; }
             <div className="footer-links">
               <h4>Контакты</h4>
               <a href="#form">Оставить заявку</a>
-              <a href="https://wa.me/79XXXXXXXXX" target="_blank">WhatsApp</a>
-              <a href="https://threads.net/@digitalpride" target="_blank">Threads</a>
-              <a href="https://instagram.com/digitalpride" target="_blank">Instagram</a>
+              <a href="https://wa.me/77070357777" target="_blank">WhatsApp</a>
+              <a href="https://threads.net/@digital.pride.smm" target="_blank">Threads</a>
+              <a href="https://instagram.com/digital.pride.smm" target="_blank">Instagram</a>
             </div>
           </div>
           <div className="footer-bottom">

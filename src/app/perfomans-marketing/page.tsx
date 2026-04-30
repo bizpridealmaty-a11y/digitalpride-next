@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Перфоманс-маркетинг в Алматы',
     description: 'Перфоманс-маркетинг от Digital Pride ✦ Комплексное сопровождение, запуск проектов с нуля, performance strategy. Увеличим ваши продажи с гарантией результата.',
-    keywords: 'перфоманс маркетинг алматы, перформанс маркетинг казахстан, performance маркетинг, отдел маркетинга на аутсорсе алматы',
     alternates: { canonical: '/perfomans-marketing' },
     openGraph: {
         title: 'Перфоманс-маркетинг — Digital Pride',

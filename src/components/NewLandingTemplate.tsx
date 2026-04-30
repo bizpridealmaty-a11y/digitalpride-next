@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Head from 'next/head';
+import { usePathname } from 'next/navigation';
+import RelatedServices from './RelatedServices';
 
 interface NewLandingTemplateProps {
   title: string;
@@ -36,6 +37,7 @@ export default function NewLandingTemplate({
   seoContent
 }: NewLandingTemplateProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const pathname = usePathname();
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -47,16 +49,74 @@ export default function NewLandingTemplate({
     const name = formData.get('name');
     const phone = formData.get('phone');
     const text = `Здравствуйте! Меня зовут ${name}, мой номер ${phone}. Меня интересует ${title} ${accentWord}.`;
-    window.open(`https://wa.me/77000000000?text=${encodeURIComponent(text)}`, '_blank'); // Замените на реальный номер DP
+    window.open(`https://wa.me/77070357777?text=${encodeURIComponent(text)}`, '_blank');
   };
+
+  const fullTitle = `${title} ${accentWord}`.trim();
+  const canonical = pathname ? `https://digitalpride.kz${pathname}` : 'https://digitalpride.kz/';
+
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: fullTitle,
+    description: description || subtitle,
+    serviceType: fullTitle,
+    provider: {
+      '@type': 'LocalBusiness',
+      '@id': 'https://digitalpride.kz/#organization',
+      name: 'Digital Pride',
+      image: 'https://digitalpride.kz/fonts/new-logo.svg',
+      telephone: '+77070357777',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Алматы',
+        addressRegion: 'Алматы',
+        addressCountry: 'KZ',
+      },
+      url: 'https://digitalpride.kz/',
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Алматы' },
+      { '@type': 'City', name: 'Астана' },
+      { '@type': 'Country', name: 'Казахстан' },
+    ],
+    url: canonical,
+  };
+
+  const breadcrumbJsonLd = pathname
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://digitalpride.kz/' },
+          { '@type': 'ListItem', position: 2, name: 'Услуги', item: 'https://digitalpride.kz/services' },
+          { '@type': 'ListItem', position: 3, name: fullTitle, item: canonical },
+        ],
+      }
+    : null;
+
+  const faqJsonLd =
+    faq && faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
+        }
+      : null;
 
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </Head>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      {breadcrumbJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      )}
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -479,6 +539,11 @@ export default function NewLandingTemplate({
             </div>
           </section>
         )}
+
+        {/* Related services */}
+        <div style={{ background: '#fff' }}>
+          <RelatedServices />
+        </div>
 
         {/* CTA FORM */}
         <section id="form" className="l-section cta-section">

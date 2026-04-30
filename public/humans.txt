@@ -1,0 +1,22 @@
+/* TEAM */
+
+  Основатель: Дмитрий Тимошевский (Тимошевский Дмитрий Сергеевич)
+  Telegram: https://t.me/timoshevskij
+
+  Digital Pride — маркетинговое агентство
+  Сайт: https://digitalpride.kz
+  Instagram: https://www.instagram.com/digital.pride.smm/
+  Локация: Алматы, Казахстан
+
+/* THANKS */
+
+  Клиентам, которые доверяют нам свой маркетинг.
+
+/* SITE */
+
+  Last update: 2026/04/29
+  Language: Russian
+  Doctype: HTML5
+  IDE: VSCode
+  Components: Next.js 16 (App Router), React 19, Tailwind 4, TypeScript
+  Hosting: —

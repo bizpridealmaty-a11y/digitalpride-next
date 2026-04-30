@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Таргетированная реклама в TikTok в Алматы',
     description: 'Настройка рекламы в TikTok в Алматы ✦ In-Feed Ads, TopView, Spark Ads. Вирусный охват молодой аудитории. Стоимость лида от 500 ₸. Запуск за 3 дня.',
-    keywords: 'реклама тикток алматы, таргет tiktok алматы, tiktok ads казахстан, продвижение в тиктоке алматы, настройка рекламы тикток',
     alternates: { canonical: '/target-reklama-tiktok-almaty' },
     openGraph: {
         title: 'Реклама в TikTok Алматы — Digital Pride',

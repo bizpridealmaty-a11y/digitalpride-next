@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 
 import RawFooter from '../../../components/layout/RawFooter';
 import CTA from '../../../components/home/CTA';
@@ -7,13 +8,36 @@ import AdScreenshot from '../../../components/case/AdScreenshot';
 import { casesData } from '../../../data/cases';
 import Link from 'next/link';
 
+type CaseParams = { params: Promise<{ slug: string }> };
+
 export function generateStaticParams() {
     return casesData.map((c) => ({
         slug: c.slug,
     }));
 }
 
-export default async function CaseDetail({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: CaseParams): Promise<Metadata> {
+    const { slug } = await params;
+    const caseStudy = casesData.find((c) => c.slug === slug);
+    if (!caseStudy) {
+        return { title: 'Кейс не найден', robots: { index: false } };
+    }
+    const cats = caseStudy.categories.join(', ');
+    return {
+        title: `Кейс ${caseStudy.client} — ${cats}`,
+        description: `Реальный кейс агентства Digital Pride: ${caseStudy.title}. Категории: ${cats}. Цифры до и после, стратегия, результаты.`,
+        alternates: { canonical: `/cases/${caseStudy.slug}` },
+        openGraph: {
+            title: `Кейс ${caseStudy.client} | Digital Pride`,
+            description: `${caseStudy.title} — реальный результат работы агентства.`,
+            url: `/cases/${caseStudy.slug}`,
+            type: 'article',
+            images: caseStudy.coverImage ? [{ url: caseStudy.coverImage, alt: caseStudy.title }] : undefined,
+        },
+    };
+}
+
+export default async function CaseDetail({ params }: CaseParams) {
     const { slug } = await params;
     const caseStudy = casesData.find(c => c.slug === slug);
 
@@ -23,21 +47,60 @@ export default async function CaseDetail({ params }: { params: Promise<{ slug: s
 
                 <div className="py-32 text-center bg-white min-h-screen">
                     <h1 className="text-4xl font-bold mb-4 text-black">Кейс не найден</h1>
-                    <Link href="/case" className="text-red-600 hover:text-red-700 underline font-bold">Вернуться к списку кейсов</Link>
+                    <Link href="/cases" className="text-red-600 hover:text-red-700 underline font-bold">Вернуться к списку кейсов</Link>
                 </div>
                 <RawFooter />
             </>
         );
     }
 
+    const articleJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: caseStudy.title,
+        description: `Кейс агентства Digital Pride для ${caseStudy.client}. Категории: ${caseStudy.categories.join(', ')}.`,
+        image: caseStudy.coverImage ? `https://digitalpride.kz${caseStudy.coverImage}` : undefined,
+        author: {
+            '@type': 'Organization',
+            name: 'Digital Pride',
+            url: 'https://digitalpride.kz',
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Digital Pride',
+            logo: { '@type': 'ImageObject', url: 'https://digitalpride.kz/fonts/new-logo.svg' },
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://digitalpride.kz/cases/${caseStudy.slug}`,
+        },
+        keywords: caseStudy.categories.join(', '),
+        about: {
+            '@type': 'Thing',
+            name: caseStudy.client,
+        },
+    };
+
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://digitalpride.kz/' },
+            { '@type': 'ListItem', position: 2, name: 'Кейсы', item: 'https://digitalpride.kz/cases' },
+            { '@type': 'ListItem', position: 3, name: caseStudy.title, item: `https://digitalpride.kz/cases/${caseStudy.slug}` },
+        ],
+    };
+
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
             <main className="bg-zinc-50 pb-24">
                 {/* Banner */}
                 <div className="relative h-[60vh] min-h-[400px] w-full bg-black flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 z-0 scale-105">
-                        <img src={caseStudy.coverImage} alt={caseStudy.title} className="w-full h-full object-cover opacity-40 blur-sm" />
+                        <img src={caseStudy.coverImage} alt={caseStudy.title} loading="eager" fetchPriority="high" decoding="async" className="w-full h-full object-cover opacity-40 blur-sm" />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/80 to-transparent z-10"></div>
 

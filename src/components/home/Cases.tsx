@@ -74,6 +74,8 @@ export default function Cases() {
                                 <img
                                     src={item.image}
                                     alt={item.client}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-transform duration-700"
                                 />
                                 <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur border border-white/10 px-3 py-1 rounded-full text-xs font-bold text-gray-300">

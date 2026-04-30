@@ -1,9 +1,18 @@
-
+import type { Metadata } from 'next';
 import React from 'react';
 
 import RawFooter from '../components/layout/RawFooter';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  openGraph: {
+    url: '/',
+    title: 'Digital Pride — маркетинговое агентство в Алматы',
+    description: 'Перформанс-агентство полного цикла: SMM, таргет, контекст, SEO, разработка сайтов, брендинг.',
+  },
+};
 import SocialProof from '../components/home/SocialProof';
 import Services from '../components/home/Services';
 import Cases from '../components/home/Cases';

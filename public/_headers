@@ -1,6 +1,9 @@
 /*
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
@@ -11,8 +14,20 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-/js/*
-  Cache-Control: public, max-age=31536000, immutable
-
 /images/*
   Cache-Control: public, max-age=31536000, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/sitemap-images.xml
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/robots.txt
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/og-image
+  Cache-Control: public, max-age=86400, s-maxage=604800
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=86400

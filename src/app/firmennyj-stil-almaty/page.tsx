@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Разработка фирменного стиля в Алматы — айдентика под ключ',
     description: 'Разработка фирменного стиля в Алматы ✦ Логотип, визитки, бланки, упаковка, гайдлайн. Полная айдентика бренда под ключ. Сроки от 2 недель.',
-    keywords: 'фирменный стиль алматы, разработка айдентики алматы, корпоративный стиль казахстан, брендбук алматы, упаковка бренда алматы, визуальная идентичность',
     alternates: { canonical: '/firmennyj-stil-almaty' },
     openGraph: {
         title: 'Фирменный стиль в Алматы — Digital Pride',

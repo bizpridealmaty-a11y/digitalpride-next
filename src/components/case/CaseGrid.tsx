@@ -30,7 +30,7 @@ export default function CaseGrid() {
                     <div key={item.id} className="group relative rounded-3xl overflow-hidden aspect-square cursor-pointer shadow-xl bg-black">
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
-                            <img src={item.coverImage} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700" />
+                            <img src={item.coverImage} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700" />
                         </div>
 
                         {/* Overlay Gradient */}

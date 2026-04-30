@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Создание лендинга в Алматы — посадочные страницы под ключ',
     description: 'Разработка лендинга в Алматы ✦ Продающий дизайн, адаптивная вёрстка, SEO-оптимизация. Конверсия от 5%. Сроки: 7-14 дней. Под ключ от 300 000 ₸.',
-    keywords: 'лендинг алматы, создание лендинга алматы, landing page алматы, посадочная страница казахстан, заказать лендинг алматы, одностраничный сайт алматы',
     alternates: { canonical: '/lending-almaty' },
     openGraph: {
         title: 'Создание лендинга в Алматы — Digital Pride',

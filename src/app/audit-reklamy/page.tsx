@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Бесплатный аудит рекламы в Алматы — анализ эффективности',
     description: 'Бесплатный аудит рекламных кампаний в Алматы ✦ Проверим Google Ads, Яндекс.Директ, Facebook/Instagram Ads. Покажем, куда утекает бюджет. Отчёт за 3-5 дней.',
-    keywords: 'аудит рекламы алматы, аудит рекламных кампаний бесплатно, анализ рекламы казахстан, проверка google ads, аудит таргетированной рекламы',
     alternates: { canonical: '/audit-reklamy' },
     openGraph: {
         title: 'Бесплатный аудит рекламы — Digital Pride',

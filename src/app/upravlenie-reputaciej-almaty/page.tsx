@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Управление репутацией в интернете (SERM) в Алматы',
     description: 'SERM в Алматы ✦ Управление репутацией в интернете. Мониторинг отзывов, вытеснение негатива, работа с Google Maps, 2GIS, Яндекс.Карты. Защитим ваш бренд.',
-    keywords: 'serm алматы, управление репутацией алматы, удаление отзывов алматы, мониторинг упоминаний казахстан, репутация в интернете алматы',
     alternates: { canonical: '/upravlenie-reputaciej-almaty' },
     openGraph: {
         title: 'Управление репутацией (SERM) в Алматы — Digital Pride',

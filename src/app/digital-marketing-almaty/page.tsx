@@ -4,7 +4,6 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Digital-маркетинг агентство в Алматы — полный цикл продвижения',
     description: 'Digital-маркетинг агентство в Алматы ✦ SMM, таргет, контекст, SEO, сайты, брендинг — всё в одном месте. Перформанс-подход: работаем на KPI и результат.',
-    keywords: 'digital маркетинг алматы, маркетинговое агентство алматы, digital агентство казахстан, интернет маркетинг алматы, перформанс агентство алматы, рекламное агентство алматы',
     alternates: { canonical: '/digital-marketing-almaty' },
     openGraph: {
         title: 'Digital-маркетинг агентство в Алматы — Digital Pride',

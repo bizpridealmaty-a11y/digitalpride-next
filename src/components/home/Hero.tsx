@@ -143,11 +143,21 @@ export default function Hero() {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
                             <a
+                                href="#audit"
+                                className="px-8 py-4 text-black font-bold transition-all transform hover:scale-105 rounded-xl text-center"
+                                style={{
+                                    background: '#ffffff',
+                                    display: 'inline-block',
+                                }}
+                            >
+                                Получить бесплатный аудит
+                            </a>
+                            <a
                                 href="https://wa.me/77070357777?text=%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%20%D0%B1%D1%8B%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => trackWhatsAppClick('hero_cta')}
-                                className="px-8 py-4 text-white font-bold transition-all transform hover:scale-105 active:bg-red-600 active:border-red-600"
+                                className="px-8 py-4 text-white font-bold transition-all transform hover:scale-105"
                                 style={{
                                     background: 'rgba(255,255,255,0.1)',
                                     backdropFilter: 'blur(16px)',
@@ -158,7 +168,7 @@ export default function Hero() {
                                     display: 'inline-block',
                                 }}
                             >
-                                Получить маркетинговую стратегию
+                                Написать в WhatsApp
                             </a>
                         </div>
 

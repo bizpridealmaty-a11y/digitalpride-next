@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import RawHeader from "../components/layout/RawHeader";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import MotionProvider from "../components/layout/MotionProvider";
+import { unbounded, onest } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://digitalpride.kz'),
@@ -11,15 +12,23 @@ export const metadata: Metadata = {
     template: '%s | Digital Pride',
   },
   description: 'Digital Pride — перформанс-агентство полного цикла в Алматы. SMM, таргетированная и контекстная реклама, разработка сайтов, SEO, брендинг. Работаем на результат.',
-  keywords: 'маркетинговое агентство алматы, digital агентство казахстан, smm алматы, таргетированная реклама алматы, создание сайтов алматы, seo продвижение алматы',
   authors: [{ name: 'Digital Pride' }],
   openGraph: {
     type: 'website',
     locale: 'ru_KZ',
     siteName: 'Digital Pride',
+    images: [
+      {
+        url: '/og-image',
+        width: 1200,
+        height: 630,
+        alt: 'Digital Pride — маркетинговое агентство в Алматы',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/og-image'],
   },
 };
 
@@ -29,21 +38,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${unbounded.variable} ${onest.variable}`}>
       <head>
-        <link rel="preload" href="/fonts/Unbounded-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Unbounded-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Onest-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/Onest-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/css/bootstrap_custom.min.css" />
-        <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-        <link href="/css/all.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/css/nice-select.css" />
         <link rel="stylesheet" href="/css/main.css" />
         <link rel="stylesheet" href="/css/adaptive.css" />
-        <link rel="stylesheet" href="/css/main_new.css" />
-        <link rel="stylesheet" href="/css/default.css" />
         {/* Yandex.Metrika */}
         <script
           dangerouslySetInnerHTML={{
@@ -57,17 +55,20 @@ export default function RootLayout({
                 trackLinks:true,
                 accurateTrackBounce:true,
                 webvisor:true,
-                trackHash:true
+                trackHash:true,
+                trafficSampling:10
               });`,
           }}
         />
       </head>
       <body>
-        <RawHeader />
-        {children}
+        <MotionProvider>
+          <RawHeader />
+          {children}
 
-        {/* Floating WhatsApp button */}
-        <FloatingWhatsApp />
+          {/* Floating WhatsApp button */}
+          <FloatingWhatsApp />
+        </MotionProvider>
 
         {/* Pulse animation */}
         <style dangerouslySetInnerHTML={{
@@ -82,18 +83,6 @@ export default function RootLayout({
             box-shadow: 0 6px 30px rgba(37,211,102,0.6) !important;
           }
         `}} />
-        <Script src="/js/jquery.min.js" strategy="beforeInteractive" />
-        <Script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" strategy="lazyOnload" />
-        <Script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" strategy="lazyOnload" />
-        <Script src="/js/popper.min.js" strategy="lazyOnload" />
-        <Script src="/js/swiper-bundle.min.js" strategy="lazyOnload" />
-        <Script src="/js/parallax.min.js" strategy="lazyOnload" />
-        <Script src="/js/bootstrap.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.nice-select.min.js" strategy="lazyOnload" />
-        <Script src="/js/mask.js" strategy="lazyOnload" />
-        <Script src="/js/main-new.js" strategy="lazyOnload" />
-        <Script src="/js/default.js" strategy="lazyOnload" />
-
         {/* LocalBusiness Schema.org */}
         <script
           type="application/ld+json"
@@ -101,15 +90,87 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
+              "@id": "https://digitalpride.kz/#organization",
               "name": "Digital Pride",
-              "image": "https://digitalpride.kz/images/logo.png",
+              "image": "https://digitalpride.kz/fonts/new-logo.svg",
+              "logo": "https://digitalpride.kz/fonts/new-logo.svg",
+              "description": "Маркетинговое агентство полного цикла в Алматы. SMM, таргетированная и контекстная реклама, разработка сайтов, SEO, брендинг.",
+              "url": "https://digitalpride.kz/",
+              "telephone": "+77070357777",
+              "priceRange": "₸₸",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "проспект Бухар-Жирау, 33, 3 этаж, студия 13",
                 "addressLocality": "Алматы",
+                "addressRegion": "Алматы",
                 "addressCountry": "KZ"
               },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 43.232741,
+                "longitude": 76.922234
+              },
+              "hasMap": "https://2gis.kz/almaty/firm/70000001090336559",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "09:00",
+                  "closes": "18:00"
+                }
+              ],
+              "sameAs": [
+                "https://www.instagram.com/digital.pride.smm/",
+                "https://t.me/timoshevskij",
+                "https://wa.me/77070357777",
+                "https://2gis.kz/almaty/firm/70000001090336559"
+              ]
+            })
+          }}
+        />
+        {/* Organization Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Digital Pride",
               "url": "https://digitalpride.kz/",
-              "telephone": "+7-707-035-7777"
+              "logo": "https://digitalpride.kz/fonts/new-logo.svg",
+              "founder": {
+                "@type": "Person",
+                "name": "Дмитрий Тимошевский",
+                "jobTitle": "Основатель Digital Pride"
+              },
+              "sameAs": [
+                "https://www.instagram.com/digital.pride.smm/",
+                "https://t.me/timoshevskij",
+                "https://wa.me/77070357777",
+                "https://2gis.kz/almaty/firm/70000001090336559"
+              ]
+            })
+          }}
+        />
+        {/* Founder Person Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Дмитрий Тимошевский",
+              "givenName": "Дмитрий",
+              "familyName": "Тимошевский",
+              "additionalName": "Сергеевич",
+              "jobTitle": "Основатель Digital Pride",
+              "image": "https://digitalpride.kz/images/founder-portrait.webp",
+              "url": "https://digitalpride.kz/",
+              "worksFor": { "@id": "https://digitalpride.kz/#organization" },
+              "sameAs": [
+                "https://t.me/timoshevskij",
+                "https://www.instagram.com/digital.pride.smm/"
+              ]
             })
           }}
         />
@@ -117,4 +178,3 @@ export default function RootLayout({
     </html>
   );
 }
-
