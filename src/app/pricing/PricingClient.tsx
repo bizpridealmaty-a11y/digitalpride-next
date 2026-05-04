@@ -90,7 +90,7 @@ export default function PricingClient() {
                                             Популярный
                                         </div>
                                     )}
-                                    <h3 className="text-xl font-bold mb-2 transition-colors duration-300">{plan.name}</h3>
+                                    <h3 className="text-xl font-bold mb-2 transition-colors duration-300" style={{ wordBreak: 'break-word', hyphens: 'auto' }}>{plan.name}</h3>
                                     <div className="text-3xl font-extrabold mb-6 transition-colors duration-300" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                                         {plan.price}
                                     </div>

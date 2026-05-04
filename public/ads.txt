@@ -1,0 +1,4 @@
+# ads.txt for digitalpride.kz
+# Currently no ad partners configured. File present per IAB Tech Lab spec
+# to confirm site authenticity for Google Ads / programmatic platforms.
+# To add a partner: format is "domain.com, publisher-id, DIRECT|RESELLER, cert-id"

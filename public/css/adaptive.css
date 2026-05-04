@@ -20,9 +20,7 @@
       left: -17px;
       width: 61px;
       height: 61px; }
-  .section-white h2, .section-white .h2, .section-black h2, .section-black .h2 {
-    font-size: 70px;
-    line-height: 77px; }
+  /* Removed legacy 70px h2 override (broke Tailwind text-* sizing in cards) */
   /*.section-white .a-text, .section-black .a-text {
     font-size: 0.85rem;*/ }
   .a-img .block-margin img {
@@ -37,9 +35,7 @@
       margin-bottom: 15%; }
   body {
     font-size: 0.85rem; }
-  h1, .h1, h2, .h2, h3, .h3 {
-    font-size: 45px !important;
-    line-height: 55px !important; }
+  /* Removed legacy 45px !important h1-h3 rule that overrode Tailwind classes globally */
   .swiper-pagination .swiper-pagination-bullet {
     width: 58px;
     height: 3px; }
@@ -196,14 +192,7 @@
         height: 334px; } }
 
 @media (max-width: 576px) {
-  h1, .h1, h2, .h2, h3, .h3 {
-    font-size: 30px !important;
-    line-height: 37px !important; }
-    h1 span:before, .h1 span:before, h2 span:before, .h2 span:before, h3 span:before, .h3 span:before {
-      content: '';
-      width: 50px;
-      height: 5px;
-      top: -10px; }
+  /* Removed legacy 30px !important h1-h3 mobile rule (broke Tailwind sizing) */
   body {
     /*font-size: 0.72rem;
     line-height: 1.25;*/ }

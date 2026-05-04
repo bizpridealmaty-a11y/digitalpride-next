@@ -1,5 +1,50 @@
 @import "tailwindcss";
 
+/*
+ * Reset legacy main.css overrides (html { font-size: 25px }, body { color: black })
+ * which were previously balanced by bootstrap_custom.min.css.
+ * Without this, Tailwind rem-based sizes are scaled up ~1.56× and the page looks gigantic.
+ */
+/* Base font-size shrunk additional 10% — all rem-based Tailwind classes (text-xl, text-3xl,
+ * text-5xl, padding p-4, gap-8, etc.) scale down across the entire site.
+ * Original 16px → 14.4px (−10%) → 12.96px (−10% more, ~−19% total). */
+html {
+  font-size: 12.96px !important;
+  line-height: 1.5 !important;
+}
+
+/* Hide any third-party floating widget overlay that may collide with our header.
+ * Yandex.Metrika sometimes shows clickmap/feedback overlays for logged-in admins. */
+.ym-clickmap-icon,
+.ym-feedback-wrapper,
+.ym-disable-keys,
+.ym-show-feedback,
+#ym-form,
+[class^="ym-"][class*="-feedback"] {
+  display: none !important;
+}
+
+/* Hide Guidde browser extension UI (guidde.com) — it injects a recording widget
+ * with z-index 999999999, overlapping our header in the top-right corner.
+ * Doesn't affect the extension on other sites — only on digitalpride.kz. */
+guidde-record,
+#GUIDDE_JS_RECORD_UI,
+[id*="GUIDDE"],
+[id*="guidde-"],
+[class*="guidde"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
+body {
+  font-size: 14.4px;
+  line-height: 1.6;
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

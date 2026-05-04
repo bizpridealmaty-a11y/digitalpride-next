@@ -30,6 +30,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: ['/og-image'],
   },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'ru-KZ': 'https://digitalpride.kz/',
+      'x-default': 'https://digitalpride.kz/',
+    },
+  },
+  // TODO: после регистрации в GSC и Я.Вебмастере подставить реальные коды верификации
+  verification: {
+    google: 'PLACEHOLDER_GOOGLE_SITE_VERIFICATION',
+    yandex: 'PLACEHOLDER_YANDEX_VERIFICATION',
+    other: {
+      'msvalidate.01': ['PLACEHOLDER_BING_VERIFICATION'],
+    },
+  },
 };
 
 export default function RootLayout({
@@ -83,6 +98,30 @@ export default function RootLayout({
             box-shadow: 0 6px 30px rgba(37,211,102,0.6) !important;
           }
         `}} />
+        {/* WebSite Schema.org with SearchAction (sitelinks search box) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://digitalpride.kz/#website",
+              "url": "https://digitalpride.kz/",
+              "name": "Digital Pride",
+              "description": "Маркетинговое агентство в Алматы — SMM, таргет, контекст, SEO, разработка сайтов, брендинг",
+              "publisher": { "@id": "https://digitalpride.kz/#organization" },
+              "inLanguage": "ru-KZ",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://digitalpride.kz/blog?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
         {/* LocalBusiness Schema.org */}
         <script
           type="application/ld+json"

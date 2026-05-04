@@ -37,7 +37,6 @@ export default function Footer() {
                                 <a href="/marketing-almaty" style={linkStyle}>Маркетинговая стратегия</a>
                                 <a href="/sozdanie-sajtov-almaty" style={linkStyle}>Разработка сайтов</a>
                                 <a href="/upravlenie-reputaciej-almaty" style={linkStyle}>Управление репутацией</a>
-                                <a href="/bitrix24" style={linkStyle}>Внедрение Bitrix24</a>
                                 <a href="/school" style={linkStyle}>Наше обучение</a>
                                 <a href="/blog" style={linkStyle}>Блог</a>
                                 <a href="/o-nas" style={linkStyle}>О нас</a>

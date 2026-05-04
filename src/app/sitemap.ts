@@ -22,7 +22,6 @@ const pages: PageMeta[] = [
     { url: '/marketing-consulting-almaty', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/voronka-prodazh-almaty', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/audit-reklamy', priority: 0.8, changeFrequency: 'monthly' },
-    { url: '/bitrix24', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/perfomans-marketing', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/target-reklama-instagram-almaty', priority: 0.9, changeFrequency: 'monthly' },
     { url: '/target-reklama-tiktok-almaty', priority: 0.9, changeFrequency: 'monthly' },
@@ -46,6 +45,8 @@ const pages: PageMeta[] = [
     { url: '/cases', priority: 0.7, changeFrequency: 'weekly' },
     { url: '/contacts', priority: 0.6, changeFrequency: 'yearly' },
     { url: '/o-nas', priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
+    { url: '/sitemap-html', priority: 0.4, changeFrequency: 'weekly' },
     { url: '/pricing', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/threads-prodvizhenie', priority: 0.8, changeFrequency: 'monthly' },
 ];

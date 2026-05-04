@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { trackPhoneClick } from '@/lib/analytics';
 import CallbackModal from './CallbackModal';
@@ -13,7 +13,6 @@ const services = [
     { href: '/marketing-almaty', label: 'Маркетинговая стратегия' },
     { href: '/kontekstnaya-reklama-almaty', label: 'Контекстная реклама (PPC)' },
     { href: '/target-almaty', label: 'Таргетированная реклама' },
-    { href: '/bitrix24', label: 'Внедрение Bitrix24' },
 ];
 
 const navItems = [
@@ -29,28 +28,162 @@ const navItems = [
 export default function RawHeader() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [callbackOpen, setCallbackOpen] = useState(false);
+    // Auto-hide header
+    const [hidden, setHidden] = useState(false);
+    const [isTouch, setIsTouch] = useState(false);
+    const hideTimerRef = useRef<number | null>(null);
 
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
     }, [mobileOpen]);
 
+    // Detect touch device — on touch we don't auto-hide (no hover available)
+    useEffect(() => {
+        const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        setIsTouch(touch);
+    }, []);
+
+    // Auto-hide logic for desktop
+    useEffect(() => {
+        if (isTouch) return; // no hover on touch
+        if (mobileOpen) return; // keep visible while menu is open
+
+        const HIDE_DELAY = 2500;       // ms before header hides after mouse leaves trigger zone
+        const INITIAL_DELAY = 3000;    // ms — after page load, header is visible this long
+        const TRIGGER_TOP_PX = 80;     // top zone height that triggers reveal
+
+        const scheduleHide = () => {
+            if (hideTimerRef.current) window.clearTimeout(hideTimerRef.current);
+            hideTimerRef.current = window.setTimeout(() => setHidden(true), HIDE_DELAY);
+        };
+
+        const cancelHide = () => {
+            if (hideTimerRef.current) {
+                window.clearTimeout(hideTimerRef.current);
+                hideTimerRef.current = null;
+            }
+        };
+
+        // Initial: visible, then hide after INITIAL_DELAY
+        const initialTimer = window.setTimeout(() => {
+            setHidden(true);
+        }, INITIAL_DELAY);
+
+        const handleMove = (e: MouseEvent) => {
+            const inHotZone = e.clientY <= TRIGGER_TOP_PX;
+            if (inHotZone) {
+                cancelHide();
+                window.clearTimeout(initialTimer);
+                setHidden(false);
+            } else {
+                if (!hidden) scheduleHide();
+            }
+        };
+
+        const handleLeave = () => scheduleHide();
+
+        window.addEventListener('mousemove', handleMove, { passive: true });
+        document.addEventListener('mouseleave', handleLeave);
+
+        return () => {
+            window.clearTimeout(initialTimer);
+            cancelHide();
+            window.removeEventListener('mousemove', handleMove);
+            document.removeEventListener('mouseleave', handleLeave);
+        };
+    }, [isTouch, mobileOpen, hidden]);
+
     return (
         <>
+            {/* Invisible hot zone in the top-right corner — triggers reveal even when header is fully hidden.
+              * Always present so users can find the menu. Larger than just a corner so it's easy to hit. */}
+            <div
+                aria-hidden="true"
+                onMouseEnter={() => setHidden(false)}
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    right: 0,
+                    width: '320px',
+                    height: '40px',
+                    zIndex: 10002,
+                    pointerEvents: isTouch || mobileOpen ? 'none' : 'auto',
+                }}
+            />
+
+            {/* Edge hint — subtle indicator in top-right that shows the menu is hideable.
+              * Visible only when header is hidden, fades out on hover. */}
+            {!isTouch && hidden && !mobileOpen && (
+                <button
+                    type="button"
+                    aria-label="Показать меню"
+                    onClick={() => setHidden(false)}
+                    onMouseEnter={() => setHidden(false)}
+                    style={{
+                        position: 'fixed',
+                        top: '12px',
+                        right: '20px',
+                        zIndex: 10003,
+                        background: 'rgba(0, 0, 0, 0.55)',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        borderRadius: '999px',
+                        padding: '6px 14px',
+                        cursor: 'pointer',
+                        color: '#fff',
+                        fontSize: '12px',
+                        fontWeight: 500,
+                        letterSpacing: '0.4px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        opacity: 0.75,
+                        transition: 'opacity 0.2s ease',
+                    }}
+                >
+                    <span
+                        style={{
+                            width: '14px',
+                            height: '2px',
+                            background: '#fff',
+                            borderRadius: '2px',
+                            display: 'inline-block',
+                            position: 'relative',
+                        }}
+                    />
+                    <span style={{ whiteSpace: 'nowrap' }}>Меню</span>
+                </button>
+            )}
+
             <header
                 className="dp-header"
+                onMouseEnter={() => setHidden(false)}
+                onMouseLeave={() => {
+                    if (!isTouch && !mobileOpen) {
+                        if (hideTimerRef.current) window.clearTimeout(hideTimerRef.current);
+                        hideTimerRef.current = window.setTimeout(() => setHidden(true), 1500);
+                    }
+                }}
                 style={{
                     position: 'fixed',
                     top: 0,
                     left: 0,
                     right: 0,
-                    zIndex: 9990,
+                    width: '100vw',
+                    zIndex: 9999,
                     background: '#000',
+                    backgroundColor: '#000',
                     color: '#fff',
                     height: '72px',
                     display: 'flex',
                     alignItems: 'center',
-                    boxShadow: '0 1px 0 rgba(255,255,255,0.05)',
+                    border: 'none',
+                    boxShadow: 'none',
+                    overflow: 'hidden',
+                    transform: hidden && !isTouch ? 'translateY(-100%)' : 'translateY(0)',
+                    transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
             >
                 <div
@@ -112,9 +245,11 @@ export default function RawHeader() {
                                                 top: '100%',
                                                 left: 0,
                                                 minWidth: '240px',
-                                                background: '#111',
-                                                border: '1px solid #2a2a2a',
-                                                borderRadius: '12px',
+                                                background: 'rgba(10, 10, 10, 0.85)',
+                                                backdropFilter: 'blur(20px) saturate(180%)',
+                                                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                                borderRadius: '14px',
                                                 padding: '8px 0',
                                                 margin: 0,
                                                 listStyle: 'none',
@@ -244,7 +379,7 @@ export default function RawHeader() {
                             position: 'fixed',
                             inset: 0,
                             background: 'rgba(0,0,0,0.6)',
-                            zIndex: 9998,
+                            zIndex: 10000,
                         }}
                         aria-hidden="true"
                     />
@@ -258,8 +393,11 @@ export default function RawHeader() {
                             width: '320px',
                             maxWidth: '90vw',
                             height: '100dvh',
-                            background: '#111',
-                            zIndex: 9999,
+                            background: 'rgba(10, 10, 10, 0.85)',
+                            backdropFilter: 'blur(24px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+                            borderLeft: '1px solid rgba(255, 255, 255, 0.08)',
+                            zIndex: 10001,
                             padding: '80px 24px 40px',
                             overflowY: 'auto',
                             transform: 'translateX(0)',

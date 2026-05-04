@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { trackWhatsAppClick } from '@/lib/analytics';
 
@@ -85,20 +84,32 @@ export default function Hero() {
 
     return (
         <section ref={ref} className="relative overflow-hidden bg-black text-white pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[90vh] flex items-center">
-            {/* Background photo */}
-            <motion.div style={{ y: bgY, opacity }} className="absolute inset-0 -top-16 z-0">
-                <Image
-                    src="/images/founder-portrait.webp"
-                    alt="Основатель Digital Pride - Маркетинговое агентство в Алматы"
-                    fill
-                    priority
-                    className="object-cover"
-                    style={{ filter: 'brightness(0.7)', objectPosition: 'center top' }}
+            {/* SEO: скрытый осмысленный текст для поисковиков (видео не индексируется как контент) */}
+            <h2 className="sr-only">Digital Pride — маркетинговое агентство полного цикла в Алматы</h2>
+
+            {/* Background video */}
+            <motion.div style={{ y: bgY, opacity }} className="absolute inset-0 z-0" aria-hidden="true">
+                <video
+                    src="/videos/hero.mp4"
+                    poster="/videos/hero-poster.jpg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{
+                        filter: 'brightness(0.55)',
+                        objectPosition: 'center top',
+                        backgroundColor: '#000',
+                    }}
                 />
-                {/* Vignette overlay — darkened edges */}
+                {/* Vignette overlay — darkened edges for text contrast */}
                 <div className="absolute inset-0" style={{
                     background: `
-                        radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.95) 100%)
+                        radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.95) 100%)
                     `,
                 }}></div>
                 {/* Bottom fade to black for smooth transition */}
@@ -107,12 +118,10 @@ export default function Hero() {
                 }}></div>
                 {/* Left side darken for text readability */}
                 <div className="absolute inset-0" style={{
-                    background: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, transparent 65%)',
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.05) 65%, transparent 80%)',
                 }}></div>
             </motion.div>
 
-            {/* Subtle ambient glow */}
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-red-600/10 rounded-full blur-[120px] transform translate-x-1/3 -translate-y-1/3 z-[1]"></div>
 
             <div className="container relative z-10 mx-auto px-4 max-w-6xl">
                 <div className="flex flex-col lg:flex-row items-center gap-12">

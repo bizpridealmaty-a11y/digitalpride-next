@@ -1,0 +1,5 @@
+Contact: mailto:digitalpride.almaty@gmail.com
+Contact: https://wa.me/77070357777
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: ru, en, kk
+Canonical: https://digitalpride.kz/.well-known/security.txt

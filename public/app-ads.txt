@@ -1,0 +1,2 @@
+# app-ads.txt for digitalpride.kz
+# No mobile app ad partners configured. File present per IAB Tech Lab spec.

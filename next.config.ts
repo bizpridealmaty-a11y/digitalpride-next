@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Short-form clean URLs
       { source: '/smm', destination: '/smm-almaty', permanent: true },
       { source: '/seo', destination: '/seo-almaty', permanent: true },
       { source: '/context', destination: '/kontekstnaya-reklama-almaty', permanent: true },
@@ -26,6 +27,25 @@ const nextConfig: NextConfig = {
       { source: '/case', destination: '/cases', permanent: true },
       { source: '/case/:slug', destination: '/cases/:slug', permanent: true },
       { source: '/contact', destination: '/contacts', permanent: true },
+      { source: '/bitrix24', destination: '/services', permanent: true },
+
+      // Legacy .html URLs from the previous site — redirect to clean URLs to preserve link equity
+      { source: '/index.html', destination: '/', permanent: true },
+      { source: '/contact.html', destination: '/contacts', permanent: true },
+      { source: '/contacts.html', destination: '/contacts', permanent: true },
+      { source: '/school.html', destination: '/school', permanent: true },
+      { source: '/case.html', destination: '/cases', permanent: true },
+      { source: '/cases.html', destination: '/cases', permanent: true },
+      { source: '/services.html', destination: '/services', permanent: true },
+      { source: '/smm.html', destination: '/smm-almaty', permanent: true },
+      { source: '/seo.html', destination: '/seo-almaty', permanent: true },
+      { source: '/site.html', destination: '/sozdanie-sajtov-almaty', permanent: true },
+      { source: '/serm.html', destination: '/upravlenie-reputaciej-almaty', permanent: true },
+      { source: '/branding.html', destination: '/marketing-almaty', permanent: true },
+      { source: '/context.html', destination: '/kontekstnaya-reklama-almaty', permanent: true },
+      { source: '/bitrix24.html', destination: '/services', permanent: true },
+      { source: '/prices.html', destination: '/pricing', permanent: true },
+      { source: '/privacy.html', destination: '/privacy', permanent: true },
     ];
   },
   async headers() {
@@ -41,6 +61,10 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/css/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/videos/:path*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
       {

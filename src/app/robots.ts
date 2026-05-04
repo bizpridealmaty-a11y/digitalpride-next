@@ -21,6 +21,7 @@ export default function robots(): MetadataRoute.Robots {
             { userAgent: 'TwoGisBot', allow: '/' },
         ],
         sitemap: [
+            'https://digitalpride.kz/sitemap-index.xml',
             'https://digitalpride.kz/sitemap.xml',
             'https://digitalpride.kz/sitemap-images.xml',
         ],

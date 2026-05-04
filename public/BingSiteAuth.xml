@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+  ЗАГЛУШКА ДЛЯ BING WEBMASTER TOOLS.
+  После регистрации замени users внутри на код из Bing.
+  Альтернатива: metadata.verification.other['msvalidate.01']
+-->
+<users>
+  <user>PLACEHOLDER_BING_USER_ID</user>
+</users>

@@ -17,6 +17,10 @@
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
+/videos/*
+  Cache-Control: public, max-age=31536000, immutable
+  Accept-Ranges: bytes
+
 /sitemap.xml
   Cache-Control: public, max-age=3600, s-maxage=86400
 

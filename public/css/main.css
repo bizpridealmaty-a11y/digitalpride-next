@@ -23,98 +23,14 @@
   font-weight: normal;
 }
 
-html {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 25px;
-  line-height: 30px;
-}
-
-body {
-  font-family: 'ProximaNovaRegular';
-  position: relative;
-  line-height: 1.2222222;
-  color: black;
-}
+/* Legacy html/body/h1-h3 typography rules removed — they overrode Tailwind classes
+ * across the site (60/65/50px headings broke pricing cards, blog, services, etc).
+ * Typography is now controlled by Tailwind text-* classes + globals.css. */
 
 header {
   z-index: 10;
   position: relative;
   background: black;
-}
-
-h1,
-.h1 {
-  font-weight: 900;
-  font-size: 60px;
-  line-height: 60px;
-  font-style: normal;
-  font-family: "ProximaNovaBold";
-  margin-bottom: 40px;
-}
-
-h1 span,
-.h1 span {
-  position: relative;
-}
-
-h1 span:before,
-.h1 span:before {
-  display: none;
-}
-
-h2,
-.h2 {
-  font-weight: 900;
-  font-size: 65px;
-  line-height: 60px;
-  font-style: normal;
-  font-family: "ProximaNovaBold";
-  margin-bottom: 40px;
-}
-
-h2 span,
-.h2 span {
-  position: relative;
-}
-
-h2 span:before,
-.h2 span:before {
-  position: absolute;
-  content: '';
-  width: 90px;
-  height: 7px;
-  background: #BD274C;
-  border-radius: 12px;
-  top: -10px;
-  left: 0;
-}
-
-h3,
-.h3 {
-  font-weight: 900;
-  font-size: 50px;
-  line-height: 61px;
-  font-style: normal;
-  font-family: "ProximaNovaBold";
-  margin-bottom: 40px;
-}
-
-h3 span,
-.h3 span {
-  position: relative;
-}
-
-h3 span:before,
-.h3 span:before {
-  position: absolute;
-  content: '';
-  width: 90px;
-  height: 7px;
-  background: #BD274C;
-  border-radius: 12px;
-  top: -10px;
-  left: 0;
 }
 
 th {
@@ -254,35 +170,10 @@ th {
   pointer-events: auto;
 }
 
-.menuModal:before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: url(../fonts/fon-menu.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  content: '';
-}
-
-header {
-  position: relative;
-}
-
-header:before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: url(../fonts/fon-header-small.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  content: '';
-}
+/* Legacy header::before pseudo-element with fon-header-small.svg pattern overlay REMOVED.
+ * It was the cause of the "pattern on header" — applied to ANY <header> tag globally,
+ * including our React-based dp-header, drawing an SVG ornament on top of black background.
+ * Same with .menuModal::before (fon-menu.svg) — old site burger overlay, not used anymore. */
 
 .fixed-shadow.active {
   position: absolute;

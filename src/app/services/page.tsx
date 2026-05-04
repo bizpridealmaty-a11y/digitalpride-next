@@ -67,12 +67,6 @@ const services: ServiceCard[] = [
         href: '/firmennyj-stil-almaty',
     },
     {
-        title: 'Внедрение Bitrix24',
-        description: 'Настройка CRM, автоматизация воронки продаж, интеграция с рекламными кабинетами.',
-        href: '/bitrix24',
-        badge: 'B2B',
-    },
-    {
         title: 'Аудит рекламы',
         description: 'Бесплатный аудит ваших текущих кампаний. Найдём, где вы теряете деньги.',
         href: '/audit-reklamy',
