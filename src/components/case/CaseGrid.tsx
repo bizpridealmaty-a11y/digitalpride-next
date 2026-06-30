@@ -30,7 +30,7 @@ export default function CaseGrid() {
                     <div key={item.id} className="group relative rounded-3xl overflow-hidden aspect-square cursor-pointer shadow-xl bg-black">
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
-                            <img src={item.coverImage} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700" />
+                            <img src={item.coverImage} alt={item.title} width={600} height={600} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700" />
                         </div>
 
                         {/* Overlay Gradient */}
@@ -61,7 +61,7 @@ export default function CaseGrid() {
                                 ))}
                             </div>
 
-                            <Link href={`/case/${item.slug}`} className="mt-auto inline-flex items-center text-white font-bold text-xs lg:text-sm bg-white/20 hover:bg-white/30 px-5 py-3 rounded-xl w-max transition-colors">
+                            <Link href={`/cases/${item.slug}/`} className="mt-auto inline-flex items-center text-white font-bold text-xs lg:text-sm bg-white/20 hover:bg-white/30 px-5 py-3 rounded-xl w-max transition-colors">
                                 Полный кейс
                                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </Link>

@@ -45,6 +45,8 @@ export default function AdScreenshot({ platform, screenshot }: {
                     <img
                         src={screenshot}
                         alt={`Скриншот рекламного кабинета ${info.name}`}
+                        width={800}
+                        height={500}
                         className="w-full h-auto"
                     />
                     {/* Subtle overlay to make it feel like a real screenshot */}

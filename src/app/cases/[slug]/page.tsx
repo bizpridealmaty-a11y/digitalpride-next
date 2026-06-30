@@ -47,7 +47,7 @@ export default async function CaseDetail({ params }: CaseParams) {
 
                 <div className="py-32 text-center bg-white min-h-screen">
                     <h1 className="text-4xl font-bold mb-4 text-black">Кейс не найден</h1>
-                    <Link href="/cases" className="text-red-600 hover:text-red-700 underline font-bold">Вернуться к списку кейсов</Link>
+                    <Link href="/cases/" className="text-red-600 hover:text-red-700 underline font-bold">Вернуться к списку кейсов</Link>
                 </div>
                 <RawFooter />
             </>
@@ -201,9 +201,36 @@ export default async function CaseDetail({ params }: CaseParams) {
 
                     </div>
 
+                    {/* Related Services */}
+                    {(() => {
+                        const catToService: Record<string, { href: string; label: string }> = {
+                            'SMM': { href: '/smm-almaty/', label: 'SMM продвижение' },
+                            'BRANDING': { href: '/firmennyj-stil-almaty/', label: 'Фирменный стиль' },
+                            'SEO': { href: '/seo-almaty/', label: 'SEO продвижение' },
+                            'SITE': { href: '/sozdanie-sajtov-almaty/', label: 'Создание сайтов' },
+                            'CONTEXT': { href: '/kontekstnaya-reklama-almaty/', label: 'Контекстная реклама' },
+                            'ANALYTICS': { href: '/marketing-almaty/', label: 'Маркетинговая стратегия' },
+                        };
+                        const services = caseStudy.categories
+                            .map(cat => catToService[cat])
+                            .filter(Boolean);
+                        return services.length > 0 ? (
+                            <div className="mt-12 p-6 md:p-8 bg-zinc-50 rounded-2xl border border-gray-100">
+                                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Услуги в этом кейсе</p>
+                                <div className="flex flex-wrap gap-3">
+                                    {services.map((s) => (
+                                        <Link key={s!.href} href={s!.href} className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-bold text-gray-900 hover:border-red-300 hover:text-red-600 transition-all shadow-sm">
+                                            {s!.label} →
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : null;
+                    })()}
+
                     {/* Navigation */}
                     <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="/case" className="inline-flex items-center px-6 py-3 rounded-xl bg-white border border-gray-200 text-gray-900 shadow-sm hover:shadow-md hover:border-gray-300 hover:text-red-600 font-bold transition-all">
+                        <Link href="/cases/" className="inline-flex items-center px-6 py-3 rounded-xl bg-white border border-gray-200 text-gray-900 shadow-sm hover:shadow-md hover:border-gray-300 hover:text-red-600 font-bold transition-all">
                             <svg className="w-5 h-5 mr-3 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             Назад ко всем кейсам
                         </Link>
