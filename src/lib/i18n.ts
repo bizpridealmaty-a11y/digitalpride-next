@@ -196,8 +196,14 @@ export function toRuPath(pathname: string): string {
     return clean ? `${clean}/` : '/';
 }
 
-/** Get the KK equivalent of the current path */
+/** Get the KK equivalent of the current path.
+ * Detail pages (blog posts, case studies) have no KK translation, so the
+ * language switcher falls back to the KK section listing instead of 404. */
 export function toKkPath(pathname: string): string {
     const clean = pathname.replace(/^\/kk\/?/, '/').replace(/\/+$/, '');
-    return clean ? `/kk${clean}/` : '/kk/';
+    if (!clean) return '/kk/';
+    if (/^\/blog\/.+/.test(clean)) return '/kk/blog/';
+    if (/^\/cases\/.+/.test(clean)) return '/kk/cases/';
+    if (clean === '/sitemap-html') return '/kk/';
+    return `/kk${clean}/`;
 }
