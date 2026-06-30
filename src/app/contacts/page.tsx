@@ -3,7 +3,7 @@ import ContactsClient from './ContactsClient';
 
 export const metadata: Metadata = {
     title: 'Контакты Digital Pride — маркетинговое агентство в Алматы',
-    description: 'Адрес офиса в Алматы, телефон, WhatsApp, email и соцсети. Свяжитесь с нами для обсуждения вашего проекта.',
+    description: 'Контакты Digital Pride в Алматы ✦ Проспект Бухар-Жирау, 33, 3 этаж. Телефон +7 (707) 035-77-77, WhatsApp, email. Приходите или звоните — обсудим ваш проект.',
     alternates: { canonical: '/contacts' },
     openGraph: {
         title: 'Контакты Digital Pride',

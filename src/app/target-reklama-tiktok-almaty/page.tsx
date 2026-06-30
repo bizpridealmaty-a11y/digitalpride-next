@@ -6,9 +6,15 @@ export const metadata: Metadata = {
     description: 'Настройка рекламы в TikTok в Алматы ✦ In-Feed Ads, TopView, Spark Ads. Вирусный охват молодой аудитории. Стоимость лида от 500 ₸. Запуск за 3 дня.',
     alternates: { canonical: '/target-reklama-tiktok-almaty' },
     openGraph: {
-        title: 'Реклама в TikTok Алматы — Digital Pride',
+        title: 'Реклама в TikTok Алматы',
         description: 'TikTok Ads: In-Feed, TopView, Spark Ads. Вирусный охват, низкая стоимость лида.',
         url: '/target-reklama-tiktok-almaty',
+        images: [{
+            url: '/og-image?title=%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0+%D0%B2+TikTok&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'Реклама в TikTok в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function TargetTikTokPage() {
     return (
         <ServicePageTemplate
-            title="Таргет реклама"
-            accentWord="TikTok"
+            title="Реклама в TikTok"
+            accentWord="в Алматы"
             subtitle="TikTok — самая быстрорастущая платформа в Казахстане. Мы запускаем рекламу, которая получает миллионные охваты и приводит клиентов по минимальной цене."
             description="TikTok Ads — это уникальная возможность получить дешёвые охваты и вирусный эффект. Мы создаём нативные рекламные ролики, которые не отличаются от органического контента, и настраиваем точный таргетинг. Средняя стоимость 1000 показов в TikTok в 2-3 раза ниже, чем в Instagram."
             features={[
@@ -48,7 +54,7 @@ export default function TargetTikTokPage() {
                     text: <>
                         <p>TikTok — самая быстрорастущая платформа в Казахстане: ежемесячная аудитория превышает 8 миллионов пользователей, и значительная часть из них — жители Алматы. Главное преимущество TikTok Ads — стоимость 1000 показов в 2-3 раза ниже, чем в Instagram, а виральный эффект позволяет получить результат, значительно превышающий рекламный бюджет.</p>
                         <p>Digital Pride создаёт нативные рекламные ролики, которые органично встраиваются в ленту рекомендаций TikTok и не воспринимаются как реклама. Мы работаем со всеми форматами: In-Feed Ads для массового охвата, Spark Ads для продвижения органических видео и TopView для максимальной заметности. Особенно хорошо TikTok Ads работает для бизнесов в нишах: бьюти, общепит, фитнес, образование и розничная торговля в Алматы.</p>
-                        <p>Расширьте охват с помощью <a href="/target-reklama-instagram-almaty" className="text-red-500 hover:underline">рекламы в Instagram</a> для старшей аудитории, а для перехвата горячего спроса подключите <a href="/kontekstnaya-reklama-google-almaty" className="text-red-500 hover:underline">Google Ads</a>.</p>
+                        <p>Расширьте охват с помощью <a href="/target-reklama-instagram-almaty/" className="text-red-500 hover:underline">рекламы в Instagram</a> для старшей аудитории, а для перехвата горячего спроса подключите <a href="/kontekstnaya-reklama-google-almaty/" className="text-red-500 hover:underline">Google Ads</a>.</p>
                     </>
                 },
             ]}

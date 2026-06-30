@@ -164,7 +164,7 @@ export default function ONasPage() {
                                     Telegram
                                 </a>
                                 <a
-                                    href="https://www.instagram.com/digital.pride.smm/"
+                                    href="https://www.instagram.com/digitalpride.kz/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl text-sm font-semibold transition-colors"
@@ -301,7 +301,7 @@ export default function ONasPage() {
                         </p>
                         <div className="flex flex-wrap gap-4 justify-center">
                             <Link
-                                href="/contacts"
+                                href="/contacts/"
                                 className="px-8 py-4 bg-black text-white font-bold rounded-xl hover:scale-105 transition-transform"
                             >
                                 Все контакты
@@ -313,6 +313,29 @@ export default function ONasPage() {
                                 className="px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl hover:scale-105 transition-transform"
                             >
                                 Написать в WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Our projects */}
+                <section className="py-20 bg-zinc-50">
+                    <div className="container mx-auto px-4 max-w-5xl">
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12 tracking-tight" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+                            Наши проекты
+                        </h2>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <a href="https://smm-school.kz/" target="_blank" rel="noopener noreferrer" className="group block p-8 bg-white rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-xl transition-all">
+                                <div className="text-3xl mb-4">🎓</div>
+                                <h3 className="text-xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors">SMM School</h3>
+                                <p className="text-gray-600">Онлайн-школа маркетинга — курсы по SMM, таргету, нейросетям и автоматизации для специалистов и предпринимателей.</p>
+                                <span className="inline-block mt-4 text-red-600 font-bold text-sm">smm-school.kz →</span>
+                            </a>
+                            <a href="https://bizpride.kz/" target="_blank" rel="noopener noreferrer" className="group block p-8 bg-white rounded-2xl border border-gray-100 hover:border-red-200 hover:shadow-xl transition-all">
+                                <div className="text-3xl mb-4">🤝</div>
+                                <h3 className="text-xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors">BizPride — Бизнес-клуб Алматы</h3>
+                                <p className="text-gray-600">Сообщество предпринимателей Алматы — бизнес-бранчи, нетворкинг, воркшопы и обмен опытом. Присоединяйтесь к нам.</p>
+                                <span className="inline-block mt-4 text-red-600 font-bold text-sm">bizpride.kz →</span>
                             </a>
                         </div>
                     </div>

@@ -170,7 +170,7 @@ export default function CallbackModal({ open, onClose, source = 'callback_modal'
                             </button>
                             <p style={{ fontSize: '11px', color: '#999', textAlign: 'center', marginTop: '4px' }}>
                                 Нажимая кнопку, вы соглашаетесь с{' '}
-                                <a href="/privacy" style={{ color: '#666', textDecoration: 'underline' }}>политикой конфиденциальности</a>
+                                <a href="/privacy/" style={{ color: '#666', textDecoration: 'underline' }}>политикой конфиденциальности</a>
                             </p>
                         </form>
                     </>

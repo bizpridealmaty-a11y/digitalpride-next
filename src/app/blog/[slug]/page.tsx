@@ -5,7 +5,7 @@ import RawFooter from '../../../components/layout/RawFooter';
 import Footer from '../../../components/layout/Footer';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import CTA from '../../../components/home/CTA';
-import { getAllPosts, getPostBySlug } from '@/lib/blog';
+import { getAllPosts, getPostBySlug, type BlogPost } from '@/lib/blog';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
         '@type': 'Article',
         headline: post.title,
         description: post.description,
-        author: { '@type': 'Organization', name: post.author },
+        author: { '@type': 'Person', name: 'Дмитрий Тимошевский', url: 'https://digitalpride.kz/o-nas' },
         publisher: {
             '@type': 'Organization',
             name: 'Digital Pride',
@@ -115,6 +115,50 @@ export default async function BlogPostPage({ params }: Props) {
                         `,
                     }} />
 
+                    {/* Related Articles */}
+                    {(() => {
+                        const related = getAllPosts()
+                            .filter((p: BlogPost) => p.slug !== post.slug)
+                            .filter((p: BlogPost) => p.category === post.category || p.tags.some((t: string) => post.tags.includes(t)))
+                            .slice(0, 3);
+                        return related.length > 0 ? (
+                            <div className="mt-12">
+                                <h2 className="text-2xl font-extrabold text-black mb-6" style={{ fontFamily: "'Unbounded', sans-serif" }}>Читайте также</h2>
+                                <div className="grid gap-4">
+                                    {related.map((r: BlogPost) => (
+                                        <Link key={r.slug} href={`/blog/${r.slug}/`} className="group block p-5 rounded-xl border border-gray-100 hover:border-red-200 hover:bg-red-50/30 transition-colors">
+                                            <span className="text-xs font-bold text-red-600 uppercase tracking-wider">{r.category}</span>
+                                            <p className="mt-1 text-lg font-bold text-black group-hover:text-red-600 transition-colors">{r.title}</p>
+                                            <p className="mt-1 text-sm text-gray-500">{r.readingTime} мин чтения</p>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                        ) : null;
+                    })()}
+
+                    {/* Related Service */}
+                    {(() => {
+                        const categoryToService: Record<string, { href: string; label: string }> = {
+                            'SMM': { href: '/smm-almaty/', label: 'SMM продвижение в Алматы' },
+                            'Таргет': { href: '/target-almaty/', label: 'Таргетированная реклама в Алматы' },
+                            'SEO': { href: '/seo-almaty/', label: 'SEO продвижение в Алматы' },
+                            'Сайты': { href: '/sozdanie-sajtov-almaty/', label: 'Создание сайтов в Алматы' },
+                            'Контекст': { href: '/kontekstnaya-reklama-almaty/', label: 'Контекстная реклама в Алматы' },
+                            'Стратегия': { href: '/marketing-almaty/', label: 'Маркетинговая стратегия в Алматы' },
+                            'Бренд': { href: '/firmennyj-stil-almaty/', label: 'Фирменный стиль в Алматы' },
+                        };
+                        const service = categoryToService[post.category];
+                        return service ? (
+                            <div className="mt-12 p-6 bg-zinc-50 rounded-2xl border border-gray-100">
+                                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Услуга по теме</p>
+                                <Link href={service.href} className="text-lg font-bold text-red-600 hover:text-red-700 hover:underline">
+                                    {service.label} →
+                                </Link>
+                            </div>
+                        ) : null;
+                    })()}
+
                     <div className="mt-16 pt-8 border-t border-gray-200">
                         <div className="flex flex-wrap gap-2 mb-8">
                             {post.tags.map((t) => (
@@ -124,7 +168,7 @@ export default async function BlogPostPage({ params }: Props) {
                             ))}
                         </div>
                         <Link
-                            href="/blog"
+                            href="/blog/"
                             className="inline-flex items-center gap-2 text-red-600 font-bold hover:underline"
                         >
                             ← Все статьи

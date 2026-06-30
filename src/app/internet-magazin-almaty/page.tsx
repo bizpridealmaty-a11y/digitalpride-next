@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Разработка интернет-магазина в Алматы ✦ Каталог, корзина, оплата, доставка. Интеграция с Kaspi, 1C, CRM. Адаптивный дизайн. От 800 000 ₸.',
     alternates: { canonical: '/internet-magazin-almaty' },
     openGraph: {
-        title: 'Интернет-магазин в Алматы — Digital Pride',
+        title: 'Интернет-магазин в Алматы',
         description: 'E-commerce под ключ: каталог, оплата, доставка. Интеграция с Kaspi и 1C.',
         url: '/internet-magazin-almaty',
     },
@@ -18,7 +18,7 @@ export default function EcommercePage() {
     return (
         <ServicePageTemplate
             title="Интернет-магазин"
-            accentWord="под ключ"
+            accentWord="в Алматы"
             subtitle="Создаём интернет-магазины, которые продают. Каталог, корзина, оплата, доставка — полный цикл e-commerce для бизнеса в Казахстане."
             description="Интернет-магазин — это полноценная торговая площадка в интернете. Мы разрабатываем e-commerce на современных технологиях с интеграцией платёжных систем (Kaspi, Halyk), служб доставки, 1C, CRM. Адаптивный дизайн, быстрая загрузка, SEO-оптимизация и удобная админ-панель."
             features={[
@@ -48,7 +48,7 @@ export default function EcommercePage() {
                     text: <>
                         <p>Онлайн-торговля в Казахстане растёт на 25-30% ежегодно, и бизнесы Алматы, которые не переходят в e-commerce, теряют значительную долю рынка. Собственный интернет-магазин — это независимость от маркетплейсов, контроль над клиентской базой и возможность выстроить прямые отношения с покупателями.</p>
                         <p>Digital Pride разрабатывает интернет-магазины для бизнесов Алматы и всего Казахстана на современных технологиях: React и Next.js обеспечивают высокую скорость загрузки и отличное SEO. Мы интегрируем все популярные платёжные системы (Kaspi Pay, Halyk Bank), службы доставки, 1C для синхронизации остатков и CRM для контроля заказов. Удобная админ-панель позволяет управлять каталогом без помощи разработчика.</p>
-                        <p>Для привлечения покупателей в магазин подключите <a href="/seo-almaty" className="text-red-500 hover:underline">SEO-продвижение</a> для органического трафика и <a href="/kontekstnaya-reklama-google-almaty" className="text-red-500 hover:underline">Google Shopping</a> для товарной рекламы.</p>
+                        <p>Для привлечения покупателей в магазин подключите <a href="/seo-almaty/" className="text-red-500 hover:underline">SEO-продвижение</a> для органического трафика и <a href="/kontekstnaya-reklama-google-almaty/" className="text-red-500 hover:underline">Google Shopping</a> для товарной рекламы.</p>
                     </>
                 },
             ]}

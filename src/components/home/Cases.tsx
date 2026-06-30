@@ -3,34 +3,58 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
 
 export default function Cases() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
+
     const cases = [
         {
             id: 1,
-            client: "B2B Ecommerce Компания",
-            industry: "Ритейл / E-commerce",
+            client: isKk ? "B2B Ecommerce Компания" : "B2B Ecommerce Компания",
+            industry: isKk ? "Бөлшек сауда / E-commerce" : "Ритейл / E-commerce",
             image: "/images/case1.255cfc5308a1a095855ea220b16b741b134.jpg",
-            problem: "Высокая цена за лида (CPL), рекламный бюджет сливался без отдачи в виде продаж.",
-            solution: ["Google Ads", "TikTok Ads", "Сквозная аналитика", "Новые посадочные страницы"],
-            results: [
-                { label: "Увеличение РОМИ", value: "+300%", highlight: "РОМИ" },
-                { label: "Рост целевых заявок", value: "+180%", highlight: "заявок" },
-                { label: "Снижение цены лида", value: "-40%", highlight: "лида" },
-            ]
+            problem: isKk
+                ? "Лидтің жоғары бағасы (CPL), жарнама бюджеті сатылымсыз жұмсалды."
+                : "Высокая цена за лида (CPL), рекламный бюджет сливался без отдачи в виде продаж.",
+            solution: isKk
+                ? ["Google Ads", "TikTok Ads", "Сквозьды аналитика", "Жаңа лендинг беттер"]
+                : ["Google Ads", "TikTok Ads", "Сквозная аналитика", "Новые посадочные страницы"],
+            results: isKk
+                ? [
+                    { label: "ROMI өсімі", value: "+300%", highlight: "ROMI" },
+                    { label: "Мақсатты өтінімдер өсімі", value: "+180%", highlight: "өтінімдер" },
+                    { label: "Лид бағасының төмендеуі", value: "-40%", highlight: "бағасының" },
+                ]
+                : [
+                    { label: "Увеличение РОМИ", value: "+300%", highlight: "РОМИ" },
+                    { label: "Рост целевых заявок", value: "+180%", highlight: "заявок" },
+                    { label: "Снижение цены лида", value: "-40%", highlight: "лида" },
+                ]
         },
         {
             id: 2,
-            client: "Медицинская клиника Алматы",
-            industry: "Медицина",
+            client: isKk ? "Алматы медициналық клиникасы" : "Медицинская клиника Алматы",
+            industry: isKk ? "Медицина" : "Медицина",
             image: "/images/case2.255cfc5308a1a095855ea220b16b741b134.jpg",
-            problem: "Отсутствие стабильного потока записей на высокомаржинальные процедуры.",
-            solution: ["SEO Оптимизация", "Meta Ads", "SMM стратегия", "Контент-маркетинг"],
-            results: [
-                { label: "Рост выручки из интернета", value: "+250%", highlight: "выручки" },
-                { label: "Увеличение заявок для бизнеса Алматы", value: "+300%", highlight: "заявок" },
-                { label: "Удержание клиентов (LTV)", value: "+45%", highlight: "LTV" },
-            ]
+            problem: isKk
+                ? "Жоғары маржалы процедураларға тұрақты жазылу ағынының болмауы."
+                : "Отсутствие стабильного потока записей на высокомаржинальные процедуры.",
+            solution: isKk
+                ? ["SEO Оңтайландыру", "Meta Ads", "SMM стратегиясы", "Контент-маркетинг"]
+                : ["SEO Оптимизация", "Meta Ads", "SMM стратегия", "Контент-маркетинг"],
+            results: isKk
+                ? [
+                    { label: "Интернеттен түсім өсімі", value: "+250%", highlight: "түсім" },
+                    { label: "Алматы бизнесі үшін өтінімдер өсімі", value: "+300%", highlight: "өтінімдер" },
+                    { label: "Клиенттерді ұстап қалу (LTV)", value: "+45%", highlight: "LTV" },
+                ]
+                : [
+                    { label: "Рост выручки из интернета", value: "+250%", highlight: "выручки" },
+                    { label: "Увеличение заявок для бизнеса Алматы", value: "+300%", highlight: "заявок" },
+                    { label: "Удержание клиентов (LTV)", value: "+45%", highlight: "LTV" },
+                ]
         }
     ];
 
@@ -46,14 +70,16 @@ export default function Cases() {
                 >
                     <div className="max-w-2xl">
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                            Доказанные <span className="text-red-500">результаты</span>
+                            {isKk ? 'Дәлелденген' : 'Доказанные'} <span className="text-red-500">{isKk ? 'нәтижелер' : 'результаты'}</span>
                         </h2>
                         <p className="text-lg text-gray-400 font-medium">
-                            Мы не продаем часы работы. Мы продаем рост вашего бизнеса. Посмотрите, как мы решали задачи в разных нишах.
+                            {isKk
+                                ? 'Біз жұмыс сағатын сатпаймыз. Біз сіздің бизнесіңіздің өсуін сатамыз. Әр түрлі салаларда міндеттерді қалай шешкенімізді қараңыз.'
+                                : 'Мы не продаем часы работы. Мы продаем рост вашего бизнеса. Посмотрите, как мы решали задачи в разных нишах.'}
                         </p>
                     </div>
-                    <Link href="/case" className="whitespace-nowrap px-6 py-3 rounded-lg font-bold transition-all duration-300 hover:scale-105" style={{ backgroundColor: '#ef4444', color: '#ffffff' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ffffff'; e.currentTarget.style.color = '#ef4444'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ef4444'; e.currentTarget.style.color = '#ffffff'; }}>
-                        Смотреть все кейсы
+                    <Link href={isKk ? "/kk/cases/" : "/cases/"} className="whitespace-nowrap px-6 py-3 rounded-lg font-bold transition-all duration-300 hover:scale-105" style={{ backgroundColor: '#ef4444', color: '#ffffff' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ffffff'; e.currentTarget.style.color = '#ef4444'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#ef4444'; e.currentTarget.style.color = '#ffffff'; }}>
+                        {isKk ? 'Барлық кейстерді көру' : 'Смотреть все кейсы'}
                     </Link>
                 </motion.div>
 
@@ -74,6 +100,8 @@ export default function Cases() {
                                 <img
                                     src={item.image}
                                     alt={item.client}
+                                    width={600}
+                                    height={400}
                                     loading="lazy"
                                     decoding="async"
                                     className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-2 transition-transform duration-700"
@@ -89,11 +117,11 @@ export default function Cases() {
 
                                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                                     <div>
-                                        <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">Проблема</div>
+                                        <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">{isKk ? 'Мәселе' : 'Проблема'}</div>
                                         <p className="text-gray-300 font-medium">{item.problem}</p>
                                     </div>
                                     <div>
-                                        <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">Рeшение</div>
+                                        <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wide">{isKk ? 'Шешім' : 'Рeшение'}</div>
                                         <ul className="flex flex-wrap gap-2">
                                             {item.solution.map(s => (
                                                 <li key={s} className="bg-zinc-800 text-gray-300 text-xs px-3 py-1 rounded">{s}</li>
@@ -103,7 +131,7 @@ export default function Cases() {
                                 </div>
 
                                 <div className="bg-zinc-950/50 p-6 rounded-2xl border border-zinc-800/50">
-                                    <div className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wide">Результаты работы</div>
+                                    <div className="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wide">{isKk ? 'Жұмыс нәтижелері' : 'Результаты работы'}</div>
                                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                                         {item.results.map((res, i) => (
                                             <motion.div

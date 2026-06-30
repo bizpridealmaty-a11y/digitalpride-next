@@ -2,13 +2,19 @@ import type { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
 
 export const metadata: Metadata = {
-    title: 'Брендинг и маркетинговая стратегия в Алматы',
-    description: 'Разработка бренда и маркетинговой стратегии в Алматы ✦ Логотип, фирменный стиль, позиционирование, медиаплан. Полная идентичность бренда под ключ.',
+    title: 'Брендинг и стратегия бренда в Алматы',
+    description: 'Разработка бренда в Алматы ✦ Позиционирование, логотип, фирменный стиль, брендбук, tone of voice. Создаём бренды, которые выделяются на рынке.',
     alternates: { canonical: '/marketing-almaty' },
     openGraph: {
-        title: 'Брендинг и маркетинговая стратегия — Digital Pride',
-        description: 'Создаём сильные бренды. Логотип, фирменный стиль, стратегия, медиаплан.',
+        title: 'Брендинг и стратегия бренда в Алматы',
+        description: 'Создаём сильные бренды. Позиционирование, логотип, фирменный стиль, брендбук.',
         url: '/marketing-almaty',
+        images: [{
+            url: '/og-image?title=%D0%9C%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D0%BE%D0%B2%D0%B0%D1%8F+%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'Маркетинговая стратегия в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function BrandingPage() {
     return (
         <ServicePageTemplate
-            title="Брендинг и"
-            accentWord="маркетинговая стратегия"
+            title="Маркетинговая стратегия"
+            accentWord="в Алматы"
             subtitle="Создаём сильные бренды и разрабатываем стратегии, которые выделяют вас среди конкурентов и обеспечивают долгосрочный рост."
             description="Брендинг — это не просто логотип и фирменные цвета. Это система восприятия вашей компании клиентами. Мы разрабатываем полную идентичность бренда: от позиционирования и ценностей до визуальной системы и tone of voice. Параллельно выстраиваем маркетинговую стратегию, которая связывает все каналы продвижения в единый механизм."
             features={[
@@ -48,7 +54,7 @@ export default function BrandingPage() {
                     text: <>
                         <p>На конкурентном рынке Алматы выделиться без сильного бренда практически невозможно. Клиенты выбирают компании, которым доверяют, — а доверие начинается с чёткого позиционирования, узнаваемого визуала и последовательных коммуникаций. Digital Pride помогает бизнесам Алматы и Казахстана создавать бренды, которые запоминаются и вызывают лояльность.</p>
                         <p>Мы разрабатываем полную систему бренда: от исследования рынка и CustDev-интервью до визуальной идентичности, tone of voice и медиаплана. Наш подход основан на данных — мы строим финансовую модель маркетинга и прогнозируем ROI ещё до запуска первых кампаний. Это позволяет инвестировать бюджет разумно и получать измеримые результаты.</p>
-                        <p>После разработки стратегии мы берём на себя её реализацию: <a href="/smm-almaty" className="text-red-500 hover:underline">ведение соцсетей</a>, <a href="/target-almaty" className="text-red-500 hover:underline">таргетированную рекламу</a>, <a href="/razrabotka-logotipa-almaty" className="text-red-500 hover:underline">дизайн логотипа</a> и <a href="/firmennyj-stil-almaty" className="text-red-500 hover:underline">фирменный стиль под ключ</a>.</p>
+                        <p>После разработки стратегии мы берём на себя её реализацию: <a href="/smm-almaty/" className="text-red-500 hover:underline">ведение соцсетей</a>, <a href="/target-almaty/" className="text-red-500 hover:underline">таргетированную рекламу</a>, <a href="/razrabotka-logotipa-almaty/" className="text-red-500 hover:underline">дизайн логотипа</a> и <a href="/firmennyj-stil-almaty/" className="text-red-500 hover:underline">фирменный стиль под ключ</a>.</p>
                     </>
                 },
             ]}

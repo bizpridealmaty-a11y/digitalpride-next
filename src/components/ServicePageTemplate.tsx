@@ -192,7 +192,7 @@ export default function ServicePageTemplate({
                                 </li>
                                 <li className="mx-1 text-gray-600">/</li>
                                 <li>
-                                    <Link href="/services" className="hover:text-white transition-colors">Услуги</Link>
+                                    <Link href="/services/" className="hover:text-white transition-colors">Услуги</Link>
                                 </li>
                                 <li className="mx-1 text-gray-600">/</li>
                                 <li className="text-white font-medium">{title} {accentWord}</li>

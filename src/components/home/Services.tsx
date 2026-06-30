@@ -3,9 +3,13 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
+import { localizedPath } from '@/lib/i18n';
 
 function ServiceCard({ service }: { service: { id: string; title: string; description: string; href: string; price?: string; icon: React.ReactNode; } }) {
     const [hovered, setHovered] = useState(false);
+    const locale = useLocale();
+    const isKk = locale === 'kk';
 
     return (
         <motion.div
@@ -59,23 +63,31 @@ function ServiceCard({ service }: { service: { id: string; title: string; descri
                     className="text-sm font-bold mb-3"
                     style={{ color: hovered ? '#ffffff' : '#171717', transition: 'color 0.4s ease' }}
                 >
-                    Что входит:
+                    {isKk ? 'Құрамы:' : 'Что входит:'}
                 </p>
                 <ul
                     className="space-y-2 text-sm font-medium"
                     style={{ color: hovered ? '#9ca3af' : '#4b5563', transition: 'color 0.4s ease' }}
                 >
                     {service.id === 'marketing-strategy' && (
-                        <><li>✓ Глубокий аудит бизнеса</li><li>✓ CustDev и анализ ЦА</li><li>✓ Financial Modeling</li><li>✓ Конкурентная разведка</li><li>✓ Дорожная карта на 12 мес.</li></>
+                        isKk
+                        ? <><li>✓ Бизнестің терең аудиті</li><li>✓ CustDev және МА талдау</li><li>✓ Financial Modeling</li><li>✓ Бәсекелестік барлау</li><li>✓ 12 айға жол картасы</li></>
+                        : <><li>✓ Глубокий аудит бизнеса</li><li>✓ CustDev и анализ ЦА</li><li>✓ Financial Modeling</li><li>✓ Конкурентная разведка</li><li>✓ Дорожная карта на 12 мес.</li></>
                     )}
                     {service.id === 'smm' && (
-                        <><li>✓ Контент-стратегия</li><li>✓ Reels & Stories продакшн</li><li>✓ Community-менеджмент</li><li>✓ Визуальный дизайн ленты</li><li>✓ Ежемесячная аналитика</li></>
+                        isKk
+                        ? <><li>✓ Контент-стратегия</li><li>✓ Reels & Stories продакшн</li><li>✓ Community-менеджмент</li><li>✓ Лента визуал дизайны</li><li>✓ Ай сайынғы аналитика</li></>
+                        : <><li>✓ Контент-стратегия</li><li>✓ Reels & Stories продакшн</li><li>✓ Community-менеджмент</li><li>✓ Визуальный дизайн ленты</li><li>✓ Ежемесячная аналитика</li></>
                     )}
                     {service.id === 'target' && (
-                        <><li>✓ Тестирование креативов</li><li>✓ Динамический ретаргетинг</li><li>✓ Интеграция с CRM</li><li>✓ Look-alike аудитории</li><li>✓ A/B тесты посадочных</li></>
+                        isKk
+                        ? <><li>✓ Креативтерді тестілеу</li><li>✓ Динамикалық ретаргетинг</li><li>✓ CRM-мен интеграция</li><li>✓ Look-alike аудиториялар</li><li>✓ Лендингтердің A/B тесті</li></>
+                        : <><li>✓ Тестирование креативов</li><li>✓ Динамический ретаргетинг</li><li>✓ Интеграция с CRM</li><li>✓ Look-alike аудитории</li><li>✓ A/B тесты посадочных</li></>
                     )}
                     {service.id === 'context' && (
-                        <><li>✓ Сбор семантики</li><li>✓ Минусация и чистка трафика</li><li>✓ Настройка систем аналитики</li><li>✓ Оптимизация ставок</li><li>✓ Еженедельные отчёты</li></>
+                        isKk
+                        ? <><li>✓ Семантика жинау</li><li>✓ Минусация және трафик тазалау</li><li>✓ Аналитика жүйелерін баптау</li><li>✓ Ставкаларды оңтайландыру</li><li>✓ Апта сайынғы есептер</li></>
+                        : <><li>✓ Сбор семантики</li><li>✓ Минусация и чистка трафика</li><li>✓ Настройка систем аналитики</li><li>✓ Оптимизация ставок</li><li>✓ Еженедельные отчёты</li></>
                     )}
                 </ul>
                 {/* Social proof */}
@@ -83,10 +95,10 @@ function ServiceCard({ service }: { service: { id: string; title: string; descri
                     className="mt-4 text-xs font-bold"
                     style={{ color: hovered ? '#ef4444' : '#9ca3af', transition: 'color 0.4s ease' }}
                 >
-                    {service.id === 'marketing-strategy' && '📊 120+ стратегий разработано'}
-                    {service.id === 'smm' && '📱 85+ аккаунтов ведём ежемесячно'}
-                    {service.id === 'target' && '🎯 50 000+ лидов сгенерировано'}
-                    {service.id === 'context' && '🔍 $2M+ рекламных бюджетов в управлении'}
+                    {service.id === 'marketing-strategy' && (isKk ? '📊 120+ стратегия әзірленді' : '📊 120+ стратегий разработано')}
+                    {service.id === 'smm' && (isKk ? '📱 85+ аккаунт ай сайын жүргіземіз' : '📱 85+ аккаунтов ведём ежемесячно')}
+                    {service.id === 'target' && (isKk ? '🎯 50 000+ лид генерацияланды' : '🎯 50 000+ лидов сгенерировано')}
+                    {service.id === 'context' && (isKk ? '🔍 $2M+ жарнама бюджеті басқаруда' : '🔍 $2M+ рекламных бюджетов в управлении')}
                 </p>
             </div>
 
@@ -96,7 +108,7 @@ function ServiceCard({ service }: { service: { id: string; title: string; descri
                     className="inline-flex items-center font-bold"
                     style={{ color: hovered ? '#ffffff' : '#ef4444', transition: 'color 0.4s ease' }}
                 >
-                    Узнать больше
+                    {isKk ? 'Толығырақ' : 'Узнать больше'}
                     <svg className="w-4 h-4 ml-2" style={{ transform: hovered ? 'translateX(4px)' : 'translateX(0)', transition: 'transform 0.3s ease' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </Link>
                 {service.price && (
@@ -117,6 +129,10 @@ function ServiceCard({ service }: { service: { id: string; title: string; descri
 }
 
 function FlagshipCard() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
+    const lp = (path: string) => localizedPath(path, locale);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -137,27 +153,29 @@ function FlagshipCard() {
                 <div className="flex-1">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-600/20 border border-red-600/30 text-red-500 rounded-full text-xs font-bold mb-6">
                         <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                        Флагманский продукт
+                        {isKk ? 'Флагмандық өнім' : 'Флагманский продукт'}
                     </div>
                     <h3 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ fontFamily: "'Unbounded', sans-serif" }}>
-                        Внешний отдел <br /><span className="text-red-500">маркетинга</span> под ключ
+                        {isKk ? <>Сыртқы <span className="text-red-500">маркетинг</span> бөлімі<br />кілтке дайын</> : <>Внешний отдел <br /><span className="text-red-500">маркетинга</span> под ключ</>}
                     </h3>
                     <p className="text-gray-400 text-lg mb-6 max-w-2xl">
-                        Мы интегрируемся в ваш бизнес. Команда из 5 Senior-специалистов (SMM, Таргет, Дизайн, Контекст) по цене одного штатного маркетолога. Гарантия окупаемости и роста заявок.
+                        {isKk
+                            ? 'Біз сіздің бизнесіңізге кірігеміз. 5 Senior-маманнан тұратын команда (SMM, Таргет, Дизайн, Контекст) бір штаттық маркетолог бағасымен. Өтімділік пен өтінімдер өсуіне кепілдік.'
+                            : 'Мы интегрируемся в ваш бизнес. Команда из 5 Senior-специалистов (SMM, Таргет, Дизайн, Контекст) по цене одного штатного маркетолога. Гарантия окупаемости и роста заявок.'}
                     </p>
                     <ul className="flex flex-wrap gap-4 mb-8 text-sm font-bold text-gray-300">
-                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Комплексный SMM</li>
-                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Мультиканальный Таргет</li>
-                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Разработка Сайтов</li>
+                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Кешенді SMM' : 'Комплексный SMM'}</li>
+                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Мультиарналық Таргет' : 'Мультиканальный Таргет'}</li>
+                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Сайт әзірлеу' : 'Разработка Сайтов'}</li>
                     </ul>
                 </div>
                 <div className="flex-shrink-0 w-full md:w-auto flex flex-col gap-4">
                     <div className="text-right hidden md:block">
-                        <p className="text-gray-500 text-sm font-medium mb-1">Инвестиции от</p>
+                        <p className="text-gray-500 text-sm font-medium mb-1">{isKk ? 'Инвестиция' : 'Инвестиции от'}</p>
                         <p className="text-3xl font-extrabold text-white">180 000 ₸</p>
                     </div>
-                    <Link href="/vneshnij-otdel-marketinga" className="inline-flex justify-center items-center px-8 py-4 bg-red-600 text-white font-bold rounded-xl text-lg hover:bg-red-700 transition duration-300 w-full md:w-auto">
-                        Посмотреть пакеты
+                    <Link href={lp('/vneshnij-otdel-marketinga/')} className="inline-flex justify-center items-center px-8 py-4 bg-red-600 text-white font-bold rounded-xl text-lg hover:bg-red-700 transition duration-300 w-full md:w-auto">
+                        {isKk ? 'Пакеттерді көру' : 'Посмотреть пакеты'}
                         <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </Link>
                 </div>
@@ -167,43 +185,55 @@ function FlagshipCard() {
 }
 
 export default function Services() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
+    const lp = (path: string) => localizedPath(path, locale);
+
     const services = [
         {
             id: 'marketing-strategy',
-            title: "Маркетинговая стратегия",
-            description: "Глубокий анализ рынка и конкурентов. Пошаговый план действий, который обеспечит рост вашего бизнеса на годы вперед.",
-            href: "/marketing-almaty",
-            price: "От 1 000 000 ₸",
+            title: isKk ? "Маркетингтік стратегия" : "Маркетинговая стратегия",
+            description: isKk
+                ? "Нарық пен бәсекелестерді терең талдау. Бизнесіңіздің жылдар бойы өсуін қамтамасыз ететін қадамдық іс-әрекет жоспары."
+                : "Глубокий анализ рынка и конкурентов. Пошаговый план действий, который обеспечит рост вашего бизнеса на годы вперед.",
+            href: lp("/marketing-almaty/"),
+            price: isKk ? "1 000 000 ₸-ден" : "От 1 000 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             )
         },
         {
             id: 'smm',
-            title: "SMM: комплексное ведение",
-            description: "Комплексное ведение социальных сетей. Мы не просто постим картинки, мы строим комьюнити и прогреваем аудиторию до покупки.",
-            href: "/smm-almaty",
-            price: "От 700 000 ₸",
+            title: isKk ? "SMM: кешенді жүргізу" : "SMM: комплексное ведение",
+            description: isKk
+                ? "Әлеуметтік желілерді кешенді жүргізу. Біз жай сурет жарияламаймыз, қауымдастық құрып, аудиторияны сатып алуға дейін қыздырамыз."
+                : "Комплексное ведение социальных сетей. Мы не просто постим картинки, мы строим комьюнити и прогреваем аудиторию до покупки.",
+            href: lp("/smm-almaty/"),
+            price: isKk ? "700 000 ₸-ден" : "От 700 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
             ),
         },
         {
             id: 'target',
-            title: "Таргетированная реклама",
-            description: "Facebook, Instagram, TikTok. Лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас.",
-            href: "/target-almaty",
-            price: "От 250 000 ₸",
+            title: isKk ? "Таргетті жарнама" : "Таргетированная реклама",
+            description: isKk
+                ? "Facebook, Instagram, TikTok. Дәл қазір сатып алуға дайын идеалды мақсатты аудиторияңызға лазерлік таргетинг."
+                : "Facebook, Instagram, TikTok. Лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас.",
+            href: lp("/target-almaty/"),
+            price: isKk ? "250 000 ₸-ден" : "От 250 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
             ),
         },
         {
             id: 'context',
-            title: "Контекстная реклама",
-            description: "Google Ads и Яндекс.Директ. Перехватываем тех, кто уже ищет ваши услуги, и конвертируем их в горячие заявки с высокой прибыльностью.",
-            href: "/kontekstnaya-reklama-almaty",
-            price: "От 400 000 ₸",
+            title: isKk ? "Контекстік жарнама" : "Контекстная реклама",
+            description: isKk
+                ? "Google Ads және Яндекс.Директ. Қызметтеріңізді іздеп жүргендерді ұстап, оларды жоғары табыстылықпен ыстық өтінімдерге айналдырамыз."
+                : "Google Ads и Яндекс.Директ. Перехватываем тех, кто уже ищет ваши услуги, и конвертируем их в горячие заявки с высокой прибыльностью.",
+            href: lp("/kontekstnaya-reklama-almaty/"),
+            price: isKk ? "400 000 ₸-ден" : "От 400 000 ₸",
             icon: (
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             )
@@ -231,10 +261,14 @@ export default function Services() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                        Услуги, которые генерируют <span className="text-red-600">выручку</span>
+                        {isKk
+                            ? <>Табыс әкелетін <span className="text-red-600">қызметтер</span></>
+                            : <>Услуги, которые генерируют <span className="text-red-600">выручку</span></>}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
-                        Мы отказались от услуг ради услуг. Каждое наше действие направлено на конкретную метрику: снижение стоимости лида, увеличение LTV и рост продаж.
+                        {isKk
+                            ? 'Біз қызмет үшін қызмет көрсетуден бас тарттық. Біздің әрбір әрекетіміз нақты метрикаға бағытталған: лид құнын төмендету, LTV арттыру және сатылымды өсіру.'
+                            : 'Мы отказались от услуг ради услуг. Каждое наше действие направлено на конкретную метрику: снижение стоимости лида, увеличение LTV и рост продаж.'}
                     </p>
                 </motion.div>
 

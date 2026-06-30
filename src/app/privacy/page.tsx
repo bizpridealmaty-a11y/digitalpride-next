@@ -126,7 +126,7 @@ export default function PrivacyPage() {
 
                         <section>
                             <h2 className="text-2xl font-bold text-black mb-3">11. Изменения политики</h2>
-                            <p>Настоящая Политика может изменяться в соответствии с обновлением законодательства или внутренних регламентов Агентства. Актуальная версия всегда доступна по адресу <Link href="/privacy" className="text-red-600 underline">https://digitalpride.kz/privacy</Link>.</p>
+                            <p>Настоящая Политика может изменяться в соответствии с обновлением законодательства или внутренних регламентов Агентства. Актуальная версия всегда доступна по адресу <Link href="/privacy/" className="text-red-600 underline">https://digitalpride.kz/privacy/</Link>.</p>
                         </section>
                     </div>
                 </article>

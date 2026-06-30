@@ -2,15 +2,20 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
 
 export default function Process() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
     const containerRef = useRef<HTMLDivElement>(null);
 
     const steps = [
         {
             num: "01",
-            title: <>Глубокий<br />Аудит</>,
-            desc: "Анализ бизнес-модели, спроса, конкурентов и исторических данных рекламы.",
+            title: isKk ? <>Терең<br />Аудит</> : <>Глубокий<br />Аудит</>,
+            desc: isKk
+                ? "Бизнес-модельді, сұранысты, бәсекелестерді және жарнаманың тарихи деректерін талдау."
+                : "Анализ бизнес-модели, спроса, конкурентов и исторических данных рекламы.",
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 mx-auto text-zinc-800">
                     <circle cx="10" cy="14" r="6" />
@@ -20,8 +25,10 @@ export default function Process() {
         },
         {
             num: "02",
-            title: "Стратегия",
-            desc: "Разработка digital-стратегии, медиаплана, прогноз РОМИ и стоимости заявки.",
+            title: isKk ? "Стратегия" : "Стратегия",
+            desc: isKk
+                ? "Digital-стратегияны, медиажоспарды әзірлеу, ROMI мен өтінім құнын болжау."
+                : "Разработка digital-стратегии, медиаплана, прогноз РОМИ и стоимости заявки.",
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 mx-auto text-zinc-800">
                     <path d="M9 4.5l-4 2A2 2 0 004 8.3v10.4a2 2 0 002.8 1.9l2.4-1.2 4.8 2.4a2 2 0 001.8 0l4-2a2 2 0 001.2-1.9V7.5a2 2 0 00-2.8-1.9l-2.4 1.2-4.8-2.4a2 2 0 00-1.8 0z" />
@@ -31,8 +38,10 @@ export default function Process() {
         },
         {
             num: "03",
-            title: <>Запуск<br />кампаний</>,
-            desc: "Создание креативов, настройка аналитики, запуск рекламы на целевые аудитории.",
+            title: isKk ? <>Науқанды<br />іске қосу</> : <>Запуск<br />кампаний</>,
+            desc: isKk
+                ? "Креативтер жасау, аналитиканы баптау, мақсатты аудиторияларға жарнама іске қосу."
+                : "Создание креативов, настройка аналитики, запуск рекламы на целевые аудитории.",
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 mx-auto text-zinc-800">
                     <path d="M11 5.5l5-2.5 3 3-2.5 5-7-1.5L7 12H4l2-4 1.5-2.5z" />
@@ -43,8 +52,10 @@ export default function Process() {
         },
         {
             num: "04",
-            title: "Оптимизация",
-            desc: "Ежедневные сплит-тесты креативов, перераспределение бюджета.",
+            title: isKk ? "Оңтайландыру" : "Оптимизация",
+            desc: isKk
+                ? "Креативтердің күнделікті сплит-тесттері, бюджетті қайта бөлу."
+                : "Ежедневные сплит-тесты креативов, перераспределение бюджета.",
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 mx-auto text-zinc-800">
                     <circle cx="12" cy="12" r="3" />
@@ -54,8 +65,10 @@ export default function Process() {
         },
         {
             num: "05",
-            title: <>Рост<br />продаж</>,
-            desc: "Увеличение объемов и количества заявок без потери качества.",
+            title: isKk ? <>Сатылым<br />өсімі</> : <>Рост<br />продаж</>,
+            desc: isKk
+                ? "Сапаны жоғалтпай көлемдер мен өтінімдер санын арттыру."
+                : "Увеличение объемов и количества заявок без потери качества.",
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-12 h-12 mx-auto text-zinc-800">
                     <path d="M3 3v18h18M7 16l5-5 4 4 5-5M16 10h5v5" />
@@ -93,10 +106,12 @@ export default function Process() {
                     className="text-center mb-20 lg:mb-28 relative z-20"
                 >
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#111827] mb-6 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                        Прозрачный процесс <span className="text-[#f43f5e]">роста</span>
+                        {isKk ? <>Мөлдір <span className="text-[#f43f5e]">өсу</span> процесі</> : <>Прозрачный процесс <span className="text-[#f43f5e]">роста</span></>}
                     </h2>
                     <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-                        Мы не скрываем, как работаем. Каждое действие задокументировано и согласовано с вами.
+                        {isKk
+                            ? 'Біз жұмыс істеу тәсілімізді жасырмаймыз. Әрбір әрекет құжатталған және сізбен келісілген.'
+                            : 'Мы не скрываем, как работаем. Каждое действие задокументировано и согласовано с вами.'}
                     </p>
                 </motion.div>
 

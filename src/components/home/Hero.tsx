@@ -3,19 +3,14 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { trackWhatsAppClick } from '@/lib/analytics';
-
-// Rotating benefits
-const allBenefits = [
-    'Увеличение заявок', 'Рост ROI', 'Масштабирование рекламы',
-    'Снижение стоимости лида', 'Рост продаж', 'Упаковка продукта',
-    'Аналитика рекламы', 'Четкая маркетинговая стратегия', 'Рост конверсии сайта',
-    'Автоматизация заявок', 'Построение воронки продаж', 'Генерация лидов',
-    'Контроль рекламного бюджета', 'Оптимизация рекламных кампаний',
-    'Привлечение целевой аудитории', 'Системный маркетинг',
-    'Запуск рекламы за 24 часа', 'Прозрачная аналитика',
-];
+import { useTranslations, useLocale } from '@/lib/locale-context';
+import { localizedPath } from '@/lib/i18n';
 
 export default function Hero() {
+    const t = useTranslations();
+    const locale = useLocale();
+    const lp = (path: string) => localizedPath(path, locale);
+    const allBenefits = t.benefits;
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -47,9 +42,9 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
             ),
-            title: "Кейсы",
-            subtitle: "12 проектов",
-            href: "/cases",
+            title: t.islandCases,
+            subtitle: t.islandCasesSub,
+            href: lp("/cases"),
             delay: 0.3,
             yOffset: [0, -12, 0],
             color: "from-red-600 to-red-700",
@@ -60,8 +55,8 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
             ),
-            title: "Услуги",
-            subtitle: "7 направлений",
+            title: t.islandServices,
+            subtitle: t.islandServicesSub,
             href: "#services",
             delay: 0.5,
             yOffset: [0, -8, 0],
@@ -73,8 +68,8 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
             ),
-            title: "Контакты",
-            subtitle: "Связаться",
+            title: t.islandContacts,
+            subtitle: t.islandContactsSub,
             href: "tel:+77070357777",
             delay: 0.7,
             yOffset: [0, -15, 0],
@@ -85,7 +80,7 @@ export default function Hero() {
     return (
         <section ref={ref} className="relative overflow-hidden bg-black text-white pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[90vh] flex items-center">
             {/* SEO: скрытый осмысленный текст для поисковиков (видео не индексируется как контент) */}
-            <h2 className="sr-only">Digital Pride — маркетинговое агентство полного цикла в Алматы</h2>
+            <h2 className="sr-only">{t.heroSrOnly}</h2>
 
             {/* Background video */}
             <motion.div style={{ y: bgY, opacity }} className="absolute inset-0 z-0" aria-hidden="true">
@@ -97,6 +92,8 @@ export default function Hero() {
                     loop
                     playsInline
                     preload="auto"
+                    // @ts-expect-error -- fetchpriority is valid HTML but not yet in React types
+                    fetchpriority="high"
                     aria-hidden="true"
                     tabIndex={-1}
                     className="absolute inset-0 w-full h-full object-cover"
@@ -139,15 +136,15 @@ export default function Hero() {
                             transition={{ delay: 0.3, type: "spring" }}
                             className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm font-medium mb-6 uppercase tracking-wider text-gray-300"
                         >
-                            Top Digital Agency in Kazakhstan
+                            {t.heroBadge}
                         </motion.div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
-                            Маркетинг, который приносит <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">прибыль</span>
+                            {t.heroHeadline} <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl font-medium">
-                            Индивидуальная маркетинговая стратегия для роста вашего бизнеса в Алматы и по всему Казахстану. Мы не просто льем трафик, мы строим предсказуемый поток клиентов.
+                            {t.heroDescription}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
@@ -159,7 +156,7 @@ export default function Hero() {
                                     display: 'inline-block',
                                 }}
                             >
-                                Получить бесплатный аудит
+                                {t.heroAudit}
                             </a>
                             <a
                                 href="https://wa.me/77070357777?text=%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%20%D0%B1%D1%8B%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0"
@@ -177,7 +174,7 @@ export default function Hero() {
                                     display: 'inline-block',
                                 }}
                             >
-                                Написать в WhatsApp
+                                {t.heroWhatsApp}
                             </a>
                         </div>
 

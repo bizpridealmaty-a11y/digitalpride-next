@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'SMM агентство в Шымкенте ✦ Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories, комьюнити-менеджмент. Работаем удалённо по всему Казахстану.',
     alternates: { canonical: '/smm-prodvizhenie-shymkent' },
     openGraph: {
-        title: 'SMM продвижение в Шымкенте — Digital Pride',
+        title: 'SMM продвижение в Шымкенте',
         description: 'Ведение соцсетей в Шымкенте: контент, Reels, Stories. Работаем удалённо с результатом.',
         url: '/smm-prodvizhenie-shymkent',
     },
@@ -48,7 +48,7 @@ export default function SmmShymkentPage() {
                     text: <>
                         <p>Шымкент — третий по численности город Казахстана и динамично растущий региональный центр. Аудитория здесь активна в Instagram и TikTok, особенно в сегментах HoReCa, ритейл, бьюти, строительство и недвижимость. SMM-продвижение от Digital Pride позволяет бизнесам Шымкента получить контент и стратегию уровня топовых агентств Алматы, не нанимая локальную команду.</p>
                         <p>Мы работаем удалённо по всему Казахстану и специализируемся на Instagram, TikTok и Facebook. Для каждого клиента из Шымкента разрабатываем индивидуальный контент-план с учётом особенностей южного рынка. Создаём Reels на казахском и русском языках, дизайн Stories, ведём комьюнити и настраиваем таргет с геолокацией по Шымкенту и Туркестанской области.</p>
-                        <p>Усильте результат, подключив <a href="/target-almaty" className="text-red-500 hover:underline">таргетированную рекламу</a> для привлечения новых подписчиков и <a href="/upravlenie-reputaciej-almaty" className="text-red-500 hover:underline">управление репутацией</a> для формирования положительного образа бренда.</p>
+                        <p>Усильте результат, подключив <a href="/target-almaty/" className="text-red-500 hover:underline">таргетированную рекламу</a> для привлечения новых подписчиков и <a href="/upravlenie-reputaciej-almaty/" className="text-red-500 hover:underline">управление репутацией</a> для формирования положительного образа бренда.</p>
                     </>
                 },
             ]}

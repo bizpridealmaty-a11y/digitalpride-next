@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'SMM агентство в Караганде ✦ Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories, комьюнити-менеджмент. Работаем удалённо по всему Казахстану.',
     alternates: { canonical: '/smm-prodvizhenie-karaganda' },
     openGraph: {
-        title: 'SMM продвижение в Караганде — Digital Pride',
+        title: 'SMM продвижение в Караганде',
         description: 'Ведение соцсетей в Караганде: контент, Reels, Stories. Работаем удалённо с результатом.',
         url: '/smm-prodvizhenie-karaganda',
     },
@@ -48,7 +48,7 @@ export default function SmmKaragandaPage() {
                     text: <>
                         <p>Караганда — крупный промышленный и образовательный центр Казахстана. Здесь активно растут B2B-сегмент, торговля, строительство, общепит и сфера услуг — и все они нуждаются в современном digital-присутствии. SMM-продвижение от Digital Pride позволяет бизнесам Караганды получить контент и стратегию уровня топовых агентств Алматы.</p>
                         <p>Мы работаем удалённо по всему Казахстану и специализируемся на Instagram, TikTok и Facebook. Для каждого клиента из Караганды разрабатываем индивидуальный контент-план, создаём Reels, ведём комьюнити и настраиваем таргет с геолокацией по Караганде и Карагандинской области, включая Темиртау и Сарань.</p>
-                        <p>Усильте результат, подключив <a href="/target-almaty" className="text-red-500 hover:underline">таргетированную рекламу</a> для привлечения новых подписчиков и <a href="/upravlenie-reputaciej-almaty" className="text-red-500 hover:underline">управление репутацией</a> для формирования положительного образа бренда.</p>
+                        <p>Усильте результат, подключив <a href="/target-almaty/" className="text-red-500 hover:underline">таргетированную рекламу</a> для привлечения новых подписчиков и <a href="/upravlenie-reputaciej-almaty/" className="text-red-500 hover:underline">управление репутацией</a> для формирования положительного образа бренда.</p>
                     </>
                 },
             ]}

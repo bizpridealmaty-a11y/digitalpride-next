@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Перфоманс-маркетинг от Digital Pride ✦ Комплексное сопровождение, запуск проектов с нуля, performance strategy. Увеличим ваши продажи с гарантией результата.',
     alternates: { canonical: '/perfomans-marketing' },
     openGraph: {
-        title: 'Перфоманс-маркетинг — Digital Pride',
+        title: 'Перфоманс-маркетинг в Алматы',
         description: 'Комплексное маркетинговое сопровождение и запуск проектов с нуля.',
         url: '/perfomans-marketing',
     },
@@ -51,7 +51,7 @@ export default function PerformanceMarketingPage() {
                     title: 'Перфоманс маркетинг агентство в Алматы',
                     text: <>
                         <p>В мире, где конкуренция растет с каждым днем, стандартные рекламные подходы работают все хуже. Бизнесу нужны не просто «клики» и «показы», а реальные продажи и понятный возврат инвестиций (ROI). Именно здесь вступает в игру performance marketing от агентства Digital Pride.</p>
-                        <p>В отличие от классического маркетинга, перфоманс сфокусирован на прозрачных KPI. Мы выстраиваем сквозную аналитику, объединяем в единую экосистему <a href="/target-almaty" className="text-red-500 hover:underline">таргетированную рекламу</a>, <a href="/kontekstnaya-reklama-almaty" className="text-red-500 hover:underline">контекст</a>, <a href="/seo-almaty" className="text-red-500 hover:underline">SEO</a> и другие каналы. Каждое решение принимается на основе данных, а не интуиции.</p>
+                        <p>В отличие от классического маркетинга, перфоманс сфокусирован на прозрачных KPI. Мы выстраиваем сквозную аналитику, объединяем в единую экосистему <a href="/target-almaty/" className="text-red-500 hover:underline">таргетированную рекламу</a>, <a href="/kontekstnaya-reklama-almaty/" className="text-red-500 hover:underline">контекст</a>, <a href="/seo-almaty/" className="text-red-500 hover:underline">SEO</a> и другие каналы. Каждое решение принимается на основе данных, а не интуиции.</p>
                         <p>Доверяя перфоманс-маркетинг нам, вы получаете полноценный отдел маркетинга на аутсорсе, который работает на рост вашей выручки.</p>
                     </>
                 },

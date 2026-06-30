@@ -2,36 +2,46 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { trackPhoneClick } from '@/lib/analytics';
+import { getLocaleFromPath, getDict, localizedPath, toRuPath, toKkPath } from '@/lib/i18n';
 import CallbackModal from './CallbackModal';
 
-const services = [
-    { href: '/smm-almaty', label: 'SMM продвижение' },
-    { href: '/seo-almaty', label: 'SEO продвижение' },
-    { href: '/sozdanie-sajtov-almaty', label: 'Разработка сайтов' },
-    { href: '/upravlenie-reputaciej-almaty', label: 'Управление репутацией (SERM)' },
-    { href: '/marketing-almaty', label: 'Маркетинговая стратегия' },
-    { href: '/kontekstnaya-reklama-almaty', label: 'Контекстная реклама (PPC)' },
-    { href: '/target-almaty', label: 'Таргетированная реклама' },
-];
-
-const navItems = [
-    { href: '/', label: 'Главное' },
-    { href: '/services', label: 'Услуги', dropdown: services },
-    { href: '/cases', label: 'Кейсы' },
-    { href: '/pricing', label: 'Цены' },
-    { href: '/school', label: 'Наше обучение' },
-    { href: '/o-nas', label: 'О нас' },
-    { href: '/contacts', label: 'Контакты' },
-];
-
 export default function RawHeader() {
+    const pathname = usePathname();
     const [mobileOpen, setMobileOpen] = useState(false);
     const [callbackOpen, setCallbackOpen] = useState(false);
     // Auto-hide header
     const [hidden, setHidden] = useState(false);
     const [isTouch, setIsTouch] = useState(false);
     const hideTimerRef = useRef<number | null>(null);
+
+    // Language: detect from pathname
+    const locale = getLocaleFromPath(pathname);
+    const isKz = locale === 'kk';
+    const t = getDict(locale);
+    const lp = (path: string) => localizedPath(path, locale);
+
+    const services = [
+        { href: lp('/smm-almaty'), label: t.smmPromo },
+        { href: lp('/seo-almaty'), label: t.seoPromo },
+        { href: lp('/sozdanie-sajtov-almaty'), label: t.webDev },
+        { href: lp('/upravlenie-reputaciej-almaty'), label: t.serm },
+        { href: lp('/marketing-almaty'), label: t.strategy },
+        { href: lp('/kontekstnaya-reklama-almaty'), label: t.ppc },
+        { href: lp('/target-almaty'), label: t.targetAds },
+    ];
+
+    const navItems = [
+        { href: lp('/'), label: t.home },
+        { href: lp('/services'), label: t.services, dropdown: services },
+        { href: lp('/cases'), label: t.cases },
+        { href: lp('/pricing'), label: t.pricing },
+        { href: lp('/school'), label: t.training },
+        { href: lp('/blog'), label: t.blog },
+        { href: lp('/o-nas'), label: t.about },
+        { href: lp('/contacts'), label: t.contacts },
+    ];
 
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? 'hidden' : '';
@@ -50,7 +60,7 @@ export default function RawHeader() {
         if (mobileOpen) return; // keep visible while menu is open
 
         const HIDE_DELAY = 2500;       // ms before header hides after mouse leaves trigger zone
-        const INITIAL_DELAY = 3000;    // ms — after page load, header is visible this long
+        const INITIAL_DELAY = 5000;    // ms — after page load, header is visible this long
         const TRIGGER_TOP_PX = 80;     // top zone height that triggers reveal
 
         const scheduleHide = () => {
@@ -108,7 +118,7 @@ export default function RawHeader() {
                     width: '320px',
                     height: '40px',
                     zIndex: 10002,
-                    pointerEvents: isTouch || mobileOpen ? 'none' : 'auto',
+                    pointerEvents: isTouch || mobileOpen || !hidden ? 'none' : 'auto',
                 }}
             />
 
@@ -117,7 +127,7 @@ export default function RawHeader() {
             {!isTouch && hidden && !mobileOpen && (
                 <button
                     type="button"
-                    aria-label="Показать меню"
+                    aria-label={t.showMenu}
                     onClick={() => setHidden(false)}
                     onMouseEnter={() => setHidden(false)}
                     style={{
@@ -153,7 +163,7 @@ export default function RawHeader() {
                             position: 'relative',
                         }}
                     />
-                    <span style={{ whiteSpace: 'nowrap' }}>Меню</span>
+                    <span style={{ whiteSpace: 'nowrap' }}>{t.menu}</span>
                 </button>
             )}
 
@@ -181,7 +191,7 @@ export default function RawHeader() {
                     alignItems: 'center',
                     border: 'none',
                     boxShadow: 'none',
-                    overflow: 'hidden',
+                    overflow: 'visible',
                     transform: hidden && !isTouch ? 'translateY(-100%)' : 'translateY(0)',
                     transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
@@ -197,19 +207,8 @@ export default function RawHeader() {
                         gap: '24px',
                     }}
                 >
-                    {/* Logo */}
-                    <Link href="/" aria-label="Digital Pride — на главную" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                        <img
-                            src="/fonts/new-logo.svg"
-                            alt="Digital Pride — маркетинговое агентство в Алматы"
-                            width={140}
-                            height={32}
-                            style={{ filter: 'brightness(0) invert(1)', height: '32px', width: 'auto' }}
-                        />
-                    </Link>
-
                     {/* Desktop nav */}
-                    <nav className="dp-nav-desktop" aria-label="Главное меню" style={{ display: 'none' }}>
+                    <nav className="dp-nav-desktop" aria-label={t.mainMenu} style={{ display: 'none' }}>
                         <ul style={{ display: 'flex', alignItems: 'center', gap: '24px', listStyle: 'none', margin: 0, padding: 0 }}>
                             {navItems.map((item) => (
                                 <li
@@ -282,7 +281,7 @@ export default function RawHeader() {
                             ))}
                             <li>
                                 <Link
-                                    href="/threads-prodvizhenie"
+                                    href={lp('/threads-prodvizhenie')}
                                     style={{
                                         background: '#39FF14',
                                         color: '#000',
@@ -296,7 +295,7 @@ export default function RawHeader() {
                                         boxShadow: '0 0 12px rgba(57,255,20,0.4)',
                                     }}
                                 >
-                                    Threads 🔥
+                                    {t.threads}
                                 </Link>
                             </li>
                         </ul>
@@ -337,13 +336,57 @@ export default function RawHeader() {
                             transition: 'transform .15s, box-shadow .15s',
                         }}
                     >
-                        Обратный звонок
+                        {t.callback}
                     </button>
+
+                    {/* Language switcher */}
+                    <div className="dp-lang-switch" style={{ display: 'flex', alignItems: 'center', gap: '0', marginLeft: '8px' }}>
+                        <a
+                            href={toRuPath(pathname)}
+                            aria-current={!isKz ? 'true' : undefined}
+                            style={{
+                                padding: '8px 14px',
+                                borderRadius: '10px 0 0 10px',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                letterSpacing: '0.5px',
+                                color: isKz ? 'rgba(255,255,255,0.45)' : '#fff',
+                                background: isKz ? 'transparent' : 'rgba(255,255,255,0.15)',
+                                border: '1px solid rgba(255,255,255,0.18)',
+                                borderRight: 'none',
+                                textDecoration: 'none',
+                                cursor: 'pointer',
+                                transition: 'all .2s',
+                            }}
+                        >
+                            RU
+                        </a>
+                        <a
+                            href={toKkPath(pathname)}
+                            aria-current={isKz ? 'true' : undefined}
+                            style={{
+                                padding: '8px 14px',
+                                borderRadius: '0 10px 10px 0',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                letterSpacing: '0.5px',
+                                color: isKz ? '#fff' : 'rgba(255,255,255,0.45)',
+                                background: isKz ? 'rgba(255,255,255,0.15)' : 'transparent',
+                                border: '1px solid rgba(255,255,255,0.18)',
+                                borderLeft: 'none',
+                                textDecoration: 'none',
+                                cursor: 'pointer',
+                                transition: 'all .2s',
+                            }}
+                        >
+                            KZ
+                        </a>
+                    </div>
 
                     {/* Burger */}
                     <button
                         type="button"
-                        aria-label="Открыть меню"
+                        aria-label={t.openMenu}
                         aria-expanded={mobileOpen}
                         onClick={() => setMobileOpen(true)}
                         className="dp-burger"
@@ -385,7 +428,7 @@ export default function RawHeader() {
                     />
                     <div
                         role="dialog"
-                        aria-label="Мобильное меню"
+                        aria-label={t.mobileMenu}
                         style={{
                             position: 'fixed',
                             top: 0,
@@ -405,7 +448,7 @@ export default function RawHeader() {
                     >
                         <button
                             type="button"
-                            aria-label="Закрыть меню"
+                            aria-label={t.closeMenu}
                             onClick={() => setMobileOpen(false)}
                             style={{
                                 position: 'absolute',
@@ -423,27 +466,27 @@ export default function RawHeader() {
                             ✕
                         </button>
 
-                        <nav aria-label="Мобильное меню" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                            <Link href="/" onClick={() => setMobileOpen(false)} style={mLink}>Главное</Link>
+                        <nav aria-label={t.mobileMenu} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                            <Link href={lp('/')} onClick={() => setMobileOpen(false)} style={mLink}>{t.home}</Link>
                             {services.map((s) => (
                                 <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)} style={mLink}>
                                     {s.label}
                                 </Link>
                             ))}
                             <div style={{ height: '1px', background: '#2a2a2a', margin: '8px 0' }} />
-                            <Link href="/cases" onClick={() => setMobileOpen(false)} style={mLink}>Кейсы</Link>
-                            <Link href="/pricing" onClick={() => setMobileOpen(false)} style={mLink}>Цены</Link>
-                            <Link href="/school" onClick={() => setMobileOpen(false)} style={mLink}>Наше обучение</Link>
-                            <Link href="/blog" onClick={() => setMobileOpen(false)} style={mLink}>Блог</Link>
-                            <Link href="/o-nas" onClick={() => setMobileOpen(false)} style={mLink}>О нас</Link>
-                            <Link href="/contacts" onClick={() => setMobileOpen(false)} style={mLink}>Контакты</Link>
+                            <Link href={lp('/cases')} onClick={() => setMobileOpen(false)} style={mLink}>{t.cases}</Link>
+                            <Link href={lp('/pricing')} onClick={() => setMobileOpen(false)} style={mLink}>{t.pricing}</Link>
+                            <Link href={lp('/school')} onClick={() => setMobileOpen(false)} style={mLink}>{t.training}</Link>
+                            <Link href={lp('/blog')} onClick={() => setMobileOpen(false)} style={mLink}>{t.blog}</Link>
+                            <Link href={lp('/o-nas')} onClick={() => setMobileOpen(false)} style={mLink}>{t.about}</Link>
+                            <Link href={lp('/contacts')} onClick={() => setMobileOpen(false)} style={mLink}>{t.contacts}</Link>
                             <div style={{ height: '1px', background: '#2a2a2a', margin: '8px 0' }} />
                             <Link
-                                href="/threads-prodvizhenie"
+                                href={lp('/threads-prodvizhenie')}
                                 onClick={() => setMobileOpen(false)}
                                 style={{ ...mLink, color: '#39FF14', fontWeight: 800, background: 'rgba(57,255,20,0.08)', borderRadius: '12px' }}
                             >
-                                🔥 Threads — Продвижение
+                                {t.threadsFull}
                             </Link>
                             <div style={{ height: '1px', background: '#2a2a2a', margin: '8px 0' }} />
                             <a
@@ -451,7 +494,7 @@ export default function RawHeader() {
                                 onClick={() => { trackPhoneClick('mobile_menu'); setMobileOpen(false); }}
                                 style={{ ...mLink, color: '#ef4444', fontWeight: 800 }}
                             >
-                                +7 (707) 035-77-77
+                                {t.phone}
                             </a>
                             <button
                                 type="button"
@@ -468,7 +511,7 @@ export default function RawHeader() {
                                     cursor: 'pointer',
                                 }}
                             >
-                                Заказать обратный звонок
+                                {t.orderCallback}
                             </button>
                         </nav>
                     </div>

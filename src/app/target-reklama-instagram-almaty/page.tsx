@@ -6,9 +6,15 @@ export const metadata: Metadata = {
     description: 'Настройка таргетированной рекламы в Instagram в Алматы ✦ Reels Ads, Stories Ads, лента. Look-alike аудитории, ретаргетинг, тестирование креативов. Заявки от 3 дней.',
     alternates: { canonical: '/target-reklama-instagram-almaty' },
     openGraph: {
-        title: 'Таргет реклама Instagram Алматы — Digital Pride',
+        title: 'Таргет реклама Instagram Алматы',
         description: 'Настройка рекламы в Instagram: Reels, Stories, лента. Заявки от 3 дней.',
         url: '/target-reklama-instagram-almaty',
+        images: [{
+            url: '/og-image?title=%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0+%D0%B2+Instagram&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'Реклама в Instagram в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function TargetInstagramPage() {
     return (
         <ServicePageTemplate
-            title="Таргет реклама"
-            accentWord="Instagram"
+            title="Реклама в Instagram"
+            accentWord="в Алматы"
             subtitle="Настраиваем рекламу в Instagram, которая приводит горячих клиентов. Reels Ads, Stories Ads, реклама в ленте — максимальный охват вашей ЦА в Алматы."
             description="Instagram — самая популярная соцсеть в Казахстане. Мы настраиваем рекламу, которая точно попадает в вашу аудиторию. Тестируем десятки креативов, используем look-alike, ретаргетинг и автоматические правила для масштабирования. Средний результат: снижение стоимости лида на 30-40% за 2 месяца работы."
             features={[
@@ -48,7 +54,7 @@ export default function TargetInstagramPage() {
                     text: <>
                         <p>Instagram остаётся платформой №1 в Казахстане по количеству активных пользователей. В Алматы более 1,5 миллиона человек ежедневно просматривают ленту, Stories и Reels. Для бизнеса это означает огромный потенциал — но только если рекламу настроить правильно. Digital Pride использует все форматы Instagram Ads — Reels, Stories и ленту — для создания рекламных кампаний, которые привлекают горячих клиентов.</p>
                         <p>Наша команда разрабатывает рекламные креативы в стиле органического контента — такие ролики не вызывают «баннерную слепоту» и получают высокий CTR. Мы тестируем десятки вариантов аудиторий и креативов, используем look-alike на базе ваших лучших клиентов и ретаргетинг для возврата тех, кто уже взаимодействовал с вашим брендом. Средний результат — снижение CPL на 30-40% за первые 2 месяца.</p>
-                        <p>Для комплексного присутствия в соцсетях совмещайте рекламу с <a href="/smm-almaty" className="text-red-500 hover:underline">полноценным ведением SMM</a>, а для охвата молодой аудитории добавьте <a href="/target-reklama-tiktok-almaty" className="text-red-500 hover:underline">рекламу в TikTok</a>.</p>
+                        <p>Для комплексного присутствия в соцсетях совмещайте рекламу с <a href="/smm-almaty/" className="text-red-500 hover:underline">полноценным ведением SMM</a>, а для охвата молодой аудитории добавьте <a href="/target-reklama-tiktok-almaty/" className="text-red-500 hover:underline">рекламу в TikTok</a>.</p>
                     </>
                 },
             ]}

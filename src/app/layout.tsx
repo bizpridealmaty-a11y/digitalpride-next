@@ -3,12 +3,13 @@ import "./globals.css";
 import RawHeader from "../components/layout/RawHeader";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import MotionProvider from "../components/layout/MotionProvider";
+import { LocaleProvider } from "@/lib/locale-context";
 import { unbounded, onest } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://digitalpride.kz'),
   title: {
-    default: 'Digital Pride — маркетинговое агентство в Алматы | SMM, таргет, сайты',
+    default: 'Digital Pride — маркетинговое агентство в Алматы',
     template: '%s | Digital Pride',
   },
   description: 'Digital Pride — перформанс-агентство полного цикла в Алматы. SMM, таргетированная и контекстная реклама, разработка сайтов, SEO, брендинг. Работаем на результат.',
@@ -32,18 +33,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/',
-    languages: {
-      'ru-KZ': 'https://digitalpride.kz/',
-      'x-default': 'https://digitalpride.kz/',
-    },
+    // hreflang к /kk временно убран — KZ-страницы noindex до полного перевода
   },
-  // TODO: после регистрации в GSC и Я.Вебмастере подставить реальные коды верификации
   verification: {
-    google: 'PLACEHOLDER_GOOGLE_SITE_VERIFICATION',
-    yandex: 'PLACEHOLDER_YANDEX_VERIFICATION',
-    other: {
-      'msvalidate.01': ['PLACEHOLDER_BING_VERIFICATION'],
-    },
+    google: 'SUwnZjQm4Rz0VgQ6e1rxRI7vL3XiOQGteqMKuKFZ-Mc',
+    yandex: 'caabe2be285a3cb5',
+    // Bing: добавьте реальный код из Bing Webmaster Tools, когда зарегистрируете сайт
+    // other: { 'msvalidate.01': ['РЕАЛЬНЫЙ_КОД'] },
   },
 };
 
@@ -55,8 +51,6 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${unbounded.variable} ${onest.variable}`}>
       <head>
-        <link rel="stylesheet" href="/css/main.css" />
-        <link rel="stylesheet" href="/css/adaptive.css" />
         {/* Yandex.Metrika */}
         <script
           dangerouslySetInnerHTML={{
@@ -77,13 +71,15 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MotionProvider>
-          <RawHeader />
-          {children}
+        <LocaleProvider locale="ru">
+          <MotionProvider>
+            <RawHeader />
+            {children}
 
-          {/* Floating WhatsApp button */}
-          <FloatingWhatsApp />
-        </MotionProvider>
+            {/* Floating WhatsApp button */}
+            <FloatingWhatsApp />
+          </MotionProvider>
+        </LocaleProvider>
 
         {/* Pulse animation */}
         <style dangerouslySetInnerHTML={{
@@ -159,7 +155,7 @@ export default function RootLayout({
                 }
               ],
               "sameAs": [
-                "https://www.instagram.com/digital.pride.smm/",
+                "https://www.instagram.com/digitalpride.kz/",
                 "https://t.me/timoshevskij",
                 "https://wa.me/77070357777",
                 "https://2gis.kz/almaty/firm/70000001090336559"
@@ -183,7 +179,7 @@ export default function RootLayout({
                 "jobTitle": "Основатель Digital Pride"
               },
               "sameAs": [
-                "https://www.instagram.com/digital.pride.smm/",
+                "https://www.instagram.com/digitalpride.kz/",
                 "https://t.me/timoshevskij",
                 "https://wa.me/77070357777",
                 "https://2gis.kz/almaty/firm/70000001090336559"
@@ -208,7 +204,7 @@ export default function RootLayout({
               "worksFor": { "@id": "https://digitalpride.kz/#organization" },
               "sameAs": [
                 "https://t.me/timoshevskij",
-                "https://www.instagram.com/digital.pride.smm/"
+                "https://www.instagram.com/digitalpride.kz/"
               ]
             })
           }}

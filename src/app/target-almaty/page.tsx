@@ -6,9 +6,15 @@ export const metadata: Metadata = {
     description: 'Настройка таргетированной рекламы в Алматы ✦ Instagram, Facebook, TikTok. Первые заявки за 3-5 дней. Look-alike, ретаргетинг, A/B тесты. Работаем на результат.',
     alternates: { canonical: '/target-almaty' },
     openGraph: {
-        title: 'Таргетированная реклама в Алматы — Digital Pride',
+        title: 'Таргетированная реклама в Алматы',
         description: 'Настройка таргетированной рекламы в Instagram, Facebook, TikTok. Заявки от 3 дней.',
         url: '/target-almaty',
+        images: [{
+            url: '/og-image?title=%D0%A2%D0%B0%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'Таргетированная реклама в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function TargetAlmatyPage() {
     return (
         <ServicePageTemplate
-            title="Таргетированная"
-            accentWord="Реклама"
+            title="Таргетированная реклама"
+            accentWord="в Алматы"
             subtitle="Facebook, Instagram, TikTok — лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас."
             description="Мы настраиваем таргетированную рекламу, которая приводит горячих клиентов. Тестируем десятки креативов, сегментируем аудиторию, используем look-alike и ретаргетинг для максимальной конверсии. Каждый тенге рекламного бюджета работает на результат."
             features={[
@@ -48,7 +54,8 @@ export default function TargetAlmatyPage() {
                     text: <>
                         <p>Рынок таргетированной рекламы в Казахстане стремительно растёт: всё больше бизнесов Алматы переходят от офлайн-рекламы к точечному digital-продвижению. Таргет в Instagram, Facebook и TikTok позволяет показать ваше предложение именно тем жителям Алматы, которые уже готовы к покупке — по возрасту, интересам, поведению и геолокации.</p>
                         <p>Digital Pride — это команда сертифицированных таргетологов с опытом запуска более 500 рекламных кампаний в Казахстане. Мы работаем с бизнесами любого масштаба: от локальных кафе и салонов красоты в Алматы до крупных федеральных брендов. Наш подход — тестирование десятков гипотез, чтобы найти связку «креатив + аудитория», которая приносит заявки по минимальной стоимости.</p>
-                        <p>Хотите ещё больше охвата? Дополните таргет <a href="/kontekstnaya-reklama-almaty" className="text-red-500 hover:underline">контекстной рекламой в Google и Яндекс</a> — так вы перехватите и тех, кто уже ищет ваш продукт. А для формирования доверия подключите <a href="/smm-almaty" className="text-red-500 hover:underline">комплексное SMM-продвижение</a>.</p>
+                        <p>Хотите ещё больше охвата? Дополните таргет <a href="/kontekstnaya-reklama-almaty/" className="text-red-500 hover:underline">контекстной рекламой в Google и Яндекс</a> — так вы перехватите и тех, кто уже ищет ваш продукт. А для формирования доверия подключите <a href="/smm-almaty/" className="text-red-500 hover:underline">комплексное SMM-продвижение</a>.</p>
+                        <p>Смотрите <a href="/cases/laser-epilation/" className="text-red-500 hover:underline">реальный кейс: 679 заявок для студии лазерной эпиляции за $1,29</a> — снизили стоимость лида в 3 раза через Instagram Stories и Reels.</p>
                     </>
                 },
             ]}

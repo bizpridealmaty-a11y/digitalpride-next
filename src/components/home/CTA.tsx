@@ -2,8 +2,11 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
 
 export default function CTA() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [name, setName] = useState('');
@@ -51,10 +54,10 @@ export default function CTA() {
                         transition={{ duration: 0.6, type: "spring" }}
                     >
                         <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight leading-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                            Готовы кратно увеличить <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">продажи</span>?
+                            {isKk ? 'Сатылымды еселеп ' : 'Готовы кратно увеличить '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{isKk ? 'арттыруға дайынсыз ба?' : 'продажи?'}</span>
                         </h2>
                         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium">
-                            Давайте обсудим ваш проект. Оставьте заявку, и мы свяжемся с вами в течение 10 минут в рабочее время.
+                            {isKk ? 'Жобаңызды талқылайық. Өтінім қалдырыңыз, жұмыс уақытында 10 минутта хабарласамыз.' : 'Давайте обсудим ваш проект. Оставьте заявку, и мы свяжемся с вами в течение 10 минут в рабочее время.'}
                         </p>
 
                         <motion.button
@@ -66,7 +69,7 @@ export default function CTA() {
                             }}
                             className="inline-block px-10 py-5 bg-white text-black hover:bg-gray-100 font-extrabold rounded-full transition-colors text-lg shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] cursor-pointer"
                         >
-                            Обсудить проект
+                            {isKk ? 'Жобаны талқылау' : 'Обсудить проект'}
                         </motion.button>
                     </motion.div>
                 </div>
@@ -95,23 +98,23 @@ export default function CTA() {
                             >
                                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
-                            <h3 className="text-2xl font-extrabold mb-2 text-black" style={{ fontFamily: "'Montserrat', sans-serif" }}>Обсудить проект</h3>
-                            <p className="text-gray-500 mb-6 text-sm">Заполните форму и мы свяжемся с вами в течение 10 минут.</p>
+                            <h3 className="text-2xl font-extrabold mb-2 text-black" style={{ fontFamily: "'Montserrat', sans-serif" }}>{isKk ? 'Жобаны талқылау' : 'Обсудить проект'}</h3>
+                            <p className="text-gray-500 mb-6 text-sm">{isKk ? 'Форманы толтырыңыз, 10 минутта хабарласамыз.' : 'Заполните форму и мы свяжемся с вами в течение 10 минут.'}</p>
 
                             <form onSubmit={handleSubmit} className="space-y-5 text-left">
                                 <div>
-                                    <label className="block text-sm font-semibold mb-1.5 text-gray-800">Ваше имя</label>
+                                    <label className="block text-sm font-semibold mb-1.5 text-gray-800">{isKk ? 'Сіздің атыңыз' : 'Ваше имя'}</label>
                                     <input
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-black placeholder-gray-400"
-                                        placeholder="Иван Иванов"
+                                        placeholder={isKk ? 'Аты-жөніңіз' : 'Иван Иванов'}
                                         required
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold mb-1.5 text-gray-800">Телефон</label>
+                                    <label className="block text-sm font-semibold mb-1.5 text-gray-800">{isKk ? 'Телефон' : 'Телефон'}</label>
                                     <input
                                         type="tel"
                                         value={phone}
@@ -126,12 +129,12 @@ export default function CTA() {
                                     disabled={status === 'loading' || status === 'success'}
                                     className={`w-full py-4 rounded-xl font-bold transition-all text-lg cursor-pointer shadow-lg ${status === 'success' ? 'bg-green-600 text-white shadow-green-500/30' : 'bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600 shadow-red-500/30 disabled:opacity-70'}`}
                                 >
-                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Отправлено' : 'Отправить заявку'}
+                                    {status === 'loading' ? (isKk ? 'Жіберілуде...' : 'Отправка...') : status === 'success' ? (isKk ? '✓ Жіберілді' : '✓ Отправлено') : (isKk ? 'Өтінім жіберу' : 'Отправить заявку')}
                                 </button>
                                 {status === 'error' && (
-                                    <p className="text-red-500 text-sm text-center mt-2">Произошла ошибка. Попробуйте еще раз.</p>
+                                    <p className="text-red-500 text-sm text-center mt-2">{isKk ? 'Қате орын алды. Қайталап көріңіз.' : 'Произошла ошибка. Попробуйте еще раз.'}</p>
                                 )}
-                                <p className="text-gray-400 text-xs text-center pt-1">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                                <p className="text-gray-400 text-xs text-center pt-1">{isKk ? 'Батырманы басу арқылы сіз құпиялылық саясатымен келісесіз.' : 'Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.'}</p>
                             </form>
                         </motion.div>
                     </motion.div>

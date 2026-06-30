@@ -7,11 +7,11 @@ import CTA from '../../components/home/CTA';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-    title: 'Блог Digital Pride — статьи о маркетинге, SMM, рекламе и SEO',
+    title: 'Блог — статьи о маркетинге, SMM, рекламе и SEO',
     description: 'Полезные статьи о digital-маркетинге в Казахстане: SMM, таргет, контекст, SEO, разработка сайтов. Кейсы, разборы и пошаговые инструкции для бизнеса.',
     alternates: { canonical: '/blog' },
     openGraph: {
-        title: 'Блог Digital Pride',
+        title: 'Блог — статьи о маркетинге, SMM, рекламе и SEO',
         description: 'Статьи о digital-маркетинге в Казахстане для бизнеса.',
         url: '/blog',
     },
@@ -52,7 +52,7 @@ export default function BlogIndex() {
                             {posts.map((p) => (
                                 <Link
                                     key={p.slug}
-                                    href={`/blog/${p.slug}`}
+                                    href={`/blog/${p.slug}/`}
                                     className="group block bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all"
                                 >
                                     <div className="p-6">

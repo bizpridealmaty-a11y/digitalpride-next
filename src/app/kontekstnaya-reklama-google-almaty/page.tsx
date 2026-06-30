@@ -6,9 +6,15 @@ export const metadata: Metadata = {
     description: 'Настройка Google Ads в Алматы ✦ Поисковая реклама, КМС, YouTube Ads, Performance Max. Заявки с первого дня. Сквозная аналитика. Прозрачные отчёты.',
     alternates: { canonical: '/kontekstnaya-reklama-google-almaty' },
     openGraph: {
-        title: 'Google Ads в Алматы — Digital Pride',
+        title: 'Google Ads в Алматы',
         description: 'Поисковая реклама, КМС, YouTube Ads. Заявки с первого дня запуска.',
         url: '/kontekstnaya-reklama-google-almaty',
+        images: [{
+            url: '/og-image?title=Google+Ads+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'Google Ads реклама в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function GoogleAdsPage() {
     return (
         <ServicePageTemplate
-            title="Google Ads"
-            accentWord="реклама"
+            title="Google Ads реклама"
+            accentWord="в Алматы"
             subtitle="Google Ads — главный инструмент для перехвата горячего спроса. Мы настраиваем рекламу, которая показывается людям, уже ищущим ваш продукт прямо сейчас."
             description="Google обрабатывает 90% всех поисковых запросов в Казахстане. Мы выводим ваше предложение на первые позиции через поисковую рекламу, контекстно-медийную сеть (КМС), YouTube Ads и Performance Max. Глубокий сбор семантики, тщательная минусация и ежедневная оптимизация ставок обеспечивают максимальный ROI."
             features={[
@@ -48,7 +54,7 @@ export default function GoogleAdsPage() {
                     text: <>
                         <p>Google обрабатывает более 90% всех поисковых запросов в Казахстане — это главный канал для перехвата людей, которые прямо сейчас ищут ваш продукт или услугу. Google Ads позволяет вашему бизнесу появиться на первых позициях поисковой выдачи в Алматы уже в день запуска, не дожидаясь результатов SEO.</p>
                         <p>Digital Pride специализируется на настройке и ведении Google Ads для бизнесов Алматы: поисковая реклама для горячих запросов, Performance Max для AI-оптимизированного охвата всех каналов Google (поиск, YouTube, КМС, Gmail, Maps), ремаркетинг для возврата тех, кто не оставил заявку с первого визита. Мы собираем семантическое ядро из 1000+ ключевых слов, тщательно минусуем нецелевой трафик и оптимизируем ставки ежедневно.</p>
-                        <p>Для полного охвата рынка дополните Google Ads рекламой в <a href="/kontekstnaya-reklama-yandex-almaty" className="text-red-500 hover:underline">Яндекс.Директ</a> и <a href="/target-reklama-instagram-almaty" className="text-red-500 hover:underline">Instagram</a>.</p>
+                        <p>Для полного охвата рынка дополните Google Ads рекламой в <a href="/kontekstnaya-reklama-yandex-almaty/" className="text-red-500 hover:underline">Яндекс.Директ</a> и <a href="/target-reklama-instagram-almaty/" className="text-red-500 hover:underline">Instagram</a>.</p>
                     </>
                 },
             ]}

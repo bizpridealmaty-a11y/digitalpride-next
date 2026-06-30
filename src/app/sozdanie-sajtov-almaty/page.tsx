@@ -6,9 +6,15 @@ export const metadata: Metadata = {
     description: 'Разработка сайтов в Алматы ✦ Лендинги от 300 000 ₸, корпоративные сайты, интернет-магазины. React, Next.js. Адаптивный дизайн, SEO-оптимизация, высокая конверсия.',
     alternates: { canonical: '/sozdanie-sajtov-almaty' },
     openGraph: {
-        title: 'Создание сайтов в Алматы — Digital Pride',
+        title: 'Создание сайтов в Алматы',
         description: 'Лендинги, корпоративные сайты, интернет-магазины. Современные технологии, высокая конверсия.',
         url: '/sozdanie-sajtov-almaty',
+        images: [{
+            url: '/og-image?title=%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5+%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'Создание сайтов в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function SitePage() {
     return (
         <ServicePageTemplate
-            title="Разработка"
-            accentWord="сайтов"
+            title="Разработка сайтов"
+            accentWord="в Алматы"
             subtitle="Создаём продающие сайты, которые конвертируют посетителей в клиентов. От лендингов до сложных корпоративных порталов."
             description="Мы разрабатываем сайты с фокусом на конверсию и UX. Каждый проект начинается с глубокого анализа вашей ниши и целевой аудитории. Мы используем современные технологии (React, Next.js, Node.js) и лучшие практики дизайна, чтобы ваш сайт не просто красиво выглядел, но и генерировал заявки. Адаптивная вёрстка, SEO-оптимизация и высокая скорость загрузки — в каждом проекте."
             features={[
@@ -48,7 +54,7 @@ export default function SitePage() {
                     text: <>
                         <p>Современный сайт — это не просто визитка в интернете, а полноценный инструмент продаж для бизнеса в Алматы и Казахстане. Каждый день тысячи потенциальных клиентов ищут товары и услуги в поисковых системах, и если у вашей компании нет качественного сайта — вы теряете деньги. Digital Pride разрабатывает продающие сайты, которые конвертируют посетителей в реальных клиентов.</p>
                         <p>Мы используем современные технологии — React и Next.js — для создания быстрых, адаптивных и SEO-оптимизированных сайтов. Каждый проект начинается с глубокого анализа вашей ниши, конкурентов и целевой аудитории в Алматы. Результат — сайт с продуманным UI/UX, который загружается за секунды и корректно отображается на любом устройстве.</p>
-                        <p>После запуска сайта подключите <a href="/seo-almaty" className="text-red-500 hover:underline">SEO-продвижение</a> для органического трафика или <a href="/kontekstnaya-reklama-almaty" className="text-red-500 hover:underline">контекстную рекламу</a> для мгновенных заявок. Нужен отдельный <a href="/lending-almaty" className="text-red-500 hover:underline">лендинг</a> или <a href="/internet-magazin-almaty" className="text-red-500 hover:underline">интернет-магазин</a>? Мы создаём любые форматы.</p>
+                        <p>После запуска сайта подключите <a href="/seo-almaty/" className="text-red-500 hover:underline">SEO-продвижение</a> для органического трафика или <a href="/kontekstnaya-reklama-almaty/" className="text-red-500 hover:underline">контекстную рекламу</a> для мгновенных заявок. Нужен отдельный <a href="/lending-almaty/" className="text-red-500 hover:underline">лендинг</a> или <a href="/internet-magazin-almaty/" className="text-red-500 hover:underline">интернет-магазин</a>? Мы создаём любые форматы.</p>
                     </>
                 },
             ]}

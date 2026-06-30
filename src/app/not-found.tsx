@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 };
 
 const popularLinks = [
-    { title: 'SMM продвижение', href: '/smm-almaty' },
-    { title: 'Таргетированная реклама', href: '/target-almaty' },
-    { title: 'Контекстная реклама', href: '/kontekstnaya-reklama-almaty' },
-    { title: 'SEO продвижение', href: '/seo-almaty' },
-    { title: 'Разработка сайтов', href: '/sozdanie-sajtov-almaty' },
-    { title: 'Кейсы', href: '/cases' },
+    { title: 'SMM продвижение', href: '/smm-almaty/' },
+    { title: 'Таргетированная реклама', href: '/target-almaty/' },
+    { title: 'Контекстная реклама', href: '/kontekstnaya-reklama-almaty/' },
+    { title: 'SEO продвижение', href: '/seo-almaty/' },
+    { title: 'Разработка сайтов', href: '/sozdanie-sajtov-almaty/' },
+    { title: 'Кейсы', href: '/cases/' },
 ];
 
 export default function NotFound() {
@@ -51,7 +51,7 @@ export default function NotFound() {
                             На главную
                         </Link>
                         <Link
-                            href="/services"
+                            href="/services/"
                             className="px-8 py-4 border-2 border-black text-black font-bold rounded-xl transition-all hover:scale-105 hover:bg-black hover:text-white"
                         >
                             Все услуги

@@ -1410,8 +1410,8 @@ section { padding: 100px 0; }
               <h4>Контакты</h4>
               <a href="#form">Оставить заявку</a>
               <a href="https://wa.me/77070357777" target="_blank">WhatsApp</a>
-              <a href="https://threads.net/@digital.pride.smm" target="_blank">Threads</a>
-              <a href="https://instagram.com/digital.pride.smm" target="_blank">Instagram</a>
+              <a href="https://threads.net/@digitalpride.kz" target="_blank">Threads</a>
+              <a href="https://www.instagram.com/digitalpride.kz/" target="_blank">Instagram</a>
             </div>
           </div>
           <div className="footer-bottom">

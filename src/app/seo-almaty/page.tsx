@@ -2,13 +2,19 @@ import type { Metadata } from 'next';
 import NewLandingTemplate from '@/components/NewLandingTemplate';
 
 export const metadata: Metadata = {
-    title: 'SEO продвижение сайтов в Алматы — вывод в ТОП Google и Яндекс',
+    title: 'SEO продвижение в Алматы — вывод в ТОП Google',
     description: 'SEO продвижение в Алматы ✦ Выводим сайты в ТОП-10 Google и Яндекс. Техаудит, семантическое ядро, контент-маркетинг, линкбилдинг. Результат от 1-2 месяцев.',
     alternates: { canonical: '/seo-almaty' },
     openGraph: {
-        title: 'SEO продвижение сайтов в Алматы — Digital Pride',
-        description: 'Выводим сайты в ТОП Google и Яндекс. Белое SEO, стабильные результаты.',
+        title: 'SEO продвижение в Алматы — вывод в ТОП Google',
+        description: 'SEO продвижение в Алматы ✦ Выводим сайты в ТОП-10 Google и Яндекс. Техаудит, семантическое ядро, контент-маркетинг, линкбилдинг. Результат от 1-2 месяцев.',
         url: '/seo-almaty',
+        images: [{
+            url: '/og-image?title=SEO+%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            width: 1200,
+            height: 630,
+            alt: 'SEO продвижение в Алматы — Digital Pride',
+        }],
     },
 };
 
@@ -17,8 +23,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function SeoPage() {
     return (
         <NewLandingTemplate
-            title="SEO"
-            accentWord="Продвижение"
+            title="SEO продвижение"
+            accentWord="в Алматы"
             subtitle="Выводим ваш сайт в ТОП Google и Яндекс. Органический трафик — это самый дешёвый и стабильный источник заявок для вашего бизнеса."
             description="SEO-продвижение — это комплексная работа над вашим сайтом, которая включает техническую оптимизацию, создание экспертного контента, наращивание ссылочной массы и постоянный мониторинг позиций. Мы работаем со сложными нишами в Казахстане, включая B2B, e-commerce, медицину и недвижимость. Наш подход — белое SEO, которое приносит стабильные результаты на годы."
             features={[
@@ -48,7 +54,7 @@ export default function SeoPage() {
                     text: <>
                         <p>SEO-продвижение — это долгосрочная инвестиция в стабильный поток клиентов для вашего бизнеса в Алматы. В отличие от платной рекламы, органический трафик из Google и Яндекс бесплатен и постоянен: однажды выведя сайт в ТОП-10, вы получаете заявки каждый день без ежемесячных расходов на клики. Это самый рентабельный канал привлечения клиентов в Казахстане в долгосрочной перспективе.</p>
                         <p>Digital Pride проводит комплексное SEO-продвижение: технический аудит, сбор и кластеризацию семантического ядра, оптимизацию страниц, создание экспертного контента и наращивание ссылочной массы. Особое внимание уделяем локальному SEO в Алматы — Google My Business, 2GIS, Яндекс.Справочник — чтобы вас находили именно те клиенты, которые рядом с вами.</p>
-                        <p>Пока SEO набирает обороты, обеспечьте себя заявками через <a href="/kontekstnaya-reklama-almaty" className="text-red-500 hover:underline">контекстную рекламу</a>, а для укрепления присутствия бренда подключите <a href="/smm-almaty" className="text-red-500 hover:underline">SMM-продвижение</a> и <a href="/upravlenie-reputaciej-almaty" className="text-red-500 hover:underline">управление репутацией</a>.</p>
+                        <p>Пока SEO набирает обороты, обеспечьте себя заявками через <a href="/kontekstnaya-reklama-almaty/" className="text-red-500 hover:underline">контекстную рекламу</a>, а для укрепления присутствия бренда подключите <a href="/smm-almaty/" className="text-red-500 hover:underline">SMM-продвижение</a> и <a href="/upravlenie-reputaciej-almaty/" className="text-red-500 hover:underline">управление репутацией</a>.</p>
                     </>
                 },
             ]}

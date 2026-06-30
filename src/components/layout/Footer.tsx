@@ -2,8 +2,13 @@
 
 import React from 'react';
 import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
+import { useLocale } from '@/lib/locale-context';
+import { localizedPath } from '@/lib/i18n';
 
 export default function Footer() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
+    const lp = (path: string) => localizedPath(path, locale);
     return (
         <>
             <footer style={{ background: '#0a0a0a', color: '#fff', padding: '80px 0 0' }}>
@@ -21,47 +26,52 @@ export default function Footer() {
                                 Digital Pride
                             </div>
                             <p style={{ color: '#777', fontSize: '14px', lineHeight: '1.7' }}>
-                                Маркетинговое агентство в Алматы. Стратегия, реклама и продвижение для бизнеса, который хочет расти.
+                                {isKk ? 'Алматыдағы маркетинг агенттігі. Өсуді қалайтын бизнеске арналған стратегия, жарнама және жылжыту.' : 'Маркетинговое агентство в Алматы. Стратегия, реклама и продвижение для бизнеса, который хочет расти.'}
                             </p>
                         </div>
 
                         {/* Navigation */}
                         <div>
-                            <h4 style={headingStyle}>Навигация</h4>
+                            <h4 style={headingStyle}>{isKk ? 'Навигация' : 'Навигация'}</h4>
                             <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <a href="/" style={linkStyle}>Главное</a>
-                                <a href="/cases" style={linkStyle}>Кейсы</a>
-                                <a href="/smm-almaty" style={linkStyle}>SMM продвижение</a>
-                                <a href="/seo-almaty" style={linkStyle}>SEO продвижение</a>
-                                <a href="/kontekstnaya-reklama-almaty" style={linkStyle}>Контекстная реклама</a>
-                                <a href="/marketing-almaty" style={linkStyle}>Маркетинговая стратегия</a>
-                                <a href="/sozdanie-sajtov-almaty" style={linkStyle}>Разработка сайтов</a>
-                                <a href="/upravlenie-reputaciej-almaty" style={linkStyle}>Управление репутацией</a>
-                                <a href="/school" style={linkStyle}>Наше обучение</a>
-                                <a href="/blog" style={linkStyle}>Блог</a>
-                                <a href="/o-nas" style={linkStyle}>О нас</a>
-                                <a href="/contacts" style={linkStyle}>Контакты</a>
+                                <a href={lp('/')} style={linkStyle}>{isKk ? 'Басты' : 'Главное'}</a>
+                                <a href={lp('/cases')} style={linkStyle}>{isKk ? 'Кейстер' : 'Кейсы'}</a>
+                                <a href={lp('/smm-almaty')} style={linkStyle}>{isKk ? 'SMM жылжыту' : 'SMM продвижение'}</a>
+                                <a href={lp('/seo-almaty')} style={linkStyle}>{isKk ? 'SEO жылжыту' : 'SEO продвижение'}</a>
+                                <a href={lp('/kontekstnaya-reklama-almaty')} style={linkStyle}>{isKk ? 'Контекстік жарнама' : 'Контекстная реклама'}</a>
+                                <a href={lp('/marketing-almaty')} style={linkStyle}>{isKk ? 'Маркетингтік стратегия' : 'Маркетинговая стратегия'}</a>
+                                <a href={lp('/sozdanie-sajtov-almaty')} style={linkStyle}>{isKk ? 'Сайт жасау' : 'Разработка сайтов'}</a>
+                                <a href={lp('/upravlenie-reputaciej-almaty')} style={linkStyle}>{isKk ? 'Беделді басқару' : 'Управление репутацией'}</a>
+                                <a href={lp('/school')} style={linkStyle}>{isKk ? 'Біздің оқыту' : 'Наше обучение'}</a>
+                                <a href={lp('/blog')} style={linkStyle}>{isKk ? 'Блог' : 'Блог'}</a>
+                                <a href={lp('/o-nas')} style={linkStyle}>{isKk ? 'Біз туралы' : 'О нас'}</a>
+                                <a href={lp('/contacts')} style={linkStyle}>{isKk ? 'Байланыс' : 'Контакты'}</a>
                             </nav>
                         </div>
 
                         {/* Contacts */}
                         <div>
-                            <h4 style={headingStyle}>Контакты</h4>
+                            <h4 style={headingStyle}>{isKk ? 'Байланыс' : 'Контакты'}</h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <a href="tel:+77070357777" onClick={() => trackPhoneClick('footer')} style={{ ...linkStyle, color: '#fff', fontWeight: 700 }}>+7 (707) 035-77-77</a>
-                                <p style={{ color: '#777', fontSize: '14px', margin: 0 }}>Алматы, Казахстан</p>
-                                <p style={{ color: '#777', fontSize: '14px', margin: 0 }}>проспект Бухар-Жирау, 33,<br />3 этаж, студия 13</p>
+                                <p style={{ color: '#777', fontSize: '14px', margin: 0 }}>{isKk ? 'Алматы, Қазақстан' : 'Алматы, Казахстан'}</p>
+                                <p style={{ color: '#777', fontSize: '14px', margin: 0 }}>{isKk ? 'Бұхар-Жырау даңғылы, 33,' : 'проспект Бухар-Жирау, 33,'}<br />{isKk ? '3-қабат, 13 студия' : '3 этаж, студия 13'}</p>
                             </div>
                         </div>
 
-                        {/* Social */}
+                        {/* Social + Projects */}
                         <div>
-                            <h4 style={headingStyle}>Мы в сети</h4>
+                            <h4 style={headingStyle}>{isKk ? 'Біз желіде' : 'Мы в сети'}</h4>
                             <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <a href="https://wa.me/77070357777" onClick={() => trackWhatsAppClick('footer')} style={linkStyle} target="_blank" rel="noopener noreferrer">WhatsApp</a>
                                 <a href="https://t.me/timoshevskij" style={linkStyle} target="_blank" rel="noopener noreferrer">Telegram</a>
-                                <a href="https://www.instagram.com/digital.pride.smm/" style={linkStyle} target="_blank" rel="noopener noreferrer">Instagram</a>
+                                <a href="https://www.instagram.com/digitalpride.kz/" style={linkStyle} target="_blank" rel="noopener noreferrer">Instagram</a>
                                 <a href="https://2gis.kz/almaty/firm/70000001090336559" style={linkStyle} target="_blank" rel="noopener noreferrer">2GIS</a>
+                            </nav>
+                            <h4 style={{ ...headingStyle, marginTop: '28px' }}>{isKk ? 'Біздің жобалар' : 'Наши проекты'}</h4>
+                            <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                <a href="https://smm-school.kz/" style={{ ...linkStyle, color: '#ef4444' }} target="_blank" rel="noopener noreferrer">{isKk ? 'SMM School — маркетингті оқыту' : 'SMM School — обучение маркетингу'}</a>
+                                <a href="https://bizpride.kz/" style={{ ...linkStyle, color: '#ef4444' }} target="_blank" rel="noopener noreferrer">{isKk ? 'BizPride — Алматы бизнес-клубы' : 'BizPride — бизнес-клуб Алматы'}</a>
                             </nav>
                         </div>
                     </div>
@@ -101,14 +111,17 @@ export default function Footer() {
                         flexWrap: 'wrap',
                         gap: '16px',
                     }}>
-                        <span style={{ color: '#555', fontSize: '14px' }}>© {new Date().getFullYear()} Digital Pride</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                            <span style={{ color: '#555', fontSize: '14px' }}>© {new Date().getFullYear()} Digital Pride</span>
+                            <a href={lp('/privacy')} style={{ color: '#555', fontSize: '13px', textDecoration: 'none', borderLeft: '1px solid #333', paddingLeft: '16px' }}>{isKk ? 'Құпиялылық саясаты' : 'Политика конфиденциальности'}</a>
+                        </div>
 
                         {/* Social icons */}
                         <div style={{ display: 'flex', gap: '16px' }}>
                             <a href="https://t.me/timoshevskij" target="_blank" rel="noopener noreferrer" style={iconBtnStyle} title="Telegram">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" /></svg>
                             </a>
-                            <a href="https://www.instagram.com/digital.pride.smm/" target="_blank" rel="noopener noreferrer" style={iconBtnStyle} title="Instagram">
+                            <a href="https://www.instagram.com/digitalpride.kz/" target="_blank" rel="noopener noreferrer" style={iconBtnStyle} title="Instagram">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /></svg>
                             </a>
                             <a href="https://2gis.kz/almaty/firm/70000001090336559" target="_blank" rel="noopener noreferrer" style={iconBtnStyle} title="Digital Pride на 2GIS">

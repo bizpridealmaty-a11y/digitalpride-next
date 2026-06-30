@@ -2,13 +2,17 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
 
 export default function SocialProof() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
+
     const stats = [
-        { label: "Клиентов в портфеле", value: "500+", delay: 0 },
-        { label: "Бюджетами под управлением", value: "$3M+", delay: 0.1 },
-        { label: "Сгенерировано лидов", value: "150K+", delay: 0.2 },
-        { label: "Лет экспертизы на рынке", value: "10+", delay: 0.3 },
+        { label: isKk ? "Портфельдегі клиенттер" : "Клиентов в портфеле", value: "500+", delay: 0 },
+        { label: isKk ? "Басқарудағы бюджеттер" : "Бюджетами под управлением", value: "$3M+", delay: 0.1 },
+        { label: isKk ? "Генерацияланған лидтер" : "Сгенерировано лидов", value: "150K+", delay: 0.2 },
+        { label: isKk ? "Нарықтағы тәжірибе жылдары" : "Лет экспертизы на рынке", value: "10+", delay: 0.3 },
     ];
 
     // Brand logos via Simple Icons CDN (doubled for seamless loop)
@@ -43,7 +47,7 @@ export default function SocialProof() {
                     viewport={{ once: true }}
                     className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10"
                 >
-                    Я доверяю лидерам рынка
+                    {isKk ? 'Маған нарық көшбасшылары сенеді' : 'Я доверяю лидерам рынка'}
                 </motion.p>
             </div>
 
@@ -71,6 +75,8 @@ export default function SocialProof() {
                                     src={logo.icon}
                                     alt={logo.name}
                                     title={logo.name}
+                                    width={56}
+                                    height={56}
                                     loading="lazy"
                                     decoding="async"
                                     className="h-10 md:h-14 w-auto object-contain opacity-40 hover:opacity-100 transition-all duration-500"

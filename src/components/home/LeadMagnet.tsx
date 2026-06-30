@@ -3,8 +3,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { trackLeadFormSubmit } from '@/lib/analytics';
+import { useLocale } from '@/lib/locale-context';
 
 export default function LeadMagnet() {
+    const locale = useLocale();
+    const isKk = locale === 'kk';
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -19,7 +22,7 @@ export default function LeadMagnet() {
             const res = await fetch('/api/telegram', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, source: 'Бесплатный маркетинговый аудит' }),
+                body: JSON.stringify({ name, phone, source: isKk ? 'Тегін маркетингтік аудит' : 'Бесплатный маркетинговый аудит' }),
             });
             if (res.ok) {
                 trackLeadFormSubmit();
@@ -57,23 +60,25 @@ export default function LeadMagnet() {
                 >
                     <div className="w-full md:w-1/2">
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                            Закажите бесплатный <span style={{ color: '#fb7185' }}>маркетинговый аудит</span>
+                            {isKk ? 'Тегін ' : 'Закажите бесплатный '}<span style={{ color: '#fb7185' }}>{isKk ? 'маркетингтік аудитке тапсырыс беріңіз' : 'маркетинговый аудит'}</span>
                         </h2>
                         <p className="text-lg text-gray-400 mb-8 font-medium">
-                            Мы разберем ваши текущие рекламные кампании, сайт и воронку продаж. Покажем, где вы теряете деньги, и составим action-plan для быстрого роста.
+                            {isKk
+                                ? 'Біз сіздің ағымдағы жарнамалық науқандарыңызды, сайтыңызды және сату воронкаңызды талдаймыз. Ақшаңызды қайда жоғалтып жатқаныңызды көрсетеміз және жылдам өсу үшін action-plan жасаймыз.'
+                                : 'Мы разберем ваши текущие рекламные кампании, сайт и воронку продаж. Покажем, где вы теряете деньги, и составим action-plan для быстрого роста.'}
                         </p>
                         <ul className="space-y-4 mb-8">
                             <li className="flex items-center text-gray-300 font-medium">
                                 <svg className="w-5 h-5 mr-4" style={{ color: '#fb7185' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                Анализ конкурентов (Traffic, SEO)
+                                {isKk ? 'Бәсекелестерді талдау (Traffic, SEO)' : 'Анализ конкурентов (Traffic, SEO)'}
                             </li>
                             <li className="flex items-center text-gray-300 font-medium">
                                 <svg className="w-5 h-5 mr-4" style={{ color: '#fb7185' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                Проверка юзабилити и конверсии сайта
+                                {isKk ? 'Сайттың ыңғайлылығы мен конверсиясын тексеру' : 'Проверка юзабилити и конверсии сайта'}
                             </li>
                             <li className="flex items-center text-gray-300 font-medium">
                                 <svg className="w-5 h-5 mr-4" style={{ color: '#fb7185' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                Поиск "узких мест" в рекламе
+                                {isKk ? 'Жарнамадағы "тар жерлерді" іздеу' : 'Поиск "узких мест" в рекламе'}
                             </li>
                         </ul>
                     </div>
@@ -85,16 +90,16 @@ export default function LeadMagnet() {
                             style={{ perspective: 1000 }}
                             className="bg-white p-8 rounded-2xl text-black shadow-lg"
                         >
-                            <h3 className="text-2xl font-bold mb-6 text-center">Получите результат уже сейчас</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-center">{isKk ? 'Нәтижені қазір алыңыз' : 'Получите результат уже сейчас'}</h3>
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-1">Ваше имя</label>
+                                    <label className="block text-sm font-bold text-gray-700 mb-1">{isKk ? 'Сіздің атыңыз' : 'Ваше имя'}</label>
                                     <input
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#f43f5e] transition-shadow"
-                                        placeholder="Иван Иванов"
+                                        placeholder={isKk ? 'Айбек Серікұлы' : 'Иван Иванов'}
                                         required
                                     />
                                 </div>
@@ -115,9 +120,13 @@ export default function LeadMagnet() {
                                     className="w-full px-6 py-4 text-white font-bold rounded-lg transition-all mt-4 text-lg disabled:opacity-70"
                                     style={{ backgroundColor: status === 'success' ? '#22c55e' : '#ef4444' }}
                                 >
-                                    {status === 'loading' ? 'Отправка...' : status === 'success' ? '✓ Заявка отправлена!' : 'Получить бесплатный аудит'}
+                                    {status === 'loading'
+                                        ? (isKk ? 'Жіберілуде...' : 'Отправка...')
+                                        : status === 'success'
+                                            ? (isKk ? '✓ Өтінім жіберілді!' : '✓ Заявка отправлена!')
+                                            : (isKk ? 'Тегін аудит алу' : 'Получить бесплатный аудит')}
                                 </button>
-                                <p className="text-xs text-center text-gray-400 mt-4">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                                <p className="text-xs text-center text-gray-400 mt-4">{isKk ? 'Түймені басу арқылы сіз құпиялылық саясатымен келісесіз.' : 'Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.'}</p>
                             </div>
                         </motion.form>
                     </div>

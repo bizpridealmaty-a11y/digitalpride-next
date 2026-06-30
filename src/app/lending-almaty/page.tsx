@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Разработка лендинга в Алматы ✦ Продающий дизайн, адаптивная вёрстка, SEO-оптимизация. Конверсия от 5%. Сроки: 7-14 дней. Под ключ от 300 000 ₸.',
     alternates: { canonical: '/lending-almaty' },
     openGraph: {
-        title: 'Создание лендинга в Алматы — Digital Pride',
+        title: 'Создание лендинга в Алматы',
         description: 'Продающие лендинги с конверсией от 5%. Дизайн, вёрстка, SEO. Под ключ за 7-14 дней.',
         url: '/lending-almaty',
     },
@@ -17,8 +17,8 @@ const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="current
 export default function LandingPage() {
     return (
         <ServicePageTemplate
-            title="Создание"
-            accentWord="лендингов"
+            title="Создание лендингов"
+            accentWord="в Алматы"
             subtitle="Лендинг — ваш главный продажник в интернете. Мы создаём посадочные страницы, которые конвертируют посетителей в заявки и звонки."
             description="Лендинг (Landing Page) — это одностраничный сайт, заточенный под одно конкретное предложение. Мы разрабатываем лендинги с фокусом на конверсию: чёткая структура, продающие тексты, убедительный дизайн, быстрая загрузка и адаптивность. Средняя конверсия наших лендингов — 5-12%, что в 2-3 раза выше среднего по рынку."
             features={[
@@ -48,7 +48,7 @@ export default function LandingPage() {
                     text: <>
                         <p>Лендинг (Landing Page) — это одностраничный сайт, заточенный под одно действие: заявку, звонок или покупку. Если вы запускаете рекламу в Алматы — будь то таргет в Instagram или контекст в Google — без качественного лендинга вы сливаете бюджет. Наши лендинги показывают конверсию 5-12%, что в 2-3 раза выше среднерыночного показателя в Казахстане.</p>
                         <p>Digital Pride разрабатывает продающие лендинги на React и Next.js — быстрые, адаптивные и SEO-оптимизированные. В каждый проект входит проработка структуры по УТП, продающие тексты, адаптивный дизайн, интеграция форм с CRM, подключение аналитики и пикселей. Мы делаем лендинги, которые не просто красиво выглядят — а генерируют заявки.</p>
-                        <p>Запустите трафик на готовый лендинг через <a href="/kontekstnaya-reklama-google-almaty" className="text-red-500 hover:underline">Google Ads</a> или <a href="/target-reklama-instagram-almaty" className="text-red-500 hover:underline">рекламу в Instagram</a>. А для полноценного интернет-магазина перейдите на <a href="/internet-magazin-almaty" className="text-red-500 hover:underline">e-commerce решение</a>.</p>
+                        <p>Запустите трафик на готовый лендинг через <a href="/kontekstnaya-reklama-google-almaty/" className="text-red-500 hover:underline">Google Ads</a> или <a href="/target-reklama-instagram-almaty/" className="text-red-500 hover:underline">рекламу в Instagram</a>. А для полноценного интернет-магазина перейдите на <a href="/internet-magazin-almaty/" className="text-red-500 hover:underline">e-commerce решение</a>.</p>
                     </>
                 },
             ]}
