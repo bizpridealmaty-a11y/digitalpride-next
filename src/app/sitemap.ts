@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import fs from 'node:fs';
 import path from 'node:path';
+import { posts } from '@/lib/blog';
+import { casesData } from '@/data/cases';
 
 type ChangeFreq = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 
@@ -49,6 +51,8 @@ const pages: PageMeta[] = [
     { url: '/sitemap-html', priority: 0.4, changeFrequency: 'weekly' },
     { url: '/pricing', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/threads-prodvizhenie', priority: 0.8, changeFrequency: 'monthly' },
+    { url: '/cases/laser-epilation', priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/cases/plov-delivery', priority: 0.7, changeFrequency: 'monthly' },
 ];
 
 function pageMtime(slug: string): Date {
@@ -64,16 +68,32 @@ function pageMtime(slug: string): Date {
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://digitalpride.kz';
 
-    return pages.map((page) => ({
-        url: `${baseUrl}${page.url}`,
+    // Ensure trailing slash on all URLs to match trailingSlash:true in next.config
+    const withSlash = (u: string) => (u.endsWith('/') ? u : `${u}/`);
+
+    const staticEntries = pages.map((page) => ({
+        url: withSlash(`${baseUrl}${page.url}`),
         lastModified: pageMtime(page.url),
         changeFrequency: page.changeFrequency,
         priority: page.priority,
-        alternates: {
-            languages: {
-                'ru-KZ': `${baseUrl}${page.url}`,
-                'x-default': `${baseUrl}${page.url}`,
-            },
-        },
     }));
+
+    const blogEntries = posts.map((post) => ({
+        url: withSlash(`${baseUrl}/blog/${post.slug}`),
+        lastModified: new Date(post.updatedAt ?? post.publishedAt),
+        changeFrequency: 'monthly' as ChangeFreq,
+        priority: 0.6,
+    }));
+
+    const caseEntries = casesData.map((c) => ({
+        url: withSlash(`${baseUrl}/cases/${c.slug}`),
+        lastModified: pageMtime('/cases'),
+        changeFrequency: 'monthly' as ChangeFreq,
+        priority: 0.6,
+    }));
+
+    // KZ pages excluded from sitemap until fully translated
+    // (incomplete translations harm crawl budget and cause "thin content" signals)
+
+    return [...staticEntries, ...blogEntries, ...caseEntries];
 }

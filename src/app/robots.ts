@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: '*',
                 allow: '/',
-                disallow: ['/api/', '/_next/', '/og-image'],
+                disallow: ['/api/', '/_next/', '/og-image', '/assets/components/'],
             },
             { userAgent: 'Googlebot', allow: '/', disallow: ['/api/', '/_next/'] },
             { userAgent: 'YandexBot', allow: '/', disallow: ['/api/', '/_next/'], crawlDelay: 1 },

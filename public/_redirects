@@ -1,0 +1,12 @@
+# Netlify edge-level redirects — run BEFORE Next.js, eliminates double-hop chains
+/smm              /smm-almaty/                         301!
+/seo              /seo-almaty/                         301!
+/context          /kontekstnaya-reklama-almaty/        301!
+/branding         /marketing-almaty/                   301!
+/site             /sozdanie-sajtov-almaty/             301!
+/serm             /upravlenie-reputaciej-almaty/       301!
+/case             /cases/                              301!
+/contact          /contacts/                           301!
+/bitrix24         /services/                           301!
+/about            /o-nas/                              301!
+/about-us         /o-nas/                              301!

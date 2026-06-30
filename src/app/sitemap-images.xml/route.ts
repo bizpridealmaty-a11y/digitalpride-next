@@ -28,6 +28,17 @@ export async function GET() {
         ],
     });
 
+    // Кейс: лазерная эпиляция (кастомная страница)
+    entries.push({
+        loc: `${baseUrl}/cases/laser-epilation/`,
+        images: [
+            { url: `${baseUrl}/images/cases/laser-epilation/hero-cover.png`, title: 'Кейс таргетированная реклама Instagram — лазерная эпиляция Алматы', caption: '679 заявок в WhatsApp за $1,29' },
+            { url: `${baseUrl}/images/cases/laser-epilation/01_campaigns_overview.png`, title: 'Результаты таргетированной рекламы лазерной эпиляции в Instagram' },
+            { url: `${baseUrl}/images/cases/laser-epilation/11_performance_graph.png`, title: 'Стоимость заявки лазерная эпиляция — график' },
+            { url: `${baseUrl}/images/cases/laser-epilation/13_demographics_gender_age.png`, title: 'Демография аудитории таргетированной рекламы Алматы' },
+        ],
+    });
+
     // Кейсы
     for (const c of casesData) {
         const imgs: { url: string; title: string; caption?: string }[] = [];

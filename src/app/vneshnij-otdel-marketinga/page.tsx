@@ -43,7 +43,7 @@ export default function OutsourcedMarketingPage() {
             pricing={[
                 {
                     name: 'Базовый',
-                    price: '180 000 ₸',
+                    price: 'от 320 000 ₸',
                     features: [
                         'Аудит и стратегия (1 раз)',
                         'Базовый SMM (Instagram)',
@@ -55,7 +55,7 @@ export default function OutsourcedMarketingPage() {
                 },
                 {
                     name: 'Оптимальный',
-                    price: '280 000 ₸',
+                    price: 'от 550 000 ₸',
                     isPopular: true,
                     features: [
                         'Всё, что в Базовом',
@@ -68,7 +68,7 @@ export default function OutsourcedMarketingPage() {
                 },
                 {
                     name: 'Performance Pro',
-                    price: 'от 500 000 ₸',
+                    price: 'от 800 000 ₸',
                     features: [
                         'Всё, что в Оптимальном',
                         'Создание новых многостраничных сайтов',
