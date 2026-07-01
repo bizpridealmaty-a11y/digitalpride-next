@@ -32,6 +32,8 @@ const ALL: Related[] = [
     { href: '/threads-prodvizhenie/', title: 'Threads', description: 'Продвижение в новой соцсети Meta.' },
     { href: '/digital-marketing-almaty/', title: 'Digital-маркетинг', description: 'Комплексное продвижение онлайн.' },
     { href: '/vneshnij-otdel-marketinga/', title: 'Внешний отдел маркетинга', description: 'Полная команда маркетинга на аутсорсе.' },
+    { href: '/chat-boty-almaty/', title: 'Чат-боты', description: 'Боты для WhatsApp, Telegram, Instagram — 24/7.' },
+    { href: '/otdel-prodazh-pod-klyuch/', title: 'Отдел продаж под ключ', description: 'Найм, скрипты, CRM, мотивация и контроль.' },
 ];
 
 const RELATIONS: Record<string, string[]> = {
@@ -52,11 +54,13 @@ const RELATIONS: Record<string, string[]> = {
     '/upravlenie-reputaciej-almaty': ['/seo-almaty', '/smm-almaty', '/marketing-almaty', '/firmennyj-stil-almaty'],
     '/firmennyj-stil-almaty': ['/razrabotka-logotipa-almaty', '/sozdanie-sajtov-almaty', '/smm-almaty', '/marketing-almaty'],
     '/razrabotka-logotipa-almaty': ['/firmennyj-stil-almaty', '/sozdanie-sajtov-almaty', '/smm-almaty', '/marketing-almaty'],
-    '/voronka-prodazh-almaty': ['/marketing-almaty', '/lending-almaty', '/marketing-consulting-almaty', '/perfomans-marketing'],
+    '/voronka-prodazh-almaty': ['/chat-boty-almaty', '/otdel-prodazh-pod-klyuch', '/marketing-almaty', '/perfomans-marketing'],
     '/audit-reklamy': ['/target-almaty', '/kontekstnaya-reklama-almaty', '/marketing-consulting-almaty', '/perfomans-marketing'],
     '/threads-prodvizhenie': ['/smm-almaty', '/target-almaty', '/target-reklama-instagram-almaty', '/target-reklama-tiktok-almaty'],
     '/digital-marketing-almaty': ['/seo-almaty', '/target-almaty', '/marketing-almaty', '/perfomans-marketing'],
     '/vneshnij-otdel-marketinga': ['/marketing-almaty', '/marketing-consulting-almaty', '/perfomans-marketing', '/voronka-prodazh-almaty'],
+    '/chat-boty-almaty': ['/voronka-prodazh-almaty', '/target-almaty', '/marketing-almaty', '/otdel-prodazh-pod-klyuch'],
+    '/otdel-prodazh-pod-klyuch': ['/voronka-prodazh-almaty', '/marketing-almaty', '/vneshnij-otdel-marketinga', '/chat-boty-almaty'],
     '/smm-prodvizhenie-astana': ['/smm-almaty', '/target-almaty', '/target-reklama-instagram-almaty', '/firmennyj-stil-almaty'],
     '/smm-prodvizhenie-shymkent': ['/smm-almaty', '/smm-prodvizhenie-astana', '/target-almaty', '/firmennyj-stil-almaty'],
     '/smm-prodvizhenie-karaganda': ['/smm-almaty', '/smm-prodvizhenie-astana', '/target-almaty', '/firmennyj-stil-almaty'],

@@ -51,6 +51,8 @@ const pages: PageMeta[] = [
     { url: '/sitemap-html', priority: 0.4, changeFrequency: 'weekly' },
     { url: '/pricing', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/threads-prodvizhenie', priority: 0.8, changeFrequency: 'monthly' },
+    { url: '/chat-boty-almaty', priority: 0.8, changeFrequency: 'monthly' },
+    { url: '/otdel-prodazh-pod-klyuch', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/cases/laser-epilation', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/cases/plov-delivery', priority: 0.7, changeFrequency: 'monthly' },
 ];
