@@ -189,8 +189,8 @@ export default function ServicePageTemplate({
                 {heroBackground ? (
                     <div className="absolute inset-0">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={heroBackground} alt="" aria-hidden="true" className="w-full h-full object-cover object-center md:object-right" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 md:via-zinc-950/80 to-zinc-950/40"></div>
+                        <img src={heroBackground} alt="" aria-hidden="true" className="w-full h-full object-cover object-center" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 md:via-zinc-950/80 to-zinc-950/30"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 to-transparent"></div>
                     </div>
                 ) : (
@@ -204,6 +204,7 @@ export default function ServicePageTemplate({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
+                        className={heroBackground ? 'md:max-w-[52%]' : undefined}
                     >
                         {/* Breadcrumbs */}
                         <nav aria-label="Breadcrumb" className="mb-8">
