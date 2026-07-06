@@ -25,6 +25,7 @@ interface ServicePageProps {
     seoContent?: { title?: string; text: React.ReactNode | string }[];
     heroImage?: string;
     heroImageAlt?: string;
+    heroBackground?: string;
     gallery?: { src: string; alt: string; caption?: string }[];
     galleryTitle?: string;
     gallerySubtitle?: string;
@@ -42,6 +43,7 @@ export default function ServicePageTemplate({
     seoContent,
     heroImage,
     heroImageAlt,
+    heroBackground,
     gallery,
     galleryTitle,
     gallerySubtitle,
@@ -183,11 +185,20 @@ export default function ServicePageTemplate({
                 />
             )}
             {/* Hero Section */}
-            <section className="relative bg-zinc-950 text-white pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 opacity-30">
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px]" style={{ backgroundColor: '#ef4444' }}></div>
-                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ backgroundColor: '#ef4444' }}></div>
-                </div>
+            <section className={`relative bg-zinc-950 text-white pt-32 pb-20 overflow-hidden ${heroBackground ? 'md:min-h-[580px] md:flex md:items-center' : ''}`}>
+                {heroBackground ? (
+                    <div className="absolute inset-0">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={heroBackground} alt="" aria-hidden="true" className="w-full h-full object-cover object-center md:object-right" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 md:via-zinc-950/80 to-zinc-950/40"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 to-transparent"></div>
+                    </div>
+                ) : (
+                    <div className="absolute inset-0 opacity-30">
+                        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px]" style={{ backgroundColor: '#ef4444' }}></div>
+                        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ backgroundColor: '#ef4444' }}></div>
+                    </div>
+                )}
                 <div className="container mx-auto px-4 max-w-6xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
