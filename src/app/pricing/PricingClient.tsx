@@ -106,7 +106,7 @@ export default function PricingClient() {
         },
         {
             name: isKk ? 'Чат-боттар' : 'Чат-боты',
-            price: 'От 350 000 ₸',
+            price: 'От 250 000 ₸',
             features: isKk
                 ? ['WhatsApp, Telegram, Instagram', 'Сценарийлер және тармақтар', 'Өтінімдерді қабылдау және сұрыптау', 'CRM-мен интеграция', '24/7 жұмыс']
                 : ['WhatsApp, Telegram, Instagram', 'Сценарии и ветвления', 'Приём и квалификация заявок', 'Интеграция с CRM', 'Работа 24/7'],

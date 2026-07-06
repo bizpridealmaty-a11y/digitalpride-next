@@ -23,6 +23,8 @@ interface ServicePageProps {
     pricing?: { name: string; price: string; features: string[] }[];
     faq: { q: string; a: string }[];
     seoContent?: { title?: string; text: React.ReactNode | string }[];
+    heroImage?: string;
+    heroImageAlt?: string;
 }
 
 export default function ServicePageTemplate({
@@ -35,6 +37,8 @@ export default function ServicePageTemplate({
     pricing,
     faq,
     seoContent,
+    heroImage,
+    heroImageAlt,
 }: ServicePageProps) {
     const pathname = usePathname();
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -218,6 +222,17 @@ export default function ServicePageTemplate({
                                 Смотреть кейсы
                             </Link>
                         </div>
+                        {heroImage && (
+                            <div className="mt-14">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={heroImage}
+                                    alt={heroImageAlt || `${title} ${accentWord}`.trim()}
+                                    className="w-full rounded-2xl border border-zinc-700/60 shadow-2xl"
+                                    loading="eager"
+                                />
+                            </div>
+                        )}
                     </motion.div>
                 </div>
             </section>
@@ -307,6 +322,55 @@ export default function ServicePageTemplate({
                 </div>
             </section>
 
+            {/* Pricing */}
+            {pricing && pricing.length > 0 && (
+                <section className="py-20 bg-gray-50 text-black">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-center"
+                        >
+                            Стоимость
+                        </motion.h2>
+                        <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
+                            Точная стоимость зависит от объёма задач, количества каналов и интеграций и обсуждается на брифе.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {pricing.map((tier, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                    className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col hover:shadow-lg transition-shadow"
+                                >
+                                    <h3 className="text-xl font-bold mb-2">{tier.name}</h3>
+                                    <div className="text-3xl font-extrabold mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>{tier.price}</div>
+                                    <ul className="space-y-3 mb-8 flex-grow">
+                                        {tier.features.map((f, j) => (
+                                            <li key={j} className="flex items-start gap-2 text-sm text-gray-600 font-medium">
+                                                <svg className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                                                {f}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <button
+                                        type="button"
+                                        onClick={() => document.getElementById('service-cta-form')?.scrollIntoView({ behavior: 'smooth' })}
+                                        className="mt-auto block w-full text-center py-3 rounded-xl font-bold bg-gray-100 text-black hover:bg-red-600 hover:text-white transition-all"
+                                    >
+                                        Обсудить проект
+                                    </button>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* SEO Content */}
             {seoContent && seoContent.length > 0 && (
                 <section className="py-20 bg-white text-black">
@@ -360,9 +424,7 @@ export default function ServicePageTemplate({
                                     {item.q}
                                     <svg className={`w-5 h-5 flex-shrink-0 ml-4 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                 </button>
-                                {openFaq === i && (
-                                    <div className="px-6 pb-6 text-gray-600 leading-relaxed">{item.a}</div>
-                                )}
+                                <div className={`px-6 pb-6 text-gray-600 leading-relaxed ${openFaq === i ? 'block' : 'hidden'}`}>{item.a}</div>
                             </motion.div>
                         ))}
                     </div>
