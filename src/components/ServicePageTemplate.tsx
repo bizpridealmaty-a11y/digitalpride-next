@@ -25,6 +25,9 @@ interface ServicePageProps {
     seoContent?: { title?: string; text: React.ReactNode | string }[];
     heroImage?: string;
     heroImageAlt?: string;
+    gallery?: { src: string; alt: string; caption?: string }[];
+    galleryTitle?: string;
+    gallerySubtitle?: string;
 }
 
 export default function ServicePageTemplate({
@@ -39,6 +42,9 @@ export default function ServicePageTemplate({
     seoContent,
     heroImage,
     heroImageAlt,
+    gallery,
+    galleryTitle,
+    gallerySubtitle,
 }: ServicePageProps) {
     const pathname = usePathname();
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -321,6 +327,43 @@ export default function ServicePageTemplate({
                     </div>
                 </div>
             </section>
+
+            {/* Gallery */}
+            {gallery && gallery.length > 0 && (
+                <section className="py-20 bg-white text-black">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-center"
+                        >
+                            {galleryTitle || 'Как это работает'}
+                        </motion.h2>
+                        {gallerySubtitle && (
+                            <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">{gallerySubtitle}</p>
+                        )}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {gallery.map((g, i) => (
+                                <motion.figure
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                    className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-shadow bg-white"
+                                >
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img src={g.src} alt={g.alt} loading="lazy" className="w-full block bg-gray-50" />
+                                    {g.caption && (
+                                        <figcaption className="p-5 text-sm text-gray-600 font-medium border-t border-gray-100">{g.caption}</figcaption>
+                                    )}
+                                </motion.figure>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Pricing */}
             {pricing && pricing.length > 0 && (
