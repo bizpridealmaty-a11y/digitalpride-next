@@ -26,6 +26,7 @@ interface ServicePageProps {
     heroImage?: string;
     heroImageAlt?: string;
     heroBackground?: string;
+    dashboard?: React.ReactNode;
     gallery?: { src: string; alt: string; caption?: string }[];
     galleryTitle?: string;
     gallerySubtitle?: string;
@@ -44,6 +45,7 @@ export default function ServicePageTemplate({
     heroImage,
     heroImageAlt,
     heroBackground,
+    dashboard,
     gallery,
     galleryTitle,
     gallerySubtitle,
@@ -305,6 +307,9 @@ export default function ServicePageTemplate({
                     </motion.div>
                 </div>
             </section>
+
+            {/* Animated dashboard (optional) */}
+            {dashboard}
 
             {/* Process Steps */}
             <section className="py-20 bg-white text-black">

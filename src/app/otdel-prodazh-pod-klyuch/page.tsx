@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
+import SalesDashboard from '@/components/SalesDashboard';
 
 export const metadata: Metadata = {
     title: 'Отдел продаж под ключ в Алматы — CRM, скрипты, найм и KPI',
@@ -20,6 +21,7 @@ export default function OtdelProdazhPage() {
             title="Построение отдела продаж под ключ"
             accentWord="в Алматы"
             heroBackground="/images/services/sales-dept-hero.webp"
+            dashboard={<SalesDashboard />}
             subtitle="Наймём и обучим менеджеров, внедрим CRM, пропишем скрипты, KPI, мотивацию и систему контроля за 2–3 месяца. Вы получите управляемый отдел продаж, который обрабатывает заявки по стандартам, не теряет клиентов и работает в цифрах."
             description="Мы выстраиваем отдел продаж под ключ: от структуры и найма менеджеров до внедрения CRM, скриптов и системы мотивации. Прописываем регламенты, настраиваем контроль качества звонков и прозрачную отчётность, чтобы отдел работал предсказуемо, не зависел от «звёзд» и масштабировался вместе с бизнесом. Вы перестаёте терять оплаченные рекламой заявки на этапе продаж и видите работу отдела в цифрах, а не по ощущениям."
             features={[
