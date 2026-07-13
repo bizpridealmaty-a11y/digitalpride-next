@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { trackPhoneClick, trackWhatsAppClick } from '@/lib/analytics';
-import { useLocale } from '@/lib/locale-context';
-import { localizedPath } from '@/lib/i18n';
+import { localizedPath, getLocaleFromPath } from '@/lib/i18n';
 
 export default function Footer() {
-    const locale = useLocale();
+    const pathname = usePathname() || '/';
+    const locale = getLocaleFromPath(pathname);
     const isKk = locale === 'kk';
     const lp = (path: string) => localizedPath(path, locale);
     return (

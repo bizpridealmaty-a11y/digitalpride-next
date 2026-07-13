@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import RawHeader from "../components/layout/RawHeader";
+import Footer from "../components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import MotionProvider from "../components/layout/MotionProvider";
 import { LocaleProvider } from "@/lib/locale-context";
@@ -75,6 +76,7 @@ export default function RootLayout({
           <MotionProvider>
             <RawHeader />
             {children}
+            <Footer />
 
             {/* Floating WhatsApp button */}
             <FloatingWhatsApp />

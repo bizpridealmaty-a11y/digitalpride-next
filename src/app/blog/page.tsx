@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import RawFooter from '../../components/layout/RawFooter';
-import Footer from '../../components/layout/Footer';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import CTA from '../../components/home/CTA';
 import { getAllPosts } from '@/lib/blog';
@@ -119,7 +118,6 @@ export default function BlogIndex() {
                     <CTA />
                 </div>
             </main>
-            <Footer />
             <RawFooter />
         </>
     );

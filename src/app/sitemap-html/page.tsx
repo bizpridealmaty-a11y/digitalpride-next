@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import RawFooter from '../../components/layout/RawFooter';
-import Footer from '../../components/layout/Footer';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { casesData } from '../../data/cases';
 import { getAllPosts } from '@/lib/blog';
@@ -157,7 +156,6 @@ export default function HtmlSitemap() {
                     )}
                 </div>
             </main>
-            <Footer />
             <RawFooter />
         </>
     );

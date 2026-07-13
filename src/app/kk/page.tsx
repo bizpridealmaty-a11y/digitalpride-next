@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import RawFooter from '../../components/layout/RawFooter';
-import Footer from '../../components/layout/Footer';
 import Hero from '../../components/home/Hero';
 import SocialProof from '../../components/home/SocialProof';
 import Services from '../../components/home/Services';
@@ -42,7 +41,6 @@ export default function KkHome() {
                 <Faq />
                 <CTA />
             </main>
-            <Footer />
             <RawFooter />
         </>
     );

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import RawFooter from '../../../components/layout/RawFooter';
-import Footer from '../../../components/layout/Footer';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import CTA from '../../../components/home/CTA';
 import { getAllPosts, getPostBySlug, type BlogPost } from '@/lib/blog';
@@ -180,7 +179,6 @@ export default async function BlogPostPage({ params }: Props) {
                     <CTA />
                 </div>
             </main>
-            <Footer />
             <RawFooter />
         </>
     );

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import RawFooter from '../../../components/layout/RawFooter';
-import Footer from '../../../components/layout/Footer';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import CTA from '../../../components/home/CTA';
 
@@ -311,7 +310,6 @@ export default function ONasPage() {
 
                 <CTA />
             </main>
-            <Footer />
             <RawFooter />
         </>
     );

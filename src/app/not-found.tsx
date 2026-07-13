@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import RawFooter from '../components/layout/RawFooter';
-import Footer from '../components/layout/Footer';
 
 export const metadata: Metadata = {
     title: 'Страница не найдена — 404',
@@ -79,7 +78,6 @@ export default function NotFound() {
                     </div>
                 </div>
             </main>
-            <Footer />
             <RawFooter />
         </>
     );

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import React from 'react';
 
 import RawFooter from '../components/layout/RawFooter';
-import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default function Home() {
         <Faq />
         <CTA />
       </main>
-      <Footer />
       <RawFooter />
     </>
   );
