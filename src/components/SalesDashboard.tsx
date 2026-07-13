@@ -1,20 +1,45 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { animate, useInView, motion } from 'framer-motion';
 
-/** Count-up value that starts when the block scrolls into view. */
-function useCountUp(to: number, active: boolean, duration = 1.6): number {
+/** Fire once when the element first scrolls into view (plain IntersectionObserver —
+ * reliable regardless of framer-motion's LazyMotion setup). */
+function useInViewOnce(ref: React.RefObject<HTMLElement | null>): boolean {
+    const [inView, setInView] = useState(false);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        if (typeof IntersectionObserver === 'undefined') { setInView(true); return; }
+        const obs = new IntersectionObserver((entries) => {
+            if (entries.some((e) => e.isIntersecting)) { setInView(true); obs.disconnect(); }
+        }, { threshold: 0.15 });
+        obs.observe(el);
+        return () => obs.disconnect();
+    }, [ref]);
+    return inView;
+}
+
+/** Count from 0 to `to` (easeOutCubic) once `active` becomes true. */
+function useCountUp(to: number, active: boolean, duration = 1500): number {
     const [value, setValue] = useState(0);
     useEffect(() => {
         if (!active) return;
-        const controls = animate(0, to, { duration, ease: 'easeOut', onUpdate: (v) => setValue(v) });
-        return () => controls.stop();
+        let raf = 0;
+        let start = 0;
+        const step = (ts: number) => {
+            if (!start) start = ts;
+            const t = Math.min(1, (ts - start) / duration);
+            const eased = 1 - Math.pow(1 - t, 3);
+            setValue(to * eased);
+            if (t < 1) raf = requestAnimationFrame(step);
+        };
+        raf = requestAnimationFrame(step);
+        return () => cancelAnimationFrame(raf);
     }, [active, to, duration]);
     return value;
 }
 
-const fmt = (n: number) => Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ');
+const fmt = (n: number) => Math.round(n).toLocaleString('ru-RU');
 
 function Kpi({ label, value, suffix, delta, active }: { label: string; value: number; suffix: string; delta: string; active: boolean }) {
     const v = useCountUp(value, active);
@@ -53,11 +78,9 @@ function ManagerRow({ m, active, i }: { m: typeof managers[number]; active: bool
         <div className="flex items-center gap-3">
             <div className="w-16 shrink-0 text-xs font-semibold text-gray-700">{m.name}</div>
             <div className="flex-1 h-2.5 rounded-full bg-gray-100 overflow-hidden">
-                <motion.div
-                    className="h-full rounded-full bg-indigo-500"
-                    initial={{ width: 0 }}
-                    animate={active ? { width: `${m.pct}%` } : { width: 0 }}
-                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0.1 * i }}
+                <div
+                    className="h-full rounded-full bg-indigo-500 transition-all duration-1000 ease-out"
+                    style={{ width: active ? `${m.pct}%` : '0%', transitionDelay: `${i * 100}ms` }}
                 />
             </div>
             <div className="w-24 shrink-0 text-right text-xs font-bold text-gray-900 tabular-nums">{fmt(sum)} ₸</div>
@@ -68,20 +91,15 @@ function ManagerRow({ m, active, i }: { m: typeof managers[number]; active: bool
 
 export default function SalesDashboard() {
     const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { once: true, margin: '-80px' });
+    const inView = useInViewOnce(ref);
     const maxFunnel = funnel[0].value;
 
     return (
         <section className="py-20 bg-gray-50 text-black">
             <div className="container mx-auto px-4 max-w-6xl">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-center"
-                >
+                <h2 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-center">
                     Собственник видит отдел продаж в цифрах, а не по ощущениям
-                </motion.h2>
+                </h2>
                 <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
                     После внедрения все продажи — на одном экране: воронка, конверсия, план/факт, звонки и эффективность каждого менеджера.
                 </p>
@@ -108,14 +126,12 @@ export default function SalesDashboard() {
                                     <div key={f.stage} className="flex items-center gap-3">
                                         <div className="w-28 shrink-0 text-xs text-gray-500">{f.stage}</div>
                                         <div className="flex-1 h-7 rounded-md bg-gray-100 overflow-hidden">
-                                            <motion.div
-                                                className="h-full rounded-md bg-gradient-to-r from-indigo-500 to-indigo-400 flex items-center justify-end pr-2"
-                                                initial={{ width: 0 }}
-                                                animate={inView ? { width: `${(f.value / maxFunnel) * 100}%` } : { width: 0 }}
-                                                transition={{ duration: 1.1, ease: 'easeOut', delay: 0.12 * i }}
+                                            <div
+                                                className="h-full rounded-md bg-gradient-to-r from-indigo-500 to-indigo-400 flex items-center justify-end pr-2 transition-all duration-1000 ease-out"
+                                                style={{ width: inView ? `${(f.value / maxFunnel) * 100}%` : '0%', transitionDelay: `${i * 120}ms` }}
                                             >
                                                 <span className="text-[11px] font-bold text-white tabular-nums">{f.value}</span>
-                                            </motion.div>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -136,11 +152,9 @@ export default function SalesDashboard() {
                             <div className="flex items-end justify-between gap-2 h-36">
                                 {planFact.map((b, i) => (
                                     <div key={b.m} className="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
-                                        <motion.div
-                                            className="w-full rounded-t-md bg-gradient-to-t from-indigo-600 to-indigo-400"
-                                            initial={{ height: 0 }}
-                                            animate={inView ? { height: `${b.v}%` } : { height: 0 }}
-                                            transition={{ duration: 1, ease: 'easeOut', delay: 0.08 * i }}
+                                        <div
+                                            className="w-full rounded-t-md bg-gradient-to-t from-indigo-600 to-indigo-400 transition-all duration-1000 ease-out"
+                                            style={{ height: inView ? `${b.v}%` : '0%', transitionDelay: `${i * 80}ms` }}
                                         />
                                         <span className="text-[10px] text-gray-400">{b.m}</span>
                                     </div>
