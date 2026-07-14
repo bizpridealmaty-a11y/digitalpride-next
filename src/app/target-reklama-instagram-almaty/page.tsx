@@ -25,6 +25,7 @@ export default function TargetInstagramPage() {
         <ServicePageTemplate
             title="Реклама в Instagram"
             accentWord="в Алматы"
+            heroBackground="/images/services/target-reklama-instagram-almaty-hero.jpg"
             subtitle="Настраиваем рекламу в Instagram, которая приводит горячих клиентов. Reels Ads, Stories Ads, реклама в ленте — максимальный охват вашей ЦА в Алматы."
             description="Instagram — самая популярная соцсеть в Казахстане. Мы настраиваем рекламу, которая точно попадает в вашу аудиторию. Тестируем десятки креативов, используем look-alike, ретаргетинг и автоматические правила для масштабирования. Средний результат: снижение стоимости лида на 30-40% за 2 месяца работы."
             features={[

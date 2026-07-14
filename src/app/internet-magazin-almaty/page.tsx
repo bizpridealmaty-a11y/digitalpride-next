@@ -19,6 +19,7 @@ export default function EcommercePage() {
         <ServicePageTemplate
             title="Интернет-магазин"
             accentWord="в Алматы"
+            heroBackground="/images/services/internet-magazin-almaty-hero.jpg"
             subtitle="Создаём интернет-магазины, которые продают. Каталог, корзина, оплата, доставка — полный цикл e-commerce для бизнеса в Казахстане."
             description="Интернет-магазин — это полноценная торговая площадка в интернете. Мы разрабатываем e-commerce на современных технологиях с интеграцией платёжных систем (Kaspi, Halyk), служб доставки, 1C, CRM. Адаптивный дизайн, быстрая загрузка, SEO-оптимизация и удобная админ-панель."
             features={[

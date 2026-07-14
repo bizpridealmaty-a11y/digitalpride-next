@@ -25,6 +25,7 @@ export default function TargetTikTokPage() {
         <ServicePageTemplate
             title="Реклама в TikTok"
             accentWord="в Алматы"
+            heroBackground="/images/services/target-reklama-tiktok-almaty-hero.jpg"
             subtitle="TikTok — самая быстрорастущая платформа в Казахстане. Мы запускаем рекламу, которая получает миллионные охваты и приводит клиентов по минимальной цене."
             description="TikTok Ads — это уникальная возможность получить дешёвые охваты и вирусный эффект. Мы создаём нативные рекламные ролики, которые не отличаются от органического контента, и настраиваем точный таргетинг. Средняя стоимость 1000 показов в TikTok в 2-3 раза ниже, чем в Instagram."
             features={[
