@@ -10,3 +10,29 @@
 /bitrix24         /services/                           301!
 /about            /o-nas/                              301!
 /about-us         /o-nas/                              301!
+
+# Legacy .html → literal 301 at edge (GSC indexing fix). Query strings (?teg=…) match by path.
+/index.html                                    /                                301!
+/about.html                                    /o-nas/                          301!
+/contact.html                                  /contacts/                       301!
+/contacts.html                                 /contacts/                       301!
+/seo.html                                      /seo-almaty/                     301!
+/smm.html                                      /smm-almaty/                     301!
+/serm.html                                     /upravlenie-reputaciej-almaty/   301!
+/site.html                                     /sozdanie-sajtov-almaty/         301!
+/branding.html                                 /marketing-almaty/               301!
+/bitrix24.html                                 /services/                       301!
+/services.html                                 /services/                       301!
+/school.html                                   /school/                         301!
+/perfomans-marketing.html                      /perfomans-marketing/            301!
+/context.html                                  /kontekstnaya-reklama-almaty/    301!
+/prices.html                                   /pricing/                        301!
+/privacy.html                                  /privacy/                        301!
+/blog.html                                     /blog/                           301!
+/restorannyij-ryinok-ne-budet-prezhnim.html    /blog/                           301!
+/7-filmov-o-reklame-i-marketinge.html          /blog/                           301!
+/tipyi-frilanserov.html                        /blog/                           301!
+/chek-list-menedzhera-soczialnyix-setej.html   /blog/                           301!
+/kursyi-smm.html                               /school/                         301!
+/kursy-smm.html                                /school/                         301!
+/kurs-kontekstnaya-reklama.html                /school/                         301!
