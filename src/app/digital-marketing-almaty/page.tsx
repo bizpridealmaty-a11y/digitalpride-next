@@ -19,6 +19,7 @@ export default function DigitalMarketingPage() {
         <ServicePageTemplate
             title="Digital-маркетинг"
             accentWord="в Алматы"
+            heroBackground="/images/services/digital-marketing-almaty-hero.jpg"
             subtitle="Все инструменты интернет-маркетинга в одном агентстве. Не нужно 10 подрядчиков — Digital Pride закрывает весь цикл: от стратегии до продажи."
             description="Digital Pride — перформанс-агентство полного цикла в Алматы. Мы объединяем SMM, таргетированную рекламу, контекстную рекламу, SEO, создание сайтов и брендинг в единую экосистему. Каждый канал усиливает остальные. Работаем по KPI: стоимость лида, количество заявок, ROI. Прозрачная аналитика и отчётность."
             features={[
