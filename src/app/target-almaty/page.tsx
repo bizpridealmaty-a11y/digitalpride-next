@@ -25,6 +25,7 @@ export default function TargetAlmatyPage() {
         <ServicePageTemplate
             title="Таргетированная реклама"
             accentWord="в Алматы"
+            heroBackground="/images/services/target-almaty-hero.jpg"
             subtitle="Facebook, Instagram, TikTok — лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас."
             description="Мы настраиваем таргетированную рекламу, которая приводит горячих клиентов. Тестируем десятки креативов, сегментируем аудиторию, используем look-alike и ретаргетинг для максимальной конверсии. Каждый тенге рекламного бюджета работает на результат."
             features={[
