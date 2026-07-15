@@ -19,6 +19,7 @@ export default function SmmAstanaPage() {
         <ServicePageTemplate
             title="SMM продвижение"
             accentWord="в Астане"
+            heroBackground="/images/services/smm-prodvizhenie-astana-hero.jpg"
             subtitle="Профессиональное ведение соцсетей для бизнеса в Астане. Instagram, TikTok, Facebook — контент, реклама, комьюнити. Работаем удалённо по всему Казахстану."
             description="Digital Pride — SMM-агентство, которое работает с клиентами по всему Казахстану. Для бизнеса в Астане мы предлагаем полный цикл SMM: от разработки контент-стратегии до ежедневного ведения аккаунтов. Съёмки Reels, дизайн Stories, комьюнити-менеджмент и таргетированная реклама — всё включено."
             features={[

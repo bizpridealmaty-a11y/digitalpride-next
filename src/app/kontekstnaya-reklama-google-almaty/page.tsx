@@ -25,6 +25,7 @@ export default function GoogleAdsPage() {
         <ServicePageTemplate
             title="Google Ads реклама"
             accentWord="в Алматы"
+            heroBackground="/images/services/kontekstnaya-reklama-google-almaty-hero.jpg"
             subtitle="Google Ads — главный инструмент для перехвата горячего спроса. Мы настраиваем рекламу, которая показывается людям, уже ищущим ваш продукт прямо сейчас."
             description="Google обрабатывает 90% всех поисковых запросов в Казахстане. Мы выводим ваше предложение на первые позиции через поисковую рекламу, контекстно-медийную сеть (КМС), YouTube Ads и Performance Max. Глубокий сбор семантики, тщательная минусация и ежедневная оптимизация ставок обеспечивают максимальный ROI."
             features={[
