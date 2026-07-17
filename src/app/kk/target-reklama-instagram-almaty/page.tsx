@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыда Instagram-да таргеттелген жарнаманы орнату ✦ Reels Ads, Stories Ads, лента. Look-alike аудиториялар, ретаргетинг. Өтінімдер 3 күннен.',
     alternates: {
         canonical: '/kk/target-reklama-instagram-almaty',
-        languages: { 'ru-KZ': '/target-reklama-instagram-almaty', 'kk-KZ': '/kk/target-reklama-instagram-almaty' },
+        languages: { 'ru-KZ': '/target-reklama-instagram-almaty', 'kk-KZ': '/kk/target-reklama-instagram-almaty', 'x-default': '/target-reklama-instagram-almaty' },
     },
     openGraph: {
         title: 'Алматыда Instagram таргет жарнамасы',
@@ -24,6 +24,58 @@ export default function TargetInstagramPage() {
             accentWord="Алматыда"
             subtitle="Instagram-да ыстық клиенттер әкелетін жарнама орнатамыз. Reels Ads, Stories Ads, лентадағы жарнама — Алматыдағы мақсатты аудиторияңызды максималды қамту."
             description="Instagram — Қазақстандағы ең танымал әлеуметтік желі. Біз аудиторияңызға дәл жететін жарнама орнатамыз. Ондаған креативтерді тестілейміз, look-alike, ретаргетинг және масштабтау үшін автоматты ережелерді қолданамыз. Орташа нәтиже: жұмыстың 2 айында лид құнын 30-40%-ға төмендету."
+            stats={[
+                { value: '×3,2', label: 'өтінім өсімі' },
+                { value: '−38%', label: 'лид бағасы' },
+                { value: '500+', label: 'іске қосылған науқан' },
+                { value: '7 күн', label: 'алғашқы өтінімдерге дейін' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Жарнама «айналып тұр», ал өтінім аз',
+                    'Бюджет есепсіз кетеді',
+                    'Креативтер аудиторияны қызықтырмайды',
+                    'Аудитория кездейсоқ бапталған',
+                ],
+                wins: [
+                    'Instagram-ға сай тартымды креативтер',
+                    'Ашық өтінім бағасы',
+                    'Нишаңызға дәл сегменттер',
+                    'Деректер бойынша оңтайландыру',
+                ],
+            }}
+            alternatingTitle="Өтінім әкелетін Instagram-жарнама"
+            alternatingSubtitle="Stories, Reels пен лентада сататын креативтермен таргет баптаймыз."
+            alternating={[
+                {
+                    chip: 'Креатив',
+                    title: 'Назар аударатын жарнама',
+                    text: 'Stories, Reels пен лентаға креативтер дайындаймыз, аудитория мен офферлерді жинаймыз — бюджет өтінімге жұмыс істесін.',
+                    points: ['Барлық форматқа креативтер', 'Аудитория A/B-тесттері'],
+                    image: '/images/services/target-almaty-alt-2.jpg',
+                    imageAlt: 'Instagram-дағы жарнама — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Сандар бойынша шешім',
+                    text: 'Өтінім бағасы мен конверсияны қадағалаймыз, әлсізін өшіріп, клиент әкелетінін масштабтаймыз.',
+                    points: ['Есептілік және дашборд', 'Лид бағасын оңтайландыру'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Instagram жарнамасының аналитикасы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Өтінім әкелетін Instagram-жарнама',
+                subtitle: 'Тартымды креативтер мен оңтайландыру бюджетті клиент ағынына айналдырады.',
+                image: '/images/services/target-reklama-instagram-almaty-hero.jpg',
+                stats: [
+                    { value: '×3,2', label: 'өтінім өсімі' },
+                    { value: '−38%', label: 'лид бағасы' },
+                    { value: '7 күн', label: 'старт' },
+                ],
+            }}
             features={[
                 { title: 'Reels Ads', description: 'Қысқа бейнелердегі жарнама — Instagram-ның ең қамтулы форматы. Вирустілік + конверсия.', icon: icon('M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z') },
                 { title: 'Stories Ads', description: 'Stories-тегі толық экранды жарнама — жоғары CTR және белсенділік.', icon: icon('M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z') },

@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Создание сайтов в Алматы — лендинги, корпоративные сайты, интернет-магазины',
     description: 'Разработка сайтов в Алматы ✦ Лендинги от 300 000 ₸, корпоративные сайты, интернет-магазины. React, Next.js. Адаптивный дизайн, SEO-оптимизация, высокая конверсия.',
-    alternates: { canonical: '/sozdanie-sajtov-almaty' },
+    alternates: { canonical: '/sozdanie-sajtov-almaty', languages: { 'ru-KZ': '/sozdanie-sajtov-almaty', 'kk-KZ': '/kk/sozdanie-sajtov-almaty', 'x-default': '/sozdanie-sajtov-almaty' } },
     openGraph: {
         title: 'Создание сайтов в Алматы',
         description: 'Лендинги, корпоративные сайты, интернет-магазины. Современные технологии, высокая конверсия.',
         url: '/sozdanie-sajtov-almaty',
         images: [{
-            url: '/og-image?title=%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5+%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5+%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Создание сайтов в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function SitePage() {
             heroBackground="/images/services/sozdanie-sajtov-almaty-hero.jpg"
             subtitle="Создаём продающие сайты, которые конвертируют посетителей в клиентов. От лендингов до сложных корпоративных порталов."
             description="Мы разрабатываем сайты с фокусом на конверсию и UX. Каждый проект начинается с глубокого анализа вашей ниши и целевой аудитории. Мы используем современные технологии (React, Next.js, Node.js) и лучшие практики дизайна, чтобы ваш сайт не просто красиво выглядел, но и генерировал заявки. Адаптивная вёрстка, SEO-оптимизация и высокая скорость загрузки — в каждом проекте."
+            stats={[
+                { value: '7–14', label: 'дней до запуска' },
+                { value: '90+', label: 'баллов PageSpeed' },
+                { value: '100%', label: 'адаптив под мобильные' },
+                { value: '×2', label: 'конверсия vs шаблон' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Старый сайт не приносит заявок',
+                    'Медленно грузится — клиенты уходят',
+                    'Не адаптирован под телефоны',
+                    'Нет аналитики и форм захвата',
+                ],
+                wins: [
+                    'Дизайн под задачу — продавать',
+                    'Скорость и SEO из коробки',
+                    'Идеально на любом устройстве',
+                    'Формы, аналитика, интеграции',
+                ],
+            }}
+            alternatingTitle="Сайты, которые продают"
+            alternatingSubtitle="Проектируем, дизайним и разрабатываем сайты под ваши бизнес-задачи."
+            alternating={[
+                {
+                    chip: 'Дизайн',
+                    title: 'Проектируем под результат',
+                    text: 'Сначала логика и структура, потом дизайн — чтобы посетитель дошёл до заявки, а не запутался.',
+                    points: ['Прототип и UX под конверсию', 'Уникальный дизайн под бренд'],
+                    image: '/images/services/sozdanie-sajtov-almaty-alt-1.jpg',
+                    imageAlt: 'Дизайн и проектирование сайта — Digital Pride',
+                },
+                {
+                    chip: 'Разработка',
+                    title: 'Быстро на любом устройстве',
+                    text: 'Верстаем адаптивно, оптимизируем скорость и SEO, подключаем формы, CRM и аналитику.',
+                    points: ['Адаптив и скорость 90+', 'Формы, CRM и аналитика'],
+                    image: '/images/services/sozdanie-sajtov-almaty-alt-2.jpg',
+                    imageAlt: 'Адаптивный сайт на всех устройствах — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Сайт, который работает на продажи',
+                subtitle: 'Скорость, удобство и продающая структура превращают трафик в заявки.',
+                image: '/images/services/sozdanie-sajtov-almaty-hero.jpg',
+                stats: [
+                    { value: '7–14 дн.', label: 'до запуска' },
+                    { value: '90+', label: 'PageSpeed' },
+                    { value: '×2', label: 'конверсия' },
+                ],
+            }}
             features={[
                 { title: 'Landing Page', description: 'Продающие посадочные страницы с высокой конверсией. Идеально для запуска нового продукта или услуги.', icon: icon('M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z') },
                 { title: 'Корпоративный сайт', description: 'Многостраничные сайты с модульной структурой, CMS-панелью и интеграциями.', icon: icon('M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4') },

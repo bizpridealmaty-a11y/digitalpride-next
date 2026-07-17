@@ -6,10 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыдағы кеңсе мекенжайы, телефон, WhatsApp, email және әлеуметтік желілер. Жобаңызды талқылау үшін бізбен байланысыңыз.',
     alternates: {
         canonical: '/kk/contacts',
-        languages: {
-            'ru-KZ': '/contacts',
-            'kk-KZ': '/kk/contacts',
-        },
+        languages: { 'ru-KZ': '/contacts', 'kk-KZ': '/kk/contacts', 'x-default': '/contacts' },
     },
     openGraph: {
         title: 'Digital Pride байланыс',

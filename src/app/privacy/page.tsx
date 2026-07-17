@@ -6,7 +6,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 export const metadata: Metadata = {
     title: 'Политика конфиденциальности — Digital Pride',
     description: 'Политика обработки персональных данных Digital Pride в соответствии с законодательством Республики Казахстан о персональных данных и их защите.',
-    alternates: { canonical: '/privacy' },
+    alternates: { canonical: '/privacy', languages: { 'ru-KZ': '/privacy', 'kk-KZ': '/kk/privacy', 'x-default': '/privacy' } },
     robots: { index: true, follow: true },
 };
 

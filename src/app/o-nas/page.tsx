@@ -8,7 +8,7 @@ import CTA from '../../components/home/CTA';
 export const metadata: Metadata = {
     title: 'О нас — маркетинговое агентство Digital Pride в Алматы',
     description: 'Кто мы, как работаем и почему нам доверяют 100+ клиентов в Казахстане. История агентства, основатель Дмитрий Тимошевский, наши ценности и подход к проектам.',
-    alternates: { canonical: '/o-nas' },
+    alternates: { canonical: '/o-nas', languages: { 'ru-KZ': '/o-nas', 'kk-KZ': '/kk/o-nas', 'x-default': '/o-nas' } },
     openGraph: {
         title: 'О нас | Digital Pride',
         description: 'Маркетинговое агентство в Алматы. История, команда, ценности.',

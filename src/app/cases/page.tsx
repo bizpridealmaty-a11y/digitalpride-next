@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'Кейсы маркетингового агентства в Алматы',
     description: 'Результаты наших проектов: +300% РОМИ, снижение CPL на 40%. Реальные цифры и отзывы клиентов по SMM, таргету, SEO и разработке сайтов.',
-    alternates: { canonical: '/cases' },
+    alternates: { canonical: '/cases', languages: { 'ru-KZ': '/cases', 'kk-KZ': '/kk/cases', 'x-default': '/cases' } },
     openGraph: {
         title: 'Кейсы маркетингового агентства в Алматы',
         description: 'Результаты наших проектов: +300% РОМИ, снижение CPL на 40%. Реальные цифры и отзывы клиентов по SMM, таргету, SEO и разработке сайтов.',

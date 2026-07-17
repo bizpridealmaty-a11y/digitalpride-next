@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'SMM продвижение в Караганде — ведение соцсетей',
     description: 'SMM агентство в Караганде ✦ Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories, комьюнити-менеджмент. Работаем удалённо по всему Казахстану.',
-    alternates: { canonical: '/smm-prodvizhenie-karaganda' },
+    alternates: { canonical: '/smm-prodvizhenie-karaganda', languages: { 'ru-KZ': '/smm-prodvizhenie-karaganda', 'kk-KZ': '/kk/smm-prodvizhenie-karaganda', 'x-default': '/smm-prodvizhenie-karaganda' } },
     openGraph: {
         title: 'SMM продвижение в Караганде',
         description: 'Ведение соцсетей в Караганде: контент, Reels, Stories. Работаем удалённо с результатом.',
@@ -22,6 +22,56 @@ export default function SmmKaragandaPage() {
             heroBackground="/images/services/smm-prodvizhenie-karaganda-hero.jpg"
             subtitle="Профессиональное ведение соцсетей для бизнеса в Караганде. Instagram, TikTok, Facebook — контент, реклама, комьюнити. Работаем удалённо по всему Казахстану."
             description="Digital Pride — SMM-агентство, которое работает с клиентами по всему Казахстану. Для бизнеса в Караганде мы предлагаем полный цикл SMM: от разработки контент-стратегии до ежедневного ведения аккаунтов. Съёмки Reels, дизайн Stories, комьюнити-менеджмент и таргетированная реклама — всё включено."
+            stats={[
+                { value: '×2,5', label: 'рост охватов за 2 месяца' },
+                { value: '150+', label: 'проектов по Казахстану' },
+                { value: '2 нед.', label: 'до первых результатов' },
+                { value: '92%', label: 'клиентов продлевают' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Посты «для галочки», без стратегии',
+                    'Подписчики есть, а заявок нет',
+                    'Фрилансер пропал, отчётности ноль',
+                    'Реклама уходит в бюджет без аналитики',
+                ],
+                wins: [
+                    'Контент-стратегия под цели бизнеса',
+                    'Воронка: подписчик → заявка → клиент',
+                    'Прозрачные отчёты каждую неделю',
+                    'Таргет с аналитикой и понятным ROI',
+                ],
+            }}
+            alternatingTitle="SMM в деле — от съёмки до охватов"
+            alternatingSubtitle="Своя продакшн-команда: снимаем, монтируем и ведём аккаунты под ключ, удалённо по всему Казахстану."
+            alternating={[
+                {
+                    chip: 'Контент',
+                    title: 'Съёмка, которая продаёт',
+                    text: 'Снимаем Reels, Stories и фото под вашу нишу — с продуманным сценарием и визуалом, который останавливает ленту.',
+                    points: ['Сценарий, продакшн и монтаж', '8–12 единиц контента в месяц'],
+                    image: '/images/services/smm-alt-production.jpg',
+                    imageAlt: 'Продакшн Reels для соцсетей — Digital Pride',
+                },
+                {
+                    chip: 'Ниши',
+                    title: 'Живой контент бизнеса',
+                    text: 'Показываем продукт и команду так, чтобы клиент захотел прийти: атмосферные кадры, динамика и эмоция.',
+                    points: ['Опыт в 40+ нишах', 'Работаем удалённо с результатом'],
+                    image: '/images/services/smm-alt-cafe.jpg',
+                    imageAlt: 'Съёмка контента для бизнеса — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Контент, который работает на продажи',
+                subtitle: 'Системное ведение, таргет и аналитика превращают охваты в реальные заявки.',
+                image: '/images/services/smm-prodvizhenie-karaganda-hero.jpg',
+                stats: [
+                    { value: '×2,5', label: 'рост охватов' },
+                    { value: '−34%', label: 'цена заявки' },
+                    { value: '24/7', label: 'комьюнити' },
+                ],
+            }}
             features={[
                 { title: 'Контент-стратегия', description: 'Индивидуальный контент-план с учётом промышленной специфики Караганды и центра Казахстана.', icon: icon('M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4') },
                 { title: 'Reels & видеоконтент', description: 'Создание вирусных роликов для максимального охвата в Instagram и TikTok.', icon: icon('M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z') },

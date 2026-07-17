@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'SMM продвижение в Алматы — ведение соцсетей',
     description: 'SMM агентство в Алматы ✦ Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories, комьюнити-менеджмент. Первые результаты от 2 недель. Звоните!',
-    alternates: { canonical: '/smm-almaty' },
+    alternates: { canonical: '/smm-almaty', languages: { 'ru-KZ': '/smm-almaty', 'kk-KZ': '/kk/smm-almaty', 'x-default': '/smm-almaty' } },
     openGraph: {
         title: 'SMM продвижение в Алматы',
         description: 'Комплексное ведение соцсетей: контент, Reels, Stories, комьюнити. Результат от 2 недель.',
         url: '/smm-almaty',
         images: [{
-            url: '/og-image?title=SMM+%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=SMM+%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'SMM продвижение в Алматы — Digital Pride',
@@ -28,6 +28,58 @@ export default function SmmPage() {
             heroBackground="/images/services/smm-almaty-hero.jpg"
             subtitle="Комплексное ведение социальных сетей. Мы не просто постим картинки — мы строим комьюнити, прогреваем аудиторию и превращаем подписчиков в покупателей."
             description="Наша SMM-стратегия включает полный цикл работ: от разработки контент-плана и создания уникального визуала до комьюнити-менеджмента и глубокой аналитики. Мы работаем с Instagram, Facebook, TikTok и другими платформами, подбирая оптимальный микс для вашего бизнеса. Каждый пост, каждый Stories и Reels — это шаг к увеличению продаж."
+            stats={[
+                { value: '×2,5', label: 'рост охватов за 2 месяца' },
+                { value: '150+', label: 'проектов в Алматы и КЗ' },
+                { value: '2 нед.', label: 'до первых результатов' },
+                { value: '92%', label: 'клиентов продлевают' },
+            ]}
+            painSolution={{
+                painTitle: 'Как обычно',
+                winTitle: 'С Digital Pride',
+                pains: [
+                    'Посты «для галочки», без стратегии и целей',
+                    'Подписчики есть, а заявок и продаж — нет',
+                    'Фрилансер пропал, отчётности ноль',
+                    'Бюджет на рекламу уходит без аналитики',
+                ],
+                wins: [
+                    'Контент-стратегия под цели бизнеса и нишу',
+                    'Воронка: подписчик → заявка → клиент',
+                    'Прозрачные отчёты и дашборд каждую неделю',
+                    'Таргет с аналитикой и понятным ROI',
+                ],
+            }}
+            alternatingTitle="SMM в деле — от съёмки до охватов"
+            alternatingSubtitle="Своя продакшн-команда: снимаем, монтируем и ведём аккаунты под ключ."
+            alternating={[
+                {
+                    chip: 'Контент',
+                    title: 'Съёмка, которая продаёт',
+                    text: 'Снимаем Reels, Stories и фото под вашу нишу — на месте, с продуманным сценарием и визуалом, который останавливает ленту.',
+                    points: ['Сценарий, продакшн и монтаж', '8–12 единиц контента в месяц'],
+                    image: '/images/services/smm-alt-production.jpg',
+                    imageAlt: 'Продакшн Reels для соцсетей — Digital Pride',
+                },
+                {
+                    chip: 'Ниши',
+                    title: 'Живой контент бизнеса',
+                    text: 'Показываем продукт и команду так, чтобы клиент захотел прийти: атмосферные кадры, динамика и эмоция — под рестораны, услуги и ритейл.',
+                    points: ['Опыт в 40+ нишах', 'Съёмка на вашей локации в Алматы'],
+                    image: '/images/services/smm-alt-cafe.jpg',
+                    imageAlt: 'Съёмка контента для кафе в Алматы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Контент, который работает на продажи',
+                subtitle: 'Системное ведение, таргет и аналитика превращают охваты в реальные заявки.',
+                image: '/images/services/smm-prodvizhenie-astana-hero.jpg',
+                stats: [
+                    { value: '×2,5', label: 'рост охватов' },
+                    { value: '−34%', label: 'цена заявки' },
+                    { value: '24/7', label: 'комьюнити' },
+                ],
+            }}
             features={[
                 { title: 'Контент-стратегия', description: 'Разработка уникальной контент-стратегии, основанной на анализе вашей ЦА, конкурентов и трендов рынка.', icon: icon('M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z') },
                 { title: 'Reels & Stories продакшн', description: 'Создание вовлекающих видео и Stories, которые набирают охваты и вирусятся в рекомендациях.', icon: icon('M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z') },

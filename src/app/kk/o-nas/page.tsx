@@ -10,10 +10,7 @@ export const metadata: Metadata = {
     description: 'Біз кімбіз, қалай жұмыс істейміз және неліктен Қазақстанда 100+ клиент бізге сенеді. Агенттік тарихы, негізін қалаушы Дмитрий Тимошевский, біздің құндылықтар мен тәсіл.',
     alternates: {
         canonical: '/kk/o-nas',
-        languages: {
-            'ru-KZ': '/o-nas',
-            'kk-KZ': '/kk/o-nas',
-        },
+        languages: { 'ru-KZ': '/o-nas', 'kk-KZ': '/kk/o-nas', 'x-default': '/o-nas' },
     },
     openGraph: {
         title: 'Біз туралы | Digital Pride',

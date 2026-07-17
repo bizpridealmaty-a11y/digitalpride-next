@@ -4,7 +4,7 @@ import SchoolClient from './SchoolClient';
 export const metadata: Metadata = {
     title: 'Школа Digital Pride — обучение маркетингу в Алматы',
     description: 'Курсы по SMM, таргетированной рекламе, контексту и SEO от практикующих специалистов агентства. Реальные кейсы, поддержка кураторов, трудоустройство.',
-    alternates: { canonical: '/school' },
+    alternates: { canonical: '/school', languages: { 'ru-KZ': '/school', 'kk-KZ': '/kk/school', 'x-default': '/school' } },
     openGraph: {
         title: 'Школа Digital Pride — обучение маркетингу',
         description: 'Курсы SMM, таргета, SEO и контекста от практиков. Реальные кейсы.',

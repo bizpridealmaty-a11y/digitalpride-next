@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыда TikTok жарнамасын орнату ✦ In-Feed Ads, TopView, Spark Ads. Жас аудиторияның вирустік қамтуы. Лид бағасы 500 ₸-ден.',
     alternates: {
         canonical: '/kk/target-reklama-tiktok-almaty',
-        languages: { 'ru-KZ': '/target-reklama-tiktok-almaty', 'kk-KZ': '/kk/target-reklama-tiktok-almaty' },
+        languages: { 'ru-KZ': '/target-reklama-tiktok-almaty', 'kk-KZ': '/kk/target-reklama-tiktok-almaty', 'x-default': '/target-reklama-tiktok-almaty' },
     },
     openGraph: {
         title: 'Алматыда TikTok жарнамасы',
@@ -24,6 +24,58 @@ export default function TargetTikTokPage() {
             accentWord="Алматыда"
             subtitle="TikTok — Қазақстандағы ең тез дамып келе жатқан платформа. Біз миллиондаған қамту алатын және клиенттерді минималды бағамен әкелетін жарнаманы іске қосамыз."
             description="TikTok Ads — арзан қамту мен вирустік әсер алудың бірегей мүмкіндігі. Біз органикалық контенттен айырмашылығы жоқ нативті жарнамалық роликтер жасаймыз және нақты таргетингті баптаймыз. TikTok-тағы 1000 көрсетілімнің орташа құны Instagram-дағыдан 2-3 есе арзан."
+            stats={[
+                { value: '×3,2', label: 'өтінім өсімі' },
+                { value: '−38%', label: 'лид бағасы' },
+                { value: 'млн+', label: 'науқан қамтуы' },
+                { value: '7 күн', label: 'алғашқы өтінімдерге дейін' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Жарнама жарнама сияқты — оны айналдырып өтеді',
+                    'Бюджет кетеді, ал өтінім аз',
+                    'Роликтер жас аудиторияға ұнамайды',
+                    'Не жұмыс істейтіні түсініксіз',
+                ],
+                wins: [
+                    'TikTok стиліндегі нативті роликтер',
+                    'Ашық өтінім бағасы',
+                    'Трендтер мен ұсыныстарға түсу',
+                    'Деректер бойынша оңтайландыру',
+                ],
+            }}
+            alternatingTitle="Назарды аударатын TikTok-жарнама"
+            alternatingSubtitle="Нативті роликтер түсіріп, қараулар емес, өтінім әкелетін таргет қосамыз."
+            alternating={[
+                {
+                    chip: 'Креатив',
+                    title: 'Соңына дейін көретін роликтер',
+                    text: 'TikTok-қа сай нативті тік бейнелер түсіреміз — жарнама жарнама болып көрінбей, өтінім әкелсін.',
+                    points: ['TikTok-қа нативті креативтер', 'Роликтердің A/B-тесттері'],
+                    image: '/images/services/target-almaty-alt-2.jpg',
+                    imageAlt: 'TikTok-тағы жарнама — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Сандар бойынша шешім',
+                    text: 'Өтінім бағасы мен конверсияны қадағалаймыз, әлсізін өшіріп, клиент әкелетінін масштабтаймыз.',
+                    points: ['Есептілік және дашборд', 'Лид бағасын оңтайландыру'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'TikTok жарнамасының аналитикасы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Өтінім әкелетін TikTok-жарнама',
+                subtitle: 'Нативті роликтер мен оңтайландыру қамтуды клиент ағынына айналдырады.',
+                image: '/images/services/target-reklama-tiktok-almaty-hero.jpg',
+                stats: [
+                    { value: '×3,2', label: 'өтінім өсімі' },
+                    { value: '−38%', label: 'лид бағасы' },
+                    { value: '7 күн', label: 'старт' },
+                ],
+            }}
             features={[
                 { title: 'In-Feed Ads', description: 'Ұсыныстар лентасындағы нативті жарнама — пайдаланушылар оны кәдімгі контент ретінде көреді.', icon: icon('M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z') },
                 { title: 'Spark Ads', description: 'Органикалық бейнелерді жылжыту — сіздің үздік TikTok-тарыңыз жарнамалық буст алады.', icon: icon('M13 10V3L4 14h7v7l9-11h-7z') },

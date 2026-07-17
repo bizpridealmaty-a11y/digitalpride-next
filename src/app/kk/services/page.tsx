@@ -9,10 +9,7 @@ export const metadata: Metadata = {
     description: 'Digital-қызметтердің толық спектрі: SMM, таргет, контекст, SEO, сайт жасау, брендинг және SERM. Ашық KPI, өтінімдер 3 күннен, 100+ кейс.',
     alternates: {
         canonical: '/kk/services',
-        languages: {
-            'ru-KZ': '/services',
-            'kk-KZ': '/kk/services',
-        },
+        languages: { 'ru-KZ': '/services', 'kk-KZ': '/kk/services', 'x-default': '/services' },
     },
     openGraph: {
         title: 'Маркетинг агенттігінің қызметтері | Digital Pride',

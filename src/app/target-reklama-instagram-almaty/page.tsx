@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Таргетированная реклама в Instagram в Алматы',
     description: 'Настройка таргетированной рекламы в Instagram в Алматы ✦ Reels Ads, Stories Ads, лента. Look-alike аудитории, ретаргетинг, тестирование креативов. Заявки от 3 дней.',
-    alternates: { canonical: '/target-reklama-instagram-almaty' },
+    alternates: { canonical: '/target-reklama-instagram-almaty', languages: { 'ru-KZ': '/target-reklama-instagram-almaty', 'kk-KZ': '/kk/target-reklama-instagram-almaty', 'x-default': '/target-reklama-instagram-almaty' } },
     openGraph: {
         title: 'Таргет реклама Instagram Алматы',
         description: 'Настройка рекламы в Instagram: Reels, Stories, лента. Заявки от 3 дней.',
         url: '/target-reklama-instagram-almaty',
         images: [{
-            url: '/og-image?title=%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0+%D0%B2+Instagram&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0+%D0%B2+Instagram&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Реклама в Instagram в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function TargetInstagramPage() {
             heroBackground="/images/services/target-reklama-instagram-almaty-hero.jpg"
             subtitle="Настраиваем рекламу в Instagram, которая приводит горячих клиентов. Reels Ads, Stories Ads, реклама в ленте — максимальный охват вашей ЦА в Алматы."
             description="Instagram — самая популярная соцсеть в Казахстане. Мы настраиваем рекламу, которая точно попадает в вашу аудиторию. Тестируем десятки креативов, используем look-alike, ретаргетинг и автоматические правила для масштабирования. Средний результат: снижение стоимости лида на 30-40% за 2 месяца работы."
+            stats={[
+                { value: '×3,2', label: 'рост заявок' },
+                { value: '−38%', label: 'цена лида' },
+                { value: '500+', label: 'запущенных кампаний' },
+                { value: '7 дней', label: 'до первых заявок' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Реклама «крутится», а заявок мало',
+                    'Бюджет уходит без отчётов',
+                    'Креативы не цепляют аудиторию',
+                    'Аудитории настроены наугад',
+                ],
+                wins: [
+                    'Цепляющие креативы под Instagram',
+                    'Прозрачная цена заявки на виду',
+                    'Точные сегменты под вашу нишу',
+                    'Оптимизация по данным, а не по интуиции',
+                ],
+            }}
+            alternatingTitle="Реклама в Instagram, которая приносит заявки"
+            alternatingSubtitle="Настраиваем таргет в Stories, Reels и ленте — с креативами, которые продают."
+            alternating={[
+                {
+                    chip: 'Креативы',
+                    title: 'Объявления, которые цепляют',
+                    text: 'Готовим креативы под Stories, Reels и ленту, собираем аудитории и офферы — чтобы бюджет работал на заявки.',
+                    points: ['Креативы под все форматы', 'A/B-тесты аудиторий'],
+                    image: '/images/services/target-almaty-alt-2.jpg',
+                    imageAlt: 'Реклама в Instagram — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Решения по цифрам',
+                    text: 'Следим за ценой заявки и конверсиями, отключаем слабое и масштабируем то, что приносит клиентов.',
+                    points: ['Отчётность и дашборд', 'Оптимизация цены лида'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Аналитика рекламы в Instagram — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Реклама в Instagram, которая приносит заявки',
+                subtitle: 'Цепляющие креативы и оптимизация превращают бюджет в поток клиентов.',
+                image: '/images/services/target-reklama-instagram-almaty-hero.jpg',
+                stats: [
+                    { value: '×3,2', label: 'рост заявок' },
+                    { value: '−38%', label: 'цена лида' },
+                    { value: '7 дней', label: 'до старта' },
+                ],
+            }}
             features={[
                 { title: 'Reels Ads', description: 'Реклама в коротких видео — самый охватный формат Instagram. Виральность + конверсия.', icon: icon('M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z') },
                 { title: 'Stories Ads', description: 'Полноэкранная реклама в Stories — высокий CTR и вовлечённость.', icon: icon('M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z') },

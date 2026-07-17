@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Управление репутацией в интернете (SERM) в Алматы',
     description: 'SERM в Алматы ✦ Управление репутацией в интернете. Мониторинг отзывов, вытеснение негатива, работа с Google Maps, 2GIS, Яндекс.Карты. Защитим ваш бренд.',
-    alternates: { canonical: '/upravlenie-reputaciej-almaty' },
+    alternates: { canonical: '/upravlenie-reputaciej-almaty', languages: { 'ru-KZ': '/upravlenie-reputaciej-almaty', 'kk-KZ': '/kk/upravlenie-reputaciej-almaty', 'x-default': '/upravlenie-reputaciej-almaty' } },
     openGraph: {
         title: 'Управление репутацией (SERM) в Алматы',
         description: 'Мониторинг отзывов, вытеснение негатива, генерация позитивных упоминаний.',
@@ -22,6 +22,56 @@ export default function SermPage() {
             heroBackground="/images/services/upravlenie-reputaciej-almaty-hero.jpg"
             subtitle="Формируем положительный имидж вашего бренда в интернете. Контролируем отзывы, мониторим упоминания и защищаем вашу репутацию."
             description="SERM (Search Engine Reputation Management) — это комплексная работа по управлению тем, что видят о вас пользователи в поисковой выдаче. Мы мониторим все площадки с отзывами, оперативно реагируем на негатив, генерируем позитивный пользовательский контент и вытесняем нежелательную информацию из ТОПа поисковиков. Наша цель — чтобы при поиске вашего бренда люди видели только положительные результаты."
+            stats={[
+                { value: '+0,8', label: 'к рейтингу' },
+                { value: '−70%', label: 'негатива в топе' },
+                { value: '24/7', label: 'мониторинг' },
+                { value: '100+', label: 'проектов' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Негатив в выдаче отпугивает клиентов',
+                    'Отзывы никто не отслеживает',
+                    'Один плохой отзыв бьёт по продажам',
+                    'Нет системной работы с репутацией',
+                ],
+                wins: [
+                    'Позитив вытесняет негатив в топе',
+                    'Мониторинг упоминаний 24/7',
+                    'Быстрая отработка отзывов',
+                    'Рейтинг и доверие растут',
+                ],
+            }}
+            alternatingTitle="Репутация, которой доверяют"
+            alternatingSubtitle="Отслеживаем, отрабатываем и формируем позитивный образ бренда."
+            alternating={[
+                {
+                    chip: 'Мониторинг',
+                    title: 'Держим руку на пульсе',
+                    text: 'Отслеживаем отзывы и упоминания на всех площадках и оперативно реагируем на негатив.',
+                    points: ['Мониторинг 24/7', 'Отработка негатива'],
+                    image: '/images/services/upravlenie-reputaciej-almaty-alt-1.jpg',
+                    imageAlt: 'Управление репутацией и отзывами — Digital Pride',
+                },
+                {
+                    chip: 'Рост',
+                    title: 'Позитив в топе выдачи',
+                    text: 'Наращиваем позитивные отзывы и вытесняем негатив — чтобы клиенты видели вас с лучшей стороны.',
+                    points: ['Работа с отзывами', 'Вытеснение негатива в поиске'],
+                    image: '/images/services/upravlenie-reputaciej-almaty-alt-2.jpg',
+                    imageAlt: 'Положительные отзывы клиентов — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Репутация, которая продаёт',
+                subtitle: 'Системная работа с отзывами возвращает доверие и клиентов.',
+                image: '/images/services/upravlenie-reputaciej-almaty-hero.jpg',
+                stats: [
+                    { value: '+0,8', label: 'к рейтингу' },
+                    { value: '−70%', label: 'негатива' },
+                    { value: '24/7', label: 'мониторинг' },
+                ],
+            }}
             features={[
                 { title: 'Мониторинг упоминаний', description: 'Отслеживаем все упоминания бренда 24/7: отзывы, комментарии, публикации в СМИ и соцсетях.', icon: icon('M15 12a3 3 0 11-6 0 3 3 0 016 0z') },
                 { title: 'Работа с негативом', description: 'Оперативная реакция на негативные отзывы, перевод конфликтов в конструктивный диалог.', icon: icon('M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z') },

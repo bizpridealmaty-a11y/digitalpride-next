@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыдағы digital-маркетинг агенттігі ✦ SMM, таргет, контекст, SEO, сайттар, брендинг — бәрі бір жерде. Перформанс-тәсіл: KPI мен нәтижеге жұмыс.',
     alternates: {
         canonical: '/kk/digital-marketing-almaty',
-        languages: { 'ru-KZ': '/digital-marketing-almaty', 'kk-KZ': '/kk/digital-marketing-almaty' },
+        languages: { 'ru-KZ': '/digital-marketing-almaty', 'kk-KZ': '/kk/digital-marketing-almaty', 'x-default': '/digital-marketing-almaty' },
     },
     openGraph: {
         title: 'Алматыда digital-маркетинг — толық цикл',
@@ -24,6 +24,58 @@ export default function DigitalMarketingPage() {
             accentWord="Алматыда"
             subtitle="Интернет-маркетингтің барлық құралдары бір агенттікте. 10 мердігер қажет емес — Digital Pride бүкіл циклді жабады: стратегиядан сатылымға дейін."
             description="Digital Pride — Алматыдағы толық циклді перформанс-агенттік. Біз SMM, таргеттелген жарнама, контекстік жарнама, SEO, сайт жасау және брендингті бірыңғай экожүйеге біріктіреміз. Әр арна қалғандарын күшейтеді. KPI бойынша жұмыс істейміз: лид құны, өтінім саны, ROI. Мөлдір аналитика мен есептілік."
+            stats={[
+                { value: '×3', label: 'өтінім өсімі' },
+                { value: '8 жыл', label: 'нарықта' },
+                { value: '150+', label: 'жоба' },
+                { value: 'кілтке дейін', label: 'барлық арналар' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Арналар бей-берекет жұмыс істейді',
+                    'Мердігерлер өзара байланыспаған',
+                    'Бюджет стратегиясыз шашылады',
+                    'Бірыңғай аналитика жоқ',
+                ],
+                wins: [
+                    'Барлық арнаға бірыңғай стратегия',
+                    'Бір команда — SMM-ден сайтқа дейін',
+                    'Бюджет тиімділікке қарай бөлінеді',
+                    'Сквозной аналитика мен есептер',
+                ],
+            }}
+            alternatingTitle="Кілтке дейінгі Digital-маркетинг"
+            alternatingSubtitle="Барлық арнаны өтінім әкелетін бір жүйеге жинаймыз."
+            alternating={[
+                {
+                    chip: 'Стратегия',
+                    title: 'Барлық арна бір жүйеде',
+                    text: 'SMM, таргет, контекст, сайт пен аналитика бөлек емес, ортақ нәтижеге жұмыс істейді.',
+                    points: ['Бизнес мақсатына стратегия', 'SMM, таргет, контекст, сайт'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Digital-стратегия мен аналитика — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Сандар бойынша шешім',
+                    text: 'Барлық арна деректерін бір дашбордқа жинап, өтінім бағасы бойынша оңтайландырамыз.',
+                    points: ['Сквозной аналитика', 'Лид бағасын оңтайландыру'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Digital-маркетинг аналитикасы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Өтінім әкелетін маркетинг',
+                subtitle: 'Бірыңғай стратегия мен аналитика бюджетті тұрақты клиент ағынына айналдырады.',
+                image: '/images/services/digital-marketing-almaty-hero.jpg',
+                stats: [
+                    { value: '×3', label: 'өтінім өсімі' },
+                    { value: '150+', label: 'жоба' },
+                    { value: '8 жыл', label: 'тәжірибе' },
+                ],
+            }}
             features={[
                 { title: 'SMM және контент', description: 'Instagram, TikTok, Facebook жүргізу. Контент-стратегия, Reels, Stories.', icon: icon('M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z') },
                 { title: 'Таргеттелген жарнама', description: 'Instagram, Facebook, TikTok Ads — баптау, оңтайландыру, масштабтау.', icon: icon('M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z') },

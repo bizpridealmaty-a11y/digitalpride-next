@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Контекстная реклама в Алматы — Google Ads',
     description: 'Настройка контекстной рекламы в Алматы ✦ Google Ads и Яндекс.Директ. Заявки с первого дня запуска. Сбор семантики, минусация, A/B тесты. Прозрачная аналитика.',
-    alternates: { canonical: '/kontekstnaya-reklama-almaty' },
+    alternates: { canonical: '/kontekstnaya-reklama-almaty', languages: { 'ru-KZ': '/kontekstnaya-reklama-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-almaty', 'x-default': '/kontekstnaya-reklama-almaty' } },
     openGraph: {
         title: 'Контекстная реклама в Алматы — Google Ads',
         description: 'Настройка контекстной рекламы в Алматы ✦ Google Ads и Яндекс.Директ. Заявки с первого дня запуска. Сбор семантики, минусация, A/B тесты. Прозрачная аналитика.',
         url: '/kontekstnaya-reklama-almaty',
         images: [{
-            url: '/og-image?title=%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Контекстная реклама в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function ContextPage() {
             heroBackground="/images/services/kontekstnaya-reklama-almaty-hero.jpg"
             subtitle="Google Ads и Яндекс.Директ. Перехватываем горячий спрос и конвертируем его в заявки с предсказуемой стоимостью лида."
             description="Контекстная реклама — это самый быстрый способ получить целевых клиентов. Мы настраиваем и ведём рекламные кампании в Google Ads и Яндекс.Директ, которые приносят заявки уже в первый день. Наш подход: глубокий сбор семантики, тщательная минусация, A/B-тестирование объявлений и постоянная оптимизация ставок. Мы не просто настраиваем рекламу — мы управляем unit-экономикой."
+            stats={[
+                { value: '×4', label: 'окупаемость рекламы' },
+                { value: '−30%', label: 'цена клика' },
+                { value: 'ТОП-3', label: 'позиции в выдаче' },
+                { value: '5 дней', label: 'до запуска' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Клики есть, а звонков нет',
+                    'Бюджет сливается на нецелевые запросы',
+                    'Объявления теряются на фоне конкурентов',
+                    'Нет сквозной аналитики',
+                ],
+                wins: [
+                    'Семантика и минус-слова под вашу нишу',
+                    'Плата только за целевой трафик',
+                    'Продающие объявления с расширениями',
+                    'Отчёты по заявкам и стоимости',
+                ],
+            }}
+            alternatingTitle="Контекст, который приводит клиентов"
+            alternatingSubtitle="Настраиваем рекламу в поиске так, чтобы вас находили в момент спроса."
+            alternating={[
+                {
+                    chip: 'Кампании',
+                    title: 'Показы в момент спроса',
+                    text: 'Собираем семантику, чистим минус-слова и пишем объявления, которые кликают именно ваши клиенты.',
+                    points: ['Поиск, РСЯ и КМС, ретаргет', 'Точная семантика под нишу'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-1.jpg',
+                    imageAlt: 'Настройка контекстной рекламы — Digital Pride',
+                },
+                {
+                    chip: 'Результат',
+                    title: 'Заявки, а не просто клики',
+                    text: 'Настраиваем аналитику и оптимизируем кампании по стоимости заявки — чтобы реклама окупалась.',
+                    points: ['Сквозная аналитика', 'Оптимизация цены заявки'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Аналитика контекстной рекламы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Реклама, которая окупается',
+                subtitle: 'Точные кампании и аналитика превращают клики в заявки и продажи.',
+                image: '/images/services/kontekstnaya-reklama-almaty-hero.jpg',
+                stats: [
+                    { value: '×4', label: 'окупаемость' },
+                    { value: '−30%', label: 'цена клика' },
+                    { value: '5 дней', label: 'до запуска' },
+                ],
+            }}
             features={[
                 { title: 'Поисковая реклама', description: 'Показываем ваши объявления тем, кто уже ищет ваш продукт или услугу прямо сейчас.', icon: icon('M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z') },
                 { title: 'Ретаргетинг', description: 'Возвращаем пользователей, которые уже были на вашем сайте, но не оставили заявку.', icon: icon('M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15') },

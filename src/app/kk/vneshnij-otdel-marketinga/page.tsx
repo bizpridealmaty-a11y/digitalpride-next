@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Кешенді performance-маркетинг: SMM, таргет, сайт жасау және SEO штаттағы бір маманның бағасымен. Алматыдағы бизнес үшін пайда өсімі.',
     alternates: {
         canonical: '/kk/vneshnij-otdel-marketinga',
-        languages: { 'ru-KZ': '/vneshnij-otdel-marketinga', 'kk-KZ': '/kk/vneshnij-otdel-marketinga' },
+        languages: { 'ru-KZ': '/vneshnij-otdel-marketinga', 'kk-KZ': '/kk/vneshnij-otdel-marketinga', 'x-default': '/vneshnij-otdel-marketinga' },
     },
     openGraph: {
         title: 'Алматыда кілтке дейін сыртқы маркетинг бөлімі',
@@ -24,6 +24,48 @@ export default function OutsourcedMarketingPage() {
             accentWord="кілтке дейін"
             subtitle="5 маманды штатқа алу қажеттілігін ауыстырыңыз. Толық цикл жылжыту: SMM мен қуатты таргеттен бастап жоғары конверсиялы сайт әзірлеу мен SEO-ға дейін — бір күшті маркетологтың бағасымен."
             description="Біз жеке құралдарды сатпаймыз. Біз сіздің бизнесіңізге кіріктіріліп, аудит жүргіземіз, «Сайт + Трафик» байланыстарын құрамыз және мақсатты өтінімдер өсімі мен олардың құнын төмендету үшін жауапкершілік аламыз."
+            stats={[
+                { value: 'дейін 60%', label: 'ЖЖ үнемдеу' },
+                { value: '5 адам', label: 'жоба командасы' },
+                { value: '180%', label: 'орташа ROMI өсімі' },
+                { value: '7 күн', label: 'байланыстарды іске қосу' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Маркетологтар штаты — қымбат әрі әуре',
+                    'Мердігерлер өзара байланыспаған',
+                    'Нәтижеге ешкім жауап бермейді',
+                    'Есептер әдемі, ал өтінім жоқ',
+                ],
+                wins: [
+                    'Кілтке дейін 5 синьордан команда',
+                    'Бірыңғай жүйе: сайт + трафик + аналитика',
+                    'Өтінім мен оның бағасына жауап береміз',
+                    'Кликтен сатылымға дейін CRM-де цифрлау',
+                ],
+            }}
+            alternatingTitle="Өз бөліміндей жұмыс істейтін сыртқы бөлім"
+            alternatingSubtitle="Бизнеске кірігіп, бүкіл маркетингті — стратегиядан өтінімге дейін жүргіземіз."
+            alternating={[
+                {
+                    chip: 'Команда',
+                    title: 'Бір жазылымда 5 маман',
+                    text: 'Таргетолог, дизайнер, копирайтер, SEO мен Project Manager жобаңызбен штаттық бөлімдей жұмыс істейді — жалдау қамытынсыз.',
+                    points: ['Senior мен Middle мамандар', 'Жеке Project Manager'],
+                    image: '/images/services/vneshnij-otdel-marketinga-alt-1.jpg',
+                    imageAlt: 'Сыртқы маркетинг бөлімі жұмыста — Digital Pride',
+                },
+                {
+                    chip: 'Нәтиже',
+                    title: 'Өтінімге жауап береміз',
+                    text: '«Сайт + трафик» байланыстарын құрып, кликтен сатылымға дейін аналитиканы цифрлап, лайкпен емес, ақшамен есеп береміз.',
+                    points: ['CRM-дегі сквозной аналитика', 'Өтінім мен ROMI бойынша есептер'],
+                    image: '/images/services/vneshnij-otdel-marketinga-alt-2.jpg',
+                    imageAlt: 'Клиентке маркетинг есебі — Digital Pride',
+                },
+            ]}
             features={[
                 {
                     title: 'Senior мамандар командасы',

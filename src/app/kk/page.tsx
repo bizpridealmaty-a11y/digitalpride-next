@@ -15,10 +15,7 @@ export const metadata: Metadata = {
     description: 'Digital Pride — Алматыдағы толық циклді перформанс-агенттік. SMM, таргеттелген және контекстік жарнама, сайт жасау, SEO, брендинг. Нәтижеге жұмыс істейміз.',
     alternates: {
         canonical: '/kk',
-        languages: {
-            'ru-KZ': '/',
-            'kk-KZ': '/kk',
-        },
+        languages: { 'ru-KZ': '/', 'kk-KZ': '/kk', 'x-default': '/' },
     },
     openGraph: {
         url: '/kk',

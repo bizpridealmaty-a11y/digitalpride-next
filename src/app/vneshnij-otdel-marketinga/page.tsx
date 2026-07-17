@@ -4,7 +4,7 @@ import NewLandingTemplate from '@/components/NewLandingTemplate';
 export const metadata: Metadata = {
     title: 'Внешний отдел маркетинга под ключ в Алматы — Digital Pride',
     description: 'Комплексный performance-маркетинг: SMM, таргет, разработка сайтов и SEO по цене одного специалиста в штате. Рост прибыли для бизнеса в Алматы.',
-    alternates: { canonical: '/vneshnij-otdel-marketinga' },
+    alternates: { canonical: '/vneshnij-otdel-marketinga', languages: { 'ru-KZ': '/vneshnij-otdel-marketinga', 'kk-KZ': '/kk/vneshnij-otdel-marketinga', 'x-default': '/vneshnij-otdel-marketinga' } },
 };
 
 const iconSvg = (d: string) => <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={d}></path></svg>;
@@ -22,6 +22,41 @@ export default function OutsourcedMarketingPage() {
                 { label: "В команде над проектом", value: "5 чел." },
                 { label: "Средний рост ROMI", value: "180%" },
                 { label: "Срок запуска связок", value: "7 дней" }
+            ]}
+            painSolution={{
+                title: '5 подрядчиков вместо системы',
+                pains: [
+                    'Штат маркетологов — дорого и хлопотно',
+                    'Подрядчики не связаны между собой',
+                    'Никто не отвечает за результат',
+                    'Отчёты красивые, а заявок нет',
+                ],
+                wins: [
+                    'Команда из 5 синьоров под ключ',
+                    'Единая система: сайт + трафик + аналитика',
+                    'Отвечаем за заявки и их стоимость',
+                    'Оцифровка от клика до продажи в CRM',
+                ],
+            }}
+            alternatingTitle="Внешний отдел, который работает как свой"
+            alternatingSubtitle="Встраиваемся в бизнес и ведём весь маркетинг — от стратегии до заявок."
+            alternating={[
+                {
+                    chip: 'Команда',
+                    title: '5 специалистов в одной подписке',
+                    text: 'Таргетолог, дизайнер, копирайтер, SEO и Project Manager работают над вашим проектом как штатный отдел — без забот о найме.',
+                    points: ['Senior и Middle специалисты', 'Личный Project Manager'],
+                    image: '/images/services/vneshnij-otdel-marketinga-alt-1.jpg',
+                    imageAlt: 'Внешний отдел маркетинга за работой — Digital Pride',
+                },
+                {
+                    chip: 'Результат',
+                    title: 'Отвечаем за заявки',
+                    text: 'Строим связки «сайт + трафик», оцифровываем аналитику от клика до продажи и отчитываемся деньгами, а не лайками.',
+                    points: ['Сквозная аналитика в CRM', 'Отчёты по заявкам и ROMI'],
+                    image: '/images/services/vneshnij-otdel-marketinga-alt-2.jpg',
+                    imageAlt: 'Отчёт по маркетингу клиенту — Digital Pride',
+                },
             ]}
             features={[
                 {

@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Контекстная реклама Google Ads в Алматы',
     description: 'Настройка Google Ads в Алматы ✦ Поисковая реклама, КМС, YouTube Ads, Performance Max. Заявки с первого дня. Сквозная аналитика. Прозрачные отчёты.',
-    alternates: { canonical: '/kontekstnaya-reklama-google-almaty' },
+    alternates: { canonical: '/kontekstnaya-reklama-google-almaty', languages: { 'ru-KZ': '/kontekstnaya-reklama-google-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-google-almaty', 'x-default': '/kontekstnaya-reklama-google-almaty' } },
     openGraph: {
         title: 'Google Ads в Алматы',
         description: 'Поисковая реклама, КМС, YouTube Ads. Заявки с первого дня запуска.',
         url: '/kontekstnaya-reklama-google-almaty',
         images: [{
-            url: '/og-image?title=Google+Ads+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=Google+Ads+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Google Ads реклама в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function GoogleAdsPage() {
             heroBackground="/images/services/kontekstnaya-reklama-google-almaty-hero.jpg"
             subtitle="Google Ads — главный инструмент для перехвата горячего спроса. Мы настраиваем рекламу, которая показывается людям, уже ищущим ваш продукт прямо сейчас."
             description="Google обрабатывает 90% всех поисковых запросов в Казахстане. Мы выводим ваше предложение на первые позиции через поисковую рекламу, контекстно-медийную сеть (КМС), YouTube Ads и Performance Max. Глубокий сбор семантики, тщательная минусация и ежедневная оптимизация ставок обеспечивают максимальный ROI."
+            stats={[
+                { value: '×4', label: 'окупаемость рекламы' },
+                { value: '−30%', label: 'цена клика' },
+                { value: 'ТОП-3', label: 'позиции в Google' },
+                { value: '5 дней', label: 'до запуска' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Клики есть, а звонков нет',
+                    'Бюджет уходит на нецелевые запросы',
+                    'Объявления теряются в выдаче Google',
+                    'Нет аналитики конверсий',
+                ],
+                wins: [
+                    'Семантика и минус-слова под вашу нишу',
+                    'Плата только за целевой трафик',
+                    'Продающие объявления в топе Google',
+                    'Отчёты по заявкам и стоимости',
+                ],
+            }}
+            alternatingTitle="Google-реклама, которая приводит клиентов"
+            alternatingSubtitle="Настраиваем поиск и КМС так, чтобы вас находили в момент спроса."
+            alternating={[
+                {
+                    chip: 'Поиск',
+                    title: 'Показы в момент спроса',
+                    text: 'Собираем семантику, чистим минус-слова и пишем объявления, которые кликают именно ваши клиенты в Google.',
+                    points: ['Поиск, КМС и ретаргет', 'Точная семантика под нишу'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-1.jpg',
+                    imageAlt: 'Настройка Google Ads — Digital Pride',
+                },
+                {
+                    chip: 'Результат',
+                    title: 'Заявки, а не просто клики',
+                    text: 'Настраиваем аналитику и оптимизируем кампании по стоимости заявки — чтобы реклама окупалась.',
+                    points: ['Сквозная аналитика', 'Оптимизация цены заявки'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Аналитика Google Ads — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Google Ads, которая окупается',
+                subtitle: 'Точные кампании и аналитика превращают клики в заявки и продажи.',
+                image: '/images/services/kontekstnaya-reklama-google-almaty-hero.jpg',
+                stats: [
+                    { value: '×4', label: 'окупаемость' },
+                    { value: '−30%', label: 'цена клика' },
+                    { value: '5 дней', label: 'до запуска' },
+                ],
+            }}
             features={[
                 { title: 'Поисковая реклама', description: 'Ваши объявления в ТОП-4 Google по ключевым запросам. Платите только за клики.', icon: icon('M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z') },
                 { title: 'Performance Max', description: 'Умные кампании Google с AI-оптимизацией по всем каналам одновременно.', icon: icon('M13 10V3L4 14h7v7l9-11h-7z') },

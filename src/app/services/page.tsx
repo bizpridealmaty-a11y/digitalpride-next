@@ -7,7 +7,7 @@ import CTA from '../../components/home/CTA';
 export const metadata: Metadata = {
     title: 'Услуги маркетингового агентства Digital Pride в Алматы',
     description: 'Полный спектр digital-услуг: SMM, таргет, контекст, SEO, разработка сайтов, брендинг и SERM. Прозрачные KPI, заявки от 3 дней, кейсы 100+.',
-    alternates: { canonical: '/services' },
+    alternates: { canonical: '/services', languages: { 'ru-KZ': '/services', 'kk-KZ': '/kk/services', 'x-default': '/services' } },
     openGraph: {
         title: 'Услуги маркетингового агентства | Digital Pride',
         description: 'SMM, таргет, контекст, SEO, разработка сайтов, брендинг — всё под ключ.',

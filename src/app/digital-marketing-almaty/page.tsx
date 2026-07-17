@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Digital-маркетинг в Алматы — полный цикл',
     description: 'Digital-маркетинг агентство в Алматы ✦ SMM, таргет, контекст, SEO, сайты, брендинг — всё в одном месте. Перформанс-подход: работаем на KPI и результат.',
-    alternates: { canonical: '/digital-marketing-almaty' },
+    alternates: { canonical: '/digital-marketing-almaty', languages: { 'ru-KZ': '/digital-marketing-almaty', 'kk-KZ': '/kk/digital-marketing-almaty', 'x-default': '/digital-marketing-almaty' } },
     openGraph: {
         title: 'Digital-маркетинг в Алматы — полный цикл',
         description: 'Digital-маркетинг агентство в Алматы ✦ SMM, таргет, контекст, SEO, сайты, брендинг — всё в одном месте. Перформанс-подход: работаем на KPI и результат.',
@@ -22,6 +22,56 @@ export default function DigitalMarketingPage() {
             heroBackground="/images/services/digital-marketing-almaty-hero.jpg"
             subtitle="Все инструменты интернет-маркетинга в одном агентстве. Не нужно 10 подрядчиков — Digital Pride закрывает весь цикл: от стратегии до продажи."
             description="Digital Pride — перформанс-агентство полного цикла в Алматы. Мы объединяем SMM, таргетированную рекламу, контекстную рекламу, SEO, создание сайтов и брендинг в единую экосистему. Каждый канал усиливает остальные. Работаем по KPI: стоимость лида, количество заявок, ROI. Прозрачная аналитика и отчётность."
+            stats={[
+                { value: '×3', label: 'рост заявок' },
+                { value: '8 лет', label: 'на рынке' },
+                { value: '150+', label: 'проектов' },
+                { value: 'под ключ', label: 'все каналы' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Каналы работают вразнобой',
+                    'Подрядчики не связаны между собой',
+                    'Бюджет распылён без стратегии',
+                    'Нет единой аналитики',
+                ],
+                wins: [
+                    'Единая стратегия по всем каналам',
+                    'Одна команда — от SMM до сайта',
+                    'Бюджет распределён по эффективности',
+                    'Сквозная аналитика и отчёты',
+                ],
+            }}
+            alternatingTitle="Digital-маркетинг под ключ"
+            alternatingSubtitle="Собираем все каналы в одну систему, которая приносит заявки."
+            alternating={[
+                {
+                    chip: 'Стратегия',
+                    title: 'Все каналы в одной системе',
+                    text: 'SMM, таргет, контекст, сайт и аналитика работают на общий результат, а не по отдельности.',
+                    points: ['Стратегия под цели бизнеса', 'SMM, таргет, контекст, сайт'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Digital-стратегия и аналитика — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Решения по цифрам',
+                    text: 'Сводим данные всех каналов в единый дашборд и оптимизируем по стоимости заявки.',
+                    points: ['Сквозная аналитика', 'Оптимизация цены лида'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Аналитика digital-маркетинга — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Маркетинг, который приносит заявки',
+                subtitle: 'Единая стратегия и аналитика превращают бюджет в стабильный поток клиентов.',
+                image: '/images/services/digital-marketing-almaty-hero.jpg',
+                stats: [
+                    { value: '×3', label: 'рост заявок' },
+                    { value: '150+', label: 'проектов' },
+                    { value: '8 лет', label: 'опыта' },
+                ],
+            }}
             features={[
                 { title: 'SMM и контент', description: 'Ведение Instagram, TikTok, Facebook. Контент-стратегия, Reels, Stories.', icon: icon('M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z') },
                 { title: 'Таргетированная реклама', description: 'Instagram, Facebook, TikTok Ads — настройка, оптимизация, масштабирование.', icon: icon('M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z') },

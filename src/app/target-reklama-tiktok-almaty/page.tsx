@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Таргетированная реклама в TikTok в Алматы',
     description: 'Настройка рекламы в TikTok в Алматы ✦ In-Feed Ads, TopView, Spark Ads. Вирусный охват молодой аудитории. Стоимость лида от 500 ₸. Запуск за 3 дня.',
-    alternates: { canonical: '/target-reklama-tiktok-almaty' },
+    alternates: { canonical: '/target-reklama-tiktok-almaty', languages: { 'ru-KZ': '/target-reklama-tiktok-almaty', 'kk-KZ': '/kk/target-reklama-tiktok-almaty', 'x-default': '/target-reklama-tiktok-almaty' } },
     openGraph: {
         title: 'Реклама в TikTok Алматы',
         description: 'TikTok Ads: In-Feed, TopView, Spark Ads. Вирусный охват, низкая стоимость лида.',
         url: '/target-reklama-tiktok-almaty',
         images: [{
-            url: '/og-image?title=%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0+%D0%B2+TikTok&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=%D0%A0%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0+%D0%B2+TikTok&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Реклама в TikTok в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function TargetTikTokPage() {
             heroBackground="/images/services/target-reklama-tiktok-almaty-hero.jpg"
             subtitle="TikTok — самая быстрорастущая платформа в Казахстане. Мы запускаем рекламу, которая получает миллионные охваты и приводит клиентов по минимальной цене."
             description="TikTok Ads — это уникальная возможность получить дешёвые охваты и вирусный эффект. Мы создаём нативные рекламные ролики, которые не отличаются от органического контента, и настраиваем точный таргетинг. Средняя стоимость 1000 показов в TikTok в 2-3 раза ниже, чем в Instagram."
+            stats={[
+                { value: '×3,2', label: 'рост заявок' },
+                { value: '−38%', label: 'цена лида' },
+                { value: 'млн+', label: 'охваты кампаний' },
+                { value: '7 дней', label: 'до первых заявок' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Реклама выглядит как реклама — её пролистывают',
+                    'Бюджет уходит, а заявок мало',
+                    'Ролики не заходят молодой аудитории',
+                    'Непонятно, что работает',
+                ],
+                wins: [
+                    'Нативные ролики в стиле TikTok',
+                    'Прозрачная цена заявки на виду',
+                    'Попадание в тренды и рекомендации',
+                    'Оптимизация по данным',
+                ],
+            }}
+            alternatingTitle="TikTok-реклама, которая цепляет"
+            alternatingSubtitle="Снимаем нативные ролики и запускаем таргет, который приносит заявки, а не просто просмотры."
+            alternating={[
+                {
+                    chip: 'Креативы',
+                    title: 'Ролики, которые смотрят до конца',
+                    text: 'Снимаем нативные вертикальные видео под TikTok — чтобы реклама не выглядела рекламой и приносила заявки.',
+                    points: ['Нативные креативы под TikTok', 'A/B-тесты роликов'],
+                    image: '/images/services/target-almaty-alt-2.jpg',
+                    imageAlt: 'Реклама в TikTok — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Решения по цифрам',
+                    text: 'Следим за ценой заявки и конверсиями, отключаем слабое и масштабируем то, что приносит клиентов.',
+                    points: ['Отчётность и дашборд', 'Оптимизация цены лида'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Аналитика рекламы в TikTok — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Реклама в TikTok, которая приносит заявки',
+                subtitle: 'Нативные ролики и оптимизация превращают охваты в поток клиентов.',
+                image: '/images/services/target-reklama-tiktok-almaty-hero.jpg',
+                stats: [
+                    { value: '×3,2', label: 'рост заявок' },
+                    { value: '−38%', label: 'цена лида' },
+                    { value: '7 дней', label: 'до старта' },
+                ],
+            }}
             features={[
                 { title: 'In-Feed Ads', description: 'Нативная реклама в ленте рекомендаций — пользователи видят её как обычный контент.', icon: icon('M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z') },
                 { title: 'Spark Ads', description: 'Продвижение органических видео — ваши лучшие TikTok получают рекламный буст.', icon: icon('M13 10V3L4 14h7v7l9-11h-7z') },

@@ -6,10 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыда SMM, таргет, контекст, SEO, сайт жасау және брендинг бойынша ашық тарифтер. 150 000 ₸/ай-дан. Бюджетіңізге бейімделген пакеттер.',
     alternates: {
         canonical: '/kk/pricing',
-        languages: {
-            'ru-KZ': '/pricing',
-            'kk-KZ': '/kk/pricing',
-        },
+        languages: { 'ru-KZ': '/pricing', 'kk-KZ': '/kk/pricing', 'x-default': '/pricing' },
     },
     openGraph: {
         title: 'Қызметтер бағасы | Digital Pride',

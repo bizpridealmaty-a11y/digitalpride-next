@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Алматыда контекстік жарнама — Google Ads',
     description: 'Алматыда контекстік жарнаманы орнату ✦ Google Ads және Яндекс.Директ. Іске қосылған күннен бастап өтінімдер. Семантика жинау, минусация, A/B тесттер.',
-    alternates: { canonical: '/kk/kontekstnaya-reklama-almaty', languages: { 'ru-KZ': '/kontekstnaya-reklama-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-almaty' } },
+    alternates: { canonical: '/kk/kontekstnaya-reklama-almaty', languages: { 'ru-KZ': '/kontekstnaya-reklama-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-almaty', 'x-default': '/kontekstnaya-reklama-almaty' } },
     openGraph: { title: 'Алматыда контекстік жарнама — Google Ads', description: 'Google Ads және Яндекс.Директ. Іске қосылған күннен бастап өтінімдер.', url: '/kk/kontekstnaya-reklama-almaty' },
 };
 const icon = (d: string) => <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={d}></path></svg>;
@@ -15,6 +15,58 @@ export default function ContextPage() {
             accentWord="Алматыда"
             subtitle="Google Ads және Яндекс.Директ. Ыстық сұранысты ұстап, болжамды лид бағасымен өтінімдерге айналдырамыз."
             description="Контекстік жарнама — мақсатты клиенттер алудың ең жылдам жолы. Google Ads және Яндекс.Директте алғашқы күннен бастап өтінімдер әкелетін жарнамалық науқандарды орнатамыз және жүргіземіз."
+            stats={[
+                { value: '×4', label: 'жарнама өтелімі' },
+                { value: '−30%', label: 'клик бағасы' },
+                { value: 'ТОП-3', label: 'іздеудегі орын' },
+                { value: '5 күн', label: 'іске қосуға дейін' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Клик бар, ал қоңырау жоқ',
+                    'Бюджет мақсатсыз сұраныстарға кетеді',
+                    'Хабарландырулар іздеуде байқалмайды',
+                    'Сквозной аналитика жоқ',
+                ],
+                wins: [
+                    'Нишаңызға семантика мен минус-сөздер',
+                    'Тек мақсатты трафикке төлем',
+                    'Кеңейтулері бар сататын хабарландырулар',
+                    'Өтінім мен бағасы бойынша есептер',
+                ],
+            }}
+            alternatingTitle="Клиент әкелетін контекст"
+            alternatingSubtitle="Іздеудегі жарнаманы сізді дәл сұраныс сәтінде табатындай баптаймыз."
+            alternating={[
+                {
+                    chip: 'Науқандар',
+                    title: 'Сұраныс сәтіндегі көрсетілім',
+                    text: 'Семантиканы жинап, минус-сөздерді тазалап, дәл сіздің клиенттеріңіз басатын хабарландырулар жазамыз.',
+                    points: ['Іздеу, КМС/РСЯ, ретаргет', 'Нишаға дәл семантика'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-1.jpg',
+                    imageAlt: 'Контекстік жарнаманы баптау — Digital Pride',
+                },
+                {
+                    chip: 'Нәтиже',
+                    title: 'Клик емес, өтінім',
+                    text: 'Аналитиканы баптап, науқандарды өтінім бағасы бойынша оңтайландырамыз — жарнама өзін ақтасын.',
+                    points: ['Сквозной аналитика', 'Өтінім бағасын оңтайландыру'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Контекстік жарнаманың аналитикасы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Өзін ақтайтын жарнама',
+                subtitle: 'Дәл науқандар мен аналитика кликтерді өтінімге айналдырады.',
+                image: '/images/services/kontekstnaya-reklama-almaty-hero.jpg',
+                stats: [
+                    { value: '×4', label: 'өтелім' },
+                    { value: '−30%', label: 'клик бағасы' },
+                    { value: '5 күн', label: 'старт' },
+                ],
+            }}
             features={[
                 { title: 'Іздеу жарнамасы', description: 'Сіздің өніміңізді немесе қызметіңізді дәл қазір іздеп жүргендерге жарнамаңызды көрсетеміз.', icon: icon('M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z') },
                 { title: 'Ретаргетинг', description: 'Сіздің сайтыңызға кіріп, бірақ өтінім қалдырмаған пайдаланушыларды қайтарамыз.', icon: icon('M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15') },

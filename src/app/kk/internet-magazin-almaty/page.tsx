@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыда интернет-дүкен әзірлеу ✦ Каталог, себет, төлем, жеткізу. Kaspi, 1C, CRM интеграциясы. Адаптивті дизайн. 800 000 ₸-ден.',
     alternates: {
         canonical: '/kk/internet-magazin-almaty',
-        languages: { 'ru-KZ': '/internet-magazin-almaty', 'kk-KZ': '/kk/internet-magazin-almaty' },
+        languages: { 'ru-KZ': '/internet-magazin-almaty', 'kk-KZ': '/kk/internet-magazin-almaty', 'x-default': '/internet-magazin-almaty' },
     },
     openGraph: {
         title: 'Алматыда интернет-дүкен',
@@ -24,6 +24,58 @@ export default function EcommercePage() {
             accentWord="Алматыда"
             subtitle="Сататын интернет-дүкендер жасаймыз. Каталог, себет, төлем, жеткізу — Қазақстандағы бизнес үшін толық e-commerce циклі."
             description="Интернет-дүкен — интернеттегі толыққанды сауда алаңы. Біз заманауи технологияларда e-commerce әзірлейміз: төлем жүйелерімен (Kaspi, Halyk), жеткізу қызметтерімен, 1C, CRM интеграциясы. Адаптивті дизайн, жылдам жүктелу, SEO-оптимизация және ыңғайлы админ-панель."
+            stats={[
+                { value: '14–21', label: 'күн іске қосуға дейін' },
+                { value: '×2', label: 'витрина конверсиясы' },
+                { value: '90+', label: 'PageSpeed балл' },
+                { value: 'CRM', label: 'төлем мен қойма' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Тауар бар, ал сатылым аз',
+                    'Себетті жарты жолда тастайды',
+                    'Сайт баяу, телефонда ыңғайсыз',
+                    'Төлем мен қоймамен байланыс жоқ',
+                ],
+                wins: [
+                    'Сататын ыңғайлы каталог',
+                    'Жылдам тапсырыс рәсімдеу',
+                    'Кез келген құрылғыда мінсіз',
+                    'Төлем, жеткізу мен CRM бірден',
+                ],
+            }}
+            alternatingTitle="Сататын интернет-дүкен"
+            alternatingSubtitle="Сатып алушыға да, сізге де ыңғайлы дүкендерді жобалап, әзірлейміз."
+            alternating={[
+                {
+                    chip: 'Витрина',
+                    title: 'Сататын каталог',
+                    text: 'Ыңғайлы каталог пен тауар карточкаларын жобалаймыз — сатып алушы оңай тауып, тапсырыс берсін.',
+                    points: ['Нишаға каталог пен сүзгілер', 'Жылдам тапсырыс рәсімдеу'],
+                    image: '/images/services/internet-magazin-almaty-alt-1.jpg',
+                    imageAlt: 'Интернет-дүкен витринасы — Digital Pride',
+                },
+                {
+                    chip: 'Логистика',
+                    title: 'Автопилоттағы сатылым',
+                    text: 'Төлем, жеткізу мен CRM қосамыз — тапсырыстар қол еңбегінсіз өңделеді.',
+                    points: ['Төлем мен жеткізу', 'CRM мен қоймамен интеграция'],
+                    image: '/images/services/internet-magazin-almaty-alt-2.jpg',
+                    imageAlt: 'Интернет-дүкен тапсырыстарын өңдеу — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Тапсырыс әкелетін дүкен',
+                subtitle: 'Ыңғайлы витрина мен автоматтандыру трафикті сатылымға айналдырады.',
+                image: '/images/services/internet-magazin-almaty-hero.jpg',
+                stats: [
+                    { value: '×2', label: 'конверсия' },
+                    { value: '90+', label: 'PageSpeed' },
+                    { value: '14–21 күн', label: 'старт' },
+                ],
+            }}
             features={[
                 { title: 'Тауар каталогы', description: 'Санаттар, сүзгілер, сұрыптау, тауар нұсқалары — сатып алушылар үшін ыңғайлы іздеу.', icon: icon('M4 6h16M4 10h16M4 14h16M4 18h16') },
                 { title: 'Себет және төлем', description: 'Kaspi, Halyk Bank, карталар — Қазақстандағы барлық танымал төлем тәсілдері.', icon: icon('M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z') },

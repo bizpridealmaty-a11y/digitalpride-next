@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Таргетированная реклама в Алматы — Instagram, Facebook, TikTok',
     description: 'Настройка таргетированной рекламы в Алматы ✦ Instagram, Facebook, TikTok. Первые заявки за 3-5 дней. Look-alike, ретаргетинг, A/B тесты. Работаем на результат.',
-    alternates: { canonical: '/target-almaty' },
+    alternates: { canonical: '/target-almaty', languages: { 'ru-KZ': '/target-almaty', 'kk-KZ': '/kk/target-almaty', 'x-default': '/target-almaty' } },
     openGraph: {
         title: 'Таргетированная реклама в Алматы',
         description: 'Настройка таргетированной рекламы в Instagram, Facebook, TikTok. Заявки от 3 дней.',
         url: '/target-almaty',
         images: [{
-            url: '/og-image?title=%D0%A2%D0%B0%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=%D0%A2%D0%B0%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%B0&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Таргетированная реклама в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function TargetAlmatyPage() {
             heroBackground="/images/services/target-almaty-hero.jpg"
             subtitle="Facebook, Instagram, TikTok — лазерный таргетинг на вашу идеальную целевую аудиторию, которая готова покупать прямо сейчас."
             description="Мы настраиваем таргетированную рекламу, которая приводит горячих клиентов. Тестируем десятки креативов, сегментируем аудиторию, используем look-alike и ретаргетинг для максимальной конверсии. Каждый тенге рекламного бюджета работает на результат."
+            stats={[
+                { value: '×3,2', label: 'рост заявок' },
+                { value: '−38%', label: 'цена лида' },
+                { value: '500+', label: 'запущенных кампаний' },
+                { value: '7 дней', label: 'до первых заявок' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Реклама «крутится», а заявок мало',
+                    'Бюджет уходит, а отчётов нет',
+                    'Непонятно, что работает, а что нет',
+                    'Аудитории настроены наугад',
+                ],
+                wins: [
+                    'Тесты офферов и аудиторий с первого дня',
+                    'Прозрачный отчёт и цена заявки на виду',
+                    'Оптимизация по данным, а не по интуиции',
+                    'Точные сегменты под вашу нишу',
+                ],
+            }}
+            alternatingTitle="Таргет, который окупается"
+            alternatingSubtitle="Настраиваем, тестируем и масштабируем рекламу под ваш бюджет и цель."
+            alternating={[
+                {
+                    chip: 'Настройка',
+                    title: 'Реклама под результат',
+                    text: 'Разбираем нишу, собираем аудитории и офферы, запускаем тесты — чтобы каждый тенге бюджета работал на заявки.',
+                    points: ['Instagram, TikTok, Facebook', 'A/B-тесты креативов и аудиторий'],
+                    image: '/images/services/target-almaty-alt-2.jpg',
+                    imageAlt: 'Таргетированная реклама в соцсетях — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Решения по цифрам',
+                    text: 'Следим за ценой заявки и конверсиями, отключаем слабое и масштабируем то, что приносит клиентов.',
+                    points: ['Отчётность и дашборд', 'Оптимизация цены лида'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Аналитика рекламных кампаний — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Реклама, которая приносит заявки',
+                subtitle: 'Тесты, аналитика и оптимизация превращают бюджет в поток клиентов.',
+                image: '/images/services/target-almaty-hero.jpg',
+                stats: [
+                    { value: '×3,2', label: 'рост заявок' },
+                    { value: '−38%', label: 'цена лида' },
+                    { value: '7 дней', label: 'до старта' },
+                ],
+            }}
             features={[
                 { title: 'Тестирование креативов', description: 'Запускаем 10-20 вариантов объявлений, чтобы найти самые конверсионные связки.', icon: icon('M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z') },
                 { title: 'Динамический ретаргетинг', description: 'Возвращаем тех, кто уже интересовался вашим продуктом, и доводим до покупки.', icon: icon('M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15') },

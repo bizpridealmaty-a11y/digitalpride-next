@@ -30,6 +30,13 @@ interface ServicePageProps {
     gallery?: { src: string; alt: string; caption?: string }[];
     galleryTitle?: string;
     gallerySubtitle?: string;
+    // Насыщение тела страницы (все опциональные)
+    stats?: { value: string; label: string }[];
+    painSolution?: { painTitle?: string; winTitle?: string; pains: string[]; wins: string[] };
+    alternating?: { chip?: string; title: string; text: string; points?: string[]; image: string; imageAlt?: string }[];
+    alternatingTitle?: string;
+    alternatingSubtitle?: string;
+    metricBand?: { title: string; subtitle?: string; image: string; stats: { value: string; label: string }[] };
 }
 
 export default function ServicePageTemplate({
@@ -49,6 +56,12 @@ export default function ServicePageTemplate({
     gallery,
     galleryTitle,
     gallerySubtitle,
+    stats,
+    painSolution,
+    alternating,
+    alternatingTitle,
+    alternatingSubtitle,
+    metricBand,
 }: ServicePageProps) {
     const pathname = usePathname();
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -257,6 +270,28 @@ export default function ServicePageTemplate({
                 </div>
             </section>
 
+            {/* Stats strip */}
+            {stats && stats.length > 0 && (
+                <section className="bg-zinc-900 text-white border-t border-zinc-800">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-12 text-center">
+                            {stats.map((s, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                                >
+                                    <div className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif", color: '#ef4444' }}>{s.value}</div>
+                                    <div className="text-sm text-gray-400 mt-2">{s.label}</div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* Description */}
             <section className="py-20 bg-white text-black">
                 <div className="container mx-auto px-4 max-w-6xl">
@@ -272,6 +307,51 @@ export default function ServicePageTemplate({
                     </motion.div>
                 </div>
             </section>
+
+            {/* Pain → Solution */}
+            {painSolution && (
+                <section className="py-20 bg-white text-black">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="rounded-2xl border border-gray-200 bg-gray-50 p-8"
+                            >
+                                <h3 className="text-xl font-bold mb-6">{painSolution.painTitle || 'Как обычно'}</h3>
+                                <ul className="space-y-4">
+                                    {painSolution.pains.map((p, i) => (
+                                        <li key={i} className="flex gap-3 text-gray-600">
+                                            <span className="flex-shrink-0 w-6 h-6 rounded-md bg-gray-200 text-gray-500 grid place-items-center text-sm font-bold">✕</span>
+                                            <span>{p}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                className="rounded-2xl border p-8"
+                                style={{ borderColor: '#fbcfcf', background: 'linear-gradient(180deg, #fff5f5, #ffffff)' }}
+                            >
+                                <h3 className="text-xl font-bold mb-6">{painSolution.winTitle || 'С Digital Pride'}</h3>
+                                <ul className="space-y-4">
+                                    {painSolution.wins.map((w, i) => (
+                                        <li key={i} className="flex gap-3 text-gray-800">
+                                            <span className="flex-shrink-0 w-6 h-6 rounded-md text-white grid place-items-center text-sm font-bold" style={{ backgroundColor: '#ef4444' }}>✓</span>
+                                            <span>{w}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Features Grid */}
             <section className="py-20 bg-gray-50 text-black">
@@ -311,6 +391,54 @@ export default function ServicePageTemplate({
             {/* Animated dashboard (optional) */}
             {dashboard}
 
+            {/* Alternating text + image (Вариант 2) */}
+            {alternating && alternating.length > 0 && (
+                <section className="py-20 bg-white text-black">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        {(alternatingTitle || alternatingSubtitle) && (
+                            <div className="text-center mb-14 max-w-2xl mx-auto">
+                                {alternatingTitle && <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">{alternatingTitle}</h2>}
+                                {alternatingSubtitle && <p className="text-gray-500">{alternatingSubtitle}</p>}
+                            </div>
+                        )}
+                        <div className="space-y-16 md:space-y-24">
+                            {alternating.map((row, i) => (
+                                <div key={i} className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                                    <motion.div
+                                        initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5 }}
+                                        className={i % 2 === 1 ? 'md:order-2' : ''}
+                                    >
+                                        {row.chip && <span className="inline-block text-xs font-bold uppercase tracking-wider text-red-500 bg-red-50 rounded-full px-3 py-1 mb-4">{row.chip}</span>}
+                                        <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">{row.title}</h3>
+                                        <p className="text-lg text-gray-600 leading-relaxed mb-4">{row.text}</p>
+                                        {row.points && row.points.length > 0 && (
+                                            <ul className="space-y-2">
+                                                {row.points.map((p, j) => (
+                                                    <li key={j} className="flex gap-2 text-gray-700"><span className="text-red-500 font-bold">→</span><span>{p}</span></li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5 }}
+                                        className={i % 2 === 1 ? 'md:order-1' : ''}
+                                    >
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={row.image} alt={row.imageAlt || row.title} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-2xl border border-gray-200 shadow-xl" />
+                                    </motion.div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* Process Steps */}
             <section className="py-20 bg-white text-black">
                 <div className="container mx-auto px-4 max-w-6xl">
@@ -344,6 +472,35 @@ export default function ServicePageTemplate({
                     </div>
                 </div>
             </section>
+
+            {/* Metric band — full-bleed photo + metrics (Вариант 3) */}
+            {metricBand && (
+                <section className="relative overflow-hidden text-white">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={metricBand.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(9,9,11,0.94), rgba(9,9,11,0.6) 55%, rgba(9,9,11,0.25))' }}></div>
+                    <div className="container mx-auto px-4 max-w-6xl relative z-10 py-24">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="max-w-xl"
+                        >
+                            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">{metricBand.title}</h2>
+                            {metricBand.subtitle && <p className="text-lg text-white/80 mb-10 leading-relaxed">{metricBand.subtitle}</p>}
+                            <div className="flex flex-wrap gap-10">
+                                {metricBand.stats.map((s, i) => (
+                                    <div key={i}>
+                                        <div className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>{s.value}</div>
+                                        <div className="text-sm text-white/70 mt-1">{s.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            )}
 
             {/* Gallery */}
             {gallery && gallery.length > 0 && (

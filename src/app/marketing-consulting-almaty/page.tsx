@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Маркетинговый консалтинг в Алматы',
     description: 'Маркетинговый консалтинг в Алматы ✦ Стратегические сессии для бизнеса. Аудит маркетинга, unit-экономика, дорожная карта на 3-12 месяцев. Опыт 10+ лет.',
-    alternates: { canonical: '/marketing-consulting-almaty' },
+    alternates: { canonical: '/marketing-consulting-almaty', languages: { 'ru-KZ': '/marketing-consulting-almaty', 'kk-KZ': '/kk/marketing-consulting-almaty', 'x-default': '/marketing-consulting-almaty' } },
     openGraph: {
         title: 'Маркетинговый консалтинг в Алматы',
         description: 'Маркетинговый консалтинг в Алматы ✦ Стратегические сессии для бизнеса. Аудит маркетинга, unit-экономика, дорожная карта на 3-12 месяцев. Опыт 10+ лет.',
@@ -22,6 +22,56 @@ export default function ConsultingPage() {
             heroBackground="/images/services/marketing-consulting-almaty-hero.jpg"
             subtitle="Стратегические консультации для собственников бизнеса. Покажем точки роста и составим пошаговый план масштабирования."
             description="Наши маркетинговые консультанты с 10+ летним опытом проанализируют ваш бизнес и дадут конкретные рекомендации по увеличению продаж. Мы не продаём вам услуги — мы помогаем принять правильные решения. Формат: онлайн или очная встреча в Алматы."
+            stats={[
+                { value: '10+ лет', label: 'экспертизы' },
+                { value: '3 часа', label: 'стратегсессия' },
+                { value: '3–12 мес', label: 'дорожная карта' },
+                { value: '150+', label: 'бизнесов' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Тратите на рекламу, а роста нет',
+                    'Нет системного взгляда на маркетинг',
+                    'Решения принимаются наугад',
+                    'Не с кем обсудить стратегию',
+                ],
+                wins: [
+                    'Экспертный аудит всех активностей',
+                    'Unit-экономика и точки роста',
+                    'Конкретный план с KPI и бюджетами',
+                    'Ментор, который ведёт к результату',
+                ],
+            }}
+            alternatingTitle="Консалтинг, который даёт ясность"
+            alternatingSubtitle="Экспертный взгляд со стороны: находим точки роста и строим план."
+            alternating={[
+                {
+                    chip: 'Сессия',
+                    title: 'Разбор вашего бизнеса',
+                    text: 'Проводим стратегическую сессию: разбираем модель, каналы и unit-экономику, находим точки роста.',
+                    points: ['3-часовая стратегсессия', 'Аудит и unit-экономика'],
+                    image: '/images/services/marketing-consulting-almaty-alt-1.jpg',
+                    imageAlt: 'Маркетинговая консультация — Digital Pride',
+                },
+                {
+                    chip: 'План',
+                    title: 'Дорожная карта на руки',
+                    text: 'Готовим детальный план на 3–12 месяцев с приоритетами, бюджетами и KPI.',
+                    points: ['Дорожная карта с KPI', 'Менторское сопровождение'],
+                    image: '/images/services/marketing-consulting-almaty-alt-2.jpg',
+                    imageAlt: 'Разбор маркетингового плана — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Стратегия, которая работает',
+                subtitle: 'Экспертный аудит и план превращают хаос в системный рост.',
+                image: '/images/services/marketing-consulting-almaty-hero.jpg',
+                stats: [
+                    { value: '10+ лет', label: 'опыта' },
+                    { value: '150+', label: 'бизнесов' },
+                    { value: '3–12 мес', label: 'план' },
+                ],
+            }}
             features={[
                 { title: 'Стратегическая сессия', description: '3-часовая сессия с разбором бизнес-модели, позиционирования и каналов привлечения.', icon: icon('M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z') },
                 { title: 'Аудит маркетинга', description: 'Полный аудит текущих маркетинговых активностей: реклама, соцсети, сайт, воронка.', icon: icon('M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z') },

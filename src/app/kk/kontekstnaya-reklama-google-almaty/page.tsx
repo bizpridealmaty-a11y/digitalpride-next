@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Алматыда Google Ads орнату ✦ Іздеу жарнамасы, КМС, YouTube Ads, Performance Max. Алғашқы күннен бастап өтінімдер.',
     alternates: {
         canonical: '/kk/kontekstnaya-reklama-google-almaty',
-        languages: { 'ru-KZ': '/kontekstnaya-reklama-google-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-google-almaty' },
+        languages: { 'ru-KZ': '/kontekstnaya-reklama-google-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-google-almaty', 'x-default': '/kontekstnaya-reklama-google-almaty' },
     },
     openGraph: {
         title: 'Алматыда Google Ads',
@@ -24,6 +24,58 @@ export default function GoogleAdsPageKk() {
             accentWord="Алматыда"
             subtitle="Google Ads — ыстық сұранысты ұстаудың басты құралы. Біз сіздің өніміңізді дәл қазір іздеп жүрген адамдарға көрсетілетін жарнаманы орнатамыз."
             description="Google Қазақстандағы барлық іздеу сұраныстарының 90%-ын өңдейді. Біз сіздің ұсынысыңызды іздеу жарнамасы, контексттік-медиалық желі (КМС), YouTube Ads және Performance Max арқылы алғашқы позицияларға шығарамыз. Тереңдетілген семантика жинау, мұқият минусация және күнделікті ставкаларды оңтайландыру максималды ROI қамтамасыз етеді."
+            stats={[
+                { value: '×4', label: 'жарнама өтелімі' },
+                { value: '−30%', label: 'клик бағасы' },
+                { value: 'ТОП-3', label: 'Google-дегі орын' },
+                { value: '5 күн', label: 'іске қосуға дейін' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Клик бар, ал қоңырау жоқ',
+                    'Бюджет мақсатсыз сұраныстарға кетеді',
+                    'Хабарландырулар Google іздеуінде байқалмайды',
+                    'Конверсия аналитикасы жоқ',
+                ],
+                wins: [
+                    'Нишаңызға семантика мен минус-сөздер',
+                    'Тек мақсатты трафикке төлем',
+                    'Google топындағы сататын хабарландырулар',
+                    'Өтінім мен бағасы бойынша есептер',
+                ],
+            }}
+            alternatingTitle="Клиент әкелетін Google-жарнама"
+            alternatingSubtitle="Іздеу мен КМС-ті сізді дәл сұраныс сәтінде табатындай баптаймыз."
+            alternating={[
+                {
+                    chip: 'Іздеу',
+                    title: 'Сұраныс сәтіндегі көрсетілім',
+                    text: 'Семантиканы жинап, минус-сөздерді тазалап, дәл сіздің клиенттеріңіз басатын хабарландырулар жазамыз.',
+                    points: ['Іздеу, КМС, ретаргет', 'Нишаға дәл семантика'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-1.jpg',
+                    imageAlt: 'Google Ads баптау — Digital Pride',
+                },
+                {
+                    chip: 'Нәтиже',
+                    title: 'Клик емес, өтінім',
+                    text: 'Аналитиканы баптап, науқандарды өтінім бағасы бойынша оңтайландырамыз — жарнама өзін ақтасын.',
+                    points: ['Сквозной аналитика', 'Өтінім бағасын оңтайландыру'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Google Ads аналитикасы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Өзін ақтайтын Google Ads',
+                subtitle: 'Дәл науқандар мен аналитика кликтерді өтінімге айналдырады.',
+                image: '/images/services/kontekstnaya-reklama-google-almaty-hero.jpg',
+                stats: [
+                    { value: '×4', label: 'өтелім' },
+                    { value: '−30%', label: 'клик бағасы' },
+                    { value: '5 күн', label: 'старт' },
+                ],
+            }}
             features={[
                 { title: 'Іздеу жарнамасы', description: 'Сіздің жарнамаларыңыз Google-да кілт сұраныстар бойынша ТОП-4-те. Тек кликтер үшін төлейсіз.', icon: icon('M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z') },
                 { title: 'Performance Max', description: 'Google-дың AI-оңтайландыруы бар ақылды науқандары барлық арналарда бір уақытта жұмыс істейді.', icon: icon('M13 10V3L4 14h7v7l9-11h-7z') },

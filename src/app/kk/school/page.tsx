@@ -6,10 +6,7 @@ export const metadata: Metadata = {
     description: 'Агенттіктің тәжірибелі мамандарынан SMM, таргеттелген жарнама, контекст және SEO курстары. Нақты кейстер, куратор қолдауы, жұмысқа орналастыру.',
     alternates: {
         canonical: '/kk/school',
-        languages: {
-            'ru-KZ': '/school',
-            'kk-KZ': '/kk/school',
-        },
+        languages: { 'ru-KZ': '/school', 'kk-KZ': '/kk/school', 'x-default': '/school' },
     },
     openGraph: {
         title: 'Digital Pride мектебі — маркетингті оқыту',

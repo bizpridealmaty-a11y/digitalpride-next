@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Создание интернет-магазина в Алматы — e-commerce под ключ',
     description: 'Разработка интернет-магазина в Алматы ✦ Каталог, корзина, оплата, доставка. Интеграция с Kaspi, 1C, CRM. Адаптивный дизайн. От 800 000 ₸.',
-    alternates: { canonical: '/internet-magazin-almaty' },
+    alternates: { canonical: '/internet-magazin-almaty', languages: { 'ru-KZ': '/internet-magazin-almaty', 'kk-KZ': '/kk/internet-magazin-almaty', 'x-default': '/internet-magazin-almaty' } },
     openGraph: {
         title: 'Интернет-магазин в Алматы',
         description: 'E-commerce под ключ: каталог, оплата, доставка. Интеграция с Kaspi и 1C.',
@@ -22,6 +22,56 @@ export default function EcommercePage() {
             heroBackground="/images/services/internet-magazin-almaty-hero.jpg"
             subtitle="Создаём интернет-магазины, которые продают. Каталог, корзина, оплата, доставка — полный цикл e-commerce для бизнеса в Казахстане."
             description="Интернет-магазин — это полноценная торговая площадка в интернете. Мы разрабатываем e-commerce на современных технологиях с интеграцией платёжных систем (Kaspi, Halyk), служб доставки, 1C, CRM. Адаптивный дизайн, быстрая загрузка, SEO-оптимизация и удобная админ-панель."
+            stats={[
+                { value: '14–21', label: 'день до запуска' },
+                { value: '×2', label: 'конверсия витрины' },
+                { value: '90+', label: 'баллов PageSpeed' },
+                { value: 'CRM', label: 'оплата и склад' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Товары есть, а продаж мало',
+                    'Корзину бросают на полпути',
+                    'Сайт тормозит и неудобен с телефона',
+                    'Нет связки с оплатой и складом',
+                ],
+                wins: [
+                    'Удобный каталог, который продаёт',
+                    'Быстрое оформление заказа',
+                    'Идеально на любом устройстве',
+                    'Оплата, доставка и CRM из коробки',
+                ],
+            }}
+            alternatingTitle="Интернет-магазин, который продаёт"
+            alternatingSubtitle="Проектируем и разрабатываем магазины, удобные покупателю и вам."
+            alternating={[
+                {
+                    chip: 'Витрина',
+                    title: 'Каталог, который продаёт',
+                    text: 'Проектируем удобный каталог и карточки товаров, чтобы покупатель легко находил и заказывал.',
+                    points: ['Каталог и фильтры под нишу', 'Быстрое оформление заказа'],
+                    image: '/images/services/internet-magazin-almaty-alt-1.jpg',
+                    imageAlt: 'Витрина интернет-магазина — Digital Pride',
+                },
+                {
+                    chip: 'Логистика',
+                    title: 'Продажи на автопилоте',
+                    text: 'Подключаем оплату, доставку и CRM — заказы обрабатываются без ручной рутины.',
+                    points: ['Оплата и доставка', 'Интеграция с CRM и складом'],
+                    image: '/images/services/internet-magazin-almaty-alt-2.jpg',
+                    imageAlt: 'Обработка заказов интернет-магазина — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Магазин, который приносит заказы',
+                subtitle: 'Удобная витрина и автоматизация превращают трафик в продажи.',
+                image: '/images/services/internet-magazin-almaty-hero.jpg',
+                stats: [
+                    { value: '×2', label: 'конверсия' },
+                    { value: '90+', label: 'PageSpeed' },
+                    { value: '14–21 дн.', label: 'до запуска' },
+                ],
+            }}
             features={[
                 { title: 'Каталог товаров', description: 'Категории, фильтры, сортировка, варианты товара — удобный поиск для покупателей.', icon: icon('M4 6h16M4 10h16M4 14h16M4 18h16') },
                 { title: 'Корзина и оплата', description: 'Kaspi, Halyk Bank, карты — все популярные способы оплаты в Казахстане.', icon: icon('M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z') },

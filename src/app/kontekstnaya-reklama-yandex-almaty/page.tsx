@@ -4,13 +4,13 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Контекстная реклама Яндекс.Директ в Алматы',
     description: 'Настройка Яндекс.Директ в Алматы ✦ Поисковая реклама, РСЯ, ретаргетинг. Перехват русскоязычной аудитории. Заявки от первого дня. CPA от 1000 ₸.',
-    alternates: { canonical: '/kontekstnaya-reklama-yandex-almaty' },
+    alternates: { canonical: '/kontekstnaya-reklama-yandex-almaty', languages: { 'ru-KZ': '/kontekstnaya-reklama-yandex-almaty', 'kk-KZ': '/kk/kontekstnaya-reklama-yandex-almaty', 'x-default': '/kontekstnaya-reklama-yandex-almaty' } },
     openGraph: {
         title: 'Яндекс.Директ в Алматы',
         description: 'Поисковая реклама и РСЯ. Охват русскоязычной аудитории Казахстана.',
         url: '/kontekstnaya-reklama-yandex-almaty',
         images: [{
-            url: '/og-image?title=%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81.%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
+            url: '/og-image/?title=%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81.%D0%94%D0%B8%D1%80%D0%B5%D0%BA%D1%82&subtitle=%D0%B2+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B',
             width: 1200,
             height: 630,
             alt: 'Яндекс.Директ в Алматы — Digital Pride',
@@ -28,6 +28,56 @@ export default function YandexDirectPage() {
             heroBackground="/images/services/kontekstnaya-reklama-yandex-almaty-hero.jpg"
             subtitle="Яндекс.Директ — второй по значимости рекламный канал в Казахстане. Перехватываем русскоязычную аудиторию, которая ищет ваши товары и услуги."
             description="Яндекс занимает значительную долю поискового рынка в Казахстане, особенно среди русскоязычной аудитории. Мы настраиваем поисковую рекламу и РСЯ (Рекламная Сеть Яндекса), которые приносят целевые заявки по конкурентной стоимости. Особенно эффективен для ниш B2B, медицины, недвижимости и образования."
+            stats={[
+                { value: '×4', label: 'окупаемость рекламы' },
+                { value: '−30%', label: 'цена клика' },
+                { value: 'ТОП-3', label: 'позиции в Яндексе' },
+                { value: '5 дней', label: 'до запуска' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Клики есть, а звонков нет',
+                    'Бюджет уходит на нецелевые запросы',
+                    'Объявления теряются в выдаче Яндекса',
+                    'Нет аналитики конверсий',
+                ],
+                wins: [
+                    'Семантика и минус-слова под вашу нишу',
+                    'Плата только за целевой трафик',
+                    'Продающие объявления в Директе и РСЯ',
+                    'Отчёты по заявкам и стоимости',
+                ],
+            }}
+            alternatingTitle="Реклама в Яндексе, которая приводит клиентов"
+            alternatingSubtitle="Настраиваем Директ и РСЯ так, чтобы вас находили в момент спроса."
+            alternating={[
+                {
+                    chip: 'Директ',
+                    title: 'Показы в момент спроса',
+                    text: 'Собираем семантику, чистим минус-слова и пишем объявления, которые кликают именно ваши клиенты в Яндексе.',
+                    points: ['Поиск, РСЯ и ретаргет', 'Точная семантика под нишу'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-1.jpg',
+                    imageAlt: 'Настройка Яндекс.Директ — Digital Pride',
+                },
+                {
+                    chip: 'Результат',
+                    title: 'Заявки, а не просто клики',
+                    text: 'Настраиваем аналитику и оптимизируем кампании по стоимости заявки — чтобы реклама окупалась.',
+                    points: ['Сквозная аналитика', 'Оптимизация цены заявки'],
+                    image: '/images/services/kontekstnaya-reklama-almaty-alt-2.jpg',
+                    imageAlt: 'Аналитика Яндекс.Директ — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Яндекс.Директ, который окупается',
+                subtitle: 'Точные кампании и аналитика превращают клики в заявки и продажи.',
+                image: '/images/services/kontekstnaya-reklama-yandex-almaty-hero.jpg',
+                stats: [
+                    { value: '×4', label: 'окупаемость' },
+                    { value: '−30%', label: 'цена клика' },
+                    { value: '5 дней', label: 'до запуска' },
+                ],
+            }}
             features={[
                 { title: 'Поисковая реклама', description: 'Объявления в поиске Яндекс по целевым запросам с максимальной конверсией.', icon: icon('M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z') },
                 { title: 'РСЯ (Рекламная Сеть)', description: 'Баннерная реклама на тысячах площадок: сайты, мобильные приложения, почта.', icon: icon('M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z') },

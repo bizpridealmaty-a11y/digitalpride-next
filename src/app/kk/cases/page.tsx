@@ -7,10 +7,7 @@ export const metadata: Metadata = {
     description: 'Жобаларымыздың нәтижелері: ROMI +300%, CPL 40%-ға төмендеу. SMM, таргет, SEO және сайт жасау бойынша нақты сандар мен клиенттер пікірлері.',
     alternates: {
         canonical: '/kk/cases',
-        languages: {
-            'ru-KZ': '/cases',
-            'kk-KZ': '/kk/cases',
-        },
+        languages: { 'ru-KZ': '/cases', 'kk-KZ': '/kk/cases', 'x-default': '/cases' },
     },
     openGraph: {
         title: 'Алматыдағы маркетинг агенттігінің кейстері',

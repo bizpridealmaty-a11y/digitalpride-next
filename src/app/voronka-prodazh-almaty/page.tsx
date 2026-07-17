@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Воронка продаж в Алматы — автоматизация и настройка',
     description: 'Построение воронки продаж в Алматы ✦ Автоворонки через мессенджеры, email, ретаргетинг. Чат-боты WhatsApp, Telegram. Интеграция с CRM. Под ключ за 2-4 недели.',
-    alternates: { canonical: '/voronka-prodazh-almaty' },
+    alternates: { canonical: '/voronka-prodazh-almaty', languages: { 'ru-KZ': '/voronka-prodazh-almaty', 'kk-KZ': '/kk/voronka-prodazh-almaty', 'x-default': '/voronka-prodazh-almaty' } },
     openGraph: {
         title: 'Воронка продаж в Алматы — Digital Pride',
         description: 'Автоматизированная воронка продаж: чат-боты, email-цепочки, CRM. Результат от 2 недель.',
@@ -22,6 +22,56 @@ export default function VoronkaPage() {
             heroBackground="/images/services/voronka-prodazh-almaty-hero.jpg"
             subtitle="Построим автоматизированную воронку продаж, которая превращает холодный трафик в горячих клиентов без вашего участия."
             description="Мы проектируем полный путь клиента: от первого касания с рекламой до повторной покупки. Настраиваем автоворонки через мессенджеры, email и ретаргетинг. Интегрируем CRM, чат-ботов и системы аналитики для прозрачного контроля каждого этапа."
+            stats={[
+                { value: '×2,3', label: 'конверсия в продажу' },
+                { value: '−40%', label: 'потерь лидов' },
+                { value: '24/7', label: 'автоматизация' },
+                { value: '3 нед.', label: 'до запуска воронки' },
+            ]}
+            painSolution={{
+                pains: [
+                    'Лиды приходят, но теряются',
+                    'Менеджеры забывают перезвонить',
+                    'Нет системы прогрева и допродаж',
+                    'Не видно, где отваливаются клиенты',
+                ],
+                wins: [
+                    'Каждый лид фиксируется в CRM',
+                    'Авто-напоминания и цепочки касаний',
+                    'Прогрев и допродажи на автопилоте',
+                    'Прозрачная аналитика по этапам',
+                ],
+            }}
+            alternatingTitle="Воронка, которая не теряет клиентов"
+            alternatingSubtitle="Проектируем и автоматизируем путь клиента от заявки до повторной продажи."
+            alternating={[
+                {
+                    chip: 'Проектирование',
+                    title: 'Путь клиента по шагам',
+                    text: 'Разбираем каждый этап — от первого касания до оплаты — и убираем места, где вы теряете деньги.',
+                    points: ['Карта воронки под ваш бизнес', 'Точки роста конверсии'],
+                    image: '/images/services/voronka-prodazh-almaty-alt-1.jpg',
+                    imageAlt: 'Проектирование воронки продаж — Digital Pride',
+                },
+                {
+                    chip: 'Автоматизация',
+                    title: 'CRM, которая работает за вас',
+                    text: 'Настраиваем CRM, чат-ботов и авто-цепочки, чтобы ни один лид не остался без ответа.',
+                    points: ['Интеграция CRM и мессенджеров', 'Авто-напоминания и сценарии'],
+                    image: '/images/services/voronka-prodazh-almaty-alt-2.jpg',
+                    imageAlt: 'Автоматизация продаж в CRM — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Система, которая продаёт без потерь',
+                subtitle: 'Автоматизация и аналитика превращают заявки в стабильные продажи.',
+                image: '/images/services/voronka-prodazh-almaty-hero.jpg',
+                stats: [
+                    { value: '×2,3', label: 'конверсия' },
+                    { value: '−40%', label: 'потерь лидов' },
+                    { value: '24/7', label: 'автоматизация' },
+                ],
+            }}
             features={[
                 { title: 'Проектирование воронки', description: 'Разрабатываем карту пути клиента: этапы, точки касания, триггеры перехода.', icon: icon('M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4') },
                 { title: 'Чат-боты и автоответчики', description: 'Настраиваем автоматические ответы в WhatsApp, Telegram и Instagram Direct.', icon: icon('M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z') },

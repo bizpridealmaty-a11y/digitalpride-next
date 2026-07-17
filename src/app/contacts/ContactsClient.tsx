@@ -55,7 +55,7 @@ export default function ContactsClient() {
         <>
             <main className="bg-white pt-32 pb-24">
                 <div className="container mx-auto px-4 max-w-6xl">
-                    <Breadcrumbs items={[{ name: isKk ? 'Байланыс' : 'О нас', item: isKk ? '/kk/contacts' : '/contacts' }]} />
+                    <Breadcrumbs items={[{ name: isKk ? 'Байланыс' : 'Контакты', item: isKk ? '/kk/contacts' : '/contacts' }]} />
                     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
                         <div className="inline-block px-4 py-1.5 rounded-full bg-red-100 text-red-600 text-sm font-bold mb-6 uppercase tracking-wider">
                             {isKk ? 'Бізбен байланысыңыз' : 'Свяжитесь с нами'}

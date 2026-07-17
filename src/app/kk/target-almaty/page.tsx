@@ -4,7 +4,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export const metadata: Metadata = {
     title: 'Алматыда таргеттелген жарнама — Instagram, Facebook, TikTok',
     description: 'Алматыда таргеттелген жарнаманы орнату ✦ Instagram, Facebook, TikTok. Алғашқы өтінімдер 3-5 күнде. Look-alike, ретаргетинг, A/B тесттер. Нәтижеге жұмыс істейміз.',
-    alternates: { canonical: '/kk/target-almaty', languages: { 'ru-KZ': '/target-almaty', 'kk-KZ': '/kk/target-almaty' } },
+    alternates: { canonical: '/kk/target-almaty', languages: { 'ru-KZ': '/target-almaty', 'kk-KZ': '/kk/target-almaty', 'x-default': '/target-almaty' } },
     openGraph: { title: 'Алматыда таргеттелген жарнама', description: 'Instagram, Facebook, TikTok-та таргеттелген жарнаманы орнату. Өтінімдер 3 күннен.', url: '/kk/target-almaty' },
 };
 
@@ -17,6 +17,58 @@ export default function TargetAlmatyPage() {
             accentWord="Алматыда"
             subtitle="Facebook, Instagram, TikTok — дәл қазір сатып алуға дайын идеалды мақсатты аудиторияңызға лазерлік таргетинг."
             description="Біз ыстық клиенттер әкелетін таргеттелген жарнама орнатамыз. Ондаған креативтерді тестілейміз, аудиторияны сегменттейміз, максималды конверсия үшін look-alike мен ретаргетингті қолданамыз."
+            stats={[
+                { value: '×3,2', label: 'өтінім өсімі' },
+                { value: '−38%', label: 'лид бағасы' },
+                { value: '500+', label: 'іске қосылған науқан' },
+                { value: '7 күн', label: 'алғашқы өтінімдерге дейін' },
+            ]}
+            painSolution={{
+                painTitle: 'Әдеттегідей',
+                winTitle: 'Digital Pride-пен',
+                pains: [
+                    'Жарнама «айналып тұр», ал өтінім аз',
+                    'Бюджет кетеді, есеп жоқ',
+                    'Не жұмыс істейтіні түсініксіз',
+                    'Аудитория кездейсоқ бапталған',
+                ],
+                wins: [
+                    'Бірінші күннен оффер мен аудитория тесттері',
+                    'Ашық есеп, өтінім бағасы көрініп тұр',
+                    'Интуиция емес, деректер бойынша оңтайландыру',
+                    'Нишаңызға дәл сегменттер',
+                ],
+            }}
+            alternatingTitle="Өзін ақтайтын таргет"
+            alternatingSubtitle="Жарнаманы бюджетіңіз бен мақсатыңызға баптаймыз, тестілейміз және масштабтаймыз."
+            alternating={[
+                {
+                    chip: 'Баптау',
+                    title: 'Нәтижеге бағытталған жарнама',
+                    text: 'Нишаны талдаймыз, аудитория мен офферлерді жинап, тесттер қосамыз — әр теңге өтінімге жұмыс істесін.',
+                    points: ['Instagram, TikTok, Facebook', 'Креатив пен аудитория A/B-тесттері'],
+                    image: '/images/services/target-almaty-alt-2.jpg',
+                    imageAlt: 'Әлеуметтік желідегі таргеттелген жарнама — Digital Pride',
+                },
+                {
+                    chip: 'Аналитика',
+                    title: 'Сандар бойынша шешім',
+                    text: 'Өтінім бағасы мен конверсияны қадағалаймыз, әлсізін өшіріп, клиент әкелетінін масштабтаймыз.',
+                    points: ['Есептілік және дашборд', 'Лид бағасын оңтайландыру'],
+                    image: '/images/services/target-almaty-alt-1.jpg',
+                    imageAlt: 'Жарнама науқандарының аналитикасы — Digital Pride',
+                },
+            ]}
+            metricBand={{
+                title: 'Өтінім әкелетін жарнама',
+                subtitle: 'Тесттер, аналитика және оңтайландыру бюджетті клиент ағынына айналдырады.',
+                image: '/images/services/target-almaty-hero.jpg',
+                stats: [
+                    { value: '×3,2', label: 'өтінім өсімі' },
+                    { value: '−38%', label: 'лид бағасы' },
+                    { value: '7 күн', label: 'старт' },
+                ],
+            }}
             features={[
                 { title: 'Креативтерді тестілеу', description: 'Ең конверсиялық байланыстарды табу үшін жарнаманың 10-20 нұсқасын іске қосамыз.', icon: icon('M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z') },
                 { title: 'Динамикалық ретаргетинг', description: 'Сіздің өніміңізге қызығушылық танытқандарды қайтарып, сатып алуға дейін жеткіземіз.', icon: icon('M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15') },

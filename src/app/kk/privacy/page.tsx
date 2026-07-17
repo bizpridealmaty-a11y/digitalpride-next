@@ -8,10 +8,7 @@ export const metadata: Metadata = {
     description: 'Қазақстан Республикасының дербес деректер туралы заңнамасына сәйкес Digital Pride дербес деректерді өңдеу саясаты.',
     alternates: {
         canonical: '/kk/privacy',
-        languages: {
-            'ru-KZ': '/privacy',
-            'kk-KZ': '/kk/privacy',
-        },
+        languages: { 'ru-KZ': '/privacy', 'kk-KZ': '/kk/privacy', 'x-default': '/privacy' },
     },
     robots: { index: true, follow: true },
 };

@@ -6,10 +6,7 @@ export const metadata: Metadata = {
     description: 'Сарапшылар мен кәсіпкерлер үшін Threads-те кешенді жылжыту. Вирустік контент, жазылушылар өсімі, жылжыту стратегиясы. 14 күннен бастап өтінімдер мен клиенттер.',
     alternates: {
         canonical: '/kk/threads-prodvizhenie',
-        languages: {
-            'ru-KZ': '/threads-prodvizhenie',
-            'kk-KZ': '/kk/threads-prodvizhenie',
-        },
+        languages: { 'ru-KZ': '/threads-prodvizhenie', 'kk-KZ': '/kk/threads-prodvizhenie', 'x-default': '/threads-prodvizhenie' },
     },
     openGraph: {
         title: 'Threads-те жылжыту | Digital Pride',

@@ -16,6 +16,11 @@ interface NewLandingTemplateProps {
   pricing?: { name: string; price: string; features: string[]; isPopular?: boolean }[];
   faq: { q: string; a: string }[];
   seoContent?: { title: string; text: React.ReactNode }[];
+  painSolution?: { title?: string; painTitle?: string; winTitle?: string; pains: string[]; wins: string[] };
+  alternating?: { chip?: string; title: string; text: string; points?: string[]; image: string; imageAlt?: string }[];
+  alternatingTitle?: string;
+  alternatingSubtitle?: string;
+  metricBand?: { title: string; subtitle?: string; image: string; stats: { value: string; label: string }[] };
 }
 
 export default function NewLandingTemplate({
@@ -34,7 +39,12 @@ export default function NewLandingTemplate({
   process,
   pricing,
   faq,
-  seoContent
+  seoContent,
+  painSolution,
+  alternating,
+  alternatingTitle,
+  alternatingSubtitle,
+  metricBand
 }: NewLandingTemplateProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const pathname = usePathname();
@@ -431,9 +441,48 @@ export default function NewLandingTemplate({
                 .seo-text a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
                 .seo-text a:hover { color: var(--white); border-color: var(--white); }
 
+                /* ===== PAIN / SOLUTION ===== */
+                .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+                .ps-col { border: 1px solid var(--gray-2); border-radius: 20px; padding: 32px; }
+                .ps-col.pain { background: var(--gray-1); }
+                .ps-col.win { background: rgba(232,255,0,0.04); border-color: rgba(232,255,0,0.3); }
+                .ps-col h3 { font-family: 'Unbounded'; font-size: 1.2rem; margin-bottom: 22px; }
+                .ps-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+                .ps-col li { display: flex; gap: 12px; font-size: 0.95rem; color: var(--gray-3); align-items: flex-start; }
+                .ps-ic { flex: none; width: 24px; height: 24px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; }
+                .pain .ps-ic { background: var(--gray-2); color: var(--gray-3); }
+                .win .ps-ic { background: var(--accent); color: var(--black); }
+                .win li { color: var(--white); }
+
+                /* ===== ALTERNATING ===== */
+                .alt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 60px; }
+                .alt-row:last-child { margin-bottom: 0; }
+                .alt-row.rev .alt-text { order: 2; }
+                .alt-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 20px; border: 1px solid var(--gray-2); display: block; }
+                .alt-chip { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); background: rgba(232,255,0,0.1); border-radius: 50px; padding: 5px 14px; margin-bottom: 16px; }
+                .alt-text h3 { font-family: 'Unbounded'; font-size: 1.5rem; margin-bottom: 14px; }
+                .alt-text p { color: var(--gray-3); font-size: 0.95rem; margin-bottom: 16px; }
+                .alt-li { display: flex; gap: 10px; font-size: 0.9rem; color: var(--white); margin: 8px 0; }
+                .alt-li .arr { color: var(--accent); font-weight: 800; }
+
+                /* ===== METRIC BAND ===== */
+                .mband { position: relative; border-radius: 24px; overflow: hidden; margin-top: 20px; min-height: 340px; display: flex; align-items: center; }
+                .mband img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+                .mband::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.95), rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.3)); }
+                .mband-in { position: relative; z-index: 1; padding: 48px; max-width: 560px; }
+                .mband-in h2 { font-family: 'Unbounded'; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 14px; }
+                .mband-in p { color: var(--gray-3); margin-bottom: 28px; }
+                .mband-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+                .mband-stats b { display: block; font-family: 'Unbounded'; font-size: 2rem; color: var(--accent); }
+                .mband-stats span { font-size: 0.8rem; color: var(--gray-3); }
+
                 @media (max-width: 900px) {
                   .cta-grid { grid-template-columns: 1fr; }
                   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+                  .ps-grid { grid-template-columns: 1fr; }
+                  .alt-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+                  .alt-row.rev .alt-text { order: 0; }
+                  .mband-in { padding: 32px 24px; max-width: 100%; }
                 }
                 @media (max-width: 600px) {
                   .process-timeline::before { left: 24px; }
@@ -478,6 +527,34 @@ export default function NewLandingTemplate({
           </div>
         )}
 
+        {/* PAIN → SOLUTION */}
+        {painSolution && (
+          <section className="l-section">
+            <div className="l-container">
+              <div className="section-label">Знакомо?</div>
+              <h2 className="section-title">{painSolution.title || 'Тратите бюджет — а результата нет'}</h2>
+              <div className="ps-grid">
+                <div className="ps-col pain">
+                  <h3>{painSolution.painTitle || 'Как обычно'}</h3>
+                  <ul>
+                    {painSolution.pains.map((p, i) => (
+                      <li key={i}><span className="ps-ic">✕</span><span>{p}</span></li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="ps-col win">
+                  <h3>{painSolution.winTitle || 'С Digital Pride'}</h3>
+                  <ul>
+                    {painSolution.wins.map((w, i) => (
+                      <li key={i}><span className="ps-ic">✓</span><span>{w}</span></li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* FEATURES (WHY-GRID) */}
         <section className="l-section why-sec">
           <div className="l-container">
@@ -496,6 +573,39 @@ export default function NewLandingTemplate({
             </div>
           </div>
         </section>
+
+        {/* ALTERNATING text + image */}
+        {alternating && alternating.length > 0 && (
+          <section className="l-section">
+            <div className="l-container">
+              {alternatingTitle && (
+                <>
+                  <div className="section-label">В деле</div>
+                  <h2 className="section-title">{alternatingTitle}</h2>
+                </>
+              )}
+              {alternatingSubtitle && (
+                <p className="hero-subtitle" style={{ textAlign: 'left', margin: '0 0 50px 0' }}>{alternatingSubtitle}</p>
+              )}
+              {alternating.map((row, i) => (
+                <div key={i} className={`alt-row ${i % 2 === 1 ? 'rev' : ''}`}>
+                  <div className="alt-text">
+                    {row.chip && <span className="alt-chip">{row.chip}</span>}
+                    <h3>{row.title}</h3>
+                    <p>{row.text}</p>
+                    {row.points && row.points.map((p, j) => (
+                      <div key={j} className="alt-li"><span className="arr">→</span><span>{p}</span></div>
+                    ))}
+                  </div>
+                  <div className="alt-img">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={row.image} alt={row.imageAlt || row.title} loading="lazy" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* PROCESS */}
         <section className="l-section">
@@ -516,6 +626,27 @@ export default function NewLandingTemplate({
             </div>
           </div>
         </section>
+
+        {/* METRIC BAND */}
+        {metricBand && (
+          <section className="l-section">
+            <div className="l-container">
+              <div className="mband">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={metricBand.image} alt="" aria-hidden="true" />
+                <div className="mband-in">
+                  <h2>{metricBand.title}</h2>
+                  {metricBand.subtitle && <p>{metricBand.subtitle}</p>}
+                  <div className="mband-stats">
+                    {metricBand.stats.map((s, i) => (
+                      <div key={i}><b>{s.value}</b><span>{s.label}</span></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* PRICING */}
         {pricing && pricing.length > 0 && (
