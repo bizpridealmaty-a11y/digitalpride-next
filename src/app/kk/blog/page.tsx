@@ -10,10 +10,7 @@ export const metadata: Metadata = {
     description: 'Қазақстандағы digital-маркетинг туралы пайдалы мақалалар: SMM, таргет, контекст, SEO, сайт жасау. Кейстер, талдаулар және бизнеске арналған нұсқаулықтар.',
     alternates: {
         canonical: '/kk/blog',
-        languages: {
-            'ru-KZ': '/blog',
-            'kk-KZ': '/kk/blog',
-        },
+        languages: { 'ru-KZ': '/blog', 'kk-KZ': '/kk/blog', 'x-default': '/blog' },
     },
     openGraph: {
         title: 'Блог — маркетинг, SMM, жарнама және SEO туралы мақалалар',

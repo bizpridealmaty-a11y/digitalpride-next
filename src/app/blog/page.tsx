@@ -8,7 +8,7 @@ import { getAllPosts } from '@/lib/blog';
 export const metadata: Metadata = {
     title: 'Блог — статьи о маркетинге, SMM, рекламе и SEO',
     description: 'Полезные статьи о digital-маркетинге в Казахстане: SMM, таргет, контекст, SEO, разработка сайтов. Кейсы, разборы и пошаговые инструкции для бизнеса.',
-    alternates: { canonical: '/blog' },
+    alternates: { canonical: '/blog', languages: { 'ru-KZ': '/blog', 'kk-KZ': '/kk/blog', 'x-default': '/blog' } },
     openGraph: {
         title: 'Блог — статьи о маркетинге, SMM, рекламе и SEO',
         description: 'Статьи о digital-маркетинге в Казахстане для бизнеса.',
@@ -54,6 +54,17 @@ export default function BlogIndex() {
                                     href={`/blog/${p.slug}/`}
                                     className="group block bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all"
                                 >
+                                    {p.coverImage && (
+                                        <div className="aspect-[16/9] overflow-hidden bg-gray-100">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
+                                                src={p.coverImage}
+                                                alt={p.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    )}
                                     <div className="p-6">
                                         <div className="flex items-center gap-3 mb-3 text-xs">
                                             <span className="px-3 py-1 rounded-full bg-red-100 text-red-600 font-bold uppercase tracking-wider">
