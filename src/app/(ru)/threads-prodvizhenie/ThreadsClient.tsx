@@ -375,6 +375,48 @@ section { padding: 100px 0; }
   max-width: 600px; margin-bottom: 50px;
 }
 
+/* ===== ФОТО МЕЖДУ СЕКЦИЯМИ =====
+   Страница была целиком из текста и цифр — глазу не за что зацепиться.
+   Кадры сняты под ЭТУ палитру (тёмные, ночные), а не под светлую оптику
+   остального сайта: здесь фон #0a0a0a. */
+.tp-photo {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+.tp-photo img {
+  width: 100%;
+  height: clamp(260px, 42vw, 460px);
+  object-fit: cover;
+  display: block;
+}
+/* Затемняем низ, чтобы подпись читалась на любом кадре */
+.tp-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.15) 45%, transparent 70%);
+  pointer-events: none;
+}
+.tp-photo figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0 24px 28px;
+  z-index: 1;
+}
+.tp-photo figcaption span {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  color: var(--white);
+  border-left: 3px solid var(--accent);
+  padding-left: 14px;
+}
+@media (max-width: 640px) {
+  .tp-photo figcaption { padding: 0 16px 20px; }
+}
+
 /* ===== WHY THREADS ===== */
 .why-threads { background: var(--gray-1); }
 .why-grid {
@@ -927,6 +969,17 @@ section { padding: 100px 0; }
         </div>
       </section>
 
+      <figure className="tp-photo">
+        <img
+          src="/images/services/threads-ru-1.jpg"
+          alt="Эксперт пишет текстовый пост для Threads в офисе в Алматы"
+          loading="lazy"
+          width={1600}
+          height={900}
+        />
+        <figcaption><span>Threads — текстовая площадка. Здесь выигрывает не картинка, а мысль.</span></figcaption>
+      </figure>
+
       {/*  */}
       <section className="services" id="services">
         <div className="container">
@@ -973,6 +1026,17 @@ section { padding: 100px 0; }
           </div>
         </div>
       </section>
+
+      <figure className="tp-photo">
+        <img
+          src="/images/services/threads-ru-2.jpg"
+          alt="Контент-стратеги обсуждают план публикаций в Threads"
+          loading="lazy"
+          width={1600}
+          height={900}
+        />
+        <figcaption><span>Вирусный пост — это не удача, а система: план, тезисы, регулярность.</span></figcaption>
+      </figure>
 
       {/*  */}
       <section className="screenshots" id="cases">
@@ -1217,6 +1281,17 @@ section { padding: 100px 0; }
           </div>
         </div>
       </section>
+
+      <figure className="tp-photo">
+        <img
+          src="/images/services/threads-ru-3.jpg"
+          alt="Предпринимательница в офисе в Алматы после запуска продвижения в Threads"
+          loading="lazy"
+          width={1600}
+          height={900}
+        />
+        <figcaption><span>Итог всей работы измеряется не охватом, а входящими обращениями.</span></figcaption>
+      </figure>
 
       {/*  */}
       <section className="process" id="process">
