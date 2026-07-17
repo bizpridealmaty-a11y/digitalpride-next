@@ -94,8 +94,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
     }));
 
-    // KZ pages excluded from sitemap until fully translated
-    // (incomplete translations harm crawl budget and cause "thin content" signals)
+    // KK-версия открыта для индексации (noindex снят, hreflang взаимный).
+    // Включаем только те /kk/-страницы, для которых реально есть файл перевода.
+    const kkEntries = pages
+        .filter((page) => {
+            const rel = page.url === '/' ? 'kk/page.tsx' : `kk${page.url}/page.tsx`;
+            return fs.existsSync(path.join(process.cwd(), 'src', 'app', rel));
+        })
+        .map((page) => {
+            const kkUrl = page.url === '/' ? '/kk' : `/kk${page.url}`;
+            return {
+                url: withSlash(`${baseUrl}${kkUrl}`),
+                lastModified: pageMtime(kkUrl),
+                changeFrequency: page.changeFrequency,
+                // Чуть ниже приоритет: RU — основная языковая версия
+                priority: Math.max(0.3, Number((page.priority - 0.1).toFixed(1))),
+            };
+        });
 
-    return [...staticEntries, ...blogEntries, ...caseEntries];
+    return [...staticEntries, ...blogEntries, ...caseEntries, ...kkEntries];
 }

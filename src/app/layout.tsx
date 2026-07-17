@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Digital Pride',
     images: [
       {
-        url: '/og-image',
+        url: '/og-image/',
         width: 1200,
         height: 630,
         alt: 'Digital Pride — маркетинговое агентство в Алматы',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image'],
+    images: ['/og-image/'],
   },
   alternates: {
     canonical: '/',

@@ -104,17 +104,25 @@ const nextConfig: NextConfig = {
         source: '/videos/:path*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      // ВАЖНО: sitemap/robots держим на коротком кэше.
+      // Было s-maxage=86400 — CDN отдавал устаревший sitemap до суток и НЕ сбрасывался
+      // при деплое: новая статья появлялась на сайте, но не в sitemap. Для блога с регулярными
+      // публикациями это откладывало индексацию на ровном месте. Файлы крошечные, экономить нечего.
       {
         source: '/sitemap.xml',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, s-maxage=86400' }],
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300, stale-while-revalidate=600' }],
+      },
+      {
+        source: '/sitemap-index.xml',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300, stale-while-revalidate=600' }],
       },
       {
         source: '/sitemap-images.xml',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, s-maxage=86400' }],
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300, stale-while-revalidate=600' }],
       },
       {
         source: '/robots.txt',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, s-maxage=86400' }],
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300, stale-while-revalidate=600' }],
       },
     ];
   },
