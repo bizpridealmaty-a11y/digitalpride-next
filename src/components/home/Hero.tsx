@@ -21,6 +21,34 @@ export default function Hero() {
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+    // hero.mp4 весит ~14 МБ. Раньше он грузился сразу (preload="auto" + fetchpriority="high"),
+    // забирая канал у контента: страница весила 14,5 МБ, и это било по LCP, особенно на мобильных.
+    // Теперь сразу показываем постер (~140 КБ), а видео цепляем ПОСЛЕ загрузки страницы, в простое,
+    // и только там, где это уместно: не на мобильных, не при экономии трафика, не на медленной сети.
+    const [showVideo, setShowVideo] = useState(false);
+
+    useEffect(() => {
+        const conn = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+        const saveData = conn?.saveData === true;
+        const slowNetwork = /(^|-)2g$/.test(conn?.effectiveType ?? '');
+        const smallScreen = window.matchMedia('(max-width: 768px)').matches;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (saveData || slowNetwork || smallScreen || reduceMotion) return;
+
+        let cancelled = false;
+        const start = () => { if (!cancelled) setShowVideo(true); };
+        const schedule = () => {
+            const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
+            if (ric) ric(start, { timeout: 2500 });
+            else setTimeout(start, 1200);
+        };
+
+        if (document.readyState === 'complete') schedule();
+        else window.addEventListener('load', schedule, { once: true });
+
+        return () => { cancelled = true; window.removeEventListener('load', schedule); };
+    }, []);
+
     const pickRandom = useCallback(() => {
         const shuffled = [...allBenefits].sort(() => Math.random() - 0.5);
         return shuffled.slice(0, 3);
@@ -80,22 +108,16 @@ export default function Hero() {
     return (
         <section ref={ref} className="relative overflow-hidden bg-black text-white pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[90vh] flex items-center">
             {/* SEO: скрытый осмысленный текст для поисковиков (видео не индексируется как контент) */}
-            <h2 className="sr-only">{t.heroSrOnly}</h2>
+            <p className="sr-only">{t.heroSrOnly}</p>
 
-            {/* Background video */}
+            {/* Background: постер показываем всегда, видео — только когда решили его грузить (см. useEffect выше) */}
             <motion.div style={{ y: bgY, opacity }} className="absolute inset-0 z-0" aria-hidden="true">
-                <video
-                    src="/videos/hero.mp4"
-                    poster="/videos/hero-poster.jpg"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    // @ts-expect-error -- fetchpriority is valid HTML but not yet in React types
-                    fetchpriority="high"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                    src="/videos/hero-poster.jpg"
+                    alt=""
                     aria-hidden="true"
-                    tabIndex={-1}
+                    fetchPriority="high"
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{
                         filter: 'brightness(0.55)',
@@ -103,6 +125,27 @@ export default function Hero() {
                         backgroundColor: '#000',
                     }}
                 />
+                {showVideo && (
+                    <video
+                        src="/videos/hero.mp4"
+                        poster="/videos/hero-poster.jpg"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        aria-hidden="true"
+                        tabIndex={-1}
+                        onCanPlay={(e) => { e.currentTarget.style.opacity = '1'; }}
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                        style={{
+                            opacity: 0,
+                            filter: 'brightness(0.55)',
+                            objectPosition: 'center top',
+                            backgroundColor: '#000',
+                        }}
+                    />
+                )}
                 {/* Vignette overlay — darkened edges for text contrast */}
                 <div className="absolute inset-0" style={{
                     background: `

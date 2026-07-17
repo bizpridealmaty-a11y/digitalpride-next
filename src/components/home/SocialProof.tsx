@@ -15,24 +15,22 @@ export default function SocialProof() {
         { label: isKk ? "Нарықтағы тәжірибе жылдары" : "Лет экспертизы на рынке", value: "10+", delay: 0.3 },
     ];
 
-    // Brand logos via Simple Icons CDN (doubled for seamless loop)
+    // Рекламные платформы и инструменты, с которыми мы работаем (Simple Icons CDN).
+    // Здесь ТОЛЬКО платформы — не логотипы клиентов: заявлять чужие бренды клиентами
+    // без договора нельзя (доверие + чужие торговые марки).
     const brands = [
-        { name: 'Yandex', icon: 'https://cdn.simpleicons.org/yandex/999' },
         { name: 'Google', icon: 'https://cdn.simpleicons.org/google/999' },
+        { name: 'Google Ads', icon: 'https://cdn.simpleicons.org/googleads/999' },
+        { name: 'Google Analytics', icon: 'https://cdn.simpleicons.org/googleanalytics/999' },
+        { name: 'Yandex', icon: 'https://cdn.simpleicons.org/yandex/999' },
+        { name: 'Meta', icon: 'https://cdn.simpleicons.org/meta/999' },
         { name: 'Facebook', icon: 'https://cdn.simpleicons.org/facebook/999' },
         { name: 'Instagram', icon: 'https://cdn.simpleicons.org/instagram/999' },
-        { name: 'WhatsApp', icon: 'https://cdn.simpleicons.org/whatsapp/999' },
-        { name: 'Coca-Cola', icon: 'https://cdn.simpleicons.org/cocacola/999' },
         { name: 'TikTok', icon: 'https://cdn.simpleicons.org/tiktok/999' },
-        { name: 'Red Bull', icon: 'https://cdn.simpleicons.org/redbull/999' },
-        { name: 'Hyundai', icon: 'https://cdn.simpleicons.org/hyundai/999' },
-        { name: 'BMW', icon: 'https://cdn.simpleicons.org/bmw/999' },
-        { name: 'Mercedes', icon: 'https://cdn.simpleicons.org/mercedesbenz/999' },
-        { name: 'Audi', icon: 'https://cdn.simpleicons.org/audi/999' },
-        { name: 'Kia', icon: 'https://cdn.simpleicons.org/kia/999' },
-        { name: 'Ford', icon: 'https://cdn.simpleicons.org/ford/999' },
-        { name: 'Apple', icon: 'https://cdn.simpleicons.org/apple/999' },
-        { name: 'Samsung', icon: 'https://cdn.simpleicons.org/samsung/999' },
+        { name: 'YouTube', icon: 'https://cdn.simpleicons.org/youtube/999' },
+        { name: 'WhatsApp', icon: 'https://cdn.simpleicons.org/whatsapp/999' },
+        { name: 'Telegram', icon: 'https://cdn.simpleicons.org/telegram/999' },
+        { name: '2GIS', icon: 'https://cdn.simpleicons.org/2gis/999' },
     ];
 
     // Double logos for seamless loop
@@ -47,7 +45,7 @@ export default function SocialProof() {
                     viewport={{ once: true }}
                     className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10"
                 >
-                    {isKk ? 'Маған нарық көшбасшылары сенеді' : 'Я доверяю лидерам рынка'}
+                    {isKk ? 'Жарнама платформаларымен жұмыс істейміз' : 'Работаем с рекламными платформами'}
                 </motion.p>
             </div>
 
