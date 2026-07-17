@@ -57,11 +57,19 @@ const pages: PageMeta[] = [
     { url: '/cases/plov-delivery', priority: 0.7, changeFrequency: 'monthly' },
 ];
 
+// Страницы разложены по route-группам «(ru)» и «(kk)» — на URL это не влияет,
+// но на путь к файлу влияет. Русские лежат в src/app/(ru)/<slug>/page.tsx,
+// казахские — в src/app/(kk)/kk/<slug>/page.tsx.
+const RU_DIR = path.join(process.cwd(), 'src', 'app', '(ru)');
+const KK_DIR = path.join(process.cwd(), 'src', 'app', '(kk)');
+
 function pageMtime(slug: string): Date {
-    const rel = slug === '/' ? 'page.tsx' : `${slug.replace(/^\//, '')}/page.tsx`;
-    const filePath = path.join(process.cwd(), 'src', 'app', rel);
+    const isKk = slug === '/kk' || slug.startsWith('/kk/');
+    const base = isKk ? KK_DIR : RU_DIR;
+    const clean = slug.replace(/^\//, '');
+    const rel = clean === '' ? 'page.tsx' : `${clean}/page.tsx`;
     try {
-        return fs.statSync(filePath).mtime;
+        return fs.statSync(path.join(base, rel)).mtime;
     } catch {
         return new Date();
     }
@@ -99,7 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const kkEntries = pages
         .filter((page) => {
             const rel = page.url === '/' ? 'kk/page.tsx' : `kk${page.url}/page.tsx`;
-            return fs.existsSync(path.join(process.cwd(), 'src', 'app', rel));
+            return fs.existsSync(path.join(KK_DIR, rel));
         })
         .map((page) => {
             const kkUrl = page.url === '/' ? '/kk' : `/kk${page.url}`;
