@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 import SocialProof from '@/components/home/SocialProof';
 import Services from '@/components/home/Services';
+import HowWeWork from '@/components/home/HowWeWork';
 import Cases from '@/components/home/Cases';
 import Process from '@/components/home/Process';
 import LeadMagnet from '@/components/home/LeadMagnet';
@@ -38,6 +39,7 @@ export default function Home() {
         <Hero />
         <SocialProof />
         <Services />
+        <HowWeWork />
         <LeadMagnet />
         <Cases />
         <Process />

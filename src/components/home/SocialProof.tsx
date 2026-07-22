@@ -18,11 +18,17 @@ export default function SocialProof() {
     // Рекламные платформы и инструменты, с которыми мы работаем (Simple Icons CDN).
     // Здесь ТОЛЬКО платформы — не логотипы клиентов: заявлять чужие бренды клиентами
     // без договора нельзя (доверие + чужие торговые марки).
-    const brands = [
+    // Яндекс и 2ГИС из Simple Icons УДАЛЕНЫ (их slug'и отдают 404) — а это как раз
+    // ключевые для Казахстана площадки. Раньше их иконки просто молча пропадали:
+    // onError прячет картинку, поэтому визуально «не сломано», но платформы исчезали
+    // из строки, и каждая загрузка страницы делала 4 неудачных запроса.
+    // Рисовать чужой логотип самим нельзя (торговая марка), поэтому показываем
+    // текстовое начертание — честно и не зависит от внешнего CDN.
+    const brands: { name: string; icon?: string }[] = [
         { name: 'Google', icon: 'https://cdn.simpleicons.org/google/999' },
         { name: 'Google Ads', icon: 'https://cdn.simpleicons.org/googleads/999' },
         { name: 'Google Analytics', icon: 'https://cdn.simpleicons.org/googleanalytics/999' },
-        { name: 'Yandex', icon: 'https://cdn.simpleicons.org/yandex/999' },
+        { name: 'Яндекс Директ' },
         { name: 'Meta', icon: 'https://cdn.simpleicons.org/meta/999' },
         { name: 'Facebook', icon: 'https://cdn.simpleicons.org/facebook/999' },
         { name: 'Instagram', icon: 'https://cdn.simpleicons.org/instagram/999' },
@@ -30,7 +36,7 @@ export default function SocialProof() {
         { name: 'YouTube', icon: 'https://cdn.simpleicons.org/youtube/999' },
         { name: 'WhatsApp', icon: 'https://cdn.simpleicons.org/whatsapp/999' },
         { name: 'Telegram', icon: 'https://cdn.simpleicons.org/telegram/999' },
-        { name: '2GIS', icon: 'https://cdn.simpleicons.org/2gis/999' },
+        { name: '2ГИС' },
     ];
 
     // Double logos for seamless loop
@@ -69,19 +75,28 @@ export default function SocialProof() {
                     >
                         {logos.map((logo, i) => (
                             <div key={i} className="flex-shrink-0 px-6 flex items-center">
-                                <img
-                                    src={logo.icon}
-                                    alt={logo.name}
-                                    title={logo.name}
-                                    width={56}
-                                    height={56}
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="h-10 md:h-14 w-auto object-contain opacity-40 hover:opacity-100 transition-all duration-500"
-                                    onError={(e) => {
-                                        (e.target as HTMLImageElement).style.display = 'none';
-                                    }}
-                                />
+                                {logo.icon ? (
+                                    <img
+                                        src={logo.icon}
+                                        alt={logo.name}
+                                        title={logo.name}
+                                        width={56}
+                                        height={56}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="h-10 md:h-14 w-auto object-contain opacity-40 hover:opacity-100 transition-all duration-500"
+                                        onError={(e) => {
+                                            (e.target as HTMLImageElement).style.display = 'none';
+                                        }}
+                                    />
+                                ) : (
+                                    <span
+                                        title={logo.name}
+                                        className="h-10 md:h-14 flex items-center whitespace-nowrap text-lg md:text-2xl font-extrabold tracking-tight text-gray-500 opacity-40 hover:opacity-100 transition-all duration-500"
+                                    >
+                                        {logo.name}
+                                    </span>
+                                )}
                             </div>
                         ))}
                     </motion.div>
