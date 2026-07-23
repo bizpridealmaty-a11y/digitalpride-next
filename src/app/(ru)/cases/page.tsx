@@ -112,6 +112,39 @@ export default function Cases() {
                     </Link>
                 </div>
 
+                {/* Featured case — ART Cleaning (сайт) */}
+                <div className="container mx-auto px-4 max-w-7xl mb-16">
+                    <Link href="/cases/art-cleaning/" className="group block relative overflow-hidden rounded-3xl" style={{ background: '#0E0E12' }}>
+                        <div className="grid md:grid-cols-2 items-center">
+                            <div className="p-8 md:p-12 order-2 md:order-1">
+                                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4" style={{ background: 'rgba(40,197,200,0.15)', color: '#28C5C8' }}>
+                                    Кейс · Разработка сайта
+                                </div>
+                                <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-3" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+                                    Сайт для B2B-клининга <span style={{ color: '#28C5C8' }}>ART Cleaning</span>
+                                </h2>
+                                <p className="text-gray-400 text-sm md:text-base max-w-xl mb-5">
+                                    Многостраничный сайт-продавец: страница технологии «без вёдер», онлайн-калькулятор стоимости, кейсы и заявки прямо в WhatsApp.
+                                </p>
+                                <span className="inline-flex items-center gap-2 text-white font-bold text-sm group-hover:gap-3 transition-all">
+                                    Смотреть кейс
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                </span>
+                            </div>
+                            <div className="p-6 md:p-10 order-1 md:order-2">
+                                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #2A2A34', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+                                    <div className="flex items-center gap-1.5 px-3 py-2" style={{ background: '#1E1E26' }}>
+                                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff5f57' }} />
+                                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#febc2e' }} />
+                                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#28c840' }} />
+                                    </div>
+                                    <img src="/images/cases/art-cleaning/hero-desktop.jpg" alt="Сайт ART Cleaning — B2B клининг в Алматы" className="w-full block group-hover:scale-[1.02] transition-transform duration-500" />
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+
                 <CaseGrid />
                 <CTA />
             </main >
