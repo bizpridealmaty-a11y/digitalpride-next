@@ -106,9 +106,11 @@ function Vid({ src, poster, label }: { src: string; poster: string; label: strin
 
 function KpiCard({ value, label, accent }: { value: string; label: string; accent?: boolean }) {
     return (
-        <div className="text-center p-4 md:p-5 rounded-2xl" style={{ background: COLORS.card, border: `1px solid ${COLORS.border}` }}>
-            <div className="text-xl sm:text-2xl md:text-3xl font-extrabold" style={{ fontFamily: "'Unbounded', sans-serif", color: accent ? COLORS.red : COLORS.text }}>{value}</div>
-            <div className="text-[10px] sm:text-xs font-bold mt-1" style={{ color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 1 }}>{label}</div>
+        <div className="text-center px-2 py-4 md:px-3 md:py-5 rounded-2xl flex flex-col items-center justify-center" style={{ background: COLORS.card, border: `1px solid ${COLORS.border}` }}>
+            {/* Число шрифтом с clamp + nowrap + tabular-nums — гарантированно влезает
+                в узкую плитку и не обрезается/не ломается на две строки. */}
+            <div className="font-extrabold whitespace-nowrap leading-none tracking-tight" style={{ fontFamily: "'Unbounded', sans-serif", color: accent ? COLORS.red : COLORS.text, fontSize: 'clamp(14px, 1.85vw, 23px)', fontVariantNumeric: 'tabular-nums' }}>{value}</div>
+            <div className="text-[10px] sm:text-xs font-bold mt-1.5" style={{ color: COLORS.muted, textTransform: 'uppercase', letterSpacing: 0.5 }}>{label}</div>
         </div>
     );
 }
@@ -156,7 +158,7 @@ export default function PlovDeliveryCase() {
                                     <motion.div variants={fadeUp} className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-8">
                                         <KpiCard value="427" label="переписок" accent />
                                         <KpiCard value="$1,33" label="средняя цена" />
-                                        <KpiCard value="$566,86" label="бюджет" />
+                                        <KpiCard value="$567" label="бюджет" />
                                         <KpiCard value="93 875" label="показов" />
                                         <KpiCard value="62 716" label="охват" />
                                     </motion.div>
@@ -313,7 +315,7 @@ export default function PlovDeliveryCase() {
                             <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
                                 <KpiCard value="427" label="переписок" accent />
                                 <KpiCard value="$1,33" label="средняя цена" accent />
-                                <KpiCard value="$566,86" label="бюджет" />
+                                <KpiCard value="$567" label="бюджет" />
                                 <KpiCard value="259" label="лучшая связка" accent />
                                 <KpiCard value="$0,78" label="лучшая цена" accent />
                                 <KpiCard value="93 875" label="показов" />

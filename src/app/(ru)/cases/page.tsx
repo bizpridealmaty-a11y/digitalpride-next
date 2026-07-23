@@ -62,10 +62,10 @@ export default function Cases() {
                                     Новый кейс · Июнь 2026
                                 </div>
                                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 max-w-2xl" style={{ fontFamily: "'Unbounded', sans-serif", textShadow: '0 2px 24px rgba(0,0,0,0.6)' }}>
-                                    427 переписок в WhatsApp за <span style={{ color: '#FF6B4A' }}>$1,33</span>
+                                    Вложили $567 в рекламу — вернули <span style={{ color: '#FF6B4A' }}>≈1,68 млн ₸</span>
                                 </h2>
                                 <p className="text-gray-200 text-sm md:text-base max-w-xl mb-4" style={{ textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-                                    Доставка домашнего плова в Алматы через Meta Ads. Лучшая связка — 259 переписок по $0,78, и ≈1,68 млн ₸ выручки с рекламы.
+                                    Доставка домашнего плова в Алматы через Meta Ads: 427 переписок в WhatsApp → ~60 заказов при среднем чеке 28 000 ₸.
                                 </p>
                                 <span className="inline-flex items-center gap-2 text-white font-bold text-sm group-hover:gap-3 transition-all">
                                     Смотреть кейс
