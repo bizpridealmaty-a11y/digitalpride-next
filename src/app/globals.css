@@ -131,3 +131,84 @@ h6,
 @media (prefers-reduced-motion: reduce) {
   .plov-smoke { animation: none; opacity: 0; }
 }
+
+/* ── iPhone-макет для кейсов по сайтам ── */
+.dp-iphone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 420 / 909;
+  border-radius: 13.5% / 6.4%;
+  padding: 3.1%;
+  background:
+    linear-gradient(135deg, #5b5b62 0%, #1b1b20 18%, #0a0a0d 50%, #17171c 78%, #48484f 100%);
+  box-shadow:
+    0 34px 60px -22px rgba(0, 0, 0, 0.5),
+    0 10px 24px -10px rgba(0, 0, 0, 0.4),
+    inset 0 0 3px rgba(255, 255, 255, 0.28);
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.55s ease;
+}
+.group:hover .dp-iphone {
+  transform: translateY(-10px);
+  box-shadow:
+    0 46px 80px -24px rgba(0, 0, 0, 0.55),
+    0 14px 30px -12px rgba(0, 0, 0, 0.45),
+    inset 0 0 3px rgba(255, 255, 255, 0.3);
+}
+/* боковые кнопки */
+.dp-iphone::before {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 33%;
+  width: 3px;
+  height: 12%;
+  background: linear-gradient(90deg, #34343a, #08080a);
+  border-radius: 0 3px 3px 0;
+}
+.dp-iphone::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 25%;
+  width: 3px;
+  height: 7%;
+  background: linear-gradient(270deg, #34343a, #08080a);
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 26px 0 -0.5px #202026, 0 46px 0 -0.5px #202026;
+}
+.dp-iphone__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10.5% / 4.85%;
+  overflow: hidden;
+  background: #000;
+}
+.dp-iphone__screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+/* мягкий глянец экрана */
+.dp-iphone__screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 32%);
+  pointer-events: none;
+}
+.dp-iphone__island {
+  position: absolute;
+  top: 2.7%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 33%;
+  height: 2.5%;
+  min-height: 15px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 3;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}

@@ -114,31 +114,37 @@ export default function Cases() {
 
                 {/* Кейсы по сайтам — сетка */}
                 <div className="container mx-auto px-4 max-w-7xl mb-16">
-                    <div className="mb-8">
+                    <div className="mb-12 text-center">
                         <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3" style={{ background: '#FDE8E8', color: '#E31C24' }}>
                             Разработка сайтов
                         </div>
                         <h2 className="text-2xl md:text-4xl font-extrabold" style={{ fontFamily: "'Unbounded', sans-serif", color: '#1A1A1A' }}>
                             Сайты, которые мы сделали
                         </h2>
+                        <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto mt-3">
+                            Наведите на телефон — и загляните в каждый проект.
+                        </p>
                     </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-12 justify-items-center">
                         {[
-                            { href: '/cases/investbridge/', img: '/images/cases/investbridge/hero-desktop.jpg', accent: '#C9A24B', title: 'Инвестфорум Италия × Казахстан', desc: 'Официальный сайт форума: 4 языка, программа, участники, заявки.' },
-                            { href: '/cases/art-cleaning/', img: '/images/cases/art-cleaning/hero-desktop.jpg', accent: '#28C5C8', title: 'ART Cleaning — B2B-клининг', desc: 'Сайт-продавец: технология, калькулятор, кейсы, WhatsApp.' },
-                            { href: '/cases/ezhovik/', img: '/images/cases/ezhovik/hero-desktop.jpg', accent: '#C77D3E', title: 'Hericium Rex — грибные БАД', desc: 'Интернет-магазин с корзиной, протоколами приёма и доставкой.' },
-                            { href: '/cases/mozart-club/', img: '/images/cases/mozart-club/hero-desktop.jpg', accent: '#E11D2A', title: 'Mozart Club — запчасти', desc: 'Лендинг клубных карт: тарифы, сравнение цен, WhatsApp.' },
-                            { href: '/cases/on-time-service/', img: '/images/cases/on-time-service/hero-desktop.jpg', accent: '#E0A126', title: 'On Time Service — логистика', desc: 'Сайт грузоперевозок: 8 услуг, калькулятор, SEO по регионам.' },
+                            { href: '/cases/investbridge/', img: '/images/cases/investbridge/hero-mobile.jpg', accent: '#C9A24B', title: 'Инвестфорум Италия × Казахстан', desc: 'Официальный сайт форума: 4 языка, программа, участники, заявки.' },
+                            { href: '/cases/art-cleaning/', img: '/images/cases/art-cleaning/hero-mobile.jpg', accent: '#28C5C8', title: 'ART Cleaning — B2B-клининг', desc: 'Сайт-продавец: технология, калькулятор, кейсы, WhatsApp.' },
+                            { href: '/cases/ezhovik/', img: '/images/cases/ezhovik/hero-mobile.jpg', accent: '#C77D3E', title: 'Hericium Rex — грибные БАД', desc: 'Интернет-магазин с корзиной, протоколами приёма и доставкой.' },
+                            { href: '/cases/mozart-club/', img: '/images/cases/mozart-club/hero-mobile.jpg', accent: '#E11D2A', title: 'Mozart Club — запчасти', desc: 'Лендинг клубных карт: тарифы, сравнение цен, WhatsApp.' },
+                            { href: '/cases/on-time-service/', img: '/images/cases/on-time-service/hero-mobile.jpg', accent: '#E0A126', title: 'On Time Service — логистика', desc: 'Сайт грузоперевозок: 8 услуг, калькулятор, SEO по регионам.' },
                         ].map((c) => (
-                            <Link key={c.href} href={c.href} className="group block rounded-2xl overflow-hidden" style={{ background: '#111', border: '1px solid rgba(0,0,0,0.08)' }}>
-                                <div className="overflow-hidden" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                    <img src={c.img} alt={c.title} loading="lazy" className="w-full block aspect-[16/10] object-cover object-top group-hover:scale-[1.04] transition-transform duration-500" />
+                            <Link key={c.href} href={c.href} className="group flex flex-col items-center text-center w-full max-w-[210px]">
+                                <div className="dp-iphone">
+                                    <div className="dp-iphone__island" />
+                                    <div className="dp-iphone__screen">
+                                        <img src={c.img} alt={`Сайт ${c.title} на мобильном`} loading="lazy" />
+                                    </div>
                                 </div>
-                                <div className="p-5">
-                                    <div className="text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: c.accent }}>Разработка сайта</div>
-                                    <h3 className="text-lg font-extrabold text-white mb-1.5" style={{ fontFamily: "'Unbounded', sans-serif" }}>{c.title}</h3>
-                                    <p className="text-gray-400 text-sm mb-3">{c.desc}</p>
-                                    <span className="inline-flex items-center gap-1.5 text-white font-bold text-sm group-hover:gap-2.5 transition-all">
+                                <div className="mt-6">
+                                    <div className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: c.accent }}>Разработка сайта</div>
+                                    <h3 className="text-base font-extrabold mb-1.5" style={{ fontFamily: "'Unbounded', sans-serif", color: '#1A1A1A' }}>{c.title}</h3>
+                                    <p className="text-gray-500 text-sm mb-3 leading-snug">{c.desc}</p>
+                                    <span className="inline-flex items-center gap-1.5 font-bold text-sm group-hover:gap-2.5 transition-all" style={{ color: '#1A1A1A' }}>
                                         Смотреть кейс
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                     </span>
