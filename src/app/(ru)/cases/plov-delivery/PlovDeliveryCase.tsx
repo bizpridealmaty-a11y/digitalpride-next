@@ -119,6 +119,16 @@ function SectionBadge({ children }: { children: React.ReactNode }) {
     return <div className="inline-block px-4 py-1.5 rounded-full text-sm font-bold mb-4" style={{ background: COLORS.lightRed, color: COLORS.red }}>{children}</div>;
 }
 
+// Бейдж «Точка А / Точка Б» — единая логика «с чего начали → что стало».
+function AbBadge({ point, children }: { point: 'А' | 'Б'; children: React.ReactNode }) {
+    return (
+        <div className="inline-flex items-center gap-2.5 mb-4">
+            <span className="grid place-items-center rounded-lg font-extrabold text-white" style={{ width: 34, height: 34, fontSize: 17, background: point === 'Б' ? COLORS.red : '#8A8072', fontFamily: "'Unbounded', sans-serif" }}>{point}</span>
+            <span className="font-extrabold uppercase" style={{ fontSize: 13, letterSpacing: 1, color: point === 'Б' ? COLORS.red : COLORS.muted }}>{children}</span>
+        </div>
+    );
+}
+
 function SectionTitle({ children }: { children: React.ReactNode }) {
     return <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ fontFamily: "'Unbounded', sans-serif" }}>{children}</h2>;
 }
@@ -207,15 +217,15 @@ export default function PlovDeliveryCase() {
                     </div>
                 </section>
 
-                {/* ========== 2. ЗАПРОС КЛИЕНТА ========== */}
+                {/* ========== 2. ТОЧКА А — С ЧЕГО НАЧАЛИ ========== */}
                 <section style={{ paddingTop: 80, paddingBottom: 80, background: COLORS.card }}>
                     <div className="container mx-auto px-4 max-w-7xl">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
                             <motion.div variants={fadeUp} className="text-center mb-12">
-                                <SectionBadge>Запрос клиента</SectionBadge>
-                                <SectionTitle>Клиент хотел <span style={{ color: COLORS.red }}>заказы через WhatsApp</span></SectionTitle>
+                                <div className="flex justify-center"><AbBadge point="А">Отправная точка — с чего начали</AbBadge></div>
+                                <SectionTitle>Домашний плов и <span style={{ color: COLORS.red }}>ноль потока заказов</span></SectionTitle>
                                 <p className="text-lg max-w-2xl mx-auto" style={{ color: COLORS.muted }}>
-                                    Доставка домашнего плова в Алматы. Без сайта и промежуточных форм — только горячие заявки напрямую в WhatsApp.
+                                    Доставка домашнего плова в Алматы. Без сайта и промежуточных форм — только заявки напрямую в WhatsApp. Задача: превратить рекламу в поток обращений в чат и реальные заказы.
                                 </p>
                             </motion.div>
 
@@ -308,7 +318,7 @@ export default function PlovDeliveryCase() {
                     <div className="container mx-auto px-4 max-w-7xl">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
                             <motion.div variants={fadeUp} className="text-center mb-12">
-                                <SectionBadge>Результаты</SectionBadge>
+                                <div className="flex justify-center"><AbBadge point="Б">Что стало — результат</AbBadge></div>
                                 <SectionTitle>Результаты рекламной <span style={{ color: COLORS.red }}>кампании</span></SectionTitle>
                             </motion.div>
 
