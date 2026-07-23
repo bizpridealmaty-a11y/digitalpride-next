@@ -7,6 +7,16 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { trackWhatsAppClick } from '@/lib/analytics';
 
 const IMG = '/images/cases/plov-delivery';
+const VID = '/videos/cases/plov';
+
+// Реальные рекламные креативы (ролики), которые крутились в кампании.
+const CREATIVES = [
+    { src: `${VID}/domashniy.mp4`, poster: `${IMG}/poster-domashniy.jpg`, label: 'Домашний обед с пловом' },
+    { src: `${VID}/dr-1.mp4`, poster: `${IMG}/poster-dr-1.jpg`, label: 'Плов на день рождения' },
+    { src: `${VID}/prazdnik.mp4`, poster: `${IMG}/poster-prazdnik.jpg`, label: 'Праздник без хлопот' },
+    { src: `${VID}/obed-komanda.mp4`, poster: `${IMG}/poster-obed-komanda.jpg`, label: 'Офисный обед для команды' },
+    { src: `${VID}/dr-2.mp4`, poster: `${IMG}/poster-dr-2.jpg`, label: 'День рождения без хлопот' },
+];
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
 
@@ -50,6 +60,46 @@ function Scr({ src, alt, label, onClick }: { src: string; alt: string; label?: s
                 <img src={src} alt={alt} loading="lazy" className="w-full h-auto block" />
             </div>
             {label && <p className="text-xs font-semibold mt-3 text-center" style={{ color: COLORS.muted }}>{label}</p>}
+        </motion.div>
+    );
+}
+
+// Видео-креатив: сначала показываем постер + кнопку play (5 роликов не грузим
+// разом — preload='none'), по клику подставляем <video> с controls и звуком.
+// Это РЕАЛЬНЫЕ ролики, которые крутились в Meta Ads — вертикальный формат 9:16.
+function Vid({ src, poster, label }: { src: string; poster: string; label: string }) {
+    const [playing, setPlaying] = useState(false);
+    return (
+        <motion.div variants={fadeUp}>
+            <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 24px rgba(0,0,0,0.08)', aspectRatio: '9 / 16', background: '#000' }}>
+                {playing ? (
+                    <video
+                        src={src}
+                        poster={poster}
+                        controls
+                        autoPlay
+                        playsInline
+                        loop
+                        preload="metadata"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                ) : (
+                    <button
+                        type="button"
+                        onClick={() => setPlaying(true)}
+                        aria-label={`Смотреть креатив: ${label}`}
+                        className="absolute inset-0 w-full h-full group cursor-pointer"
+                    >
+                        <img src={poster} alt={label} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <span className="absolute inset-0 flex items-center justify-center" style={{ background: 'rgba(0,0,0,0.12)' }}>
+                            <span className="flex items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110" style={{ width: 64, height: 64, background: 'rgba(255,255,255,0.92)', boxShadow: '0 8px 30px rgba(0,0,0,0.35)' }}>
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill={COLORS.red} style={{ marginLeft: 4 }}><path d="M8 5v14l11-7z" /></svg>
+                            </span>
+                        </span>
+                    </button>
+                )}
+            </div>
+            <p className="text-xs font-semibold mt-3 text-center" style={{ color: COLORS.muted }}>{label}</p>
         </motion.div>
     );
 }
@@ -123,8 +173,13 @@ export default function PlovDeliveryCase() {
                                 </motion.div>
                             </div>
 
-                            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="w-full lg:w-[520px] flex-shrink-0">
-                                <Scr src={`${IMG}/01_campaigns_overview.png`} alt="Обзор кампаний — 427 переписок в WhatsApp" label="Результаты кампаний: 427 переписок, $1,33 средняя цена" onClick={() => open(`${IMG}/01_campaigns_overview.png`)} />
+                            {/* В герое — настоящий креатив (аппетитный визуал сразу цепляет),
+                                а скриншот-доказательство «427 переписок» лежит первой карточкой
+                                в evidence-trail прямо под героем. */}
+                            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="w-full lg:w-[400px] flex-shrink-0">
+                                <div className="max-w-[340px] mx-auto lg:mx-0">
+                                    <Vid src={`${VID}/dr-1.mp4`} poster={`${IMG}/poster-dr-1.jpg`} label="Один из роликов кампании — «Плов на день рождения»" />
+                                </div>
                             </motion.div>
                         </div>
 
@@ -216,33 +271,31 @@ export default function PlovDeliveryCase() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
                             <motion.div variants={fadeUp} className="text-center mb-12">
                                 <SectionBadge>Рекламные креативы</SectionBadge>
-                                <SectionTitle>Креативы, которые <span style={{ color: COLORS.red }}>сработали</span></SectionTitle>
+                                <SectionTitle>Ролики, которые мы <span style={{ color: COLORS.red }}>крутили в рекламе</span></SectionTitle>
                                 <p className="text-lg mt-2 max-w-2xl mx-auto" style={{ color: COLORS.muted }}>
-                                    5 из 10 медиафайлов выбраны для теста. Аппетитные food-визуалы с семейным сценарием и прямым CTA в WhatsApp.
+                                    Это не стоки, а наши реальные креативы — вертикальные ролики для Stories и Reels. Нажмите на любой, чтобы посмотреть.
                                 </p>
                             </motion.div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                                {[
-                                    { icon: '🍛', title: 'Домашний обед с пловом', desc: 'Передаёт атмосферу уюта и домашней кухни. Вызывает моментальное желание заказать.' },
-                                    { icon: '👨‍👩‍👧‍👦', title: 'Плов к семейному столу', desc: 'Акцент на совместном обеде. Отлично работает на аудиторию женщин 25-44.' },
-                                    { icon: '🔥', title: 'Горячий, сытный, готовый', desc: 'Показывает продукт в лучшем виде — с паром, специями, свежий и аппетитный.' },
-                                    { icon: '💬', title: 'Напишите в WhatsApp', desc: 'Прямой CTA: увидел — захотел — написал — заказал. Без лишних шагов.' },
-                                ].map((c, i) => (
-                                    <motion.div key={i} variants={fadeUp} className="p-6 rounded-2xl" style={{ background: COLORS.bg, border: `1px solid ${COLORS.border}` }}>
-                                        <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ background: COLORS.lightRed }}>
-                                            <span className="text-xl">{c.icon}</span>
-                                        </div>
-                                        <h3 className="text-base font-bold mb-2">{c.title}</h3>
-                                        <p className="text-sm" style={{ color: COLORS.muted, lineHeight: 1.6 }}>{c.desc}</p>
-                                    </motion.div>
+                            {/* 5 реальных видео-креативов */}
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-14 max-w-5xl mx-auto">
+                                {CREATIVES.map((c) => (
+                                    <Vid key={c.src} src={c.src} poster={c.poster} label={c.label} />
                                 ))}
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <Scr src={`${IMG}/06_ad_preview_source_creative.png`} alt="Превью рекламного объявления — домашний обед с пловом" label="Предпросмотр объявления" onClick={() => open(`${IMG}/06_ad_preview_source_creative.png`)} />
-                                <Scr src={`${IMG}/07_uploaded_media_files.png`} alt="Загруженные медиафайлы — 5 из 10 выбраны" label="Медиафайлы: загруженные креативы" onClick={() => open(`${IMG}/07_uploaded_media_files.png`)} />
-                                <Scr src={`${IMG}/08_instagram_stories_placements.png`} alt="Instagram Stories — два креатива с кнопкой WhatsApp" label="Instagram Stories: кнопка «Напишите в WhatsApp»" onClick={() => open(`${IMG}/08_instagram_stories_placements.png`)} />
+                            {/* Статичные версии для ленты + доказательство запуска в кабинете */}
+                            <motion.div variants={fadeUp} className="text-center mb-8">
+                                <h3 className="text-xl md:text-2xl font-bold">Статичные объявления и подтверждение запуска</h3>
+                                <p className="text-sm mt-2 max-w-2xl mx-auto" style={{ color: COLORS.muted }}>
+                                    Те же связки в статике для ленты — и скриншоты из рекламного кабинета, что креативы реально откручены.
+                                </p>
+                            </motion.div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-start">
+                                <Scr src={`${IMG}/creative-birthday-family.jpg`} alt="Статичный креатив: плов на день рождения, пирог в подарок" label="Статика: плов на день рождения" onClick={() => open(`${IMG}/creative-birthday-family.jpg`)} />
+                                <Scr src={`${IMG}/creative-birthday-friends.jpg`} alt="Статичный креатив: день рождения без хлопот" label="Статика: день рождения без хлопот" onClick={() => open(`${IMG}/creative-birthday-friends.jpg`)} />
+                                <Scr src={`${IMG}/07_uploaded_media_files.png`} alt="Загруженные медиафайлы в рекламном кабинете" label="Кабинет: загруженные креативы" onClick={() => open(`${IMG}/07_uploaded_media_files.png`)} />
+                                <Scr src={`${IMG}/08_instagram_stories_placements.png`} alt="Предпросмотр в Instagram Stories с кнопкой WhatsApp" label="Stories: кнопка «Написать в WhatsApp»" onClick={() => open(`${IMG}/08_instagram_stories_placements.png`)} />
                             </div>
                         </motion.div>
                     </div>
@@ -279,6 +332,64 @@ export default function PlovDeliveryCase() {
                                 <Scr src={`${IMG}/10_results_overview_demographics.png`} alt="Обзор результативности и демография" label="Обзор результативности и демография" onClick={() => open(`${IMG}/10_results_overview_demographics.png`)} />
                                 <Scr src={`${IMG}/01_campaigns_overview.png`} alt="Общий обзор кампаний" label="Общий обзор: все кампании" onClick={() => open(`${IMG}/01_campaigns_overview.png`)} />
                             </div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ========== 5.5. ОТ ПЕРЕПИСОК К ДЕНЬГАМ ========== */}
+                <section style={{ paddingTop: 80, paddingBottom: 80, background: `linear-gradient(180deg, ${COLORS.bg} 0%, #FFF3E6 100%)` }}>
+                    <div className="container mx-auto px-4 max-w-7xl">
+                        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+                            <motion.div variants={fadeUp} className="text-center mb-12">
+                                <SectionBadge>Деньги</SectionBadge>
+                                <SectionTitle>От переписок <span style={{ color: COLORS.red }}>к деньгам</span></SectionTitle>
+                                <p className="text-lg mt-2 max-w-2xl mx-auto" style={{ color: COLORS.muted }}>
+                                    Переписки — это ещё не результат. Важно, сколько из них дошли до реальной продажи и сколько денег принесли.
+                                </p>
+                            </motion.div>
+
+                            {/* Воронка: переписки → заказы → выручка */}
+                            <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-10">
+                                {[
+                                    { top: '427', label: 'переписки в WhatsApp', sub: 'Все обращения из рекламы', accent: false },
+                                    { top: '~60', label: 'реальных заказов', sub: 'Конверсия в продажу — 14%', accent: false },
+                                    { top: '≈1,68 млн ₸', label: 'выручка с рекламы', sub: 'Средний чек — 28 000 ₸', accent: true },
+                                ].map((s, i) => (
+                                    <React.Fragment key={i}>
+                                        <div className="p-8 rounded-2xl text-center relative" style={{ background: s.accent ? COLORS.red : COLORS.card, border: `1px solid ${s.accent ? COLORS.red : COLORS.border}`, color: s.accent ? '#fff' : COLORS.text }}>
+                                            <div className="text-3xl md:text-4xl font-extrabold mb-2" style={{ fontFamily: "'Unbounded', sans-serif", color: s.accent ? '#fff' : COLORS.red }}>{s.top}</div>
+                                            <div className="text-sm font-bold mb-1">{s.label}</div>
+                                            <div className="text-xs" style={{ color: s.accent ? 'rgba(255,255,255,0.85)' : COLORS.muted }}>{s.sub}</div>
+                                        </div>
+                                    </React.Fragment>
+                                ))}
+                            </motion.div>
+
+                            {/* Ключевая связка «потратили → вернули» */}
+                            <motion.div variants={fadeUp} className="p-8 md:p-10 rounded-2xl text-center" style={{ background: COLORS.card, border: `1px solid ${COLORS.border}` }}>
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-4">
+                                    <div>
+                                        <div className="text-2xl md:text-3xl font-extrabold" style={{ fontFamily: "'Unbounded', sans-serif" }}>~$567</div>
+                                        <div className="text-xs font-bold uppercase tracking-wide" style={{ color: COLORS.muted }}>вложили в рекламу</div>
+                                    </div>
+                                    <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke={COLORS.red} strokeWidth="2.5" className="rotate-90 sm:rotate-0"><path d="M2 12h34M28 4l8 8-8 8" /></svg>
+                                    <div>
+                                        <div className="text-2xl md:text-3xl font-extrabold" style={{ fontFamily: "'Unbounded', sans-serif", color: COLORS.whatsapp }}>≈1,68 млн ₸</div>
+                                        <div className="text-xs font-bold uppercase tracking-wide" style={{ color: COLORS.muted }}>получили выручки</div>
+                                    </div>
+                                    <div className="hidden sm:block" style={{ width: 1, height: 48, background: COLORS.border }} />
+                                    <div>
+                                        <div className="text-3xl md:text-4xl font-extrabold" style={{ fontFamily: "'Unbounded', sans-serif", color: COLORS.red }}>×6</div>
+                                        <div className="text-xs font-bold uppercase tracking-wide" style={{ color: COLORS.muted }}>возврат на рекламу*</div>
+                                    </div>
+                                </div>
+                                <p className="text-sm max-w-3xl mx-auto" style={{ color: COLORS.muted, lineHeight: 1.7 }}>
+                                    Каждый вложенный доллар вернулся выручкой примерно в 6 раз. Стоимость одного заказа — около <strong style={{ color: COLORS.text }}>4 500 ₸</strong> при среднем чеке <strong style={{ color: COLORS.text }}>28 000 ₸</strong>.
+                                </p>
+                                <p className="text-xs mt-4" style={{ color: COLORS.muted }}>
+                                    * Расчёт выручки: 427 переписок × 14% конверсии в продажу × средний чек 28 000 ₸. Возврат на рекламу приведён при курсе ≈480 ₸/$.
+                                </p>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </section>
