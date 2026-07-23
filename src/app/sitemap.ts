@@ -57,6 +57,9 @@ const pages: PageMeta[] = [
     { url: '/cases/plov-delivery', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/cases/art-cleaning', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/cases/investbridge', priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/cases/ezhovik', priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/cases/mozart-club', priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/cases/on-time-service', priority: 0.7, changeFrequency: 'monthly' },
 ];
 
 // Страницы разложены по route-группам «(ru)» и «(kk)» — на URL это не влияет,
