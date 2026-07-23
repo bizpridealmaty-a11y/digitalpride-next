@@ -116,13 +116,16 @@ export default function ONasPage() {
 
                 {/* Founder block */}
                 <section className="container mx-auto px-4 max-w-5xl mb-24">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-zinc-950 to-zinc-900 rounded-3xl p-8 md:p-16 text-white">
-                        <div className="relative aspect-square rounded-2xl overflow-hidden bg-black">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch bg-gradient-to-br from-zinc-950 to-zinc-900 rounded-3xl p-8 md:p-16 text-white">
+                        {/* Фото тянется на всю высоту колонки: на мобильном задаём разумную
+                            минимальную высоту (портрет), на десктопе self-stretch + h-full
+                            заполняют весь блок рядом с текстом — без пустых полей сверху/снизу. */}
+                        <div className="relative min-h-[420px] lg:min-h-0 lg:self-stretch lg:h-full rounded-2xl overflow-hidden bg-black">
                             <Image
                                 src="/images/founder-portrait.webp"
                                 alt="Дмитрий Тимошевский — основатель Digital Pride"
                                 fill
-                                className="object-cover"
+                                className="object-cover object-top"
                                 sizes="(max-width: 1024px) 100vw, 500px"
                             />
                         </div>
@@ -163,7 +166,7 @@ export default function ONasPage() {
                                     Telegram
                                 </a>
                                 <a
-                                    href="https://www.instagram.com/digitalpride.kz/"
+                                    href="https://www.instagram.com/dima.timoshevskij/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl text-sm font-semibold transition-colors"
