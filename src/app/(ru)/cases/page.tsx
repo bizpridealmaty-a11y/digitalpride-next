@@ -37,32 +37,40 @@ export default function Cases() {
                     </div>
                 </div>
 
-                {/* Featured case — plov delivery */}
+                {/* Featured case — plov delivery (full-bleed обложка с дымом) */}
                 <div className="container mx-auto px-4 max-w-7xl mb-8">
-                    <Link href="/cases/plov-delivery/" className="group block relative overflow-hidden rounded-3xl" style={{ background: '#FFF9F2' }}>
-                        <div className="relative p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-                            <div className="flex-1">
-                                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4" style={{ background: '#FDE8E8', color: '#E31C24' }}>
+                    <Link href="/cases/plov-delivery/" className="group block relative overflow-hidden rounded-3xl" style={{ background: '#0a0603' }}>
+                        <div className="relative">
+                            <img
+                                src="/images/cases/plov-delivery/cover.jpg"
+                                alt="Кейс реклама доставки плова — 427 переписок в WhatsApp"
+                                className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                                style={{ maxHeight: '600px' }}
+                            />
+                            {/* Анимированный дым, поднимающийся над пловом */}
+                            <div className="plov-cover-smoke" aria-hidden="true">
+                                <span className="plov-smoke s1" />
+                                <span className="plov-smoke s2" />
+                                <span className="plov-smoke s3" />
+                                <span className="plov-smoke s4" />
+                            </div>
+                            {/* Затемнение снизу и слева — под читаемость заголовка */}
+                            <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 38%, rgba(0,0,0,0.05) 70%)' }} />
+                            <div className="absolute inset-0 z-[2] hidden md:block" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 45%, transparent 70%)' }} />
+                            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-[3]">
+                                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3" style={{ background: '#E31C24', color: '#fff' }}>
                                     Новый кейс · Июнь 2026
                                 </div>
-                                <h2 className="text-2xl md:text-4xl font-extrabold mb-3" style={{ fontFamily: "'Unbounded', sans-serif", color: '#1A1A1A' }}>
-                                    427 переписок в WhatsApp за <span style={{ color: '#E31C24' }}>$1,33</span>
+                                <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 max-w-2xl" style={{ fontFamily: "'Unbounded', sans-serif", textShadow: '0 2px 24px rgba(0,0,0,0.6)' }}>
+                                    427 переписок в WhatsApp за <span style={{ color: '#FF6B4A' }}>$1,33</span>
                                 </h2>
-                                <p className="text-sm md:text-base mb-6" style={{ color: '#5E5E5E' }}>
-                                    Реклама доставки плова в Алматы через Meta Ads. Лучшая связка: 259 переписок по $0,78.
+                                <p className="text-gray-200 text-sm md:text-base max-w-xl mb-4" style={{ textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
+                                    Доставка домашнего плова в Алматы через Meta Ads. Лучшая связка — 259 переписок по $0,78, и ≈1,68 млн ₸ выручки с рекламы.
                                 </p>
-                                <span className="inline-flex items-center gap-2 font-bold text-sm group-hover:gap-3 transition-all" style={{ color: '#E31C24' }}>
+                                <span className="inline-flex items-center gap-2 text-white font-bold text-sm group-hover:gap-3 transition-all">
                                     Смотреть кейс
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                 </span>
-                            </div>
-                            <div className="w-full md:w-[400px] flex-shrink-0">
-                                <img
-                                    src="/images/cases/plov-delivery/01_campaigns_overview.png"
-                                    alt="Кейс реклама доставки плова — 427 переписок в WhatsApp"
-                                    className="w-full h-auto rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
-                                    style={{ border: '1px solid #E8D9C4', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}
-                                />
                             </div>
                         </div>
                     </Link>

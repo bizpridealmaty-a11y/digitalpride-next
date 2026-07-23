@@ -98,3 +98,36 @@ h6,
 .top-logo {
   font-family: 'Unbounded', sans-serif !important;
 }
+/* ===== Анимированный дым над обложкой кейса плова ===== */
+.plov-cover-smoke {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.plov-smoke {
+  position: absolute;
+  bottom: 34%;                 /* примерно над вершиной горы плова */
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 40%, rgba(255,255,255,0) 70%);
+  filter: blur(14px);
+  opacity: 0;
+  transform: translateY(0) scale(0.7);
+  animation: plov-smoke-rise 7s ease-in infinite;
+}
+.plov-smoke.s1 { left: 42%; animation-duration: 7s;  animation-delay: 0s;   }
+.plov-smoke.s2 { left: 50%; animation-duration: 9s;  animation-delay: 1.6s; width: 160px; height: 160px; }
+.plov-smoke.s3 { left: 57%; animation-duration: 8s;  animation-delay: 3.2s; }
+.plov-smoke.s4 { left: 48%; animation-duration: 10s; animation-delay: 4.5s; width: 110px; height: 110px; }
+@keyframes plov-smoke-rise {
+  0%   { opacity: 0;    transform: translateY(0)      scale(0.7); }
+  20%  { opacity: 0.55; }
+  60%  { opacity: 0.35; }
+  100% { opacity: 0;    transform: translateY(-190px) scale(1.9); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plov-smoke { animation: none; opacity: 0; }
+}
