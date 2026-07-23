@@ -22,16 +22,16 @@ export type WebsiteCaseData = {
     lede: string;
     accent?: string;                 // акцент сайта (для чипов/фактов); по умолчанию красный DP
     heroDesktop: string;
-    heroMobile: string;
+    heroMobile?: string;
     heroDesktopAlt: string;
-    heroMobileAlt: string;
+    heroMobileAlt?: string;
     chips: { title: string; sub: string }[];
     pointA: { title: React.ReactNode; text: React.ReactNode; pains: { h: string; p: string }[] };
     didTitle: React.ReactNode;
     didSubtitle?: string;
     did: { icon: string; h: string; p: string }[];
     pointB: { title: React.ReactNode; subtitle?: string; facts: { b: string; s: string }[]; slot?: React.ReactNode };
-    gallery: { src: string; alt: string; cap: string }[];
+    gallery?: { src: string; alt: string; cap: string }[];
     flow: { n: string; h: string; p: string }[];
     stack: string[];
     testimonial?: { text: string; who: string; role: string };
@@ -107,10 +107,12 @@ export default function WebsiteCase({ data }: { data: WebsiteCaseData }) {
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src={data.heroDesktop} alt={data.heroDesktopAlt} className="w-full block" />
                                 </div>
-                                <div className="absolute rounded-[20px] overflow-hidden hidden sm:block" style={{ right: -10, bottom: -28, width: 124, border: '6px solid #24242e', boxShadow: '0 30px 80px rgba(0,0,0,.55)' }}>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={data.heroMobile} alt={data.heroMobileAlt} className="w-full block" />
-                                </div>
+                                {data.heroMobile && (
+                                    <div className="absolute rounded-[20px] overflow-hidden hidden sm:block" style={{ right: -10, bottom: -28, width: 124, border: '6px solid #24242e', boxShadow: '0 30px 80px rgba(0,0,0,.55)' }}>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={data.heroMobile} alt={data.heroMobileAlt} className="w-full block" />
+                                    </div>
+                                )}
                             </motion.div>
                         </div>
                     </div>
@@ -178,23 +180,25 @@ export default function WebsiteCase({ data }: { data: WebsiteCaseData }) {
                 </section>
 
                 {/* СТРАНИЦЫ */}
-                <section style={{ paddingTop: 64, paddingBottom: 64, borderTop: `1px solid ${C.line}` }}>
-                    <div className="container mx-auto px-4 max-w-6xl">
-                        <Reveal className="mb-8">
-                            <span className="block font-bold uppercase mb-2" style={{ fontSize: 12, letterSpacing: 2, color: C.accentSoft }}>Страницы сайта</span>
-                            <h2 className="font-extrabold tracking-tight" style={{ fontFamily: "'Unbounded', sans-serif", fontSize: 'clamp(23px, 3.4vw, 36px)' }}>Как это выглядит</h2>
-                        </Reveal>
-                        <motion.div className="grid sm:grid-cols-2 gap-4" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-                            {data.gallery.map((g, i) => (
-                                <motion.div key={i} variants={fadeUp} className="rounded-xl overflow-hidden" style={{ background: C.surface, border: `1px solid ${C.line}` }}>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={g.src} alt={g.alt} loading="lazy" className="w-full block" style={{ borderBottom: `1px solid ${C.line}` }} />
-                                    <div className="px-3.5 py-3 font-semibold" style={{ fontSize: 13, color: C.muted }}>{g.cap}</div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </section>
+                {data.gallery && data.gallery.length > 0 && (
+                    <section style={{ paddingTop: 64, paddingBottom: 64, borderTop: `1px solid ${C.line}` }}>
+                        <div className="container mx-auto px-4 max-w-6xl">
+                            <Reveal className="mb-8">
+                                <span className="block font-bold uppercase mb-2" style={{ fontSize: 12, letterSpacing: 2, color: C.accentSoft }}>Страницы сайта</span>
+                                <h2 className="font-extrabold tracking-tight" style={{ fontFamily: "'Unbounded', sans-serif", fontSize: 'clamp(23px, 3.4vw, 36px)' }}>Как это выглядит</h2>
+                            </Reveal>
+                            <motion.div className="grid sm:grid-cols-2 gap-4" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+                                {data.gallery.map((g, i) => (
+                                    <motion.div key={i} variants={fadeUp} className="rounded-xl overflow-hidden" style={{ background: C.surface, border: `1px solid ${C.line}` }}>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={g.src} alt={g.alt} loading="lazy" className="w-full block" style={{ borderBottom: `1px solid ${C.line}` }} />
+                                        <div className="px-3.5 py-3 font-semibold" style={{ fontSize: 13, color: C.muted }}>{g.cap}</div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </section>
+                )}
 
                 {/* КАК ДЕЛАЛИ */}
                 <section style={{ paddingTop: 64, paddingBottom: 64, borderTop: `1px solid ${C.line}` }}>

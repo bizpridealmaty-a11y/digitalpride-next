@@ -112,6 +112,39 @@ export default function Cases() {
                     </Link>
                 </div>
 
+                {/* Featured case — InvestBridge (сайт) */}
+                <div className="container mx-auto px-4 max-w-7xl mb-8">
+                    <Link href="/cases/investbridge/" className="group block relative overflow-hidden rounded-3xl" style={{ background: '#0B1020' }}>
+                        <div className="grid md:grid-cols-2 items-center">
+                            <div className="p-8 md:p-12">
+                                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4" style={{ background: 'rgba(201,162,75,0.16)', color: '#C9A24B' }}>
+                                    Кейс · Разработка сайта
+                                </div>
+                                <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-3" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+                                    Сайт инвестфорума <span style={{ color: '#C9A24B' }}>Италия × Казахстан 2026</span>
+                                </h2>
+                                <p className="text-gray-400 text-sm md:text-base max-w-xl mb-5">
+                                    Официальный сайт межправительственного форума в Астане: 4 языка, программа двух дней, участники и приём заявок делегатов.
+                                </p>
+                                <span className="inline-flex items-center gap-2 text-white font-bold text-sm group-hover:gap-3 transition-all">
+                                    Смотреть кейс
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                </span>
+                            </div>
+                            <div className="p-6 md:p-10">
+                                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #223', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+                                    <div className="flex items-center gap-1.5 px-3 py-2" style={{ background: '#141b2e' }}>
+                                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ff5f57' }} />
+                                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#febc2e' }} />
+                                        <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#28c840' }} />
+                                    </div>
+                                    <img src="/images/cases/investbridge/hero-desktop.jpg" alt="Сайт инвестфорума Италия–Казахстан 2026" className="w-full block group-hover:scale-[1.02] transition-transform duration-500" />
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+
                 {/* Featured case — ART Cleaning (сайт) */}
                 <div className="container mx-auto px-4 max-w-7xl mb-16">
                     <Link href="/cases/art-cleaning/" className="group block relative overflow-hidden rounded-3xl" style={{ background: '#0E0E12' }}>
