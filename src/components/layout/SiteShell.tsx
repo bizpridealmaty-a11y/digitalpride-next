@@ -48,6 +48,16 @@ export default function SiteShell({
               });`,
                     }}
                 />
+                {/* Google Analytics 4 (gtag.js) */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-XCWF6RR7KM" />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XCWF6RR7KM');`,
+                    }}
+                />
             </head>
             <body>
                 <LocaleProvider locale={locale}>
