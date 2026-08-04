@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { trackWhatsAppClick } from '@/lib/analytics';
 import { useTranslations, useLocale } from '@/lib/locale-context';
 import { localizedPath } from '@/lib/i18n';
+import { WaveText } from '@/components/motion/AnimatedHeading';
 
 export default function Hero() {
     const t = useTranslations();
@@ -183,7 +184,7 @@ export default function Hero() {
                         </motion.div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
-                            {t.heroHeadline} <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
+                            <WaveText text={t.heroHeadline} immediate /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl font-medium">

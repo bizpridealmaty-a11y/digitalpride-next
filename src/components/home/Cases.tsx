@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
+import NumberFlow from '@/components/motion/NumberFlow';
 
 export default function Cases() {
     const locale = useLocale();
@@ -139,7 +140,7 @@ export default function Cases() {
                                                 whileHover={{ scale: 1.05 }}
                                                 className="transition-transform duration-300"
                                             >
-                                                <div className="text-3xl lg:text-4xl font-extrabold text-white mb-1 group-hover:text-red-500 transition-colors">{res.value}</div>
+                                                <div className="text-3xl lg:text-4xl font-extrabold text-white mb-1 group-hover:text-red-500 transition-colors"><NumberFlow value={res.value} /></div>
                                                 <div className="text-sm text-gray-400 font-medium">
                                                     {res.label.split(res.highlight).map((part, j, arr) => (
                                                         <React.Fragment key={j}>

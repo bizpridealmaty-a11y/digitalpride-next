@@ -13,16 +13,21 @@ export function WaveText({
     text,
     className = '',
     step = 0.028,
+    immediate = false,
 }: {
     text: string;
     className?: string;
     step?: number;
+    /** true — запускать по монтированию (для контента на первом экране, чтобы не
+     * зависеть от IntersectionObserver). По умолчанию — по появлению в вьюпорте. */
+    immediate?: boolean;
 }) {
     const reduce = useReducedMotion();
     if (reduce) return <span className={className}>{text}</span>;
 
     const words = text.split(' ');
     let charCounter = 0;
+    const reveal = { y: 0, opacity: 1 };
 
     return (
         <span className={className} style={{ display: 'inline-block' }} aria-label={text}>
@@ -35,8 +40,9 @@ export function WaveText({
                                 key={ci}
                                 style={{ display: 'inline-block' }}
                                 initial={{ y: '0.55em', opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: '-8% 0px' }}
+                                {...(immediate
+                                    ? { animate: reveal }
+                                    : { whileInView: reveal, viewport: { once: true, margin: '-8% 0px' } })}
                                 transition={{ delay, type: 'spring', stiffness: 320, damping: 24 }}
                             >
                                 {ch}
