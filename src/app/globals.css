@@ -212,3 +212,43 @@ h6,
   z-index: 3;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
+
+/* ── SiriOrb: переливающийся градиентный шар ── */
+.dp-orb {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.15), 0 20px 50px -18px rgba(227, 28, 36, 0.5);
+}
+.dp-orb__layer {
+  position: absolute;
+  inset: -25%;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+.dp-orb__layer--1 {
+  background: conic-gradient(from 0deg, #E31C24, #FF6B4A, #d7ff3e, #E31C24);
+  filter: blur(14px);
+  animation: dp-orb-spin 7s linear infinite;
+}
+.dp-orb__layer--2 {
+  background: radial-gradient(circle at 30% 30%, #FF5A4D 0%, transparent 55%),
+    radial-gradient(circle at 70% 65%, #b8ff2e 0%, transparent 55%),
+    radial-gradient(circle at 60% 20%, #ff2e6a 0%, transparent 50%);
+  filter: blur(10px);
+  animation: dp-orb-spin 11s linear infinite reverse;
+}
+.dp-orb__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55) 0%, transparent 35%);
+  z-index: 2;
+}
+@keyframes dp-orb-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dp-orb__layer { animation: none; }
+}
