@@ -86,21 +86,21 @@ export default function OutsourcedMarketingPage() {
             pricing={[
                 {
                     name: 'Базалық',
-                    price: '180 000 ₸',
+                    price: 'от 320 000 ₸',
                     features: [
                         'Аудит және стратегия (1 рет)',
                         'Базалық SMM (Instagram)',
                         '15 пост + 30 Stories / ай',
                         'Креативтер әзірлеу',
-                        'Таргеттелген жарнаманы баптау (1 арна)',
                         'Ай сайынғы есептілік'
                     ]
                 },
                 {
                     name: 'Оңтайлы',
-                    price: '280 000 ₸',
+                    price: 'от 750 000 ₸',
                     features: [
                         'Базалық тарифтегінің бәрі',
+                        'Таргеттелген жарнаманы баптау',
                         'Reels-продакшн (айына 4 бейне монтаж)',
                         'Мультиарналы таргет (Insta, FB, TikTok)',
                         'Google Ads контекстік жарнаманы баптау',
@@ -110,7 +110,7 @@ export default function OutsourcedMarketingPage() {
                 },
                 {
                     name: 'Performance Pro',
-                    price: 'от 500 000 ₸',
+                    price: 'от 1 000 000 ₸',
                     features: [
                         'Оңтайлы тарифтегінің бәрі',
                         'Жаңа көп беттік сайттар жасау',

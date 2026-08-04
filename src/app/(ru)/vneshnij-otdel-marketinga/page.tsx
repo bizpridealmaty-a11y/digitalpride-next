@@ -84,16 +84,16 @@ export default function OutsourcedMarketingPage() {
                         'Базовый SMM (Instagram)',
                         '15 постов + 30 Stories / мес',
                         'Разработка креативов',
-                        'Настройка таргетированной рекламы (1 канал)',
                         'Ежемесячная отчетность'
                     ]
                 },
                 {
                     name: 'Оптимальный',
-                    price: 'от 550 000 ₸',
+                    price: 'от 750 000 ₸',
                     isPopular: true,
                     features: [
                         'Всё, что в Базовом',
+                        'Настройка таргетированной рекламы',
                         'Reels-продакшен (монтаж 4 видео / мес)',
                         'Мультиканальный таргет (Insta, FB, TikTok)',
                         'Настройка контекстной рекламы Google Ads',
@@ -103,7 +103,7 @@ export default function OutsourcedMarketingPage() {
                 },
                 {
                     name: 'Performance Pro',
-                    price: 'от 800 000 ₸',
+                    price: 'от 1 000 000 ₸',
                     features: [
                         'Всё, что в Оптимальном',
                         'Создание новых многостраничных сайтов',
