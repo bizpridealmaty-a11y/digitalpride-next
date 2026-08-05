@@ -183,7 +183,7 @@ export default function Hero() {
                             {t.heroBadge}
                         </motion.div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
+                        <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
                             <WaveText text={t.heroHeadline} immediate /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
                         </h1>
 
@@ -207,7 +207,7 @@ export default function Hero() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => trackWhatsAppClick('hero_cta')}
-                                className="px-8 py-4 text-white font-bold transition-all transform hover:scale-105"
+                                className="hidden sm:inline-block px-8 py-4 text-white font-bold transition-all transform hover:scale-105"
                                 style={{
                                     background: 'rgba(255,255,255,0.1)',
                                     backdropFilter: 'blur(16px)',
@@ -215,7 +215,6 @@ export default function Hero() {
                                     border: '1px solid rgba(255,255,255,0.2)',
                                     borderRadius: '12px',
                                     boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
-                                    display: 'inline-block',
                                 }}
                             >
                                 {t.heroWhatsApp}

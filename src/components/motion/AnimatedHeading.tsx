@@ -30,7 +30,7 @@ export function WaveText({
     const reveal = { y: 0, opacity: 1 };
 
     return (
-        <span className={className} style={{ display: 'inline-block' }} aria-label={text}>
+        <span className={className} style={{ display: 'inline' }} aria-label={text}>
             {words.map((word, wi) => (
                 <span key={wi} style={{ display: 'inline-block', whiteSpace: 'nowrap' }} aria-hidden>
                     {word.split('').map((ch, ci) => {
