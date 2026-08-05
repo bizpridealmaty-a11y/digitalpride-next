@@ -128,26 +128,26 @@ export default function Cases() {
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-12 justify-items-center">
                         {[
-                            { href: '/cases/investbridge/', img: '/images/cases/investbridge/hero-mobile.jpg', scroll: '/images/cases/investbridge/scroll-m.jpg', scrollH: 4200, accent: '#C9A24B', title: 'Инвестфорум Италия × Казахстан', desc: 'Официальный сайт форума: 4 языка, программа, участники, заявки.' },
-                            { href: '/cases/art-cleaning/', img: '/images/cases/art-cleaning/hero-mobile.jpg', scroll: '/images/cases/art-cleaning/scroll-m.jpg', scrollH: 4200, accent: '#28C5C8', title: 'ART Cleaning — B2B-клининг', desc: 'Сайт-продавец: технология, калькулятор, кейсы, WhatsApp.' },
-                            { href: '/cases/ezhovik/', img: '/images/cases/ezhovik/hero-mobile.jpg', scroll: '/images/cases/ezhovik/scroll-m.jpg', scrollH: 4200, accent: '#C77D3E', title: 'Hericium Rex — грибные БАД', desc: 'Интернет-магазин с корзиной, протоколами приёма и доставкой.' },
-                            { href: '/cases/mozart-club/', img: '/images/cases/mozart-club/hero-mobile.jpg', scroll: '/images/cases/mozart-club/scroll-m.jpg', scrollH: 4200, accent: '#E11D2A', title: 'Mozart Club — запчасти', desc: 'Лендинг клубных карт: тарифы, сравнение цен, WhatsApp.' },
-                            { href: '/cases/on-time-service/', img: '/images/cases/on-time-service/hero-mobile.jpg', scroll: '/images/cases/on-time-service/scroll-m.jpg', scrollH: 4200, accent: '#E0A126', title: 'On Time Service — логистика', desc: 'Сайт грузоперевозок: 8 услуг, калькулятор, SEO по регионам.' },
+                            { href: '/cases/investbridge/', img: '/images/cases/investbridge/hero-mobile.jpg', scroll: '/images/cases/investbridge/scroll-m.jpg', scrollH: 4200, dur: 15, accent: '#C9A24B', title: 'Инвестфорум Италия × Казахстан', desc: 'Официальный сайт форума: 4 языка, программа, участники, заявки.' },
+                            { href: '/cases/art-cleaning/', img: '/images/cases/art-cleaning/hero-mobile.jpg', scroll: '/images/cases/art-cleaning/scroll-m.jpg', scrollH: 4200, dur: 11, accent: '#28C5C8', title: 'ART Cleaning — B2B-клининг', desc: 'Сайт-продавец: технология, калькулятор, кейсы, WhatsApp.' },
+                            { href: '/cases/ezhovik/', img: '/images/cases/ezhovik/hero-mobile.jpg', scroll: '/images/cases/ezhovik/scroll-m.jpg', scrollH: 4200, dur: 18, accent: '#C77D3E', title: 'Hericium Rex — грибные БАД', desc: 'Интернет-магазин с корзиной, протоколами приёма и доставкой.' },
+                            { href: '/cases/mozart-club/', img: '/images/cases/mozart-club/hero-mobile.jpg', scroll: '/images/cases/mozart-club/scroll-m.jpg', scrollH: 4200, dur: 13, accent: '#E11D2A', title: 'Mozart Club — запчасти', desc: 'Лендинг клубных карт: тарифы, сравнение цен, WhatsApp.' },
+                            { href: '/cases/on-time-service/', img: '/images/cases/on-time-service/hero-mobile.jpg', scroll: '/images/cases/on-time-service/scroll-m.jpg', scrollH: 4200, dur: 16, accent: '#E0A126', title: 'On Time Service — логистика', desc: 'Сайт грузоперевозок: 8 услуг, калькулятор, SEO по регионам.' },
                         ].map((c) => (
-                            <Link key={c.href} href={c.href} className="group flex flex-col items-center text-center w-full max-w-[210px]">
+                            <Link key={c.href} href={c.href} className="group flex flex-col items-center text-center w-full max-w-[210px] h-full">
                                 <div className="dp-iphone">
                                     <div className="dp-iphone__island" />
                                     <div className="dp-iphone__screen">
                                         {c.scroll
-                                            ? <PhoneScroller src={c.scroll} heightPx={c.scrollH} alt={`Сайт ${c.title} на мобильном`} />
+                                            ? <PhoneScroller src={c.scroll} heightPx={c.scrollH} duration={c.dur} alt={`Сайт ${c.title} на мобильном`} />
                                             : <img src={c.img} alt={`Сайт ${c.title} на мобильном`} loading="lazy" />}
                                     </div>
                                 </div>
-                                <div className="mt-6">
+                                <div className="mt-6 flex flex-col flex-1 w-full items-center">
                                     <div className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: c.accent }}>Разработка сайта</div>
                                     <h3 className="text-base font-extrabold mb-1.5" style={{ fontFamily: "'Unbounded', sans-serif", color: '#1A1A1A' }}>{c.title}</h3>
-                                    <p className="text-gray-500 text-sm mb-3 leading-snug">{c.desc}</p>
-                                    <span className="inline-flex items-center gap-1.5 font-bold text-sm group-hover:gap-2.5 transition-all" style={{ color: '#1A1A1A' }}>
+                                    <p className="text-gray-500 text-sm mb-4 leading-snug">{c.desc}</p>
+                                    <span className="mt-auto inline-flex items-center justify-center gap-1.5 font-bold text-sm text-white rounded-full px-5 py-2.5 group-hover:gap-2.5 transition-all" style={{ background: '#E31C24' }}>
                                         Смотреть кейс
                                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                     </span>
