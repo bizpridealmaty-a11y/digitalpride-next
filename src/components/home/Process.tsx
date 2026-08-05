@@ -4,14 +4,15 @@ import React, { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
 
-const PATH = 'M60,350 C240,340 260,250 430,235 S620,200 610,150 780,70 940,58';
-// Позиции узлов в % контейнера (совпадают с точками кривой)
+// Кривая на всю ширину экрана (viewBox 1440×320)
+const PATH = 'M30,270 C260,262 330,232 470,215 C640,194 700,168 840,150 C1000,129 1120,88 1410,45';
+// Позиции узлов в % полноширинного контейнера (у точек кривой)
 const POS = [
-    { l: '9%', t: '84%' },
-    { l: '31%', t: '61%' },
-    { l: '52%', t: '47%' },
-    { l: '73%', t: '31%' },
-    { l: '91%', t: '15%' },
+    { l: '7%', t: '82%' },
+    { l: '28%', t: '69%' },
+    { l: '50%', t: '53%' },
+    { l: '72%', t: '37%' },
+    { l: '94%', t: '17%' },
 ];
 
 export default function Process() {
@@ -97,9 +98,9 @@ export default function Process() {
                     </p>
                 </div>
 
-                {/* ── Десктоп: траектория ── */}
-                <div className="hidden lg:block relative mx-auto" style={{ aspectRatio: '1000 / 400', maxWidth: 1120 }}>
-                    <svg viewBox="0 0 1000 400" preserveAspectRatio="none" className="absolute inset-0 w-full h-full overflow-visible">
+                {/* ── Десктоп: траектория на всю ширину экрана ── */}
+                <div className="hidden lg:block relative w-screen left-1/2 -translate-x-1/2" style={{ aspectRatio: '1440 / 320' }}>
+                    <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="absolute inset-0 w-full h-full overflow-visible">
                         <defs>
                             <linearGradient id="growthGrad" x1="0" y1="1" x2="1" y2="0">
                                 <stop offset="0" stopColor="#E31C24" />
