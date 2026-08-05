@@ -136,7 +136,7 @@ export default async function CaseDetail({ params }: CaseParams) {
                             <div>
                                 <h2 className="text-2xl font-bold text-red-600 mb-6 uppercase tracking-widest text-sm flex items-center gap-3">
                                     <span className="w-8 h-px bg-red-600 inline-block"></span>
-                                    01. Проблема
+                                    Проблема
                                 </h2>
                                 <p className="text-xl text-gray-700 leading-relaxed font-medium">{caseStudy.content.problem}</p>
                             </div>
@@ -144,7 +144,7 @@ export default async function CaseDetail({ params }: CaseParams) {
                             <div>
                                 <h2 className="text-2xl font-bold text-red-600 mb-6 uppercase tracking-widest text-sm flex items-center gap-3">
                                     <span className="w-8 h-px bg-red-600 inline-block"></span>
-                                    02. Что мы сделали
+                                    Что мы сделали
                                 </h2>
                                 <ul className="space-y-6">
                                     {caseStudy.content.solution.map((sol, i) => (
@@ -158,35 +158,39 @@ export default async function CaseDetail({ params }: CaseParams) {
                                 </ul>
                             </div>
 
-                            {/* Charts Section */}
-                            <div>
-                                <h2 className="text-2xl font-bold text-red-600 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
-                                    <span className="w-8 h-px bg-red-600 inline-block"></span>
-                                    03. Динамика показателей
-                                </h2>
-                                <CaseCharts
-                                    barMetrics={caseStudy.barMetrics}
-                                    chartData={caseStudy.chartData}
-                                    timeline={caseStudy.timeline}
-                                />
-                            </div>
+                            {/* Charts Section — только если есть реальные данные */}
+                            {caseStudy.barMetrics.length > 0 && (
+                                <div>
+                                    <h2 className="text-2xl font-bold text-red-600 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
+                                        <span className="w-8 h-px bg-red-600 inline-block"></span>
+                                        Динамика показателей
+                                    </h2>
+                                    <CaseCharts
+                                        barMetrics={caseStudy.barMetrics}
+                                        chartData={caseStudy.chartData}
+                                        timeline={caseStudy.timeline}
+                                    />
+                                </div>
+                            )}
 
-                            {/* Ad Screenshot Section */}
-                            <div>
-                                <h2 className="text-2xl font-bold text-red-600 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
-                                    <span className="w-8 h-px bg-red-600 inline-block"></span>
-                                    04. Рекламный кабинет
-                                </h2>
-                                <AdScreenshot
-                                    platform={caseStudy.adPlatform}
-                                    screenshot={caseStudy.adScreenshot}
-                                />
-                            </div>
+                            {/* Ad Screenshot Section — только если есть реальный скрин */}
+                            {caseStudy.adScreenshot && (
+                                <div>
+                                    <h2 className="text-2xl font-bold text-red-600 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
+                                        <span className="w-8 h-px bg-red-600 inline-block"></span>
+                                        Рекламный кабинет
+                                    </h2>
+                                    <AdScreenshot
+                                        platform={caseStudy.adPlatform}
+                                        screenshot={caseStudy.adScreenshot}
+                                    />
+                                </div>
+                            )}
 
                             <div>
                                 <h2 className="text-2xl font-bold text-red-600 mb-6 uppercase tracking-widest text-sm flex items-center gap-3">
                                     <span className="w-8 h-px bg-red-600 inline-block"></span>
-                                    05. Результат
+                                    Результат
                                 </h2>
                                 <p className="text-xl text-gray-700 leading-relaxed font-medium">{caseStudy.content.results}</p>
                             </div>
