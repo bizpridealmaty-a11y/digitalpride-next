@@ -13,48 +13,50 @@ export default function Cases() {
     const cases = [
         {
             id: 1,
-            client: isKk ? "B2B Ecommerce Компания" : "B2B Ecommerce Компания",
-            industry: isKk ? "Бөлшек сауда / E-commerce" : "Ритейл / E-commerce",
-            image: "/images/case1.255cfc5308a1a095855ea220b16b741b134.jpg",
+            client: isKk ? "Үй пловын жеткізу" : "Доставка домашнего плова",
+            industry: isKk ? "Тамақ жеткізу" : "Доставка еды",
+            image: "/images/cases/plov-delivery/cover.jpg",
+            href: "/cases/plov-delivery/",
             problem: isKk
-                ? "Лидтің жоғары бағасы (CPL), жарнама бюджеті сатылымсыз жұмсалды."
-                : "Высокая цена за лида (CPL), рекламный бюджет сливался без отдачи в виде продаж.",
+                ? "Тек қамту мен лайк емес, жеткізуге нақты тапсырыстар керек болды."
+                : "Нужны были живые заказы на доставку, а не просто охваты и лайки.",
             solution: isKk
-                ? ["Google Ads", "TikTok Ads", "Сквозьды аналитика", "Жаңа лендинг беттер"]
-                : ["Google Ads", "TikTok Ads", "Сквозная аналитика", "Новые посадочные страницы"],
+                ? ["Meta Ads", "WhatsApp трафигі", "Сатушы креативтер", "Жеткізу офферы"]
+                : ["Meta Ads", "Трафик в WhatsApp", "Продающие креативы", "Оффер на доставку"],
             results: isKk
                 ? [
-                    { label: "ROMI өсімі", value: "+300%", highlight: "ROMI" },
-                    { label: "Мақсатты өтінімдер өсімі", value: "+180%", highlight: "өтінімдер" },
-                    { label: "Лид бағасының төмендеуі", value: "-40%", highlight: "бағасының" },
+                    { label: "WhatsApp-та жазылым", value: "427", highlight: "WhatsApp" },
+                    { label: "Тапсырысқа айналуы", value: "14%", highlight: "Тапсырысқа" },
+                    { label: "Жарнамаға қайтарым", value: "×6", highlight: "қайтарым" },
                 ]
                 : [
-                    { label: "Увеличение РОМИ", value: "+300%", highlight: "РОМИ" },
-                    { label: "Рост целевых заявок", value: "+180%", highlight: "заявок" },
-                    { label: "Снижение цены лида", value: "-40%", highlight: "лида" },
+                    { label: "Переписок в WhatsApp", value: "427", highlight: "WhatsApp" },
+                    { label: "Конверсия в заказ", value: "14%", highlight: "заказ" },
+                    { label: "Возврат на рекламу", value: "×6", highlight: "рекламу" },
                 ]
         },
         {
             id: 2,
-            client: isKk ? "Алматы медициналық клиникасы" : "Медицинская клиника Алматы",
-            industry: isKk ? "Медицина" : "Медицина",
-            image: "/images/case2.255cfc5308a1a095855ea220b16b741b134.jpg",
+            client: isKk ? "Лазерлік эпиляция студиясы" : "Студия лазерной эпиляции",
+            industry: isKk ? "Сұлулық қызметтері" : "Бьюти-услуги",
+            image: "/images/cases/laser-epilation/hero-cover.png",
+            href: "/cases/laser-epilation/",
             problem: isKk
-                ? "Жоғары маржалы процедураларға тұрақты жазылу ағынының болмауы."
-                : "Отсутствие стабильного потока записей на высокомаржинальные процедуры.",
+                ? "Қымбат өтінімдер — жарнама бюджеті кетті, ал жазылу көбеймеді."
+                : "Дорогие заявки — рекламный бюджет уходил, а записей не прибавлялось.",
             solution: isKk
-                ? ["SEO Оңтайландыру", "Meta Ads", "SMM стратегиясы", "Контент-маркетинг"]
-                : ["SEO Оптимизация", "Meta Ads", "SMM стратегия", "Контент-маркетинг"],
+                ? ["Instagram таргет", "Lead-форма → WhatsApp", "A/B креативтер", "Өтінімге оңтайландыру"]
+                : ["Таргет в Instagram", "Lead-форма → WhatsApp", "A/B креативы", "Оптимизация на заявки"],
             results: isKk
                 ? [
-                    { label: "Интернеттен түсім өсімі", value: "+250%", highlight: "түсім" },
-                    { label: "Алматы бизнесі үшін өтінімдер өсімі", value: "+300%", highlight: "өтінімдер" },
-                    { label: "Клиенттерді ұстап қалу (LTV)", value: "+45%", highlight: "LTV" },
+                    { label: "WhatsApp-та өтінім", value: "679", highlight: "WhatsApp" },
+                    { label: "Өтінім бағасы", value: "$1,29", highlight: "бағасы" },
+                    { label: "Лид бағасының төмендеуі", value: "×3", highlight: "бағасының" },
                 ]
                 : [
-                    { label: "Рост выручки из интернета", value: "+250%", highlight: "выручки" },
-                    { label: "Увеличение заявок для бизнеса Алматы", value: "+300%", highlight: "заявок" },
-                    { label: "Удержание клиентов (LTV)", value: "+45%", highlight: "LTV" },
+                    { label: "Заявок в WhatsApp", value: "679", highlight: "WhatsApp" },
+                    { label: "Цена заявки", value: "$1,29", highlight: "заявки" },
+                    { label: "Снижение цены лида", value: "×3", highlight: "лида" },
                 ]
         }
     ];
@@ -86,13 +88,13 @@ export default function Cases() {
 
                 <div className="space-y-12">
                     {cases.map((item, idx) => (
+                        <Link key={item.id} href={item.href} className="block">
                         <motion.div
-                            key={item.id}
                             initial={{ opacity: 0, y: 100, rotateX: 20 }}
                             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: idx * 0.2 }}
-                            className="group flex flex-col lg:flex-row bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700 transition-colors shadow-2xl"
+                            className="group flex flex-col lg:flex-row bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700 transition-colors shadow-2xl cursor-pointer"
                         >
                             {/* Image side */}
                             <div className="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
@@ -155,6 +157,7 @@ export default function Cases() {
                                 </div>
                             </div>
                         </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>
