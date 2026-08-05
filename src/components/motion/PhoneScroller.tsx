@@ -18,7 +18,7 @@ export default function PhoneScroller({
     heightPx?: number;
 }) {
     // одинаковая скорость панорамы независимо от длины страницы
-    const duration = Math.min(20, Math.max(9, Math.round(heightPx / 150)));
+    const duration = Math.min(16, Math.max(10, Math.round(heightPx / 320)));
     return (
         <img
             src={src}
