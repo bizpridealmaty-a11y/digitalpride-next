@@ -75,7 +75,7 @@ export const casesData: CaseStudy[] = [
         client: "Ресторан «Бархат», Астана (ранее BAO BAO)",
         status: "Ранее BAO BAO → сейчас «Бархат», Астана",
         categories: ["SMM", "CONTEXT"],
-        coverImage: "/images/case2.255cfc5308a1a095855ea220b16b741b134.jpg",
+        coverImage: "/images/cases/barhat/cover.jpg",
         hoverDescription: "SMM и Meta Ads для ресторана в Астане (ранее BAO BAO, сейчас «Бархат»): трафик в Instagram и переписки при контролируемой цене.",
         hoverMetrics: [
             { label: "Охват", value: "2,1 млн" },
@@ -105,7 +105,7 @@ export const casesData: CaseStudy[] = [
         client: "Студия кухонь «Эрмитаж», Воронеж",
         status: "Проект нашей команды в Воронеже (Россия). Ранее — салон немецких кухонь, сейчас бренд «Эрмитаж»",
         categories: ["SEO", "SITE"],
-        coverImage: "/images/hacker.3e12f445d37bed70255f390787e8bf93134.png",
+        coverImage: "/images/cases/ermitazh/cover.jpg",
         hoverDescription: "SEO и работа с сайтом для студии премиальных кухонь в Воронеже: структура каталога, посадочные под серии, экспертный контент.",
         hoverMetrics: [
             { label: "Ниша", value: "Премиальные кухни" },
@@ -135,7 +135,7 @@ export const casesData: CaseStudy[] = [
         client: "Автоцентр «Ринг Авто» (Hyundai), Воронеж и Белгород",
         status: "Проект нашей команды для российского рынка (Черноземье)",
         categories: ["CONTEXT", "ANALYTICS"],
-        coverImage: "/images/hyundai.3e12f445d37bed70255f390787e8bf93134.png",
+        coverImage: "/images/cases/ring-avto/cover.jpg",
         instagram: "https://www.instagram.com/hyundai_ringauto/",
         website: "https://hyundai-ringauto.ru/",
         hoverDescription: "Контекст и сквозная аналитика для дилера Hyundai «Ринг Авто» (Воронеж, Белгород): заявки на авто и тест-драйвы под контролем воронки.",
