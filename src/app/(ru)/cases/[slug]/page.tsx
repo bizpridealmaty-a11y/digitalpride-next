@@ -230,7 +230,7 @@ export default async function CaseDetail({ params }: CaseParams) {
                                     <div className="grid sm:grid-cols-2 gap-4">
                                         {caseStudy.gallery.map((src, i) => (
                                             // eslint-disable-next-line @next/next/no-img-element
-                                            <img key={i} src={src} alt={`${caseStudy.title} — фото ${i + 1}`} loading="lazy" decoding="async" className="w-full rounded-2xl border border-gray-100 object-cover" style={{ aspectRatio: '4 / 3' }} />
+                                            <img key={i} src={src} alt={`${caseStudy.title} — фото ${i + 1}`} loading="lazy" decoding="async" className="w-full rounded-2xl border border-gray-100 object-cover" style={{ aspectRatio: '16 / 10' }} />
                                         ))}
                                     </div>
                                 </div>
