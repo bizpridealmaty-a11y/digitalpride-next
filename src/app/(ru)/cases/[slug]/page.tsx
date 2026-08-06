@@ -220,6 +220,21 @@ export default async function CaseDetail({ params }: CaseParams) {
                                 <h2 className="text-xl font-bold text-gray-400 mb-6 uppercase tracking-widest text-sm">Полное описание</h2>
                                 <p className="text-gray-300 italic leading-relaxed text-xl relative z-10">{caseStudy.content.fullDescription}</p>
                             </div>
+
+                            {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+                                <div>
+                                    <h2 className="text-2xl font-bold text-red-600 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
+                                        <span className="w-8 h-px bg-red-600 inline-block"></span>
+                                        Как это выглядит
+                                    </h2>
+                                    <div className="grid sm:grid-cols-2 gap-4">
+                                        {caseStudy.gallery.map((src, i) => (
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img key={i} src={src} alt={`${caseStudy.title} — фото ${i + 1}`} loading="lazy" decoding="async" className="w-full rounded-2xl border border-gray-100 object-cover" style={{ aspectRatio: '4 / 3' }} />
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                     </div>

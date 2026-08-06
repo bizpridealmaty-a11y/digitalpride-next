@@ -35,6 +35,8 @@ export interface CaseStudy {
     website?: string;
     /** Текущий статус проекта — напр. «закрыт», «переименован в …». */
     status?: string;
+    /** Фотографии проекта внутри кейса (реальные — от клиента, или сгенерированные). */
+    gallery?: string[];
 }
 
 export const casesData: CaseStudy[] = [
@@ -106,6 +108,7 @@ export const casesData: CaseStudy[] = [
         status: "Проект нашей команды в Воронеже (Россия). Ранее — салон немецких кухонь, сейчас бренд «Эрмитаж»",
         categories: ["SEO", "SITE"],
         coverImage: "/images/cases/ermitazh/cover.jpg",
+        gallery: ["/images/cases/ermitazh/gallery1.jpg", "/images/cases/ermitazh/gallery2.jpg"],
         hoverDescription: "SEO и работа с сайтом для студии премиальных кухонь в Воронеже: структура каталога, посадочные под серии, экспертный контент.",
         hoverMetrics: [
             { label: "Ниша", value: "Премиальные кухни" },
