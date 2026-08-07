@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import RawFooter from '@/components/layout/RawFooter';
 import CTA from '@/components/home/CTA';
 import CaseCharts from '@/components/case/CaseCharts';
+import CaseGallery from '@/components/case/CaseGallery';
 import AdScreenshot from '@/components/case/AdScreenshot';
 import { casesData } from '@/data/cases';
 import Link from 'next/link';
@@ -96,7 +97,7 @@ export default async function CaseDetail({ params }: CaseParams) {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-            <main className="bg-zinc-50 pb-24">
+            <main className="bg-zinc-50 pb-24 overflow-x-clip">
                 {/* Banner */}
                 <div className="relative h-[60vh] min-h-[400px] w-full bg-black flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 z-0 scale-105">
@@ -221,23 +222,23 @@ export default async function CaseDetail({ params }: CaseParams) {
                                 <p className="text-gray-300 italic leading-relaxed text-xl relative z-10">{caseStudy.content.fullDescription}</p>
                             </div>
 
-                            {caseStudy.gallery && caseStudy.gallery.length > 0 && (
-                                <div>
-                                    <h2 className="text-2xl font-bold text-red-600 mb-8 uppercase tracking-widest text-sm flex items-center gap-3">
-                                        <span className="w-8 h-px bg-red-600 inline-block"></span>
-                                        Как это выглядит
-                                    </h2>
-                                    <div className="grid sm:grid-cols-2 gap-4">
-                                        {caseStudy.gallery.map((src, i) => (
-                                            // eslint-disable-next-line @next/next/no-img-element
-                                            <img key={i} src={src} alt={`${caseStudy.title} — фото ${i + 1}`} loading="lazy" decoding="async" className="w-full rounded-2xl border border-gray-100 object-cover" style={{ aspectRatio: '16 / 10' }} />
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
                         </div>
 
                     </div>
+
+                    {/* Как это выглядит — крупная интерактивная витрина на всю ширину */}
+                    {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+                        <div className="relative left-1/2 -translate-x-1/2 w-screen mt-16 md:mt-20">
+                            <div className="mx-auto max-w-6xl px-4">
+                                <div className="mb-8 md:mb-12 text-center">
+                                    <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 bg-red-100 text-red-600">Как это выглядит</div>
+                                    <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>Живой результат работы</h2>
+                                    <p className="text-gray-500 mt-3 max-w-xl mx-auto">Нажмите на изображение, чтобы рассмотреть крупно.</p>
+                                </div>
+                                <CaseGallery images={caseStudy.gallery} title={caseStudy.title} />
+                            </div>
+                        </div>
+                    )}
 
                     {/* Related Services */}
                     {(() => {
