@@ -5,6 +5,7 @@ import RawFooter from '@/components/layout/RawFooter';
 import CTA from '@/components/home/CTA';
 import CaseCharts from '@/components/case/CaseCharts';
 import CaseGallery from '@/components/case/CaseGallery';
+import LiveSiteScroll from '@/components/case/LiveSiteScroll';
 import AdScreenshot from '@/components/case/AdScreenshot';
 import { casesData } from '@/data/cases';
 import Link from 'next/link';
@@ -226,16 +227,27 @@ export default async function CaseDetail({ params }: CaseParams) {
 
                     </div>
 
-                    {/* Как это выглядит — крупная интерактивная витрина на всю ширину */}
-                    {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+                    {/* Как это выглядит — крупная витрина на всю ширину */}
+                    {(caseStudy.liveScroll || (caseStudy.gallery && caseStudy.gallery.length > 0)) && (
                         <div className="relative left-1/2 -translate-x-1/2 w-screen mt-16 md:mt-20">
                             <div className="mx-auto max-w-6xl px-4">
                                 <div className="mb-8 md:mb-12 text-center">
                                     <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 bg-red-100 text-red-600">Как это выглядит</div>
                                     <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>Живой результат работы</h2>
-                                    <p className="text-gray-500 mt-3 max-w-xl mx-auto">Нажмите на изображение, чтобы рассмотреть крупно.</p>
+                                    <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+                                        {caseStudy.liveScroll ? 'Смотрите, как настоящий сайт прокручивается сверху вниз.' : 'Нажмите на изображение, чтобы рассмотреть крупно.'}
+                                    </p>
                                 </div>
-                                <CaseGallery images={caseStudy.gallery} title={caseStudy.title} />
+                                {caseStudy.liveScroll ? (
+                                    <LiveSiteScroll
+                                        desktop={caseStudy.liveScroll.desktop}
+                                        mobile={caseStudy.liveScroll.mobile}
+                                        url={caseStudy.liveScroll.url}
+                                        title={caseStudy.title}
+                                    />
+                                ) : (
+                                    <CaseGallery images={caseStudy.gallery!} title={caseStudy.title} />
+                                )}
                             </div>
                         </div>
                     )}

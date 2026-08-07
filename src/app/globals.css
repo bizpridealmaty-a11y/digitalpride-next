@@ -274,3 +274,23 @@ h6,
 @media (prefers-reduced-motion: reduce) {
   .dp-phone-scroll { animation: none; }
 }
+
+/* ── LiveSiteScroll: курсор мышки, «листающий» страницу сверху вниз ── */
+.dp-cursor {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
+  animation-name: dp-cursor-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: top, left;
+}
+@keyframes dp-cursor-drift {
+  from { top: 16%; left: 40%; }
+  to   { top: 82%; left: 57%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dp-cursor { animation: none; }
+}

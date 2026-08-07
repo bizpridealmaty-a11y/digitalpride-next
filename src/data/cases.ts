@@ -37,6 +37,8 @@ export interface CaseStudy {
     status?: string;
     /** Фотографии проекта внутри кейса (реальные — от клиента, или сгенерированные). */
     gallery?: string[];
+    /** «Живой» скролл сайта: полностраничные скриншоты, которые прокручиваются как настоящий сайт. */
+    liveScroll?: { desktop: string; mobile?: string; url?: string };
 }
 
 export const casesData: CaseStudy[] = [
@@ -109,6 +111,11 @@ export const casesData: CaseStudy[] = [
         categories: ["SITE", "SEO"],
         coverImage: "/images/cases/ermitazh/cover.jpg",
         website: "https://hermitage-boutique.ru/",
+        liveScroll: {
+            desktop: "/images/cases/ermitazh/scroll-desktop.jpg",
+            mobile: "/images/cases/ermitazh/scroll-mobile.jpg",
+            url: "https://hermitage-boutique.ru/",
+        },
         gallery: ["/images/cases/ermitazh/site-1.jpg", "/images/cases/ermitazh/site-2.jpg"],
         hoverDescription: "Полностью разработали сайт, каталог, корзину и работающий интернет-магазин для премиального мебельного бутика «Эрмитажъ» в Воронеже (кухни, гардеробные, мягкая мебель).",
         hoverMetrics: [
