@@ -149,6 +149,11 @@ export const casesData: CaseStudy[] = [
         coverImage: "/images/cases/ring-avto/cover.jpg",
         instagram: "https://www.instagram.com/hyundai_ringauto/",
         website: "https://hyundai-ringauto.ru/",
+        liveScroll: {
+            desktop: "/images/cases/ring-avto/scroll-desktop.jpg",
+            mobile: "/images/cases/ring-avto/scroll-mobile.jpg",
+            url: "https://hyundai-ringauto.ru/",
+        },
         hoverDescription: "Контекст и сквозная аналитика для дилера Hyundai «Ринг Авто» (Воронеж, Белгород): заявки на авто и тест-драйвы под контролем воронки.",
         hoverMetrics: [
             { label: "Ниша", value: "Автодилер Hyundai" },
