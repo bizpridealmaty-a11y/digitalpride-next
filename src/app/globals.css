@@ -275,6 +275,22 @@ h6,
   .dp-phone-scroll { animation: none; }
 }
 
+/* ── CasesDriftWall: колонки плиток дрейфуют сверху вниз (бесшовный цикл) ── */
+@keyframes dw-drift-down {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+.dw-track {
+  animation-name: dw-drift-down;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.dw-col:hover .dw-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .dw-track { animation: none; }
+}
+
 /* ── LiveSiteScroll: курсор мышки, «листающий» страницу сверху вниз ── */
 .dp-cursor {
   position: absolute;
