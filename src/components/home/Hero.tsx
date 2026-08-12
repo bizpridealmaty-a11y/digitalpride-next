@@ -50,20 +50,6 @@ export default function Hero() {
         return () => { cancelled = true; window.removeEventListener('load', schedule); };
     }, []);
 
-    const pickRandom = useCallback(() => {
-        const shuffled = [...allBenefits].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 3);
-    }, []);
-
-    const [visibleBenefits, setVisibleBenefits] = useState(() => allBenefits.slice(0, 3));
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setVisibleBenefits(pickRandom());
-        }, 2500);
-        return () => clearInterval(interval);
-    }, [pickRandom]);
-
     const islands = [
         {
             icon: (
@@ -173,73 +159,9 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-3/5 text-left"
                     >
-                        <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.3, type: "spring" }}
-                            className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm font-medium mb-6 uppercase tracking-wider text-gray-300"
-                        >
-                            {t.heroBadge}
-                        </motion.div>
-
-                        <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
+                        <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl leading-tight" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
                             <WaveText text={t.heroHeadline} immediate /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
                         </h1>
-
-                        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl font-medium">
-                            {t.heroDescription}
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <a
-                                href="#audit"
-                                className="px-8 py-4 text-black font-bold transition-all transform hover:scale-105 rounded-xl text-center"
-                                style={{
-                                    background: '#ffffff',
-                                    display: 'inline-block',
-                                }}
-                            >
-                                {t.heroAudit}
-                            </a>
-                            <a
-                                href="https://wa.me/77070357777?text=%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%20%D0%B1%D1%8B%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D0%B8%D0%BD%D0%B3%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => trackWhatsAppClick('hero_cta')}
-                                className="hidden sm:inline-block px-8 py-4 text-white font-bold transition-all transform hover:scale-105"
-                                style={{
-                                    background: 'rgba(255,255,255,0.1)',
-                                    backdropFilter: 'blur(16px)',
-                                    WebkitBackdropFilter: 'blur(16px)',
-                                    border: '1px solid rgba(255,255,255,0.2)',
-                                    borderRadius: '12px',
-                                    boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
-                                }}
-                            >
-                                {t.heroWhatsApp}
-                            </a>
-                        </div>
-
-                        {/* Rotating Benefits */}
-                        <div className="mt-10 flex flex-wrap justify-start gap-6 text-sm text-gray-400 font-medium h-8 relative">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={visibleBenefits.join(',')}
-                                    initial={{ opacity: 0, y: 12 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -12 }}
-                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
-                                    className="flex flex-wrap gap-6 absolute"
-                                >
-                                    {visibleBenefits.map((b) => (
-                                        <div key={b} className="flex items-center gap-2">
-                                            <svg className="w-5 h-5 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
-                                            {b}
-                                        </div>
-                                    ))}
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
                     </motion.div>
 
                     {/* Floating navigation islands */}
