@@ -50,8 +50,8 @@ export default function Cases() {
                     </div>
                 </div>
 
-                {/* Drift Wall — стена кейсов с движением сверху вниз */}
-                <div className="container mx-auto px-4 max-w-7xl mb-16">
+                {/* Drift Wall — стена кейсов на всю ширину экрана, движение сверху вниз */}
+                <div className="w-full px-2 sm:px-3 mb-16">
                     <CasesDriftWall tiles={tiles} />
                 </div>
 

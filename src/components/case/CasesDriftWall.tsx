@@ -21,7 +21,7 @@ export default function CasesDriftWall({ tiles }: { tiles: DriftTile[] }) {
     useEffect(() => {
         const decide = () => {
             const w = window.innerWidth;
-            setCols(w < 640 ? 2 : w < 1024 ? 3 : 3);
+            setCols(w < 640 ? 2 : w < 1024 ? 3 : w < 1536 ? 4 : 5);
         };
         decide();
         window.addEventListener('resize', decide);
@@ -33,7 +33,7 @@ export default function CasesDriftWall({ tiles }: { tiles: DriftTile[] }) {
     tiles.forEach((t, i) => columns[i % cols].push(t));
 
     // Разная скорость по колонкам (сек) — «дрейф» с рассинхроном
-    const durations = [42, 52, 36, 48];
+    const durations = [42, 52, 36, 48, 44];
 
     return (
         <div

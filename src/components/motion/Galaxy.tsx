@@ -244,6 +244,11 @@ export default function Galaxy({
         window.addEventListener('resize', resize, false);
         resize();
 
+        // Пересчитываем размер и при изменении высоты самого блока (напр. когда
+        // раскрывается Stepper и секция становится выше) — иначе звёзды обрываются на середине.
+        const ro = new ResizeObserver(() => resize());
+        ro.observe(ctn);
+
         const geometry = new Triangle(gl);
         program = new Program(gl, {
             vertex: vertexShader,

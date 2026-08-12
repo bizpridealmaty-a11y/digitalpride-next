@@ -61,13 +61,13 @@ export default function Process() {
                 <div className="absolute inset-0 z-0 pointer-events-none opacity-90" aria-hidden="true">
                     <Galaxy
                         transparent
-                        hueShift={340}
-                        saturation={0.85}
-                        glowIntensity={0.9}
-                        density={1.35}
+                        hueShift={0}
+                        saturation={0}
+                        glowIntensity={0.85}
+                        density={1.25}
                         twinkleIntensity={0.6}
                         rotationSpeed={0.06}
-                        starSpeed={0.6}
+                        starSpeed={0.55}
                         speed={1.0}
                         mouseInteraction={false}
                         mouseRepulsion={false}
