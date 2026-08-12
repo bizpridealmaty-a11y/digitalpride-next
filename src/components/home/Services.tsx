@@ -152,10 +152,6 @@ function FlagshipCard() {
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="flex-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-600/20 border border-red-600/30 text-red-500 rounded-full text-xs font-bold mb-6">
-                        <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                        {isKk ? 'Флагмандық өнім' : 'Флагманский продукт'}
-                    </div>
                     <h3 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ fontFamily: "'Unbounded', sans-serif" }}>
                         {isKk ? <>Сыртқы <span className="text-red-500">маркетинг</span> бөлімі<br />кілтке дайын</> : <>Внешний отдел <br /><span className="text-red-500">маркетинга</span> под ключ</>}
                     </h3>
@@ -164,17 +160,8 @@ function FlagshipCard() {
                             ? 'Біз сіздің бизнесіңізге кірігеміз. 5 Senior-маманнан тұратын команда (SMM, Таргет, Дизайн, Контекст) бір штаттық маркетолог бағасымен. Өтімділік пен өтінімдер өсуіне кепілдік.'
                             : 'Мы интегрируемся в ваш бизнес. Команда из 5 Senior-специалистов (SMM, Таргет, Дизайн, Контекст) по цене одного штатного маркетолога. Гарантия окупаемости и роста заявок.'}
                     </p>
-                    <ul className="flex flex-wrap gap-4 mb-8 text-sm font-bold text-gray-300">
-                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Кешенді SMM' : 'Комплексный SMM'}</li>
-                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Мультиарналық Таргет' : 'Мультиканальный Таргет'}</li>
-                        <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Сайт әзірлеу' : 'Разработка Сайтов'}</li>
-                    </ul>
                 </div>
                 <div className="flex-shrink-0 w-full md:w-auto flex flex-col gap-4">
-                    <div className="text-right hidden md:block">
-                        <p className="text-gray-500 text-sm font-medium mb-1">{isKk ? 'Инвестиция' : 'Инвестиции от'}</p>
-                        <p className="text-3xl font-extrabold text-white">180 000 ₸</p>
-                    </div>
                     <Link href={lp('/vneshnij-otdel-marketinga/')} className="inline-flex justify-center items-center px-8 py-4 bg-red-600 text-white font-bold rounded-xl text-lg hover:bg-red-700 transition duration-300 w-full md:w-auto">
                         {isKk ? 'Пакеттерді көру' : 'Посмотреть пакеты'}
                         <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { trackWhatsAppClick } from '@/lib/analytics';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslations, useLocale } from '@/lib/locale-context';
 import { localizedPath } from '@/lib/i18n';
 import { WaveText } from '@/components/motion/AnimatedHeading';
@@ -11,8 +10,8 @@ export default function Hero() {
     const t = useTranslations();
     const locale = useLocale();
     const lp = (path: string) => localizedPath(path, locale);
-    const allBenefits = t.benefits;
     const ref = useRef(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"]
@@ -49,6 +48,21 @@ export default function Hero() {
 
         return () => { cancelled = true; window.removeEventListener('load', schedule); };
     }, []);
+
+    // Надёжный автозапуск: браузеры блокируют autoplay, если muted не выставлен как DOM-свойство
+    // (известный баг с JSX-пропом muted). Ставим свойство и вызываем play() принудительно.
+    useEffect(() => {
+        if (!showVideo) return;
+        const v = videoRef.current;
+        if (!v) return;
+        v.muted = true;
+        v.defaultMuted = true;
+        const tryPlay = () => { const p = v.play(); if (p && typeof p.catch === 'function') p.catch(() => { }); };
+        tryPlay();
+        v.addEventListener('loadeddata', tryPlay);
+        v.addEventListener('canplay', tryPlay);
+        return () => { v.removeEventListener('loadeddata', tryPlay); v.removeEventListener('canplay', tryPlay); };
+    }, [showVideo]);
 
     const islands = [
         {
@@ -93,7 +107,7 @@ export default function Hero() {
     ];
 
     return (
-        <section ref={ref} className="relative overflow-hidden bg-black text-white pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-[90vh] flex items-center">
+        <section ref={ref} className="relative overflow-hidden bg-black text-white pt-32 pb-16 lg:pt-48 lg:pb-24 min-h-[94vh] flex items-end">
             {/* SEO: скрытый осмысленный текст для поисковиков (видео не индексируется как контент) */}
             <p className="sr-only">{t.heroSrOnly}</p>
 
@@ -114,6 +128,7 @@ export default function Hero() {
                 />
                 {showVideo && (
                     <video
+                        ref={videoRef}
                         src="/videos/hero.mp4"
                         poster="/videos/hero-poster.jpg"
                         autoPlay
@@ -123,6 +138,7 @@ export default function Hero() {
                         preload="auto"
                         aria-hidden="true"
                         tabIndex={-1}
+                        onPlaying={(e) => { e.currentTarget.style.opacity = '1'; }}
                         onCanPlay={(e) => { e.currentTarget.style.opacity = '1'; }}
                         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
                         style={{
@@ -159,7 +175,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-3/5 text-left"
                     >
-                        <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl leading-tight" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05]" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
                             <WaveText text={t.heroHeadline} immediate /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
                         </h1>
                     </motion.div>
@@ -173,24 +189,24 @@ export default function Hero() {
                                 initial={{ opacity: 0, x: 60, scale: 0.8 }}
                                 animate={{ opacity: 1, x: 0, scale: 1 }}
                                 transition={{ delay: island.delay, duration: 0.6, type: "spring", stiffness: 80 }}
-                                className="group w-full max-w-[260px] cursor-pointer"
+                                className="group w-full max-w-[360px] cursor-pointer"
                             >
                                 <motion.div
                                     animate={{ y: island.yOffset }}
                                     transition={{ repeat: Infinity, duration: 3 + i * 0.5, ease: "easeInOut" }}
-                                    className={`relative bg-gradient-to-br ${island.color} backdrop-blur-xl rounded-2xl px-6 py-5 flex items-center gap-4 border border-white/10 shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:border-white/25 group-hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.3)]`}
+                                    className={`relative bg-gradient-to-br ${island.color} backdrop-blur-xl rounded-3xl px-8 py-7 flex items-center gap-5 border border-white/10 shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:border-white/25 group-hover:shadow-[0_20px_60px_-15px_rgba(239,68,68,0.3)]`}
                                 >
                                     {/* Icon */}
-                                    <div className="p-3 bg-white/10 rounded-xl text-white group-hover:bg-white/20 transition-colors">
+                                    <div className="p-4 bg-white/10 rounded-2xl text-white group-hover:bg-white/20 transition-colors [&_svg]:w-8 [&_svg]:h-8">
                                         {island.icon}
                                     </div>
                                     {/* Text */}
                                     <div>
-                                        <div className="text-white font-bold text-lg leading-tight">{island.title}</div>
-                                        <div className="text-white/50 text-sm font-medium">{island.subtitle}</div>
+                                        <div className="text-white font-bold text-2xl leading-tight">{island.title}</div>
+                                        <div className="text-white/50 text-base font-medium">{island.subtitle}</div>
                                     </div>
                                     {/* Arrow */}
-                                    <svg className="w-5 h-5 text-white/30 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-7 h-7 text-white/30 ml-auto group-hover:text-white/70 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                     </svg>
 
