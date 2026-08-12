@@ -28,12 +28,16 @@ export default function CasesDriftWall({ tiles, fill = false }: { tiles: DriftTi
         return () => window.removeEventListener('resize', decide);
     }, []);
 
-    // Раскладываем плитки по колонкам round-robin
-    const columns: DriftTile[][] = Array.from({ length: cols }, () => []);
-    tiles.forEach((t, i) => columns[i % cols].push(t));
+    // Каждая колонка содержит ВСЕ кейсы, но со своим сдвигом порядка — так дорожка
+    // всегда выше экрана (ряды заполнены сразу), а колонки выглядят по-разному.
+    const columns: DriftTile[][] = Array.from({ length: cols }, (_, ci) => {
+        const offset = Math.floor((tiles.length / cols) * ci) % tiles.length;
+        return [...tiles.slice(offset), ...tiles.slice(0, offset)];
+    });
 
-    // Разная скорость по колонкам (сек) — «дрейф» с рассинхроном
-    const durations = [42, 52, 36, 48, 44];
+    // Разная скорость по колонкам (сек) — медленный «дрейф» с рассинхроном.
+    // Дорожки длинные (все кейсы ×2), поэтому длительность большая — движение неспешное.
+    const durations = [96, 120, 84, 132, 108];
 
     return (
         <div
