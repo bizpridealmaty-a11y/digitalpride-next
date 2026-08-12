@@ -334,7 +334,7 @@ export default function DpCardNav() {
                                 href={lp('/')}
                                 aria-label={`${t.home} — Digital Pride`}
                                 onClick={() => isExpanded && collapse()}
-                                className="flex items-center text-white font-extrabold text-base md:text-lg tracking-tight hover:opacity-80 transition-opacity"
+                                className="flex items-center lowercase text-white font-extrabold text-base md:text-lg tracking-tight hover:opacity-80 transition-opacity"
                                 style={{ fontFamily: "'Unbounded', sans-serif" }}
                             >
                                 {t.home}
