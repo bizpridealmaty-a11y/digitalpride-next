@@ -64,7 +64,7 @@ export default function CasesDriftWall({ tiles, fill = false }: { tiles: DriftTi
                                         alt={tile.title}
                                         loading="lazy"
                                         decoding="async"
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                                        className="absolute inset-0 w-full h-full object-cover grayscale transition-[transform,filter] duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.07]"
                                     />
                                     <span className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
                                     <span className="absolute top-3 left-3 inline-block px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-red-600 text-white">
