@@ -163,6 +163,25 @@ export default function Hero() {
                 }}></div>
             </motion.div>
 
+            {/* Большая фоновая надпись во всю ширину — за главными буквами */}
+            <motion.div
+                aria-hidden="true"
+                style={{ y: textY, opacity }}
+                className="pointer-events-none select-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-[1] px-2"
+            >
+                <svg viewBox="0 0 1200 150" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+                    <text
+                        x="600" y="112" textAnchor="middle"
+                        textLength="1180" lengthAdjust="spacingAndGlyphs"
+                        fill="rgba(255,255,255,0.07)"
+                        style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}
+                        fontSize="118"
+                    >
+                        {locale === 'kk' ? 'Кел, ақша табайық?' : 'Давайте, заработаем деньги?'}
+                    </text>
+                </svg>
+            </motion.div>
+
 
             <div className="container relative z-10 mx-auto px-4 max-w-6xl">
                 <div className="flex flex-col lg:flex-row items-center gap-12">

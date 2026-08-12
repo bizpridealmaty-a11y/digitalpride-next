@@ -15,8 +15,25 @@ const ArrowIcon = () => (
     </svg>
 );
 
+/** Иконки разделов (stroke = currentColor). */
+const IconPromo = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 11l15-6v14L3 13v-2z" /><path d="M3 11v2a2 2 0 002 2h1" /><path d="M8 15v4a1 1 0 001 1h1a1 1 0 001-1v-3" /><path d="M18 8a3 3 0 010 6" />
+    </svg>
+);
+const IconBuild = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="13" rx="2" /><path d="M8 21h8M12 16v5" /><path d="M7 8h4M7 11h7" />
+    </svg>
+);
+const IconCompany = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 21V7l7-4v18" /><path d="M10 21V9l8 3v9" /><path d="M3 21h18" /><path d="M14 13h.01M14 16h.01M6 11h.01M6 14h.01M6 17h.01" />
+    </svg>
+);
+
 type NavCardLink = { label: string; href: string };
-type NavCard = { label: string; bgColor: string; textColor: string; links: NavCardLink[] };
+type NavCard = { label: string; subtitle: string; icon: React.ReactNode; accent?: boolean; links: NavCardLink[] };
 
 /**
  * DpCardNav — навигация в стиле ReactBits Card Nav, адаптированная под DigitalPride:
@@ -52,11 +69,16 @@ export default function DpCardNav() {
         ? ['Жылжыту', 'Әзірлеу және стратегия', 'Компания']
         : ['Продвижение', 'Разработка и стратегия', 'Компания'];
 
+    const subtitles = isKz
+        ? ['4 қызмет', '4 бағыт', '5 бөлім']
+        : ['4 услуги', '4 направления', '5 разделов'];
+
     const items: NavCard[] = [
         {
             label: groupTitles[0],
-            bgColor: '#E31C24',
-            textColor: '#ffffff',
+            subtitle: subtitles[0],
+            icon: <IconPromo />,
+            accent: true,
             links: [
                 { label: t.smmPromo, href: lp('/smm-almaty') },
                 { label: t.targetAds, href: lp('/target-almaty') },
@@ -66,8 +88,8 @@ export default function DpCardNav() {
         },
         {
             label: groupTitles[1],
-            bgColor: '#17171c',
-            textColor: '#ffffff',
+            subtitle: subtitles[1],
+            icon: <IconBuild />,
             links: [
                 { label: t.webDev, href: lp('/sozdanie-sajtov-almaty') },
                 { label: t.strategy, href: lp('/marketing-almaty') },
@@ -77,8 +99,8 @@ export default function DpCardNav() {
         },
         {
             label: groupTitles[2],
-            bgColor: '#2A2930',
-            textColor: '#ffffff',
+            subtitle: subtitles[2],
+            icon: <IconCompany />,
             links: [
                 { label: t.pricing, href: lp('/pricing') },
                 { label: t.training, href: lp('/school') },
@@ -240,9 +262,12 @@ export default function DpCardNav() {
 
     const langPill = (active: boolean): React.CSSProperties => ({
         padding: '6px 11px', fontSize: '12px', fontWeight: 800, letterSpacing: '0.4px',
-        color: active ? '#fff' : '#9a9aa2', background: active ? '#111' : 'transparent',
+        color: active ? '#fff' : 'rgba(255,255,255,0.5)', background: active ? 'rgba(255,255,255,0.16)' : 'transparent',
         textDecoration: 'none', transition: 'all .2s', lineHeight: 1,
     });
+
+    // Тёмное «стекло» — как у карточек-островков на герое
+    const GLASS = 'rgba(20,20,26,0.55)';
 
     const showBar = revealed || isExpanded;
 
@@ -254,17 +279,19 @@ export default function DpCardNav() {
                 aria-label={t.openMenu}
                 onClick={openFromPeek}
                 onMouseEnter={() => { if (!isTouch) setRevealed(true); }}
-                className="fixed left-1/2 top-3 md:top-4 z-[9998] flex flex-col items-center justify-center gap-[6px] w-[60px] h-[40px] rounded-full border border-black/5 transition-[opacity,transform] duration-300 hover:scale-105"
+                className="fixed left-1/2 top-3 md:top-4 z-[9998] flex flex-col items-center justify-center gap-[6px] w-[60px] h-[40px] rounded-full border border-white/15 transition-[opacity,transform] duration-300 hover:scale-105"
                 style={{
-                    backgroundColor: '#ffffff',
-                    boxShadow: '0 12px 34px -10px rgba(0,0,0,0.5)',
+                    backgroundColor: GLASS,
+                    backdropFilter: 'blur(16px) saturate(160%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(160%)',
+                    boxShadow: '0 12px 34px -10px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08)',
                     opacity: showBar ? 0 : 1,
                     pointerEvents: showBar ? 'none' : 'auto',
                     transform: `translateX(-50%) translateY(${showBar ? '-140%' : '0'})`,
                 }}
             >
-                <span className="w-[26px] h-[2.5px] rounded-full bg-[#111]" />
-                <span className="w-[26px] h-[2.5px] rounded-full bg-[#111]" />
+                <span className="w-[26px] h-[2.5px] rounded-full bg-white" />
+                <span className="w-[26px] h-[2.5px] rounded-full bg-white" />
             </button>
 
             <div
@@ -278,37 +305,40 @@ export default function DpCardNav() {
             >
                 <div
                     ref={navRef}
-                    className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl relative overflow-hidden will-change-[height] border border-black/5`}
-                    style={{ backgroundColor: '#ffffff', boxShadow: '0 18px 50px -18px rgba(0,0,0,0.35)' }}
+                    className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl relative overflow-hidden will-change-[height] border border-white/12`}
+                    style={{
+                        backgroundColor: GLASS,
+                        backdropFilter: 'blur(20px) saturate(160%)',
+                        WebkitBackdropFilter: 'blur(20px) saturate(160%)',
+                        boxShadow: '0 24px 60px -20px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.08)',
+                    }}
                 >
                     {/* Верхняя полоса */}
-                    <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between px-2 pl-4 z-[2]">
-                        {/* Гамбургер */}
-                        <div
-                            className="hamburger-menu group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none"
-                            onClick={toggleMenu}
-                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } }}
-                            role="button"
-                            aria-label={isExpanded ? t.closeMenu : t.openMenu}
-                            aria-expanded={isExpanded}
-                            tabIndex={0}
-                            style={{ color: '#111' }}
-                        >
-                            <div className={`w-[30px] h-[2px] bg-current transition-transform duration-300 ease-linear origin-center ${isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''} group-hover:opacity-75`} />
-                            <div className={`w-[30px] h-[2px] bg-current transition-transform duration-300 ease-linear origin-center ${isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''} group-hover:opacity-75`} />
-                        </div>
-
-                        {/* Логотип */}
-                        <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-                            <Link href={lp('/')} aria-label="Digital Pride — главная" onClick={() => isExpanded && collapse()}>
+                    <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between px-3 md:px-4 z-[2]">
+                        {/* Левый кластер: гамбургер + логотип */}
+                        <div className="flex items-center gap-3">
+                            <div
+                                className="hamburger-menu group h-[60px] flex flex-col items-center justify-center cursor-pointer gap-[6px]"
+                                onClick={toggleMenu}
+                                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } }}
+                                role="button"
+                                aria-label={isExpanded ? t.closeMenu : t.openMenu}
+                                aria-expanded={isExpanded}
+                                tabIndex={0}
+                                style={{ color: '#fff' }}
+                            >
+                                <div className={`w-[28px] h-[2px] bg-current transition-transform duration-300 ease-linear origin-center ${isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''} group-hover:opacity-75`} />
+                                <div className={`w-[28px] h-[2px] bg-current transition-transform duration-300 ease-linear origin-center ${isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''} group-hover:opacity-75`} />
+                            </div>
+                            <Link href={lp('/')} aria-label="Digital Pride — главная" onClick={() => isExpanded && collapse()} className="flex items-center">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/fonts/new-logo.svg" alt="Digital Pride" className="h-[30px] w-auto" />
+                                <img src="/fonts/new-logo.svg" alt="Digital Pride" className="h-[28px] w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
                             </Link>
                         </div>
 
                         {/* Правая группа: язык + CTA (десктоп) */}
-                        <div className="hidden md:flex items-center gap-3 order-3">
-                            <div className="flex items-center rounded-full overflow-hidden border border-black/10">
+                        <div className="hidden md:flex items-center gap-3">
+                            <div className="flex items-center rounded-full overflow-hidden border border-white/15">
                                 <a href={toRuPath(pathname)} aria-current={!isKz ? 'true' : undefined} style={langPill(!isKz)}>RU</a>
                                 <a href={toKkPath(pathname)} aria-current={isKz ? 'true' : undefined} style={langPill(isKz)}>KZ</a>
                             </div>
@@ -332,17 +362,29 @@ export default function DpCardNav() {
                             <div
                                 key={`${item.label}-${idx}`}
                                 ref={setCardRef(idx)}
-                                className="nav-card select-none relative flex flex-col gap-2 px-4 py-3 rounded-xl min-w-0 flex-[1_1_auto] min-h-[70px] md:h-full md:min-h-0 md:flex-[1_1_0%]"
-                                style={{ backgroundColor: item.bgColor, color: item.textColor }}
+                                className={`nav-card select-none relative flex flex-col gap-3 px-4 py-3.5 rounded-2xl min-w-0 flex-[1_1_auto] min-h-[70px] md:h-full md:min-h-0 md:flex-[1_1_0%] border ${item.accent ? 'border-white/15' : 'border-white/12'} text-white`}
+                                style={item.accent
+                                    ? { background: 'linear-gradient(135deg, #E31C24 0%, #b3141b 100%)', boxShadow: '0 18px 50px -20px rgba(227,28,36,0.6)' }
+                                    : { background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }
+                                }
                             >
-                                <div className="nav-card-label font-semibold tracking-[-0.5px] text-[17px] md:text-[20px]">{item.label}</div>
+                                {/* Заголовок карточки: иконка + название + подзаголовок */}
+                                <div className="flex items-center gap-3">
+                                    <div className={`shrink-0 grid place-items-center w-10 h-10 rounded-xl ${item.accent ? 'bg-white/20' : 'bg-white/10'}`}>
+                                        {item.icon}
+                                    </div>
+                                    <div className="min-w-0">
+                                        <div className="nav-card-label font-bold leading-tight text-[17px] md:text-[19px]">{item.label}</div>
+                                        <div className={`text-[12px] font-medium ${item.accent ? 'text-white/70' : 'text-white/45'}`}>{item.subtitle}</div>
+                                    </div>
+                                </div>
                                 <div className="nav-card-links mt-auto flex flex-col gap-[3px]">
                                     {item.links.map((lnk, i) => (
                                         <Link
                                             key={`${lnk.label}-${i}`}
                                             href={lnk.href}
                                             onClick={() => collapse()}
-                                            className="inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-70 text-[14px] md:text-[15px]"
+                                            className={`inline-flex items-center gap-[6px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-70 text-[14px] md:text-[15px] ${item.accent ? 'text-white' : 'text-white/90'}`}
                                         >
                                             <ArrowIcon />
                                             {lnk.label}
@@ -354,7 +396,7 @@ export default function DpCardNav() {
 
                         {/* Мобильная утилита: язык + звонок + телефон */}
                         <div className="md:hidden flex items-center flex-wrap gap-2 pt-1">
-                            <div className="flex items-center rounded-full overflow-hidden border border-black/10 bg-white">
+                            <div className="flex items-center rounded-full overflow-hidden border border-white/15">
                                 <a href={toRuPath(pathname)} aria-current={!isKz ? 'true' : undefined} style={langPill(!isKz)}>RU</a>
                                 <a href={toKkPath(pathname)} aria-current={isKz ? 'true' : undefined} style={langPill(isKz)}>KZ</a>
                             </div>
@@ -369,7 +411,7 @@ export default function DpCardNav() {
                             <a
                                 href="tel:+77070357777"
                                 onClick={() => { trackPhoneClick('cardnav_mobile'); collapse(); }}
-                                className="inline-flex items-center h-[38px] px-4 rounded-xl font-bold text-sm border border-black/10 text-black"
+                                className="inline-flex items-center h-[38px] px-4 rounded-xl font-bold text-sm border border-white/15 text-white"
                             >
                                 +7 (707) 035-77-77
                             </a>
