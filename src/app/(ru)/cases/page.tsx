@@ -34,26 +34,35 @@ const tiles: DriftTile[] = [
 export default function Cases() {
     return (
         <>
-            <main className="bg-white pt-32 pb-24">
-                <div className="container mx-auto px-4 max-w-7xl">
-                    <Breadcrumbs items={[{ name: 'Кейсы', item: '/cases' }]} />
-                    <div className="text-center mb-12">
-                        <div className="inline-block px-4 py-1.5 rounded-full bg-red-100 text-red-600 text-sm font-bold mb-6 uppercase tracking-wider">
+            <main className="bg-[#0a0a0b] text-white">
+                {/* Полноэкранная стена кейсов — движение начинается с самого верха */}
+                <section className="relative w-full min-h-screen overflow-hidden">
+                    {/* Стена-фон на весь экран */}
+                    <div className="absolute inset-0 px-2 sm:px-3">
+                        <CasesDriftWall tiles={tiles} fill />
+                    </div>
+
+                    {/* Заголовок наложением поверх стены */}
+                    <div className="relative z-10 pointer-events-none pt-28 md:pt-32 pb-24 text-center px-4">
+                        <div
+                            className="absolute inset-x-0 top-0 h-[380px] -z-10"
+                            style={{ background: 'linear-gradient(to bottom, rgba(10,10,11,0.92) 0%, rgba(10,10,11,0.7) 45%, rgba(10,10,11,0) 100%)' }}
+                            aria-hidden="true"
+                        />
+                        <div className="pointer-events-auto inline-block">
+                            <Breadcrumbs items={[{ name: 'Кейсы', item: '/cases' }]} />
+                        </div>
+                        <div className="inline-block px-4 py-1.5 rounded-full bg-red-600/20 border border-red-500/30 text-red-400 text-sm font-bold mb-6 uppercase tracking-wider mt-2">
                             Портфолио
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-black mb-6 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                        <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-5 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                             Наши кейсы
                         </h1>
-                        <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-300 font-medium max-w-2xl mx-auto">
                             Живая стена наших работ. Наведите — движение замрёт, кликните по любому кейсу, чтобы открыть его целиком.
                         </p>
                     </div>
-                </div>
-
-                {/* Drift Wall — стена кейсов на всю ширину экрана, движение сверху вниз */}
-                <div className="w-full px-2 sm:px-3 mb-16">
-                    <CasesDriftWall tiles={tiles} />
-                </div>
+                </section>
 
                 <CTA />
             </main>

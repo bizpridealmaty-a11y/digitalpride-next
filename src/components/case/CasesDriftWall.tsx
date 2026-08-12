@@ -15,7 +15,7 @@ export type DriftTile = {
  * непрерывно едут сверху вниз с разной скоростью (бесшовный цикл, чистый CSS),
  * при наведении колонка замирает, плитка приподнимается. Клик — переход в кейс.
  */
-export default function CasesDriftWall({ tiles }: { tiles: DriftTile[] }) {
+export default function CasesDriftWall({ tiles, fill = false }: { tiles: DriftTile[]; fill?: boolean }) {
     const [cols, setCols] = useState(3);
 
     useEffect(() => {
@@ -39,9 +39,9 @@ export default function CasesDriftWall({ tiles }: { tiles: DriftTile[] }) {
         <div
             className="dw-wall relative w-full overflow-hidden"
             style={{
-                height: 'clamp(560px, 82vh, 900px)',
-                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%)',
+                height: fill ? '100%' : 'clamp(560px, 82vh, 900px)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, #000 6%, #000 94%, transparent 100%)',
+                maskImage: 'linear-gradient(to bottom, transparent 0%, #000 6%, #000 94%, transparent 100%)',
             }}
         >
             <div className="flex gap-4 md:gap-6 h-full px-1">
