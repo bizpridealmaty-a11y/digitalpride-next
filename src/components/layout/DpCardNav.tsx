@@ -330,9 +330,14 @@ export default function DpCardNav() {
                                 <div className={`w-[28px] h-[2px] bg-current transition-transform duration-300 ease-linear origin-center ${isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''} group-hover:opacity-75`} />
                                 <div className={`w-[28px] h-[2px] bg-current transition-transform duration-300 ease-linear origin-center ${isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''} group-hover:opacity-75`} />
                             </div>
-                            <Link href={lp('/')} aria-label="Digital Pride — главная" onClick={() => isExpanded && collapse()} className="flex items-center">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src="/fonts/new-logo.svg" alt="Digital Pride" className="h-[28px] w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+                            <Link
+                                href={lp('/')}
+                                aria-label={`${t.home} — Digital Pride`}
+                                onClick={() => isExpanded && collapse()}
+                                className="flex items-center text-white font-extrabold text-base md:text-lg tracking-tight hover:opacity-80 transition-opacity"
+                                style={{ fontFamily: "'Unbounded', sans-serif" }}
+                            >
+                                {t.home}
                             </Link>
                         </div>
 
