@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useLayoutEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
@@ -33,11 +33,20 @@ export default function DpCardNav() {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [callbackOpen, setCallbackOpen] = useState(false);
+    // Автоскрытие: плашка прячется, остаётся только компактный триггер из двух полосок
+    const [revealed, setRevealed] = useState(true);
+    const [isTouch, setIsTouch] = useState(false);
 
     const navRef = useRef<HTMLDivElement | null>(null);
     const cardsRef = useRef<HTMLDivElement[]>([]);
     const tlRef = useRef<gsap.core.Timeline | null>(null);
+    const hideTimer = useRef<number | null>(null);
+    const revealedRef = useRef(true);
+    const expandedRef = useRef(false);
     const ease = 'power3.out';
+
+    useEffect(() => { revealedRef.current = revealed; }, [revealed]);
+    useEffect(() => { expandedRef.current = isExpanded; }, [isExpanded]);
 
     const groupTitles = isKz
         ? ['Жылжыту', 'Әзірлеу және стратегия', 'Компания']
@@ -143,8 +152,13 @@ export default function DpCardNav() {
     const collapse = useCallback(() => {
         const tl = tlRef.current;
         setIsHamburgerOpen(false);
-        if (!tl) { setIsExpanded(false); return; }
-        tl.eventCallback('onReverseComplete', () => setIsExpanded(false));
+        const finish = () => {
+            setIsExpanded(false);
+            // На touch сразу прячем плашку до компактного триггера
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) setRevealed(false);
+        };
+        if (!tl) { finish(); return; }
+        tl.eventCallback('onReverseComplete', finish);
         tl.reverse();
     }, []);
 
@@ -152,6 +166,7 @@ export default function DpCardNav() {
         const tl = tlRef.current;
         if (!tl) return;
         if (!isExpanded) {
+            setRevealed(true);
             setIsHamburgerOpen(true);
             setIsExpanded(true);
             tl.play(0);
@@ -187,6 +202,40 @@ export default function DpCardNav() {
         };
     }, [isExpanded, collapse]);
 
+    // Определяем touch-устройство (там нет наведения — плашка сразу в покое)
+    useEffect(() => {
+        setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    }, []);
+
+    // Автоскрытие на десктопе: у верхней кромки — показать плашку, иначе спрятать
+    useEffect(() => {
+        if (isTouch) { setRevealed(false); return; }
+        const TOP = 90;      // зона у верха, вызывающая появление
+        const HIDE = 2500;   // мс бездействия до скрытия
+        const INITIAL = 4000;// мс показа после загрузки
+
+        const cancel = () => { if (hideTimer.current) { window.clearTimeout(hideTimer.current); hideTimer.current = null; } };
+        const scheduleHide = () => { if (!hideTimer.current) hideTimer.current = window.setTimeout(() => { if (!expandedRef.current) setRevealed(false); hideTimer.current = null; }, HIDE); };
+
+        const onMove = (e: MouseEvent) => {
+            if (e.clientY <= TOP) { cancel(); setRevealed(true); }
+            else if (revealedRef.current && !expandedRef.current) { scheduleHide(); }
+        };
+        window.addEventListener('mousemove', onMove, { passive: true });
+        const initial = window.setTimeout(() => { if (!expandedRef.current) setRevealed(false); }, INITIAL);
+        return () => { window.removeEventListener('mousemove', onMove); window.clearTimeout(initial); cancel(); };
+    }, [isTouch]);
+
+    // Открыть меню прямо из компактного триггера (две полоски)
+    const openFromPeek = () => {
+        setRevealed(true);
+        const tl = tlRef.current;
+        if (!tl) return;
+        setIsHamburgerOpen(true);
+        setIsExpanded(true);
+        tl.play(0);
+    };
+
     const setCardRef = (i: number) => (el: HTMLDivElement | null) => { if (el) cardsRef.current[i] = el; };
 
     const langPill = (active: boolean): React.CSSProperties => ({
@@ -195,9 +244,38 @@ export default function DpCardNav() {
         textDecoration: 'none', transition: 'all .2s', lineHeight: 1,
     });
 
+    const showBar = revealed || isExpanded;
+
     return (
         <>
-            <div className="card-nav-container fixed left-1/2 -translate-x-1/2 w-[92%] max-w-[900px] z-[9999] top-3 md:top-4">
+            {/* Компактный триггер — две полоски. Виден, когда плашка спрятана. */}
+            <button
+                type="button"
+                aria-label={t.openMenu}
+                onClick={openFromPeek}
+                onMouseEnter={() => { if (!isTouch) setRevealed(true); }}
+                className="fixed left-1/2 top-3 md:top-4 z-[9998] flex flex-col items-center justify-center gap-[6px] w-[60px] h-[40px] rounded-full border border-black/5 transition-[opacity,transform] duration-300 hover:scale-105"
+                style={{
+                    backgroundColor: '#ffffff',
+                    boxShadow: '0 12px 34px -10px rgba(0,0,0,0.5)',
+                    opacity: showBar ? 0 : 1,
+                    pointerEvents: showBar ? 'none' : 'auto',
+                    transform: `translateX(-50%) translateY(${showBar ? '-140%' : '0'})`,
+                }}
+            >
+                <span className="w-[26px] h-[2.5px] rounded-full bg-[#111]" />
+                <span className="w-[26px] h-[2.5px] rounded-full bg-[#111]" />
+            </button>
+
+            <div
+                className="card-nav-container fixed left-1/2 w-[92%] max-w-[900px] z-[9999] top-3 md:top-4"
+                style={{
+                    transform: `translateX(-50%) translateY(${showBar ? '0' : '-160%'})`,
+                    opacity: showBar ? 1 : 0,
+                    pointerEvents: showBar ? 'auto' : 'none',
+                    transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease',
+                }}
+            >
                 <div
                     ref={navRef}
                     className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-2xl relative overflow-hidden will-change-[height] border border-black/5`}
