@@ -14,7 +14,8 @@ export async function POST(request: Request) {
             return NextResponse.json({ success: true, warning: 'Environment variables missing, mocked.' });
         }
 
-        const text = `🔥 Новая заявка (${source || 'Обсудить проект'})!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
+        const nameLine = name && String(name).trim() ? `👤 Имя: ${name}\n` : '';
+        const text = `🔥 Новая заявка (${source || 'Обсудить проект'})!\n\n${nameLine}📞 Телефон: ${phone}`;
 
         const tgResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: 'POST',

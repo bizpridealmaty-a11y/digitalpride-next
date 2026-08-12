@@ -348,7 +348,7 @@ export default function DpCardNav() {
                                 className="inline-flex items-center h-[40px] px-5 rounded-xl font-bold text-sm cursor-pointer transition-transform hover:scale-[1.04]"
                                 style={{ backgroundColor: '#E31C24', color: '#fff' }}
                             >
-                                {t.callback}
+                                {t.getHelp}
                             </button>
                         </div>
                     </div>
@@ -406,7 +406,7 @@ export default function DpCardNav() {
                                 className="inline-flex items-center h-[38px] px-4 rounded-xl font-bold text-sm"
                                 style={{ backgroundColor: '#E31C24', color: '#fff' }}
                             >
-                                {t.callback}
+                                {t.getHelp}
                             </button>
                             <a
                                 href="tel:+77070357777"

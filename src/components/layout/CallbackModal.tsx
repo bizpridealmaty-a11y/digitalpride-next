@@ -33,15 +33,14 @@ export default function CallbackModal({ open, onClose, source = 'callback_modal'
         if (submitting) return;
         const form = e.currentTarget;
         const fd = new FormData(form);
-        const name = String(fd.get('name') || '').trim();
         const phone = String(fd.get('phone') || '').trim();
-        if (!name || !phone) return;
+        if (!phone) return;
         setSubmitting(true);
         try {
             await fetch('/api/telegram', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, source }),
+                body: JSON.stringify({ phone, source }),
             });
             trackLeadFormSubmit();
             setSubmitted(true);
@@ -122,20 +121,6 @@ export default function CallbackModal({ open, onClose, source = 'callback_modal'
                         </p>
 
                         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Ваше имя"
-                                required
-                                style={{
-                                    padding: '14px 16px',
-                                    border: '1.5px solid #e5e5e5',
-                                    borderRadius: '10px',
-                                    fontSize: '15px',
-                                    outline: 'none',
-                                    color: '#000',
-                                }}
-                            />
                             <input
                                 type="tel"
                                 name="phone"
