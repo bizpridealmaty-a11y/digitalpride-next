@@ -1,4 +1,4 @@
-import RawHeader from './RawHeader';
+import DpCardNav from './DpCardNav';
 import Footer from './Footer';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import MotionProvider from './MotionProvider';
@@ -62,7 +62,7 @@ export default function SiteShell({
             <body>
                 <LocaleProvider locale={locale}>
                     <MotionProvider>
-                        <RawHeader />
+                        <DpCardNav />
                         {children}
                         <Footer />
 
