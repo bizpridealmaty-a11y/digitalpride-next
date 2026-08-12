@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
+import CountUp from '@/components/motion/CountUp';
 
 export default function SocialProof() {
     const locale = useLocale();
@@ -115,7 +116,7 @@ export default function SocialProof() {
                             className="text-center px-4"
                         >
                             <h3 className="text-4xl md:text-5xl font-extrabold text-black mb-2 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                                {stat.value}
+                                <CountUp value={stat.value} />
                             </h3>
                             <p className="text-gray-600 font-medium">{stat.label}</p>
                         </motion.div>

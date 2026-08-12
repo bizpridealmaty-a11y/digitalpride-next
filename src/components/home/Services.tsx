@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
 import { localizedPath } from '@/lib/i18n';
+import CircularText from '@/components/motion/CircularText';
 
 function ServiceCard({ service }: { service: { id: string; title: string; description: string; href: string; price?: string; icon: React.ReactNode; } }) {
     const [hovered, setHovered] = useState(false);
@@ -169,8 +170,19 @@ function FlagshipCard() {
                         <li className="flex items-center gap-2"><svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> {isKk ? 'Сайт әзірлеу' : 'Разработка Сайтов'}</li>
                     </ul>
                 </div>
-                <div className="flex-shrink-0 w-full md:w-auto flex flex-col gap-4">
-                    <div className="text-right hidden md:block">
+                <div className="flex-shrink-0 w-full md:w-auto flex flex-col items-center gap-4">
+                    {/* Крутящийся круговой знак */}
+                    <div className="hidden md:grid place-items-center relative w-[132px] h-[132px]">
+                        <CircularText
+                            text={isKk ? 'DIGITAL PRIDE • КІЛТКЕ ДАЙЫН • ' : 'DIGITAL PRIDE • МАРКЕТИНГ ПОД КЛЮЧ • '}
+                            spinDuration={18}
+                            className="w-[132px] h-[132px] text-[11px] tracking-wide text-white/90 absolute inset-0"
+                        />
+                        <span className="grid place-items-center w-11 h-11 rounded-full" style={{ background: '#E31C24', boxShadow: '0 0 22px rgba(227,28,36,0.55)' }}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M8 7h9v9" /></svg>
+                        </span>
+                    </div>
+                    <div className="text-center md:text-right hidden md:block">
                         <p className="text-gray-500 text-sm font-medium mb-1">{isKk ? 'Инвестиция' : 'Инвестиции от'}</p>
                         <p className="text-3xl font-extrabold text-white">180 000 ₸</p>
                     </div>

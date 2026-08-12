@@ -8,28 +8,26 @@ import { useLocale } from '@/lib/locale-context';
 export default function LeadMagnet() {
     const locale = useLocale();
     const isKk = locale === 'kk';
-    const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!name.trim() || !phone.trim()) return;
+        if (!phone.trim()) return;
 
         setStatus('loading');
         try {
             const res = await fetch('/api/telegram', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, source: isKk ? 'Тегін маркетингтік аудит' : 'Бесплатный маркетинговый аудит' }),
+                body: JSON.stringify({ phone, source: isKk ? 'Тегін маркетингтік аудит' : 'Бесплатный маркетинговый аудит' }),
             });
             if (res.ok) {
                 trackLeadFormSubmit();
                 setStatus('success');
                 setTimeout(() => {
                     setStatus('idle');
-                    setName('');
                     setPhone('');
                 }, 3000);
             } else {
@@ -60,7 +58,7 @@ export default function LeadMagnet() {
                 >
                     <div className="w-full md:w-1/2">
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                            {isKk ? 'Тегін ' : 'Закажите бесплатный '}<span style={{ color: '#fb7185' }}>{isKk ? 'маркетингтік аудитке тапсырыс беріңіз' : 'маркетинговый аудит'}</span>
+                            {isKk ? <>Бірге <span style={{ color: '#fb7185' }}>ақша табайық</span> па?</> : <>Начнём <span style={{ color: '#fb7185' }}>зарабатывать деньги</span> вместе?</>}
                         </h2>
                         <p className="text-lg text-gray-400 mb-8 font-medium">
                             {isKk
@@ -90,19 +88,9 @@ export default function LeadMagnet() {
                             style={{ perspective: 1000 }}
                             className="bg-white p-8 rounded-2xl text-black shadow-lg"
                         >
-                            <h3 className="text-2xl font-bold mb-6 text-center">{isKk ? 'Нәтижені қазір алыңыз' : 'Получите результат уже сейчас'}</h3>
+                            <h3 className="text-xl font-bold mb-2 text-center leading-snug">{isKk ? 'Қоңыраумен мазаламаймыз — WhatsApp-қа жазамыз' : 'Не будем бесить вас звонками — напишем в WhatsApp'}</h3>
+                            <p className="text-sm text-gray-500 text-center mb-6">{isKk ? 'Тек нөміріңізді қалдырыңыз' : 'Просто оставьте номер телефона'}</p>
                             <div className="space-y-4">
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-1">{isKk ? 'Сіздің атыңыз' : 'Ваше имя'}</label>
-                                    <input
-                                        type="text"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#f43f5e] transition-shadow"
-                                        placeholder={isKk ? 'Айбек Серікұлы' : 'Иван Иванов'}
-                                        required
-                                    />
-                                </div>
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-1">Телефон</label>
                                     <input

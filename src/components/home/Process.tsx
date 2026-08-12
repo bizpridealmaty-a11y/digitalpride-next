@@ -1,26 +1,12 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import React from 'react';
 import { useLocale } from '@/lib/locale-context';
-
-// Динамичная кривая на всю ширину (viewBox 1440×320): из левого нижнего угла
-// в правый верхний, волной проходит через узлы. Узлы — компактно у центра.
-const PATH = 'M0,296 C120,290 200,284 259,269 C380,240 400,235 490,221 C620,201 650,190 720,179 C830,161 860,145 950,125 C1060,100 1120,92 1181,77 C1300,47 1360,44 1440,32';
-const POS = [
-    { l: '18%', t: '84%' },
-    { l: '34%', t: '69%' },
-    { l: '50%', t: '56%' },
-    { l: '66%', t: '39%' },
-    { l: '82%', t: '24%' },
-];
+import Stepper, { Step } from '@/components/motion/Stepper';
 
 export default function Process() {
     const locale = useLocale();
     const isKk = locale === 'kk';
-    const reduce = useReducedMotion();
-    const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { once: true, margin: '-15% 0px' });
 
     const steps = [
         {
@@ -60,31 +46,14 @@ export default function Process() {
         },
     ];
 
-    const Dot = ({ num, big }: { num: string; big?: boolean }) => (
-        <div
-            className="rounded-full grid place-items-center font-extrabold text-white relative"
-            style={{
-                width: big ? 54 : 46,
-                height: big ? 54 : 46,
-                fontSize: big ? 17 : 15,
-                background: '#E31C24',
-                border: '1.5px solid #FF5A4D',
-                boxShadow: '0 0 0 6px rgba(227,28,36,.16), 0 0 22px rgba(227,28,36,.55)',
-            }}
-        >
-            {num}
-        </div>
-    );
-
     return (
         <section
-            ref={ref}
             className="relative overflow-hidden py-24 lg:py-28"
             style={{ background: 'radial-gradient(120% 90% at 50% -10%, #17171f 0%, #0B0B0F 62%)' }}
         >
             <div className="container mx-auto px-4 max-w-6xl relative z-10">
                 {/* Заголовок */}
-                <div className="text-center mb-16 lg:mb-8">
+                <div className="text-center mb-12 lg:mb-14">
                     <div className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4" style={{ background: 'rgba(227,28,36,0.14)', color: '#FF5A4D' }}>
                         {isKk ? 'Қалай жұмыс істейміз' : 'Как мы работаем'}
                     </div>
@@ -93,76 +62,39 @@ export default function Process() {
                     </h2>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto font-medium">
                         {isKk
-                            ? 'Біз жұмыс тәсілімізді жасырмаймыз. Әр әрекет құжатталған және сізбен келісілген.'
-                            : 'Мы не скрываем, как работаем. Каждое действие задокументировано и согласовано с вами.'}
+                            ? 'Біз жұмыс тәсілімізді жасырмаймыз. Әр әрекет құжатталған және сізбен келісілген. Қадамдарды басып, әр кезеңмен танысыңыз.'
+                            : 'Мы не скрываем, как работаем. Каждое действие задокументировано и согласовано с вами. Кликайте по этапам и листайте.'}
                     </p>
                 </div>
 
-                {/* ── Десктоп: траектория на всю ширину экрана ── */}
-                <div className="hidden lg:block relative w-screen left-1/2 -translate-x-1/2" style={{ aspectRatio: '1440 / 320' }}>
-                    <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="absolute inset-0 w-full h-full overflow-visible">
-                        <defs>
-                            <linearGradient id="growthGrad" x1="0" y1="1" x2="1" y2="0">
-                                <stop offset="0" stopColor="#E31C24" />
-                                <stop offset="1" stopColor="#FF5A4D" />
-                            </linearGradient>
-                        </defs>
-                        <path id="growthPath" d={PATH} fill="none" stroke="rgba(255,255,255,.09)" strokeWidth="2.5" />
-                        <motion.path
-                            d={PATH}
-                            fill="none"
-                            stroke="url(#growthGrad)"
-                            strokeWidth="3.5"
-                            strokeLinecap="round"
-                            style={{ filter: 'drop-shadow(0 0 7px rgba(227,28,36,.7))' }}
-                            initial={{ pathLength: 0 }}
-                            animate={inView || reduce ? { pathLength: 1 } : { pathLength: 0 }}
-                            transition={{ duration: reduce ? 0 : 1.7, ease: 'easeInOut' }}
-                        />
-                        {!reduce && (
-                            <circle r="5" fill="#fff" style={{ filter: 'drop-shadow(0 0 7px #FF5A4D)' }}>
-                                <animateMotion dur="5s" begin="1.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
-                                    <mpath href="#growthPath" />
-                                </animateMotion>
-                            </circle>
-                        )}
-                    </svg>
-
-                    {steps.map((s, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute text-center"
-                            style={{ left: POS[i].l, top: POS[i].t, width: 172, transform: 'translate(-50%,-50%)' }}
-                            initial={{ opacity: 0, y: 14, scale: 0.82 }}
-                            animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                            transition={{ delay: reduce ? 0 : 0.35 + i * 0.3, type: 'spring', stiffness: 260, damping: 20 }}
-                        >
-                            <div className="flex justify-center mb-3"><Dot num={s.num} big={i === 4} /></div>
-                            <h3 className="text-[15px] font-extrabold text-white mb-1.5 leading-tight" style={{ fontFamily: "'Unbounded', sans-serif" }}>{s.title}</h3>
-                            <p className="text-[12.5px] text-gray-400 leading-snug">{s.desc}</p>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* ── Мобайл: вертикальная траектория ── */}
-                <div className="lg:hidden relative max-w-md mx-auto pl-6">
-                    <div className="absolute left-[10px] top-2 bottom-2 w-[2px]" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,.08), #E31C24)' }} />
-                    <div className="flex flex-col gap-8">
+                {/* Stepper — интерактивное переключение этапов */}
+                <div className="max-w-2xl mx-auto">
+                    <Stepper
+                        backButtonText={isKk ? 'Артқа' : 'Назад'}
+                        nextButtonText={isKk ? 'Келесі' : 'Далее'}
+                        completeButtonText={isKk ? 'Дайын' : 'Готово'}
+                    >
                         {steps.map((s, i) => (
-                            <motion.div
-                                key={i}
-                                className="relative pl-8"
-                                initial={{ opacity: 0, x: 16 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: '-10% 0px' }}
-                                transition={{ delay: reduce ? 0 : i * 0.08, duration: 0.5 }}
-                            >
-                                <div className="absolute -left-[7px] top-0"><Dot num={s.num} /></div>
-                                <h3 className="text-lg font-extrabold text-white mb-1 mt-2.5" style={{ fontFamily: "'Unbounded', sans-serif" }}>{s.title}</h3>
-                                <p className="text-sm text-gray-400 leading-snug">{s.desc}</p>
-                            </motion.div>
+                            <Step key={i}>
+                                <div className="min-h-[140px] flex flex-col sm:flex-row items-start gap-4 sm:gap-6 py-3">
+                                    <div
+                                        className="leading-none font-black shrink-0"
+                                        style={{ fontFamily: "'Unbounded', sans-serif", fontSize: 'clamp(3rem, 8vw, 4.5rem)', color: 'rgba(227,28,36,0.92)' }}
+                                    >
+                                        {s.num}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2.5 tracking-tight" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+                                            {s.title}
+                                        </h3>
+                                        <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-lg">
+                                            {s.desc}
+                                        </p>
+                                    </div>
+                                </div>
+                            </Step>
                         ))}
-                    </div>
+                    </Stepper>
                 </div>
             </div>
         </section>
