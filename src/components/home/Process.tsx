@@ -1,12 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocale } from '@/lib/locale-context';
 import Stepper, { Step } from '@/components/motion/Stepper';
+import Galaxy from '@/components/motion/Galaxy';
 
 export default function Process() {
     const locale = useLocale();
     const isKk = locale === 'kk';
+    // WebGL-галактику включаем только на клиенте и без reduce-motion
+    const [showGalaxy, setShowGalaxy] = useState(false);
+    useEffect(() => {
+        setShowGalaxy(!window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    }, []);
 
     const steps = [
         {
@@ -51,6 +57,23 @@ export default function Process() {
             className="relative overflow-hidden py-24 lg:py-28"
             style={{ background: 'radial-gradient(120% 90% at 50% -10%, #17171f 0%, #0B0B0F 62%)' }}
         >
+            {showGalaxy && (
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-90" aria-hidden="true">
+                    <Galaxy
+                        transparent
+                        hueShift={340}
+                        saturation={0.85}
+                        glowIntensity={0.9}
+                        density={1.35}
+                        twinkleIntensity={0.6}
+                        rotationSpeed={0.06}
+                        starSpeed={0.6}
+                        speed={1.0}
+                        mouseInteraction={false}
+                        mouseRepulsion={false}
+                    />
+                </div>
+            )}
             <div className="container mx-auto px-4 max-w-6xl relative z-10">
                 {/* Заголовок */}
                 <div className="text-center mb-12 lg:mb-14">

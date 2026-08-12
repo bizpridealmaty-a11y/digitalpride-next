@@ -175,7 +175,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-3/5 text-left"
                     >
-                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05]" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
+                        <h1 className="text-[12vw] sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05]" style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 900 }}>
                             <WaveText text={t.heroHeadline} immediate /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">{t.heroAccent}</span>
                         </h1>
                     </motion.div>
