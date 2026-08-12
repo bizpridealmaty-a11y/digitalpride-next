@@ -332,12 +332,12 @@ export default function DpCardNav() {
                             </div>
                             <Link
                                 href={lp('/')}
-                                aria-label={`${t.home} — Digital Pride`}
+                                aria-label={isKz ? 'Басты бет — Digital Pride' : 'Главная страница — Digital Pride'}
                                 onClick={() => isExpanded && collapse()}
-                                className="flex items-center lowercase text-white font-extrabold text-base md:text-lg tracking-tight hover:opacity-80 transition-opacity"
+                                className="flex items-center text-white font-extrabold text-base md:text-lg tracking-tight hover:opacity-80 transition-opacity"
                                 style={{ fontFamily: "'Unbounded', sans-serif" }}
                             >
-                                {t.home}
+                                {isKz ? 'Басты бет' : 'Главная страница'}
                             </Link>
                         </div>
 
