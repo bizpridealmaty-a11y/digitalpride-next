@@ -4,7 +4,7 @@ import SalesDashboard from '@/components/SalesDashboard';
 
 export const metadata: Metadata = {
     title: 'Отдел продаж под ключ в Алматы — CRM, скрипты, найм и KPI',
-    description: 'Построение отдела продаж под ключ в Алматы ✦ Найм и обучение менеджеров, CRM, скрипты, KPI, мотивация и контроль звонков. Управляемый отдел за 2–3 месяца. Аудит от 500 000 ₸, под ключ от 2 000 000 ₸.',
+    description: 'Построение отдела продаж под ключ в Алматы: найм и обучение менеджеров, CRM, скрипты, KPI и контроль звонков. Управляемый отдел за 2–3 месяца.',
     alternates: { canonical: '/otdel-prodazh-pod-klyuch' },
     openGraph: {
         title: 'Отдел продаж под ключ в Алматы — Digital Pride',

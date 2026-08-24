@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 
 export const metadata: Metadata = {
     title: 'Чат-боты для бизнеса в Алматы — разработка под ключ',
-    description: 'Разработка чат-ботов в Алматы ✦ WhatsApp, Telegram, Instagram Direct. Автоответы, приём и квалификация заявок, интеграция с CRM. Бот работает 24/7. Под ключ от 350 000 ₸.',
+    description: 'Разработка чат-ботов в Алматы: WhatsApp, Telegram, Instagram Direct. Автоответы, приём и квалификация заявок, интеграция с CRM, работа 24/7.',
     alternates: { canonical: '/chat-boty-almaty' },
     openGraph: {
         title: 'Чат-боты для бизнеса в Алматы — Digital Pride',

@@ -3,7 +3,7 @@ import WebsiteCase, { type WebsiteCaseData } from '@/components/case/WebsiteCase
 
 export const metadata: Metadata = {
     title: { absolute: 'Кейс: интернет-магазин грибных БАД Hericium Rex | Digital Pride' },
-    description: 'Как мы сделали интернет-магазин функциональных грибных БАД Hericium Rex (ежовик, кордицепс): каталог с корзиной, научные протоколы приёма, подбор курса и доставка по Казахстану.',
+    description: 'Как мы сделали интернет-магазин грибных БАД Hericium Rex: каталог с корзиной, протоколы приёма, подбор курса и доставка по Казахстану.',
     alternates: { canonical: '/cases/ezhovik' },
     openGraph: {
         url: '/cases/ezhovik',
