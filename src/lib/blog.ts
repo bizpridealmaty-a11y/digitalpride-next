@@ -71,6 +71,12 @@ export const posts: BlogPost[] = [
         content: `
 <p>Лето 2026 выдалось насыщенным на обновления соцсетей. Instagram выкатил сразу несколько функций, которые авторы и бренды просили годами, а вокруг TikTok наконец улеглась история с возможным баном. Мы собрали то, что действительно влияет на продвижение бизнеса, и объяснили, что с этим делать в реалиях Казахстана.</p>
 
+<div class="dp-statrow">
+  <div class="dp-stat"><div class="dp-stat-num">3</div><div class="dp-stat-cap">новых способа зарабатывать и управлять контентом в Instagram</div></div>
+  <div class="dp-stat"><div class="dp-stat-num">0</div><div class="dp-stat-cap">потерянных лайков при замене аудио — пост не нужно перезаливать</div></div>
+  <div class="dp-stat"><div class="dp-stat-num">9</div><div class="dp-stat-cap">первых ячеек профиля решают, подпишется человек или уйдёт</div></div>
+</div>
+
 <h2>Instagram теперь платит и за фото, а не только за Reels</h2>
 <p>Главная новость для авторов — программу вознаграждений Bonuses расширили за пределы Reels. Теперь зарабатывать можно и на фото- и карусельных постах: платформа поощряет не только видео, но и качественный статичный контент. Это разворачивается постепенно и не во всех странах сразу, поэтому доступность в Казахстане стоит проверять прямо в приложении.</p>
 <p>Что это значит для бизнеса: если вы ведёте экспертный или личный бренд, у фото-контента снова появляется прямой смысл — не всё нужно снимать в видео. Красивые карусели с пользой (разборы, кейсы, чек-листы) снова в игре.</p>
@@ -93,6 +99,16 @@ export const posts: BlogPost[] = [
 
 <h2>TikTok: угроза бана в США позади — почему это важно и нам</h2>
 <p>В январе 2026 TikTok закрыл сделку и перевёл американские операции в отдельную структуру (совместное предприятие с участием Oracle, Silver Lake и MGX), чтобы избежать запрета в США. Рекомендательный алгоритм для американских пользователей переобучают на локальных данных в облаке Oracle с аудитом по стандартам безопасности.</p>
+
+<div class="dp-viz">
+  <div class="dp-viz-title">Кто теперь владеет TikTok в США</div>
+  <div class="dp-viz-sub">Доли в новой структуре TikTok USDS, %</div>
+  <div class="dp-range-row"><div class="dp-range-label">ByteDance</div><div class="dp-range-track"><div class="dp-range-fill" style="left:0%;width:66%"></div></div><div class="dp-range-val">19,9%</div></div>
+  <div class="dp-range-row"><div class="dp-range-label">Oracle</div><div class="dp-range-track"><div class="dp-range-fill" style="left:0%;width:50%"></div></div><div class="dp-range-val">15%</div></div>
+  <div class="dp-range-row"><div class="dp-range-label">Silver Lake</div><div class="dp-range-track"><div class="dp-range-fill" style="left:0%;width:50%"></div></div><div class="dp-range-val">15%</div></div>
+  <div class="dp-range-row"><div class="dp-range-label">MGX</div><div class="dp-range-track"><div class="dp-range-fill" style="left:0%;width:50%"></div></div><div class="dp-range-val">15%</div></div>
+  <p class="dp-note">Остальное — у прочих инвесторов. Для нас важно одно: платформа стабильна и никуда не уходит, а значит вкладываться в короткие видео безопасно.</p>
+</div>
 <p>Прямого влияния на Казахстан у этой истории нет, но есть важный сигнал: TikTok не уходит и остаётся стабильной глобальной площадкой. Значит, вкладываться в короткие видео (и в TikTok, и в Reels) по-прежнему безопасно — платформа не исчезнет из-под ваших кампаний.</p>
 
 <h2>Что делать бизнесу в Казахстане уже сейчас</h2>
@@ -128,8 +144,22 @@ export const posts: BlogPost[] = [
         content: `
 <p>Если коротко описать, что происходит с платным трафиком в 2026 году, — рекламой всё больше управляет искусственный интеллект. Meta ведёт кампании к запуску «из одной ссылки», а OpenAI превращает ChatGPT в новый рекламный канал с аудиторией больше миллиарда человек в неделю. Разберём ключевые изменения и что с ними делать бизнесу в Казахстане.</p>
 
+<div class="dp-statrow">
+  <div class="dp-stat"><div class="dp-stat-num">1 млрд</div><div class="dp-stat-cap">пользователей ChatGPT в неделю — новая рекламная аудитория</div></div>
+  <div class="dp-stat"><div class="dp-stat-num">+25%</div><div class="dp-stat-cap">рост дневной выручки OpenAI от рекламы за август 2026</div></div>
+  <div class="dp-stat"><div class="dp-stat-num">31</div><div class="dp-stat-cap">новый рынок, куда за месяц пришла реклама в ChatGPT</div></div>
+</div>
+
 <h2>Meta идёт к «рекламе из одной ссылки»</h2>
 <p>Заявленная цель Meta на 2026 год — полная автоматизация: вы даёте ссылку на сайт или фотографию товара, а ИИ сам генерирует креатив, определяет аудиторию, оптимизирует плейсменты и предлагает бюджет. Это развитие линейки Advantage+, которая уже показывает прирост конверсий в Instagram и в ленте Facebook по сравнению с ручными настройками.</p>
+
+<div class="dp-viz">
+  <div class="dp-viz-title">Что уже даёт ИИ-автоматизация Meta</div>
+  <div class="dp-viz-sub">Прирост конверсий инструментов GEM с 2025 года</div>
+  <div class="dp-range-row"><div class="dp-range-label">Instagram</div><div class="dp-range-track"><div class="dp-range-fill" style="left:0%;width:83%"></div></div><div class="dp-range-val">+5%</div></div>
+  <div class="dp-range-row"><div class="dp-range-label">Facebook Feed</div><div class="dp-range-track"><div class="dp-range-fill" style="left:0%;width:50%"></div></div><div class="dp-range-val">+3%</div></div>
+  <p class="dp-note">Проценты кажутся небольшими, но на больших бюджетах это ощутимые деньги — и именно поэтому Meta двигает всех рекламодателей в сторону автоматизации.</p>
+</div>
 <p>Что это значит: ручная «покрутка» аудиторий и плейсментов постепенно уходит. Ценность специалиста смещается с механики настроек на стратегию, офферы, креативные гипотезы и аналитику — то, что ИИ пока делает хуже человека.</p>
 
 <h2>AI-ассистент в Ads Manager теперь доступен всем</h2>

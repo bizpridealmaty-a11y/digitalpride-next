@@ -91,7 +91,7 @@ export default function Process() {
                 </div>
 
                 {/* Stepper — интерактивное переключение этапов */}
-                <div className="max-w-2xl mx-auto">
+                <div className="max-w-3xl mx-auto">
                     <Stepper
                         backButtonText={isKk ? 'Артқа' : 'Назад'}
                         nextButtonText={isKk ? 'Келесі' : 'Далее'}

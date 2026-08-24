@@ -117,8 +117,8 @@ export default function Stepper({
                             )}
                             <button
                                 onClick={isLastStep ? handleComplete : handleNext}
-                                className="flex items-center gap-2 rounded-full py-2.5 px-6 font-bold text-sm text-white transition hover:scale-[1.04] active:scale-95"
-                                style={{ backgroundColor: ACCENT, boxShadow: '0 10px 30px -8px rgba(227,28,36,0.6)' }}
+                                className="flex items-center justify-center gap-2 rounded-full py-3.5 px-12 min-w-[168px] font-bold text-base transition hover:scale-[1.04] active:scale-95"
+                                style={{ backgroundColor: ACCENT, color: '#ffffff', boxShadow: '0 14px 36px -8px rgba(227,28,36,0.65)' }}
                                 {...nextButtonProps}
                             >
                                 {isLastStep ? completeButtonText : nextButtonText}
