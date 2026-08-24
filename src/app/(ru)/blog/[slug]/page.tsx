@@ -34,6 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             modifiedTime: post.updatedAt || post.publishedAt,
             authors: [post.author],
             tags: post.tags,
+            ...(post.coverImage ? { images: [{ url: post.coverImage, width: 1600, height: 893, alt: post.title }] } : {}),
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.description,
+            ...(post.coverImage ? { images: [post.coverImage] } : {}),
         },
     };
 }
@@ -60,8 +67,11 @@ export default async function BlogPostPage({ params }: Props) {
             name: 'Digital Pride',
             logo: { '@type': 'ImageObject', url: 'https://digitalpride.kz/fonts/new-logo.svg' },
         },
+        ...(post.coverImage ? { image: [`https://digitalpride.kz${post.coverImage}`] } : {}),
         datePublished: post.publishedAt,
         dateModified: post.updatedAt || post.publishedAt,
+        inLanguage: 'ru-KZ',
+        articleSection: post.category,
         mainEntityOfPage: { '@type': 'WebPage', '@id': `https://digitalpride.kz/blog/${post.slug}` },
         keywords: post.tags.join(', '),
     };
