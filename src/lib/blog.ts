@@ -60,7 +60,7 @@ export const posts: BlogPost[] = [
         author: AUTHOR,
         category: 'SMM',
         readingTime: 8,
-        coverImage: '/images/blog/news-instagram-2026-cover.jpg',
+        coverImage: '/images/blog/news-instagram-2026-photo.jpg',
         tags: ['instagram', 'smm', 'обновления', 'tiktok', 'соцсети'],
         faq: [
             { q: 'За какие форматы Instagram теперь платит авторам?', a: 'Раньше выплаты (Bonuses) шли в основном за Reels. Летом 2026 программу расширили на фото и карусели — теперь обычные посты в ленте тоже могут приносить доход подходящим авторам. Программа разворачивается постепенно и по регионам, поэтому в Казахстане доступность стоит проверять прямо в приложении.' },
@@ -133,7 +133,7 @@ export const posts: BlogPost[] = [
         author: AUTHOR,
         category: 'Таргет',
         readingTime: 9,
-        coverImage: '/images/blog/news-ii-reklama-2026-cover.jpg',
+        coverImage: '/images/blog/news-ii-reklama-2026-photo.jpg',
         tags: ['meta ads', 'ии', 'chatgpt', 'автоматизация', 'таргет'],
         faq: [
             { q: 'Что такое полная автоматизация рекламы в Meta?', a: 'Цель Meta на 2026 год — позволить запускать кампанию из одной ссылки на сайт или фотографии товара: ИИ сам генерирует креатив, подбирает аудиторию, распределяет плейсменты и предлагает бюджет. Часть этих инструментов (Advantage+, ИИ-ассистент в Ads Manager) уже доступна рекламодателям.' },
