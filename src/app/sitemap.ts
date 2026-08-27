@@ -48,7 +48,6 @@ const pages: PageMeta[] = [
     { url: '/contacts', priority: 0.6, changeFrequency: 'yearly' },
     { url: '/o-nas', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
-    { url: '/sitemap-html', priority: 0.4, changeFrequency: 'weekly' },
     { url: '/pricing', priority: 0.7, changeFrequency: 'monthly' },
     { url: '/threads-prodvizhenie', priority: 0.8, changeFrequency: 'monthly' },
     { url: '/chat-boty-almaty', priority: 0.8, changeFrequency: 'monthly' },
